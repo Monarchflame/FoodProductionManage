@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!-- 是否去除自动生成的代码中的注释 true：是 false：否-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/myweb"
+                        userId="root" password="qxt2000928">
+        </jdbcConnection>
+
+        <!-- 默认 false，把 JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+             为 true 时解析为 java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject：生成 POJO 类的位置 -->
+        <javaModelGenerator targetPackage="cn.qxt.pojo" targetProject="src/main/java">
+            <!-- enableSubPackages：是否让 schema 作为包的后缀-->
+            <property name="enableSubPackages" value="false"/>
+            <!-- trimStrings：从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- targetProject：生成xml映射文件存放位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <!-- enableSubPackages：是否让 schema 作为包的后缀-->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- targetProject：生成mapper类存放位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.qxt.dao" targetProject="src/main/java">
+            <!-- enableSubPackages：是否让 schema 作为包的后缀-->
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--生成对应表及类名
+            tableName:要生成的表名
+            domainObjectName:生成后的实例名
+            enableCountByExample:Count语句中加入where条件查询，默认为true开启
+            enableUpdateByExample:Update语句中加入where条件查询，默认为true开启
+            enableDeleteByExample:Delete语句中加入where条件查询，默认为true开启
+            enableSelectByExample:Select多条语句中加入where条件查询，默认为true开启
+            selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认为true开启
+        -->
+
+<!--        <table tableName="finance" domainObjectName="Finance" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="goods" domainObjectName="Goods" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="goods_record" domainObjectName="GoodsRecord" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+        <table tableName="material" domainObjectName="Material" enableCountByExample="false"
+                               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+                               selectByExampleQueryId="false">
+            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="material_inventory" domainObjectName="MaterialInventory" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+<!--        <table tableName="material_purchase_order" domainObjectName="MaterialPurchaseOrder" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="material_record" domainObjectName="MaterialRecord" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="order" domainObjectName="Order" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="plan" domainObjectName="Plan" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="plan_staff" domainObjectName="PlanStaff" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="product" domainObjectName="Product" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="product_ingredient" domainObjectName="ProductIngredient" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="workshop_staff" domainObjectName="WorkshopStaff" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="product_staff" domainObjectName="ProductStaff" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="ship_order" domainObjectName="ShipOrder" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+
+<!--        <table tableName="client_message" domainObjectName="ClientMessage" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qxt.dao.PlanDao">
+    <resultMap id="BaseResultMap" type="cn.qxt.pojo.Plan">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="product_id" jdbcType="INTEGER" property="product_id" />
+        <result column="quantity" jdbcType="INTEGER" property="quantity" />
+        <result column="finish_time" jdbcType="TIMESTAMP" property="finish_time" />
+        <result column="status" jdbcType="VARCHAR" property="status" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, product_id, quantity, finish_time, status, create_time
+    </sql>
+    <select id="selectByExample" parameterType="cn.qxt.pojo.PlanExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from plan
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from plan
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from plan
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.qxt.pojo.Plan">
+        insert into plan (id, product_id, quantity,
+                          finish_time, status, create_time
+        )
+        values (#{id,jdbcType=INTEGER}, #{product_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
+                #{finish_time,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}
+               )
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.Plan">
+        insert into plan
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="product_id != null">
+                product_id,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="finish_time != null">
+                finish_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="product_id != null">
+                #{product_id,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="finish_time != null">
+                #{finish_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.Plan">
+        update plan
+        <set>
+            <if test="product_id != null">
+                product_id = #{product_id,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="finish_time != null">
+                finish_time = #{finish_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.Plan">
+        update plan
+        set product_id = #{product_id,jdbcType=INTEGER},
+            quantity = #{quantity,jdbcType=INTEGER},
+            finish_time = #{finish_time,jdbcType=TIMESTAMP},
+            status = #{status,jdbcType=VARCHAR},
+            create_time = #{create_time,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectPlanInfoByPlanId" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select plan.id as plan_id, product.id as product_id, product.name as product_name, plan.quantity as quantity, plan.status as status, plan.finish_time,
+               plan.create_time as create_time
+        from plan
+                 join product
+                      on product_id = product.id
+        where plan.id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>

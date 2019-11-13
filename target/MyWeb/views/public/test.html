@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../theme/js/jQuery-2.1.4.min.js"></script>
+
+    <script type="text/javascript">
+        function Check() {
+            var Tabobj = $("#Tab");
+            var Check = $("table input[type=checkbox]:checked");//在table中找input下类型为checkbox属性为选中状态的数据
+            Check.each(function () {//遍历
+                var row = $(this).parent("td").parent("tr");//获取选中行
+                var id = row.find("[name='Sid']").html();//获取name='Sid'的值
+                var sname = row.find("[name='Sname']").html();
+                alert(sname);
+            })
+
+        }
+    </script>
+</head>
+<body>
+<table id="Tab">
+        <tr>
+            <td></td>
+            <td>ID</td> 
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td  name="Sid">1</td>
+                <td  name="Sname">小明 1</td>
+                <td>1</td>
+            </tr>
+        <tr>
+                    <td><input type="checkbox" /></td>
+                <td  name="Sid">3</td>
+                <td  name="Sname">小明 2</td>
+                <td>2</td>
+        </tr>
+                <tr>
+                <td><input type="checkbox" /></td>
+                <td  name="Sid">4</td>
+                <td  name="Sname">小明 4</td>
+                <td>4</td>
+            </tr>
+    <tr>
+                <td><input type="checkbox" /></td>
+                <td  name="Sid">5</td>
+                <td  name="Sname">小明 5</td>
+                <td>5</td>
+            </tr>
+
+       
+</table>
+<input type="button" onclick="Check()" value="提交" />
+</body>
+</html>
+

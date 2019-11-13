@@ -1,0 +1,406 @@
+<html>
+<head>
+    <title>Bootstrap Table Examples</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features.">
+    <meta name="keywords" content="table, bootstrap, bootstrap plugin, bootstrap resources, bootstrap table, jQuery plugin">
+    <meta name="author" content="Zhixin Wen, and Bootstrap table contributors">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.5.1/hint.min.css">
+
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.2/sprintf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-132747866-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+        function gtag() {window.dataLayer.push(arguments)}
+        gtag('js', new Date())
+        gtag('config', 'UA-132747866-1')
+    </script>
+
+    <link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table-locale-all.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/extensions/export/bootstrap-table-export.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-8 title-desc">
+        <h1 class="bd-title" id="content">
+            <span>Welcome Examples</span>
+        </h1>
+        <p class="bd-lead">Examples with checkbox, sort, pagination, export, editable and other added features.</p>
+    </div>
+
+</div>
+
+<div id="example"><script>
+
+</script>
+
+    <style>
+        .select,
+        #locale {
+            width: 100%;
+        }
+        .like {
+            margin-right: 10px;
+        }
+    </style>
+
+    <div class="select">
+        <select class="form-control" id="locale">
+            <option value="af-ZA">af-ZA</option>
+            <option value="ar-SA">ar-SA</option>
+            <option value="ca-ES">ca-ES</option>
+            <option value="cs-CZ">cs-CZ</option>
+            <option value="da-DK">da-DK</option>
+            <option value="de-DE">de-DE</option>
+            <option value="el-GR">el-GR</option>
+            <option value="en-US" selected="">en-US</option>
+            <option value="es-AR">es-AR</option>
+            <option value="es-CL">es-CL</option>
+            <option value="es-CR">es-CR</option>
+            <option value="es-ES">es-ES</option>
+            <option value="es-MX">es-MX</option>
+            <option value="es-NI">es-NI</option>
+            <option value="es-SP">es-SP</option>
+            <option value="et-EE">et-EE</option>
+            <option value="eu-EU">eu-EU</option>
+            <option value="fa-IR">fa-IR</option>
+            <option value="fi-FI">fi-FI</option>
+            <option value="fr-BE">fr-BE</option>
+            <option value="fr-FR">fr-FR</option>
+            <option value="he-IL">he-IL</option>
+            <option value="hr-HR">hr-HR</option>
+            <option value="hu-HU">hu-HU</option>
+            <option value="id-ID">id-ID</option>
+            <option value="it-IT">it-IT</option>
+            <option value="ja-JP">ja-JP</option>
+            <option value="ka-GE">ka-GE</option>
+            <option value="ko-KR">ko-KR</option>
+            <option value="ms-MY">ms-MY</option>
+            <option value="nb-NO">nb-NO</option>
+            <option value="nl-NL">nl-NL</option>
+            <option value="pl-PL">pl-PL</option>
+            <option value="pt-BR">pt-BR</option>
+            <option value="pt-PT">pt-PT</option>
+            <option value="ro-RO">ro-RO</option>
+            <option value="ru-RU">ru-RU</option>
+            <option value="sk-SK">sk-SK</option>
+            <option value="sv-SE">sv-SE</option>
+            <option value="th-TH">th-TH</option>
+            <option value="tr-TR">tr-TR</option>
+            <option value="uk-UA">uk-UA</option>
+            <option value="ur-PK">ur-PK</option>
+            <option value="uz-Latn-UZ">uz-Latn-UZ</option>
+            <option value="vi-VN">vi-VN</option>
+            <option value="zh-CN">zh-CN</option>
+            <option value="zh-TW">zh-TW</option>
+        </select>
+    </div>
+
+
+    <div class="bootstrap-table bootstrap4">
+        <div class="fixed-table-toolbar"><div class="bs-bars float-left"><div id="toolbar">
+            <button id="remove" class="btn btn-danger" disabled="">
+                <i class="glyphicon glyphicon-remove"></i> Delete
+            </button>
+        </div></div><div class="columns columns-right btn-group float-right"><button class="btn btn-secondary" type="button" name="paginationSwitch" aria-label="Pagination Switch" title="Hide/Show pagination">
+            <i class="fa fa-caret-square-down"></i>
+
+        </button><button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh">
+            <i class="fa fa-sync"></i>
+
+        </button><button class="btn btn-secondary" type="button" name="toggle" aria-label="Toggle" title="Toggle">
+            <i class="fa fa-toggle-off"></i>
+
+        </button><button class="btn btn-secondary" type="button" name="fullscreen" aria-label="Fullscreen" title="Fullscreen">
+            <i class="fa fa-arrows-alt"></i>
+
+        </button><div class="keep-open btn-group" title="Columns">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-label="Columns" title="Columns">
+                <i class="fa fa-th-list"></i>
+
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right"><label class="dropdown-item"><input type="checkbox" class="toggle-all" checked="checked"> <span>Toggle all</span></label><div class="dropdown-divider"></div><label class="dropdown-item"><input type="checkbox" data-field="id" value="1" checked="checked"> <span>Item ID</span></label><label class="dropdown-item"><input type="checkbox" data-field="name" value="2" checked="checked"> <span>Item Name</span></label><label class="dropdown-item"><input type="checkbox" data-field="price" value="3" checked="checked"> <span>Item Price</span></label><label class="dropdown-item"><input type="checkbox" data-field="operate" value="4" checked="checked"> <span>Item Operate</span></label></div></div><div class="export btn-group">
+            <button class="btn btn-secondary dropdown-toggle" aria-label="Export" data-toggle="dropdown" type="button" title="Export data">
+                <i class="fa fa-download"></i>
+
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item " href="#" data-type="json">JSON</a><a class="dropdown-item " href="#" data-type="xml">XML</a><a class="dropdown-item " href="#" data-type="csv">CSV</a><a class="dropdown-item " href="#" data-type="txt">TXT</a><a class="dropdown-item " href="#" data-type="sql">SQL</a><a class="dropdown-item " href="#" data-type="excel">MS-Excel</a></div></div></div>
+            <div class="float-right search btn-group">
+                <input class="form-control
+
+        search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="fixed-table-container fixed-height has-footer" style="height: 433.8px; padding-bottom: 148.2px;">
+            <div class="fixed-table-header" style="margin-right: 0px;"><table class="table table-bordered table-hover" style="width: 640px;"><thead class=""><tr><th class="detail" rowspan="2">
+                <div class="fht-cell" style="width: 38.4px;"></div>
+            </th>
+                <th class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2" data-field="state"><div class="th-inner "><label><input name="btSelectAll" type="checkbox"><span></span></label></div><div class="fht-cell" style="width: 36.8px;"></div></th><th style="text-align: center; vertical-align: middle; " rowspan="2" data-field="id"><div class="th-inner sortable both">Item ID</div><div class="fht-cell" style="width: 117.6px;"></div></th><th style="text-align: center; " colspan="3"><div class="th-inner ">Item Detail</div><div class="fht-cell"></div></th></tr><tr><th style="text-align: center; " data-field="name" data-not-first-th=""><div class="th-inner sortable both">Item Name</div><div class="fht-cell" style="width: 150.4px;"></div></th><th style="text-align: center; " data-field="price"><div class="th-inner sortable both">Item Price</div><div class="fht-cell" style="width: 141.6px;"></div></th><th style="text-align: center; " data-field="operate"><div class="th-inner ">Item Operate</div><div class="fht-cell" style="width: 149.6px;"></div></th></tr></thead></table></div>
+            <div class="fixed-table-body">
+                <div class="fixed-table-loading table table-bordered table-hover fixed-table-border" style="top: 98.6px; display: none; width: 640px;">
+      <span class="loading-wrap">
+      <span class="loading-text">Loading, please wait</span>
+      <span class="animation-wrap"><span class="animation-dot"></span></span>
+      </span>
+                </div>
+                <table id="table" data-toolbar="#toolbar" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-fullscreen="true" data-show-columns="true" data-show-columns-toggle-all="true" data-detail-view="true" data-show-export="true" data-click-to-select="true" data-detail-formatter="detailFormatter" data-minimum-count-columns="2" data-show-pagination-switch="true" data-pagination="true" data-id-field="id" data-page-list="[10, 25, 50, 100, all]" data-show-footer="true" data-side-pagination="server" data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data" data-response-handler="responseHandler" class="table table-bordered table-hover" style="margin-top: -97.6px;">
+                    <thead class=""><tr><th class="detail" rowspan="2">
+                        <div class="fht-cell"></div>
+                    </th>
+                        <th class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; " rowspan="2" data-field="state"><div class="th-inner "><label><input name="btSelectAll" type="checkbox"><span></span></label></div><div class="fht-cell"></div></th><th style="text-align: center; vertical-align: middle; " rowspan="2" data-field="id"><div class="th-inner sortable both">Item ID</div><div class="fht-cell"></div></th><th style="text-align: center; " colspan="3"><div class="th-inner ">Item Detail</div><div class="fht-cell"></div></th></tr><tr><th style="text-align: center; " data-field="name" data-not-first-th=""><div class="th-inner sortable both">Item Name</div><div class="fht-cell"></div></th><th style="text-align: center; " data-field="price"><div class="th-inner sortable both">Item Price</div><div class="fht-cell"></div></th><th style="text-align: center; " data-field="operate"><div class="th-inner ">Item Operate</div><div class="fht-cell"></div></th></tr></thead><tbody><tr data-index="0" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="0" name="btSelectItem" type="checkbox" value="0">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">0</td><td style="text-align: center; ">Item 0</td><td style="text-align: center; ">$0</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="1" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="1" name="btSelectItem" type="checkbox" value="1">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">1</td><td style="text-align: center; ">Item 1</td><td style="text-align: center; ">$1</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="2" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="2" name="btSelectItem" type="checkbox" value="2">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">2</td><td style="text-align: center; ">Item 2</td><td style="text-align: center; ">$2</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="3" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="3" name="btSelectItem" type="checkbox" value="3">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">3</td><td style="text-align: center; ">Item 3</td><td style="text-align: center; ">$3</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="4" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="4" name="btSelectItem" type="checkbox" value="4">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">4</td><td style="text-align: center; ">Item 4</td><td style="text-align: center; ">$4</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="5" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="5" name="btSelectItem" type="checkbox" value="5">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">5</td><td style="text-align: center; ">Item 5</td><td style="text-align: center; ">$5</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="6" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="6" name="btSelectItem" type="checkbox" value="6">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">6</td><td style="text-align: center; ">Item 6</td><td style="text-align: center; ">$6</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="7" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="7" name="btSelectItem" type="checkbox" value="7">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">7</td><td style="text-align: center; ">Item 7</td><td style="text-align: center; ">$7</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="8" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="8" name="btSelectItem" type="checkbox" value="8">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">8</td><td style="text-align: center; ">Item 8</td><td style="text-align: center; ">$8</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr><tr data-index="9" data-has-detail-view="true"><td>
+                    <a class="detail-icon" href="#">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td><td class="bs-checkbox " style="text-align: center; vertical-align: middle; width: 36px; "><label>
+                    <input data-index="9" name="btSelectItem" type="checkbox" value="9">
+                    <span></span>
+                </label></td><td style="text-align: center; vertical-align: middle; ">9</td><td style="text-align: center; ">Item 9</td><td style="text-align: center; ">$9</td><td style="text-align: center; "><a class="like" href="javascript:void(0)" title="Like"><i class="fa fa-heart"></i></a>  <a class="remove" href="javascript:void(0)" title="Remove"><i class="fa fa-trash"></i></a></td></tr></tbody></table>
+                <div class="fixed-table-border" style="height: 0px;">
+
+                </div>
+            </div>
+            <div class="fixed-table-footer" style="margin-right: 0px;">
+                <table class="table table-bordered table-hover" style="width: 640px;"><thead><tr><th class="detail"><div class="th-inner"></div><div class="fht-cell" style="width: 38.4px;"></div></th><th style="text-align: center; vertical-align: middle; "><div class="th-inner"></div><div class="fht-cell" style="width: 36.8px;"></div></th><th style="text-align: center; vertical-align: middle; "><div class="th-inner">Total</div><div class="fht-cell" style="width: 117.6px;"></div></th><th style="text-align: center; "><div class="th-inner">10</div><div class="fht-cell" style="width: 150.4px;"></div></th><th style="text-align: center; "><div class="th-inner">$45</div><div class="fht-cell" style="width: 141.6px;"></div></th><th style="text-align: center; "><div class="th-inner"></div><div class="fht-cell" style="width: 149.6px;"></div></th></tr></thead></table></div>
+        </div>
+        <div class="fixed-table-pagination" style=""><div class="float-left pagination-detail">
+      <span class="pagination-info">
+      Showing 1 to 10 of 800 rows
+      </span><span class="page-list"><span class="btn-group dropdown dropup">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+        <span class="page-size">
+        10
+        </span>
+        <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu"><a class="dropdown-item active" href="#">10</a><a class="dropdown-item " href="#">25</a><a class="dropdown-item " href="#">50</a><a class="dropdown-item " href="#">100</a><a class="dropdown-item " href="#">All</a></div></span> rows per page</span></div><div class="float-right pagination"><ul class="pagination"><li class="page-item page-pre"><a class="page-link" aria-label="previous page" href="javascript:void(0)">‹</a></li><li class="page-item active"><a class="page-link" aria-label="to page 1" href="javascript:void(0)">1</a></li><li class="page-item"><a class="page-link" aria-label="to page 2" href="javascript:void(0)">2</a></li><li class="page-item"><a class="page-link" aria-label="to page 3" href="javascript:void(0)">3</a></li><li class="page-item"><a class="page-link" aria-label="to page 4" href="javascript:void(0)">4</a></li><li class="page-item"><a class="page-link" aria-label="to page 5" href="javascript:void(0)">5</a></li><li class="page-item page-last-separator disabled"><a class="page-link" aria-label="" href="javascript:void(0)">...</a></li><li class="page-item"><a class="page-link" aria-label="to page 80" href="javascript:void(0)">80</a></li><li class="page-item page-next"><a class="page-link" aria-label="next page" href="javascript:void(0)">›</a></li></ul></div></div>
+    </div><div class="clearfix"></div>
+
+    <script>
+        var $table = $('#table')
+        var $remove = $('#remove')
+        var selections = []
+
+        function getIdSelections() {
+            return $.map($table.bootstrapTable('getSelections'), function (row) {
+                return row.id
+            })
+        }
+
+        function responseHandler(res) {
+            $.each(res.rows, function (i, row) {
+                row.state = $.inArray(row.id, selections) !== -1
+            })
+            return res
+        }
+
+        function detailFormatter(index, row) {
+            var html = []
+            $.each(row, function (key, value) {
+                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+            })
+            return html.join('')
+        }
+
+        function operateFormatter(value, row, index) {
+            return [
+                '<a class="like" href="javascript:void(0)" title="Like">',
+                '<i class="fa fa-heart"></i>',
+                '</a>  ',
+                '<a class="remove" href="javascript:void(0)" title="Remove">',
+                '<i class="fa fa-trash"></i>',
+                '</a>'
+            ].join('')
+        }
+
+        window.operateEvents = {
+            'click .like': function (e, value, row, index) {
+                alert('You click like action, row: ' + JSON.stringify(row))
+            },
+            'click .remove': function (e, value, row, index) {
+                $table.bootstrapTable('remove', {
+                    field: 'id',
+                    values: [row.id]
+                })
+            }
+        }
+
+        function totalTextFormatter(data) {
+            return 'Total'
+        }
+
+        function totalNameFormatter(data) {
+            return data.length
+        }
+
+        function totalPriceFormatter(data) {
+            var field = this.field
+            return '$' + data.map(function (row) {
+                return +row[field].substring(1)
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
+
+        function initTable() {
+            $table.bootstrapTable('destroy').bootstrapTable({
+                height: 550,
+                locale: $('#locale').val(),
+                columns: [
+                    [{
+                        field: 'state',
+                        checkbox: true,
+                        rowspan: 2,
+                        align: 'center',
+                        valign: 'middle'
+                    }, {
+                        title: 'Item ID',
+                        field: 'id',
+                        rowspan: 2,
+                        align: 'center',
+                        valign: 'middle',
+                        sortable: true,
+                        footerFormatter: totalTextFormatter
+                    }, {
+                        title: 'Item Detail',
+                        colspan: 3,
+                        align: 'center'
+                    }],
+                    [{
+                        field: 'name',
+                        title: 'Item Name',
+                        sortable: true,
+                        footerFormatter: totalNameFormatter,
+                        align: 'center'
+                    }, {
+                        field: 'price',
+                        title: 'Item Price',
+                        sortable: true,
+                        align: 'center',
+                        footerFormatter: totalPriceFormatter
+                    }, {
+                        field: 'operate',
+                        title: 'Item Operate',
+                        align: 'center',
+                        clickToSelect: false,
+                        events: window.operateEvents,
+                        formatter: operateFormatter
+                    }]
+                ]
+            })
+            $table.on('check.bs.table uncheck.bs.table ' +
+                'check-all.bs.table uncheck-all.bs.table',
+                function () {
+                    $remove.prop('disabled', !$table.bootstrapTable('getSelections').length)
+
+                    // save your data, here just save the current page
+                    selections = getIdSelections()
+                    // push or splice the selections if you want to save all data selections
+                })
+            $table.on('all.bs.table', function (e, name, args) {
+                console.log(name, args)
+            })
+            $remove.click(function () {
+                var ids = getIdSelections()
+                $table.bootstrapTable('remove', {
+                    field: 'id',
+                    values: ids
+                })
+                $remove.prop('disabled', true)
+            })
+        }
+
+        function mounted() {
+            initTable()
+
+            $('#locale').change(initTable)
+        }
+    </script>
+</div>
+    <pre class="source-pre"><code id="source" class="html"></code></pre>
+
+</body>
+</html>

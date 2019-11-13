@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qxt.dao.FinanceDao">
+    <resultMap id="BaseResultMap" type="cn.qxt.pojo.Finance">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="money" jdbcType="DOUBLE" property="money" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+        <result column="order_id" jdbcType="INTEGER" property="order_id" />
+        <result column="user_id" jdbcType="VARCHAR" property="user_id" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, money, type, create_time, order_id, user_id
+    </sql>
+    <select id="selectByExample" parameterType="cn.qxt.pojo.FinanceExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from finance
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from finance
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from finance
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.qxt.pojo.Finance">
+        insert into finance (id, money, type,
+                             create_time, order_id, user_id
+        )
+        values (#{id,jdbcType=INTEGER}, #{money,jdbcType=DOUBLE}, #{type,jdbcType=VARCHAR},
+                #{create_time,jdbcType=TIMESTAMP}, #{order_id,jdbcType=INTEGER}, #{user_id,jdbcType=VARCHAR}
+               )
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.Finance">
+        insert into finance
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="money != null">
+                money,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="order_id != null">
+                order_id,
+            </if>
+            <if test="user_id != null">
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="money != null">
+                #{money,jdbcType=DOUBLE},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="order_id != null">
+                #{order_id,jdbcType=INTEGER},
+            </if>
+            <if test="user_id != null">
+                #{user_id,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.Finance">
+        update finance
+        <set>
+            <if test="money != null">
+                money = #{money,jdbcType=DOUBLE},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="order_id != null">
+                order_id = #{order_id,jdbcType=INTEGER},
+            </if>
+            <if test="user_id != null">
+                user_id = #{user_id,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.Finance">
+        update finance
+        set money = #{money,jdbcType=DOUBLE},
+            type = #{type,jdbcType=VARCHAR},
+            create_time = #{create_time,jdbcType=TIMESTAMP},
+            order_id = #{order_id,jdbcType=INTEGER},
+            user_id = #{user_id,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectFinanceInfoByPrimaryKey_Client" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select finance.id as finance_id, finance.money as money, finance.type as type, finance.order_id as order_id,
+               finance.create_time as create_time, client.name as user_name
+        from finance
+            join client
+                on user_id = client.id
+        where finance.id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectFinanceInfoByPrimaryKey_Material" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select finance.id as finance_id, finance.money as money, finance.type as type, finance.order_id as order_id,
+               finance.create_time as create_time, material_staff.name as user_name
+        from finance
+                 join material_staff
+                      on user_id = material_staff.id
+        where finance.id = #{id,jdbcType=INTEGER}
+    </select>
+</mapper>

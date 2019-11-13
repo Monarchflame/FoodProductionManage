@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MyWeb:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eae7fb19-3be1-4d6e-908b-61ada60078b8" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_src_/schema/myweb.KM44Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_src_/schema/myweb.KM44Bg.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_src_/schema/student.O4L-jw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_staging_/schema/myweb.KM44Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_staging_/schema/myweb.KM44Bg/table/order.TodRBg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_staging_/schema/myweb.KM44Bg/table/order.TodRBg/trigger/trigger_addorder.9BWCMA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/49121023-9be4-4f65-9e88-622aa71fd1ff/storage_v2/_staging_/schema/myweb.KM44Bg/table/order.TodRBg/trigger/trigger_addorder.9BWCMA.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyWeb.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TestMyBatisGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/FinancialStaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/PlanStaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/ProductStaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/SaleStaffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ClientDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ClientMessageDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/CreditDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/FinanceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/FinancialStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/GoodsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/GoodsRecordDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/GoodsReturnOrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialPurchaseOrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialRecordDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/PlanDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/PlanStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ProductDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ProductIngredientDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ProductRequirementDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ProductStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/SaleStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/ShipOrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/dao/WorkshopStaffDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/filter/LoginFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/interceptor/LoginInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ClientExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ClientMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ClientMessageExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ClientMessageKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Credit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/CreditExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Finance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/FinanceExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/FinancialStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/FinancialStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Goods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsRecordExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsReturnOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsReturnOrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialInventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialInventoryExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialPurchaseOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialPurchaseOrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialRecordExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MyOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/OrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Plan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/PlanExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/PlanStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/PlanStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductIngredient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductIngredientExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductIngredientKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductRequirement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductRequirementExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ProductStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/SaleStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/SaleStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ShipOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/ShipOrderExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/WorkshopStaff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/WorkshopStaffExample.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/AService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/AServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ClientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ClientServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/CreditService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/CreditServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/FinancialStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/FinancialStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/OrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/RegisterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/RegisterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/SaleStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/SaleStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/util/DateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/util/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ClientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ClientMessageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CreditMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/FinanceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/FinancialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/GoodsReturnOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MaterialInventoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MaterialMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MaterialPurchaseOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MaterialRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/MaterialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PlanMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/PlanStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductIngredientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductRequirementMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SaleStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ShipOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/WorkshopStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/HeapOOM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/num.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/text.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/amber.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/asc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/authlogo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/desc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/labellogo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/unname.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/base.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/project.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/css/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/mbr-additional.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/qazcloud-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/home_css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/js/base.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/js/jQuery-2.1.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/js/jquery.tablesorter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/js/project.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/theme/js/qrcode.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/finance/bill.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/finance/financeInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/finance/returnOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/finance/returnOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/finance/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/drawUpPlan.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/plan-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/processPlanInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/product/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/cart.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/client-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/clientInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/manager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/order.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/processOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/readyDeliverOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/returnOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/returnOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/strategy.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/workshop/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/account.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/myorder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/orderinfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/shop.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/tos.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/client/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/public/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/public/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/public/reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/public/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/public/tos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/META-INF/MyWeb.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/TestMyBatisGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/ClientController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/FinancialStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/HomeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/MaterialStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/PlanStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/ProductStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/SaleStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ClientDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ClientMessageDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/CreditDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/FinanceDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/FinancialStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/GoodsDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/GoodsRecordDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/GoodsReturnOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialInventoryDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialPurchaseOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialRecordDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/MaterialStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/OrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/PlanDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/PlanStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ProductDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ProductIngredientDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ProductRequirementDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ProductStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/SaleStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/ShipOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/dao/WorkshopStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/filter/LoginFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/interceptor/LoginInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Client.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessageExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessageExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessageExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessageExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ClientMessageKey.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Credit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/CreditExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/CreditExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/CreditExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/CreditExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Finance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinanceExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinanceExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinanceExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinanceExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinancialStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinancialStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinancialStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinancialStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/FinancialStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Goods.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsRecordExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsRecordExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsRecordExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsRecordExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsReturnOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsReturnOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsReturnOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsReturnOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/GoodsReturnOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Material.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialInventoryExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialInventoryExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialInventoryExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialInventoryExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialPurchaseOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialPurchaseOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialRecordExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialRecordExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialRecordExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialRecordExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MaterialStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/MyOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/OrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/OrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/OrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/OrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Plan.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/PlanStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredientExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredientExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredientExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredientExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductIngredientKey.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductRequirementExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductRequirementExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductRequirementExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductRequirementExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ProductStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/SaleStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/SaleStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/SaleStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/SaleStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/SaleStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ShipOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ShipOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ShipOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ShipOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/ShipOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/WorkshopStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/WorkshopStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/WorkshopStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/WorkshopStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/pojo/WorkshopStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/AService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/AServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ClientService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ClientServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/CreditService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/CreditServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/FinancialStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/FinancialStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/OrderService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/OrderServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/PlanStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/PlanStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ProductService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ProductServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ProductStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/ProductStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/RegisterService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/RegisterServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/SaleStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/SaleStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/WorkshopStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/WorkshopStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/util/DateUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/util/Page.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ClientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ClientMessageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/CreditMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/FinanceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/FinancialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/GoodsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/GoodsRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/GoodsReturnOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/MaterialInventoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/MaterialMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/MaterialPurchaseOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/MaterialRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/MaterialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/OrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/PlanMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/PlanStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ProductIngredientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ProductRequirementMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ProductStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/SaleStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/ShipOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/mapper/WorkshopStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/activation-1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/c3p0-0.9.5.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/commons-email-1.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/freemarker-2.3.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/jackson-annotations-2.8.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/jackson-core-2.8.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/jackson-databind-2.8.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/javaee-api-7.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/javax.mail-1.5.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/junit-4.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/logback-classic-1.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/logback-core-1.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/mchange-commons-java-0.2.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/mybatis-3.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/mybatis-generator-core-1.3.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/mybatis-spring-1.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/mysql-connector-java-5.1.41.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-aop-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-beans-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-context-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-core-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-expression-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-jdbc-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-test-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-tx-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-web-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/lib/spring-webmvc-4.3.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/amber.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/asc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/authlogo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/bg1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/desc.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/favicon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/labellogo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/images/unname.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/base.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/project.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/css/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/mbr-additional.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/qazcloud-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/home_css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/js/base.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/js/jQuery-2.1.4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/js/jquery.tablesorter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/js/project.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/theme/js/qrcode.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/finance/bill.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/finance/financeInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/finance/returnOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/finance/returnOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/finance/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/material-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/materialInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/plan/drawUpPlan.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/plan/plan-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/plan/processPlanInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/plan/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/product/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/cart.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/client-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/clientInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/manager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/order.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/processOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/readyDeliverOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/returnOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/returnOrderInfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/sale/strategy.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/workshop/staff.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/account.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/myorder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/orderinfo.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/shop.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/tos.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/client/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/public/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/public/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/public/reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/public/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/MyWeb/views/public/tos.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/MyWeb.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/TestMyBatisGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/AdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/ClientController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/FinancialStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/HomeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/MaterialStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/PlanStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/ProductStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/SaleStaffController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ClientDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ClientMessageDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/CreditDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/FinanceDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/FinancialStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/GoodsDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/GoodsRecordDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/GoodsReturnOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialInventoryDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialPurchaseOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialRecordDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/MaterialStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/OrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/PlanDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/PlanStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ProductDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ProductIngredientDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ProductRequirementDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ProductStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/SaleStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/ShipOrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/dao/WorkshopStaffDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/filter/LoginFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/interceptor/LoginInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Client.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessageExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessageExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessageExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessageExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ClientMessageKey.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Credit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/CreditExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/CreditExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/CreditExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/CreditExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Finance.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinanceExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinanceExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinanceExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinanceExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinancialStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinancialStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinancialStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinancialStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/FinancialStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Goods.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsRecordExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsRecordExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsRecordExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsRecordExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsReturnOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsReturnOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsReturnOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsReturnOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/GoodsReturnOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Material.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialInventoryExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialInventoryExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialInventoryExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialInventoryExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialPurchaseOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialPurchaseOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialPurchaseOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialRecordExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialRecordExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialRecordExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialRecordExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MaterialStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/MyOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/OrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/OrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/OrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/OrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Plan.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/PlanStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredientExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredientExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredientExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredientExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductIngredientKey.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductRequirement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductRequirementExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductRequirementExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductRequirementExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductRequirementExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ProductStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/SaleStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/SaleStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/SaleStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/SaleStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/SaleStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ShipOrder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ShipOrderExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ShipOrderExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ShipOrderExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/ShipOrderExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/WorkshopStaff.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/WorkshopStaffExample$Criteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/WorkshopStaffExample$Criterion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/WorkshopStaffExample$GeneratedCriteria.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/pojo/WorkshopStaffExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/AService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/AServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ClientService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ClientServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/CreditService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/CreditServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/FinancialStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/FinancialStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/OrderService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/OrderServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/PlanStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/PlanStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ProductService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ProductServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ProductStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/ProductStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/RegisterService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/RegisterServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/SaleStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/SaleStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/WorkshopStaffService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/WorkshopStaffServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/util/DateUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/cn/qxt/util/Page.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ClientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ClientMessageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/CreditMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/FinanceMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/FinancialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/GoodsMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/GoodsRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/GoodsReturnOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/MaterialInventoryMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/MaterialMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/MaterialPurchaseOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/MaterialRecordMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/MaterialStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/PlanMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/PlanStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ProductIngredientMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ProductRequirementMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ProductStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/SaleStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/ShipOrderMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/mapper/WorkshopStaffMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/Book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/HeapOOM$OOMObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/HeapOOM.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/META-INF/MyWeb.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/Student.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/num.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/text.class" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myweb@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myweb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myweb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="myweb: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="myweb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="myweb: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="material: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="MyWeb" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1178">
+              <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#materialInfo#0;class#MaterialStaffController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4142">
+              <caret line="218" column="99" selection-start-line="218" selection-start-column="87" selection-end-line="218" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="257" column="13" selection-start-line="257" selection-start-column="13" selection-end-line="257" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="24" column="63" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getElementsByName</find>
+      <find>insert</find>
+      <find>result</find>
+      <find>requirementInfoList</find>
+      <find>selectReadyProcessRequirementInfo</find>
+      <find>createList</find>
+      <find>orderList</find>
+      <find>Order</find>
+      <find>orderInfo</find>
+      <find>verify_deliver_order_modal</find>
+      <find>order</find>
+      <find>取消</find>
+      <find>Product</find>
+      <find>MaterialS</find>
+      <find>ProductStaff</find>
+      <find>MaterialStaff</find>
+      <find>saleStaff</find>
+      <find>销售部</find>
+      <find>sale</find>
+      <find>residual_quantity</find>
+      <find>productStaff</find>
+      <find>plan</find>
+      <find>requirement</find>
+      <find>table</find>
+      <find>materialinfo</find>
+      <find>planInfo</find>
+      <find>mate</find>
+      <find>infoifram</find>
+      <find>查找</find>
+      <find>verify_cancel_plan_modal</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Order</replace>
+      <replace>Credit</replace>
+      <replace>last_time</replace>
+      <replace>FinancialStaff</replace>
+      <replace>id</replace>
+      <replace>VARCHAR</replace>
+      <replace>unit_price</replace>
+      <replace>shelf_life</replace>
+      <replace>planStaffDao</replace>
+      <replace>PlanStaff</replace>
+      <replace>req</replace>
+      <replace>requirementIdList</replace>
+      <replace>planStaffService</replace>
+      <replace>Plan</replace>
+      <replace>plan</replace>
+      <replace>planInfo</replace>
+      <replace>productStaffDao</replace>
+      <replace>MaterialStaff</replace>
+      <replace>WorkshopStaff</replace>
+      <replace>materialStaff</replace>
+      <replace>productStaff</replace>
+      <replace>成品库</replace>
+      <replace>product</replace>
+      <replace>workshopStaff</replace>
+      <replace>material</replace>
+      <replace>materialInfo</replace>
+      <replace>verify_destruction_modal</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="qxt" />
+      </list>
+    </option>
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/webapp/views/1.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/2.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/test.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/test.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/public/test.html" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/GoodsDao.java" />
+        <option value="$PROJECT_DIR$/src/main/test/HeapOOM.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/ClientServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/FinancialStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/SaleStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/1.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ProductRequirementMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/PlanDao.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/49121023-9be4-4f65-9e88-622aa71fd1ff/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/cancelPlan.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PlanMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/PlanStaffController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/plan-list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/staff.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Goods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Material.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/GoodsExample.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialExample.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/product/staff.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/ProductStaffController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/interceptor/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/workshop/staff.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/drawUpPlan.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/processPlanInfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MaterialMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/client-list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MaterialInventoryMapper.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\maven-3.6.2\apache-maven-3.6.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="MyWeb Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="250" />
+    <option name="y" value="-10" />
+    <option name="width" value="1455" />
+    <option name="height" value="930" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="qxt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="qxt" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="staff" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="staff" type="462c0819:PsiDirectoryNode" />
+              <item name="material" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.21469575" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\images" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\theme\home_css" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\client" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\workshop" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\material" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\product" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\images" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\theme\css" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.22">
+    <configuration name="Book" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Book" />
+      <module name="MyWeb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HeapOOM" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HeapOOM" />
+      <module name="MyWeb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMyBatisGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestMyBatisGenerator" />
+      <module name="MyWeb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="num" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="num" />
+      <module name="MyWeb" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="text.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyWeb" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="text" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.22" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.22" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8090/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="MyWeb:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_MyWeb" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="59881" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="MyWeb:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestMyBatisGenerator" />
+      <item itemvalue="Application.Book" />
+      <item itemvalue="Application.num" />
+      <item itemvalue="Application.HeapOOM" />
+      <item itemvalue="JUnit.text.test" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.22" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestMyBatisGenerator" />
+        <item itemvalue="Application.HeapOOM" />
+        <item itemvalue="Application.num" />
+        <item itemvalue="Application.Book" />
+        <item itemvalue="JUnit.text.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpringBeansView">
+    <option name="beanDetailsProportion" value="0.30917874" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eae7fb19-3be1-4d6e-908b-61ada60078b8" name="默认更改列表" comment="" />
+      <created>1568642255611</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568642255611</updated>
+      <workItem from="1568642260830" duration="917000" />
+      <workItem from="1568707271325" duration="13830000" />
+      <workItem from="1568773250150" duration="16854000" />
+      <workItem from="1568797267087" duration="4862000" />
+      <workItem from="1568806070301" duration="177000" />
+      <workItem from="1568806287963" duration="4767000" />
+      <workItem from="1568867485131" duration="18419000" />
+      <workItem from="1568942346270" duration="8392000" />
+      <workItem from="1568964581441" duration="2187000" />
+      <workItem from="1568969738405" duration="6655000" />
+      <workItem from="1569034120405" duration="13495000" />
+      <workItem from="1569135971144" duration="23868000" />
+      <workItem from="1569197725473" duration="2612000" />
+      <workItem from="1569200654756" duration="181000" />
+      <workItem from="1569200891716" duration="25984000" />
+      <workItem from="1569289125623" duration="15780000" />
+      <workItem from="1569334657332" duration="1548000" />
+      <workItem from="1569376631265" duration="6396000" />
+      <workItem from="1569479604876" duration="4330000" />
+      <workItem from="1569549997056" duration="5195000" />
+      <workItem from="1569652984738" duration="7769000" />
+      <workItem from="1569739971793" duration="4755000" />
+      <workItem from="1569852353722" duration="2499000" />
+      <workItem from="1569914484601" duration="5991000" />
+      <workItem from="1570002533403" duration="3110000" />
+      <workItem from="1570073865376" duration="13004000" />
+      <workItem from="1570161521295" duration="12193000" />
+      <workItem from="1570265159395" duration="14398000" />
+      <workItem from="1570346379550" duration="2853000" />
+      <workItem from="1570349568436" duration="9327000" />
+      <workItem from="1570431746958" duration="11558000" />
+      <workItem from="1570503104595" duration="6720000" />
+      <workItem from="1570592496591" duration="655000" />
+      <workItem from="1570800438332" duration="928000" />
+      <workItem from="1570950367138" duration="2721000" />
+      <workItem from="1570957540683" duration="8761000" />
+      <workItem from="1571023068534" duration="2057000" />
+      <workItem from="1571106102270" duration="2939000" />
+      <workItem from="1571122408432" duration="18259000" />
+      <workItem from="1571193069049" duration="13357000" />
+      <workItem from="1571276082782" duration="12678000" />
+      <workItem from="1571368442295" duration="7684000" />
+      <workItem from="1571455783153" duration="11665000" />
+      <workItem from="1571475978357" duration="7571000" />
+      <workItem from="1571488557993" duration="1552000" />
+      <workItem from="1571579495581" duration="5168000" />
+      <workItem from="1571625177610" duration="12738000" />
+      <workItem from="1571710080305" duration="5676000" />
+      <workItem from="1571902035298" duration="4713000" />
+      <workItem from="1571973559246" duration="6685000" />
+      <workItem from="1572070164095" duration="10618000" />
+      <workItem from="1572094906000" duration="1197000" />
+      <workItem from="1572506619441" duration="3315000" />
+      <workItem from="1572675625855" duration="4451000" />
+      <workItem from="1572680840722" duration="3070000" />
+      <workItem from="1572684032661" duration="1433000" />
+      <workItem from="1572685748711" duration="5342000" />
+      <workItem from="1572835417032" duration="928000" />
+      <workItem from="1572874528179" duration="4406000" />
+      <workItem from="1573004675164" duration="2056000" />
+      <workItem from="1573111524734" duration="1420000" />
+      <workItem from="1573126834592" duration="8057000" />
+      <workItem from="1573179851176" duration="16074000" />
+      <workItem from="1573223149402" duration="596000" />
+      <workItem from="1573268204683" duration="12927000" />
+      <workItem from="1573303668038" duration="3061000" />
+      <workItem from="1573354758943" duration="8566000" />
+      <workItem from="1573434950113" duration="5173000" />
+      <workItem from="1573453975750" duration="7028000" />
+      <workItem from="1573538973988" duration="4008000" />
+      <workItem from="1573648025445" duration="1176000" />
+      <workItem from="1573649698612" duration="1389000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="text_test - 2019.10.19 at 15h 45m 21s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.19 at 18h 58m 03s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.19 at 19h 21m 42s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.19 at 19h 25m 53s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.19 at 19h 37m 49s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.19 at 19h 45m 36s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.21 at 21h 29m 42s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.24 at 15h 32m 48s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.24 at 15h 33m 19s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.10.24 at 15h 33m 50s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="502724000" />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49713194" visible="true" weight="0.19705094" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.50286806" side_tool="true" weight="0.2533512" />
+      <window_info id="设计器" order="6" />
+      <window_info id="Web" order="7" sideWeight="0.5009862" side_tool="true" weight="0.22184986" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.21923621" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49865952" weight="0.27722773" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32956153" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32956153" />
+      <window_info anchor="bottom" id="Spring" order="9" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32956153" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5013405" side_tool="true" weight="0.28429985" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32956153" />
+      <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="15" visible="true" weight="0.11331445" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.15558699" />
+      <window_info anchor="bottom" id="调试" order="17" weight="0.21499293" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Database" order="1" weight="0.20643431" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.3297587" />
+      <window_info anchor="right" id="JSF" order="6" weight="0.3297587" />
+      <window_info anchor="right" id="调色板" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="8" weight="0.3297587" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="CDI" order="11" weight="0.3297587" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="首次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="首次提交" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java</url>
+          <line>591</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java</url>
+          <line>588</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java</url>
+          <line>587</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/ClientController.java</url>
+          <line>589</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/webapp/theme/js/base.min.js</url>
+          <line>796</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="product" />
+        <watch expression="orderInfoList" language="JAVA" />
+        <watch expression="product" />
+        <watch expression="client" />
+        <watch expression="myOrder" />
+        <watch expression="((HashMap)map).entrySet().toArray()[1]" custom="java.util.HashMap" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>orderInfoList</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="277" column="8" lean-forward="true" selection-start-line="277" selection-start-column="8" selection-end-line="278" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/processOrderInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="391" />
+          <folding>
+            <element signature="n#html#0;n#!!top" />
+            <element signature="n#script#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsReturnOrderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/SaleStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="165" selection-start-line="165" selection-end-line="175" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/product.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="11" selection-start-line="11" selection-end-line="39" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="20" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/AService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/AServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="121" column="52" lean-forward="true" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
+          <folding>
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/filter/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/public/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="124" column="41" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="126" column="77" selection-start-line="126" selection-start-column="69" selection-end-line="126" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1957">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <folding>
+            <element signature="docComment;method#postHandle#0;class#LoginInterceptor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/product/staff.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/ProductStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/staff.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4788">
+          <caret line="252" column="85" selection-start-line="252" selection-start-column="85" selection-end-line="252" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/workshop/staff.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1076">
+          <caret line="245" column="112" lean-forward="true" selection-start-line="245" selection-start-column="112" selection-end-line="245" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="docComment;method#selectAllProductPlan#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#selectAllRepertoryByProductId#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#drawUpPlan#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#selectAllReadyProcessPlan#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#selectAllinProductionPlan#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#selectAllCompletedPlan#0;class#PlanStaffService#0" />
+            <element signature="docComment;method#selectPlanInfoByPlanId#0;class#PlanStaffService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="110" column="64" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="docComment;method#drawUpPlan#0;class#PlanStaffServiceImpl#0" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3785#3786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PlanMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
+          <folding>
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/plan-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="278" column="9" lean-forward="true" selection-start-line="278" selection-start-column="9" selection-end-line="278" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="docComment;method#login#0;class#AdminController#0" />
+            <element signature="docComment;method#successLogin#0;class#AdminController#0" />
+            <element signature="docComment;method#failLogin#0;class#AdminController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/drawUpPlan.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="330" column="13" lean-forward="true" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TestMyBatisGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="24" column="67" lean-forward="true" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="83" column="73" selection-start-line="83" selection-start-column="73" selection-end-line="83" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/pojo/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialInventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/PlanStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="160" column="4" lean-forward="true" selection-start-line="160" selection-start-column="4" selection-end-line="170" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#PlanList#0;class#PlanStaffController#0" />
+            <element signature="method#PlanList#0;class#PlanStaffController#0" />
+            <element signature="docComment;method#processOrderView#0;class#PlanStaffController#0" />
+            <element signature="docComment;method#cancelPlan#0;class#PlanStaffController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MaterialPurchaseOrderMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/client-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="212" column="22" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MaterialMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="114" column="4" lean-forward="true" selection-start-line="114" selection-start-column="4" selection-end-line="122" selection-end-column="13" />
+          <folding>
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" />
+            <element signature="n#update#1;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="79" column="76" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/processPlanInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="292" column="18" lean-forward="true" selection-start-line="292" selection-start-column="18" selection-end-line="292" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MaterialInventoryMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#materialInfo#0;class#MaterialStaffController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4142">
+          <caret line="218" column="99" selection-start-line="218" selection-start-column="87" selection-end-line="218" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="63" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="257" column="13" selection-start-line="257" selection-start-column="13" selection-end-line="257" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>MyWeb:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.21469575" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>jdk-11.0.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

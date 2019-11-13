@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qxt.dao.ClientMessageDao">
+    <resultMap id="BaseResultMap" type="cn.qxt.pojo.ClientMessage">
+        <id column="client_id" jdbcType="VARCHAR" property="client_id" />
+        <id column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+        <result column="message" jdbcType="VARCHAR" property="message" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        client_id, create_time, message
+    </sql>
+    <select id="selectByExample" parameterType="cn.qxt.pojo.ClientMessageExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from client_message
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="cn.qxt.pojo.ClientMessageKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from client_message
+        where client_id = #{client_id,jdbcType=VARCHAR}
+        and create_time = #{create_time,jdbcType=TIMESTAMP}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="cn.qxt.pojo.ClientMessageKey">
+        delete from client_message
+        where client_id = #{client_id,jdbcType=VARCHAR}
+          and create_time = #{create_time,jdbcType=TIMESTAMP}
+    </delete>
+    <insert id="insert" parameterType="cn.qxt.pojo.ClientMessage">
+        insert into client_message (client_id, create_time, message
+        )
+        values (#{client_id,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, #{message,jdbcType=VARCHAR}
+               )
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.ClientMessage">
+        insert into client_message
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="client_id != null">
+                client_id,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="message != null">
+                message,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="client_id != null">
+                #{client_id,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="message != null">
+                #{message,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.ClientMessage">
+        update client_message
+        <set>
+            <if test="message != null">
+                message = #{message,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where client_id = #{client_id,jdbcType=VARCHAR}
+        and create_time = #{create_time,jdbcType=TIMESTAMP}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.ClientMessage">
+        update client_message
+        set message = #{message,jdbcType=VARCHAR}
+        where client_id = #{client_id,jdbcType=VARCHAR}
+          and create_time = #{create_time,jdbcType=TIMESTAMP}
+    </update>
+</mapper>

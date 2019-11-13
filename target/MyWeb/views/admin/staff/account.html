@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+    <meta name="theme-color" content="#4285f4">
+    <link rel="shortcut icon" href="../../../images/labellogo.jpg" type="image/x-icon">
+    <title>潮汐</title>
+
+    <link href="../../../theme/css/base.min.css" rel="stylesheet">
+    <link href="../../../theme/css/project.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../../theme/css/user.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="7f08d2d5c89f636849dfe7dd-text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="7f08d2d5c89f636849dfe7dd-text/javascript"></script>
+
+</head>
+<body class="page-orange">
+<header class="header header-orange header-transparent header-waterfall ui-header">
+    <ul class="nav nav-list pull-left">
+        <div>
+            <a data-toggle="menu" href="#ui_menu">
+                <span class="icon icon-lg text-white">menu</span>
+            </a>
+        </div>
+    </ul>
+    <ul class="nav nav-list pull-right">
+        <div class="dropdown margin-right">
+            <a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+                <span class="access-hide">MonarchFlame</span>
+                <span class="icon icon-cd margin-right">account_circle</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <a class="waves-attach" href="staff.html"><span class="icon icon-lg margin-right">account_box</span>用户中心</a>
+                </li>
+                <li>
+                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                </li>
+            </ul>
+        </div>
+    </ul>
+</header>
+
+
+<nav aria-hidden="true" class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu" tabindex="-1">
+    <div class="menu-scroll">
+        <div class="menu-content">
+
+            <a class="menu-logo" href="/MyWeb/home/html/home.html"><i class="icon icon-lg">language</i>&nbsp;主页</a>
+            <ul class="nav">
+                <li>
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_me">
+                        <li>
+                            <a href="staff.html"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
+                        </li>
+                        <li>
+                            <a href="account.html"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                        </li>
+                    </ul>
+
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">销售部</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_sale">
+                        <li>
+                            <a href="/client-list"><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">account_balance_wallet</i>&nbsp;接受订货</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">compare_arrows</i>&nbsp;处理换货</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_finance">财务部</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_finance">
+                        <li>
+                            <a href=" "><i class="icon icon-lg">account_box</i>&nbsp;查看订单</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">visibility</i>&nbsp;修改订单</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">hourglass_empty</i>&nbsp;查看金额流水</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">sync_problem</i>&nbsp;退还货款</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_product">成品库</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_product">
+                        <li>
+                            <a href=" "><i class="icon icon-lg">announcement</i>&nbsp;入库通知</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">code</i>&nbsp;货物出库</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">assignment_late</i>&nbsp;销毁过期产品</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_material">原材料库</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_material">
+                        <li>
+                            <a href=" "><i class="icon icon-lg">shopping_cart</i>&nbsp;进货</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">assignment_late</i>&nbsp;销毁过期材料</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_plan">生产计划科</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_plan">
+                        <li>
+                            <a href=" "><i class="icon icon-lg">shopping_cart</i>&nbsp;生成生产计划</a>
+                        </li>
+                        <li>
+                            <a href=" "><i class="icon icon-lg">assignment_late</i>&nbsp;取消生产计划</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_produce">生产车间</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_produce">
+                        <li>
+                            <a href=" "><i class="icon icon-lg">start</i>&nbsp;批次生产</a>
+                        </li>
+                    </ul>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<main class="content">
+    <div class="content-header ui-content-header">
+        <div class="container">
+            <h1 class="content-heading">我的账户</h1>
+        </div>
+    </div>
+    <div class="container">
+        <section class="content-inner margin-top-no">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="card margin-bottom-no">
+                        <div class="card-main">
+                            <div class="card-inner">
+                                <div class="card-inner">
+                                    <dl class="dl-horizontal">
+                                        <dt>用户名</dt>
+                                        <dd>MonarchFlame</dd>
+                                        <dt>邮箱</dt>
+                                        <dd><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8afbbbbabdbab9b9bbb2beb9caede7ebe3e6a4e9e5e7">[email&#160;protected]</a></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xx-12 col-sm-6">
+                    <div class="card margin-bottom-no">
+                        <div class="card-main">
+                            <div class="card-inner">
+                                <div class="cardbtn-edit">
+                                    <div class="card-heading">账号登录密码修改</div>
+                                    <button class="btn btn-flat" id="pwd-update"><span class="icon">check</span>&nbsp;
+                                    </button>
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <label class="floating-label" for="oldpwd">当前密码</label>
+                                    <input class="form-control maxwidth-edit" id="oldpwd" type="password">
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <label class="floating-label" for="pwd">新密码</label>
+                                    <input class="form-control maxwidth-edit" id="pwd" type="password">
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <label class="floating-label" for="repwd">确认新密码</label>
+                                    <input class="form-control maxwidth-edit" id="repwd" type="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </div>
+</main>
+</body>
+</html>
+
+<!--修改密码-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pwd-update").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "password",
+                dataType: "json",
+                data: {
+                    oldpwd: $("#oldpwd").val(),
+                    pwd: $("#pwd").val(),
+                    repwd: $("#repwd").val()
+                },
+                success: (data) => {
+                $("#result").modal();
+            $$.getElementById('msg').innerHTML = data.msg;
+        },
+            error: function() {
+                $("#result").modal();
+                $$.getElementById('msg').innerHTML = `${
+                    data.msg
+                    } 出现了一些错误`;
+            }
+        })
+        })
+    })
+</script>
