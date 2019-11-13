@@ -64,4 +64,9 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
     public Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id) {
         return materialInventoryDao.selectMaterialInventoryInfoByMaterialId(id);
     }
+
+    public int destroy(int inventoryId)
+    {
+        return materialInventoryDao.deleteByPrimaryKey(inventoryId);
+    }
 }

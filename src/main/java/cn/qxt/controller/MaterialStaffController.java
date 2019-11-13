@@ -77,6 +77,11 @@ public class MaterialStaffController {
         return "admin/staff/material/materialInfo";
     }
 
+    /**
+     * 销毁过期原材料
+     * @param request
+     * @return Map,存放消息
+     */
     @ResponseBody
     @PostMapping(value = "/destruction")
     public Map<String, Object> destruction(HttpServletRequest request)
@@ -84,6 +89,8 @@ public class MaterialStaffController {
         String inventoryId = request.getParameter("inventoryId").toString();
         Map<String,Object> map = new HashMap<String, Object>();
 
+        int ret = materialStaffService.destroy(Integer.valueOf(inventoryId));
+        map.put("ret",ret);
         return map;
     }
 }

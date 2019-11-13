@@ -29,4 +29,6 @@ public interface MaterialStaffService {
     Map<String, Object> selectMaterialInventoryInfoById(Integer id);
 
     Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id);
+
+    int destroy(int inventoryId);
 }
