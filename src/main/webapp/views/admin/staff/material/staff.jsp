@@ -77,13 +77,13 @@ To change this template use File | Settings | File Templates.
                             <a href="/admin/staff/material/staff/material-list"><i class="icon icon-lg">account_box</i>&nbsp;查看原材料库存</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/destruction"><i class="icon icon-lg">announcement</i>&nbsp;销毁过期原材料</a>
+                            <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/discharge"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
+                            <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">announcement</i>&nbsp;原材料入库</a>
+                            <a href="/admin/staff/material/staff/out"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
                         </li>
                         <li>
                             <a href="/admin/staff/material/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>

@@ -1,6 +1,7 @@
 package cn.qxt.service;
 
 import cn.qxt.pojo.Material;
+import cn.qxt.pojo.MaterialInventory;
 import cn.qxt.pojo.MaterialStaff;
 import cn.qxt.pojo.MaterialStaffExample;
 
@@ -31,4 +32,10 @@ public interface MaterialStaffService {
     Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id);
 
     int destroy(int inventoryId);
+
+    /**
+     * 原材料入库，同时添加出入库记录
+     * @param materialInventory 原材料库存信息
+     */
+    void addInventory(MaterialInventory materialInventory);
 }

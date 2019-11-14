@@ -7,10 +7,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eae7fb19-3be1-4d6e-908b-61ada60078b8" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/abackground.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/abackground1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/addMaterial.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialIn.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialOut.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/text.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/text.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/public/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/public/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/MaterialStaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/controller/MaterialStaffController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/WEB-INF/classes/cn/qxt/service/MaterialStaffServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/material-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/material-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/staff.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/views/admin/staff/material/staff.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/MyWeb/views/public/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/MyWeb/views/public/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/qxt/controller/MaterialStaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/qxt/controller/MaterialStaffController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cn/qxt/service/MaterialStaffServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/text.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/text.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,7 +71,7 @@
         <item name="myweb@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="myweb: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="material: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="material_inventory: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -68,47 +87,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="91" column="46" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="46" />
+            <state relative-caret-position="104">
+              <caret line="151" selection-start-line="151" selection-end-line="151" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#materialInfo#0;class#MaterialStaffController#0" />
+                <element signature="docComment;method#allMaterialInfoList#0;class#MaterialStaffController#0" />
+                <element signature="e#4668#4684#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="52" column="44" lean-forward="true" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+            <state relative-caret-position="161">
+              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2161#2162#0" expanded="true" />
-                <element signature="e#2236#2237#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="320" column="21" lean-forward="true" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
+            <state relative-caret-position="74">
+              <caret line="74" selection-start-line="74" selection-end-line="90" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -116,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="272" column="6" lean-forward="true" selection-start-line="272" selection-start-column="6" selection-end-line="272" selection-end-column="6" />
+            <state relative-caret-position="223">
+              <caret line="258" column="73" lean-forward="true" selection-start-line="258" selection-start-column="73" selection-end-line="258" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
               </folding>
@@ -126,10 +145,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/addMaterial.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="24" column="63" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="63" />
+            <state relative-caret-position="19">
+              <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialOut.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -148,17 +176,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getElementsByName</find>
-      <find>insert</find>
-      <find>result</find>
-      <find>requirementInfoList</find>
-      <find>selectReadyProcessRequirementInfo</find>
-      <find>createList</find>
-      <find>orderList</find>
-      <find>Order</find>
-      <find>orderInfo</find>
-      <find>verify_deliver_order_modal</find>
-      <find>order</find>
       <find>取消</find>
       <find>Product</find>
       <find>MaterialS</find>
@@ -178,6 +195,17 @@
       <find>infoifram</find>
       <find>查找</find>
       <find>verify_cancel_plan_modal</find>
+      <find>bg1</find>
+      <find>pay_deposit</find>
+      <find>shop-flex</find>
+      <find>choose_product</find>
+      <find>material-flex</find>
+      <find>verify_modal</find>
+      <find>order_modal</find>
+      <find>result</find>
+      <find>msg</find>
+      <find>insert</find>
+      <find>calculate</find>
     </findStrings>
     <replaceStrings>
       <replace>Order</replace>
@@ -207,6 +235,9 @@
       <replace>material</replace>
       <replace>materialInfo</replace>
       <replace>verify_destruction_modal</replace>
+      <replace>material-flex</replace>
+      <replace>choose_material</replace>
+      <replace>shop-flex</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -226,11 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/views/1.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/2.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/test.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/test.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/public/test.html" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/GoodsDao.java" />
         <option value="$PROJECT_DIR$/src/main/test/HeapOOM.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/ClientServiceImpl.java" />
@@ -262,7 +288,6 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/ProductStaffController.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/workshop/staff.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/drawUpPlan.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/AdminController.java" />
@@ -271,12 +296,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MaterialMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/client-list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/dao/MaterialInventoryDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/MaterialInventoryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialOut.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/addMaterial.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/public/test.html" />
+        <option value="$PROJECT_DIR$/src/main/test/text.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialIn.jsp" />
       </list>
     </option>
   </component>
@@ -310,13 +341,6 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="250" />
     <option name="y" value="-10" />
@@ -329,6 +353,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -377,6 +402,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -438,13 +470,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -456,7 +487,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/images" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -465,22 +496,22 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\images" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\workshop" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\material" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\product" />
+      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\theme\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\images" />
       <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\theme\home_css" />
       <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\client" />
       <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin" />
       <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\workshop" />
-      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\material" />
-      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\views\admin\staff\product" />
-      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\images" />
-      <recent name="D:\JavaSource\SSM\MyWeb\src\main\webapp\theme\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -617,11 +648,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.text.test" />
         <item itemvalue="Application.TestMyBatisGenerator" />
         <item itemvalue="Application.HeapOOM" />
         <item itemvalue="Application.num" />
         <item itemvalue="Application.Book" />
-        <item itemvalue="JUnit.text.test" />
       </list>
     </recent_temporary>
   </component>
@@ -710,6 +741,9 @@
       <workItem from="1573538973988" duration="4008000" />
       <workItem from="1573648025445" duration="1176000" />
       <workItem from="1573649698612" duration="4104000" />
+      <workItem from="1573660541831" duration="415000" />
+      <workItem from="1573705662070" duration="11499000" />
+      <workItem from="1573736129979" duration="3538000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1573651309390</created>
@@ -722,12 +756,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="text_test - 2019.10.19 at 15h 45m 21s.xml">
-      <configuration name="text.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="text_test - 2019.10.19 at 18h 58m 03s.xml">
-      <configuration name="text.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="text_test - 2019.10.19 at 19h 21m 42s.xml">
       <configuration name="text.test" configurationId="JUnit" />
     </history-entry>
@@ -752,9 +780,15 @@
     <history-entry file="text_test - 2019.10.24 at 15h 33m 50s.xml">
       <configuration name="text.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="text_test - 2019.11.14 at 21h 20m 46s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="text_test - 2019.11.14 at 21h 21m 20s.xml">
+      <configuration name="text.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="505439000" />
+    <option name="totallyTimeSpent" value="520891000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -769,7 +803,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49713194" visible="true" weight="0.19705094" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49713194" visible="true" weight="0.17292225" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -780,7 +814,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.21923621" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32956153" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49798927" weight="0.27620396" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49798927" visible="true" weight="0.4815864" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -792,11 +826,11 @@
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50067025" side_tool="true" weight="0.24504249" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32956153" />
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.32956153" />
-      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49932975" visible="true" weight="0.24504249" />
-      <window_info anchor="bottom" id="Messages" order="16" weight="0.15558699" />
+      <window_info anchor="bottom" id="Version Control" order="15" sideWeight="0.49932975" weight="0.16713881" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.15439093" />
       <window_info anchor="bottom" id="调试" order="17" weight="0.21499293" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Database" order="1" weight="0.20643431" />
+      <window_info anchor="right" id="Database" order="1" weight="0.22453083" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -833,6 +867,20 @@
                 </list>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -901,123 +949,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/order.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="277" column="8" lean-forward="true" selection-start-line="277" selection-start-column="8" selection-end-line="278" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/sale/processOrderInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="391" />
-          <folding>
-            <element signature="n#html#0;n#!!top" />
-            <element signature="n#script#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsReturnOrderMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/SaleStaffController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="165" selection-start-line="165" selection-end-line="175" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/product.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" selection-start-line="11" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="20" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductStaffServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="46" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-          <folding>
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/WorkshopStaffServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/AService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/AServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/GoodsMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="121" column="52" lean-forward="true" selection-start-line="121" selection-start-column="52" selection-end-line="121" selection-end-column="52" />
-          <folding>
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/filter/LoginFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1036,13 +967,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="124" column="41" selection-start-line="124" selection-start-column="29" selection-end-line="124" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1124,21 +1048,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="110" column="64" selection-start-line="110" selection-start-column="54" selection-end-line="110" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="docComment;method#drawUpPlan#0;class#PlanStaffServiceImpl#0" />
-            <element signature="e#3728#3729#0" expanded="true" />
-            <element signature="e#3785#3786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PlanMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -1199,13 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialInventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/PlanStaffController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1254,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="79" column="76" selection-start-line="79" selection-start-column="65" selection-end-line="79" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/plan/processPlanInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -1282,10 +1177,169 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/client/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="133" column="6" selection-start-line="133" selection-start-column="6" selection-end-line="133" selection-end-column="6" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2565" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" lean-forward="true" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/common.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="117" column="18" selection-start-line="117" selection-start-column="18" selection-end-line="117" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/public/tos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/client/tos.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="75" column="19" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/bg1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/abackground.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/theme/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="1098" column="28" selection-start-line="1098" selection-start-column="12" selection-end-line="1098" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/public/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#4;n#section#0;n#div#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/staff.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="74" selection-start-line="74" selection-end-line="90" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/text.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="37" column="46" lean-forward="true" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/pojo/MaterialInventory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialOut.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/addMaterial.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="76" column="28" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/PlanStaffServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="84" column="44" lean-forward="true" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="docComment;method#drawUpPlan#0;class#PlanStaffServiceImpl#0" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#3785#3786#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialIn.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="249" column="9" lean-forward="true" selection-start-line="249" selection-start-column="9" selection-end-line="249" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/client/shop.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="151" column="123" selection-start-line="151" selection-start-column="90" selection-end-line="151" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/material-list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="272" column="6" lean-forward="true" selection-start-line="272" selection-start-column="6" selection-end-line="272" selection-end-column="6" />
+        <state relative-caret-position="223">
+          <caret line="258" column="73" lean-forward="true" selection-start-line="258" selection-start-column="73" selection-end-line="258" selection-end-column="73" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
           </folding>
@@ -1294,38 +1348,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/controller/MaterialStaffController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="91" column="46" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="46" />
+        <state relative-caret-position="104">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#materialInfo#0;class#MaterialStaffController#0" />
+            <element signature="docComment;method#allMaterialInfoList#0;class#MaterialStaffController#0" />
+            <element signature="e#4668#4684#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="52" column="44" lean-forward="true" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2161#2162#0" expanded="true" />
-            <element signature="e#2236#2237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/staff/material/materialInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="320" column="21" lean-forward="true" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cn/qxt/service/MaterialStaffService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+        <state relative-caret-position="161">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

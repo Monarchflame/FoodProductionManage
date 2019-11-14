@@ -2,13 +2,13 @@ package cn.qxt.service;
 
 import cn.qxt.dao.MaterialDao;
 import cn.qxt.dao.MaterialInventoryDao;
+import cn.qxt.dao.MaterialRecordDao;
 import cn.qxt.dao.MaterialStaffDao;
-import cn.qxt.pojo.Material;
-import cn.qxt.pojo.MaterialExample;
-import cn.qxt.pojo.MaterialStaff;
-import cn.qxt.pojo.MaterialStaffExample;
+import cn.qxt.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -21,6 +21,8 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
     MaterialDao materialDao;
     @Autowired
     MaterialInventoryDao materialInventoryDao;
+    @Autowired
+    MaterialRecordDao materialRecordDao;
 
     public int deleteByPrimaryKey(String id) {
         return materialStaffDao.deleteByPrimaryKey(id);
@@ -68,5 +70,16 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
     public int destroy(int inventoryId)
     {
         return materialInventoryDao.deleteByPrimaryKey(inventoryId);
+    }
+
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void addInventory(MaterialInventory materialInventory)
+    {
+        materialInventoryDao.insertSelective(materialInventory);
+        MaterialRecord materialRecord = new MaterialRecord();
+        materialRecord.setMaterial_id(materialInventory.getMaterial_id());
+        materialRecord.setQuantity(materialInventory.getQuantity());
+        materialRecord.setType("入库");
+        materialRecordDao.insertSelective(materialRecord);
     }
 }

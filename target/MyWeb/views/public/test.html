@@ -1,63 +1,182 @@
-<!DOCTYPE html>
 
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <meta name="theme-color" content="#4285f4">
+    <title>原材料入库</title>
+
+    <link href="../../theme/css/base.min.css" rel="stylesheet">
+    <link href="../../theme/css/project.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../theme/css/style.css">
+    <link rel="stylesheet" href="../../theme/css/user.css">
 
     <script type="text/javascript" src="../../theme/js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../../theme/js/jquery.tablesorter.js"></script>
 
-    <script type="text/javascript">
-        function Check() {
-            var Tabobj = $("#Tab");
-            var Check = $("table input[type=checkbox]:checked");//在table中找input下类型为checkbox属性为选中状态的数据
-            Check.each(function () {//遍历
-                var row = $(this).parent("td").parent("tr");//获取选中行
-                var id = row.find("[name='Sid']").html();//获取name='Sid'的值
-                var sname = row.find("[name='Sname']").html();
-                alert(sname);
-            })
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
+    <script src="../../theme/js/base.min.js" type="text/javascript"></script>
+    <script src="../../theme/js/project.min.js" type="4text/javascript"></script>
 
-        }
-    </script>
 </head>
-<body>
-<table id="Tab">
-        <tr>
-            <td></td>
-            <td>ID</td> 
-            <td>姓名</td>
-            <td>年龄</td>
-        </tr>
+<body class="page-orange">
+<header class="header header-orange header-transparent header-waterfall ui-header">
+    <ul class="nav nav-list pull-left">
+        <div>
+            <a data-toggle="menu" href="#ui_menu">
+                <span class="icon icon-lg text-white">menu</span>
+            </a>
+        </div>
+    </ul>
+    <ul class="nav nav-list pull-right">
+        <div class="dropdown margin-right">
+            <a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+                <span class="access-hide">MonarchFlame</span>
+                <span class="icon icon-cd margin-right">account_circle</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <a class="waves-attach" href=""><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                </li>
+                <li>
+                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                </li>
+            </ul>
+        </div>
+    </ul>
+</header>
+<nav aria-hidden="true" class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu" tabindex="-1">
+    <div class="menu-scroll">
+        <div class="menu-content">
 
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td  name="Sid">1</td>
-                <td  name="Sname">小明 1</td>
-                <td>1</td>
-            </tr>
-        <tr>
-                    <td><input type="checkbox" /></td>
-                <td  name="Sid">3</td>
-                <td  name="Sname">小明 2</td>
-                <td>2</td>
-        </tr>
-                <tr>
-                <td><input type="checkbox" /></td>
-                <td  name="Sid">4</td>
-                <td  name="Sname">小明 4</td>
-                <td>4</td>
-            </tr>
-    <tr>
-                <td><input type="checkbox" /></td>
-                <td  name="Sid">5</td>
-                <td  name="Sname">小明 5</td>
-                <td>5</td>
-            </tr>
+            <a class="menu-logo" href="/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
+            <ul class="nav">
+                <li>
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_me">
+                        <li>
+                            <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
+                        </li>
+                        <li>
+                            <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                        </li>
+                    </ul>
 
-       
-</table>
-<input type="button" onclick="Check()" value="提交" />
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_material">原材料库</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_material">
+                        <li>
+                            <a href="/admin/staff/material/staff/material-list"><i class="icon icon-lg">account_box</i>&nbsp;查看原材料库存</a>
+                        </li>
+                        <li>
+                            <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
+                        </li>
+                        <li>
+                            <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
+                        </li>
+                        <li>
+                            <a href="/admin/staff/material/staff/out"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
+                        </li>
+                        <li>
+                            <a href="/admin/staff/material/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>
+                        </li>
+                    </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="content">
+    <div class="content-header ui-content-header">
+        <div class="container">
+            <h1 class="content-heading">商品列表</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-lg-12 col-sm-12">
+            <section class="content-inner margin-top-no">
+                <div class="card"></div>
+
+                <div class="ui-switch">
+                    <div class="card">
+                        <div class="card-main">
+                            <div class="card-inner ui-switch">
+                                <div class="switch-btn" id="switch-cards">
+                                    <a href="#" onclick="javascript:UIchange();">
+                                        <i class="mdui-icon material-icons">apps</i>
+                                    </a>
+                                </div>
+                                <div class="switch-btn" id="switch-table">
+                                    <a href="#" onclick="javascript:UIchange();">
+                                        <i class="mdui-icon material-icons">dehaze</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop-flex" style="display: flex;" id="shop-flex"><div class="card"><div class="card-main"><div class="shop-name">果汁</div><div class="shop-price">40.00</div><div class="shop-content"><div class="shop-content-left">商品名称:</div><div class="shop-content-right">果汁</div><div class="shop-content-left">保质期:</div><div class="shop-content-right">365</div><div class="shop-content-left">商品规格:</div><div class="shop-content-right">500ml*12</div></div><div class="shop-content-extra"><div><span class="icon">check_circle_outline</span>1</div></div><a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:buy(1)">购买</a></div></div><div class="card"><div class="card-main"><div class="shop-name">面包</div><div class="shop-price">88.00</div><div class="shop-content"><div class="shop-content-left">商品名称:</div><div class="shop-content-right">面包</div><div class="shop-content-left">保质期:</div><div class="shop-content-right">180</div><div class="shop-content-left">商品规格:</div><div class="shop-content-right">30袋</div></div><div class="shop-content-extra"><div><span class="icon">check_circle_outline</span>1</div></div><a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:buy(2)">购买</a></div></div><div class="flex-fix3"></div><div class="flex-fix4"></div></div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">您确认选择此原材料入库吗？</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_material" type="button">确定
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="order_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal" onclick="closeorder()">×</a>
+                                <h2 class="modal-title">确认</h2>
+                            </div>
+                            <div class="modal-inner">
+                                <p id="id_label">原材料ID：<span id="id"></span></p>
+                                <p id="name_label">原材料名称：<span id="name"></span></p>
+                                <p id="number_label">原材料数量：<input id="number" type="number" oninput="javascript:calculate()"></p>
+                                <p id="shelf_life_label">保质期：<span id="shelf_life"></span></p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button">确定
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-inner">
+                                <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
 </body>
 </html>
-

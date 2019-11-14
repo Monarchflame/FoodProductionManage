@@ -1,6 +1,7 @@
 package cn.qxt.controller;
 
 import cn.qxt.pojo.Material;
+import cn.qxt.pojo.MaterialInventory;
 import cn.qxt.service.MaterialStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin/staff/material/staff")
@@ -39,7 +37,7 @@ public class MaterialStaffController {
     }
 
     /**
-     * 返回原材料详细信息
+     * 返回原材料库存详细信息
      * @return 一个List，包含需求信息： id:产品ID，name:产品名，quantity:数量，create_time:入库时间，expiration_time：过期时间
      */
     @ResponseBody
@@ -90,6 +88,74 @@ public class MaterialStaffController {
         Map<String,Object> map = new HashMap<String, Object>();
 
         int ret = materialStaffService.destroy(Integer.valueOf(inventoryId));
+        map.put("ret",ret);
+        return map;
+    }
+
+    @RequestMapping("/add")
+    public String addMaterialView()
+    {
+        return "admin/staff/material/addMaterial";
+    }
+
+    @RequestMapping("/in")
+    public String materialInView()
+    {
+        return "admin/staff/material/materialIn";
+    }
+
+    @RequestMapping("/out")
+    public String materialOutView()
+    {
+        return "admin/staff/material/materialOut";
+    }
+
+    /**
+     * 返回所有的材料信息
+     * @return materialList:放置着所有原材料信息
+     */
+    @ResponseBody
+    @PostMapping(value = "/allMaterialInfoList")
+    public Map<String, Object> allMaterialInfoList()
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        List<Material> materialList = materialStaffService.selectAllMaterial();
+        map.put("materialList",materialList);
+        return map;
+    }
+
+    /**
+     * 入库
+     * @return ret:1为成功，0为失败。
+     */
+    @ResponseBody
+    @PostMapping(value = "/addInventory")
+    public Map<String, Object> addInventory(HttpServletRequest request)
+    {
+        String materialId = request.getParameter("materialId").toString();
+        String quantity = request.getParameter("quantity").toString();
+        String shelf_life = request.getParameter("shelf_life").toString();
+        MaterialInventory materialInventory = new MaterialInventory();
+        materialInventory.setMaterial_id(Integer.valueOf(materialId));
+        materialInventory.setQuantity(Integer.valueOf(quantity));
+        //计算过期时间
+        Date expiration_time = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(expiration_time);//设置起时间
+        cal.add(Calendar.DATE, Integer.parseInt(shelf_life));
+        expiration_time = cal.getTime();
+        materialInventory.setExpiration_time(expiration_time);
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = 0;
+        try {
+            materialStaffService.addInventory(materialInventory);
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         map.put("ret",ret);
         return map;
     }

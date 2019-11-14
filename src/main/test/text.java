@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,16 +33,13 @@ public class text {
 
     @Test
     public void test() {
-        try {
-            StringBuffer stringBuffer = new StringBuffer();
-            char [] buf = new char[1024];
-            FileReader fileReader = new FileReader("C:\\Users\\10703\\Desktop\\file.txt");
-            while (fileReader.read(buf)>0)
-                stringBuffer.append(buf);
-            System.out.println(stringBuffer.toString());
-        } catch (IOException e) {
-            System.out.println("没有文件");
-        }
+        Date expiration_time = new Date();
+        System.out.println(expiration_time);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(expiration_time);//设置起时间
+        cal.add(Calendar.DATE, 30);
+        expiration_time = cal.getTime();
+        System.out.println(expiration_time);
 
     }
 
