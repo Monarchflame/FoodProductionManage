@@ -1,9 +1,6 @@
 package cn.qxt.service;
 
-import cn.qxt.pojo.Material;
-import cn.qxt.pojo.MaterialInventory;
-import cn.qxt.pojo.MaterialStaff;
-import cn.qxt.pojo.MaterialStaffExample;
+import cn.qxt.pojo.*;
 
 import java.util.List;
 import java.util.Map;
@@ -29,7 +26,9 @@ public interface MaterialStaffService {
 
     Map<String, Object> selectMaterialInventoryInfoById(Integer id);
 
-    Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id);
+    List<Map<String, Object>> selectMaterialInventoryInfoByMaterialId(Integer id);
+
+    List<Map> selectAllMaterialInventoryInfo();
 
     void destroy(int inventoryId);
 
@@ -38,4 +37,17 @@ public interface MaterialStaffService {
      * @param materialInventory 原材料库存信息
      */
     void addInventory(MaterialInventory materialInventory);
+
+    /**
+     * 查找入库记录
+     * @return 入库记录List
+     */
+    List<MaterialRecord> selectInRecord();
+
+    List<MaterialRecord> selectOutRecord();
+
+    List<MaterialRecord> selectDestroyRecord();
+
+    Map<String, Object> selectRecordInfoById(Integer id);
+
 }

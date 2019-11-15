@@ -22,5 +22,7 @@ public interface MaterialInventoryDao {
 
     Map<String, Object> selectMaterialInventoryInfoById(Integer id);
 
-    Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id);
+    List<Map<String, Object>> selectMaterialInventoryInfoByMaterialId(Integer id);
+
+    List<Map> selectAllMaterialInventoryInfo();
 }

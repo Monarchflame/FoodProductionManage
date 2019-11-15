@@ -13,7 +13,7 @@
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
-    <title>员工界面</title>
+    <title>原材料库存</title>
 
     <link href="../../../../theme/css/base.min.css" rel="stylesheet">
     <link href="../../../../theme/css/project.min.css" rel="stylesheet">

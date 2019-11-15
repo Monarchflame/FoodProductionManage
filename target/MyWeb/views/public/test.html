@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
-    <title>原材料入库</title>
+    <title>原材料记录</title>
 
     <link href="../../theme/css/base.min.css" rel="stylesheet">
     <link href="../../theme/css/project.min.css" rel="stylesheet">
@@ -87,71 +87,514 @@
         </div>
     </div>
 </nav>
+
 <main class="content">
     <div class="content-header ui-content-header">
         <div class="container">
-            <h1 class="content-heading">商品列表</h1>
+            <h1 class="content-heading">原材料</h1>
         </div>
     </div>
     <div class="container">
         <div class="col-lg-12 col-sm-12">
             <section class="content-inner margin-top-no">
-                <div class="card"></div>
+                <div class="row">
 
-                <div class="ui-switch">
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner ui-switch">
-                                <div class="switch-btn" id="switch-cards">
-                                    <a href="#" onclick="javascript:UIchange();">
-                                        <i class="mdui-icon material-icons">apps</i>
-                                    </a>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card margin-bottom-no">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <div class="cardbtn-edit">
+                                        <div class="card-heading">查找</div>
+                                        <button class="btn btn-flat" id="findRequirement"><span class="icon">check</span>&nbsp;
+                                        </button>
+                                    </div>
+                                    <div class="form-group form-group-label">
+                                        <label class="floating-label" for="clientName">原材料ID</label>
+                                        <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
+                                    </div>
                                 </div>
-                                <div class="switch-btn" id="switch-table">
-                                    <a href="#" onclick="javascript:UIchange();">
-                                        <i class="mdui-icon material-icons">dehaze</i>
-                                    </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-sm-12 nodelist">
+
+                        <div class="card node-table" style="display: flex;">
+                            <div class="card-main">
+                                <div class="card-inner margin-bottom-no">
+                                    <div class="tile-wrap">
+
+                                        <p class="card-heading">入库记录</p>
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading1">
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">record.material_id : record.material_name</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">'数量'+record.quantity</span></b></strong>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">'入库时间：'+record.in_time</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading1">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card nodetip-table">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading">
+                                                                    <a href="javascript:void(0);" onclick="urlChange(&#39;1&#39;,0,0)">查看详细信息</a>
+                                                                </p>
+                                                                <div>
+                                                                    <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <p class="card-heading">出库节点</p>
+
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading3">
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">record.material_id : record.material_name</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">'数量'+record.quantity</span></b></strong>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">'入库时间：'+record.in_time</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">'出库时间：'+record.out_time</span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="collapsible-region collapse" id="heading3">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card nodetip-table">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading">
+                                                                    <a href="javascript:void(0);" onclick="urlChange(&#39;1&#39;,0,0)">查看详细信息</a>
+                                                                </p>
+                                                                <div>
+                                                                    <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading88">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/香港.png" height="22" width="40">
+                                                                                                                        香港 微软Azure G口 C - VIP1
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">0</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：1704%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">1000Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        0GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status">香港 Azure 微软云 G口 非原生</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading88">
+                                                <div class="tile-sub">
+                                                    <br>
+
+                                                    <!-- 用户等级不小于节点等级 -->
+
+                                                    <div class="card nodetip-table">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+
+
+
+
+
+
+                                                                <p class="card-heading">
+                                                                    <a href="javascript:void(0);" onclick="urlChange(&#39;88&#39;,664,0)">香港 微软Azure G口 C - VIP1
+                                                                        - 单端口 Shadowsocks -
+                                                                        664
+                                                                        端口</a><span class="label label-brand-accent">←点击节点查看配置信息</span>
+                                                                </p>
+
+
+
+
+                                                                <p class="card-heading">
+                                                                    <a href="javascript:void(0);" onclick="urlChange(&#39;88&#39;,994,0)">香港 微软Azure G口 C - VIP1
+                                                                        - 单端口 Shadowsocks -
+                                                                        994
+                                                                        端口</a><span class="label label-brand-accent">←点击节点查看配置信息</span>
+                                                                </p>
+
+                                                                <div>
+                                                                    <i class="icon icon-lg node-icon">chat</i> 香港 Azure 微软云 G口 非原生
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner" id="info79">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                        $().ready(function () {
+                                                            $('#heading88').on("shown.bs.tile", function () {
+                                                                $("#info79").load("/user/node/88/ajax");
+                                                            });
+                                                        });
+                                                    </script>
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <p class="card-heading">VIP 3                                                 用户节点</p>
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading90">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/新加坡.png" height="22" width="40">
+                                                                                                                        新加坡 微软Azure G口 A 游戏节点 - VIP3
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">0</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：0%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">15Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        24GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status"> 新加坡 Azure G口 游戏节点 已限速 屏蔽视频</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading90">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading" align="center"><b> <i class="icon icon-lg">visibility_off</i>
+                                                                    您当前等级不足以使用该节点，如需升级请<a href="https://chaoxi.website/user/shop">点击这里</a>升级套餐</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading44">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/日本.png" height="22" width="40">
+                                                                                                                        日本 大阪府 游戏 A  - VIP3
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">1</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：13%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">15Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        8GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status">日本软银 游戏线路 屏蔽视频 大阪府大阪 支持UDP</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading44">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading" align="center"><b> <i class="icon icon-lg">visibility_off</i>
+                                                                    您当前等级不足以使用该节点，如需升级请<a href="https://chaoxi.website/user/shop">点击这里</a>升级套餐</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading91">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/日本.png" height="22" width="40">
+                                                                                                                        日本 大阪府 游戏 B - VIP3
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">0</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：0%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">15Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        0GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status">日本软银 游戏线路 屏蔽视频 大阪府大阪 支持UDP</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading91">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading" align="center"><b> <i class="icon icon-lg">visibility_off</i>
+                                                                    您当前等级不足以使用该节点，如需升级请<a href="https://chaoxi.website/user/shop">点击这里</a>升级套餐</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading59">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/日本.png" height="22" width="40">
+                                                                                                                        日本 微软Azure G口 游戏节点 A - VIP3
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">0</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：0%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">15Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        33GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status">日本 Azure G口 游戏节点 已限速 屏蔽视频</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading59">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading" align="center"><b> <i class="icon icon-lg">visibility_off</i>
+                                                                    您当前等级不足以使用该节点，如需升级请<a href="https://chaoxi.website/user/shop">点击这里</a>升级套餐</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="tile tile-collapse">
+                                            <div data-toggle="tile" data-target="#heading85">
+                                                <div class="tile-side pull-left" data-ignore="tile">
+                                                    <div class="avatar avatar-sm nodeonline">
+                                                        <span class="material-icons">cloud_queue</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tile-inner">
+                                                    <div class="text-overflow node-textcolor">
+														<span class="enable-flag">
+															                                                                <img src="./潮汐_files/阿根廷.png" height="22" width="40">
+                                                                                                                        阿根廷 A 50Mbps 代购党 - VIP3
+														</span>
+                                                        |
+                                                        <span class="node-icon">
+                                                            <i class="icon icon-lg">flight_takeoff</i></span>
+                                                        <strong><b><span class="node-alive">0</span></b></strong>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">cloud</i></span>
+                                                        <span class="node-load">负载：4%</span>
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">import_export</i></span>
+                                                        <span class="node-mothed">50Mbps</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">equalizer</i></span>
+                                                        0GB
+                                                        | <span class="node-icon">
+                                                            <i class="icon icon-lg">network_check</i></span>
+                                                        <span class="node-tr">1 倍率</span>
+                                                        | <span class="node-icon"><i class="icon icon-lg">notifications_none</i></span>
+                                                        <span class="node-status">阿根廷节点 小众线路 Steam代购比土耳其还便宜哟~</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="collapsible-region collapse" id="heading85">
+                                                <div class="tile-sub">
+                                                    <br>
+                                                    <div class="card">
+                                                        <div class="card-main">
+                                                            <div class="card-inner">
+                                                                <p class="card-heading" align="center"><b> <i class="icon icon-lg">visibility_off</i>
+                                                                    您当前等级不足以使用该节点，如需升级请<a href="https://chaoxi.website/user/shop">点击这里</a>升级套餐</b>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="shop-flex" style="display: flex;" id="shop-flex"><div class="card"><div class="card-main"><div class="shop-name">果汁</div><div class="shop-price">40.00</div><div class="shop-content"><div class="shop-content-left">商品名称:</div><div class="shop-content-right">果汁</div><div class="shop-content-left">保质期:</div><div class="shop-content-right">365</div><div class="shop-content-left">商品规格:</div><div class="shop-content-right">500ml*12</div></div><div class="shop-content-extra"><div><span class="icon">check_circle_outline</span>1</div></div><a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:buy(1)">购买</a></div></div><div class="card"><div class="card-main"><div class="shop-name">面包</div><div class="shop-price">88.00</div><div class="shop-content"><div class="shop-content-left">商品名称:</div><div class="shop-content-right">面包</div><div class="shop-content-left">保质期:</div><div class="shop-content-right">180</div><div class="shop-content-left">商品规格:</div><div class="shop-content-right">30袋</div></div><div class="shop-content-extra"><div><span class="icon">check_circle_outline</span>1</div></div><a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:buy(2)">购买</a></div></div><div class="flex-fix3"></div><div class="flex-fix4"></div></div>
-
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="material_modal" role="dialog" tabindex="-1">
                     <div class="modal-dialog modal-xs">
                         <div class="modal-content">
                             <div class="modal-heading">
-                                <a class="modal-close" data-dismiss="modal">×</a>
-                                <h2 class="modal-title">您确认选择此原材料入库吗？</h2>
+                                <a class="modal-close" data-dismiss="modal" onclick="closematerial()">×</a>
+                                <h2 class="modal-title">生产计划确认</h2>
                             </div>
-                            <div class="modal-footer">
-                                <p class="text-right">
-                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_material" type="button">确定
-                                    </button>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <div id="material-inner" class="modal-inner">
 
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="order_modal" role="dialog" tabindex="-1">
-                    <div class="modal-dialog modal-xs">
-                        <div class="modal-content">
-                            <div class="modal-heading">
-                                <a class="modal-close" data-dismiss="modal" onclick="closeorder()">×</a>
-                                <h2 class="modal-title">确认</h2>
-                            </div>
-                            <div class="modal-inner">
-                                <p id="id_label">原材料ID：<span id="id"></span></p>
-                                <p id="name_label">原材料名称：<span id="name"></span></p>
-                                <p id="number_label">原材料数量：<input id="number" type="number" oninput="javascript:calculate()"></p>
-                                <p id="shelf_life_label">保质期：<span id="shelf_life"></span></p>
                             </div>
                             <div class="modal-footer">
                                 <p class="text-right">
-                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button">确定
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="material_verify" type="button">确定
                                     </button>
                                 </p>
                             </div>
@@ -174,9 +617,19 @@
                         </div>
                     </div>
                 </div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="materialinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
+                    <div class="modal-dialog modal-full">
+                        <div class="modal-content">
+                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" ></iframe>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
     </div>
 </main>
+
 </body>
 </html>

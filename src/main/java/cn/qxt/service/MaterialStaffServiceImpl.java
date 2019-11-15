@@ -63,8 +63,12 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
     public Map<String, Object> selectMaterialInventoryInfoById(Integer id) {
         return materialInventoryDao.selectMaterialInventoryInfoById(id);
     }
-    public Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id) {
+    public List<Map<String, Object>> selectMaterialInventoryInfoByMaterialId(Integer id) {
         return materialInventoryDao.selectMaterialInventoryInfoByMaterialId(id);
+    }
+    public List<Map> selectAllMaterialInventoryInfo()
+    {
+        return materialInventoryDao.selectAllMaterialInventoryInfo();
     }
 
     @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
@@ -88,5 +92,29 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
         materialRecord.setQuantity(materialInventory.getQuantity());
         materialRecord.setType("入库");
         materialRecordDao.insertSelective(materialRecord);
+    }
+
+    public List<MaterialRecord> selectInRecord()
+    {
+        MaterialRecordExample example = new MaterialRecordExample();
+        example.or().andTypeEqualTo("入库");
+        return materialRecordDao.selectByExample(example);
+    }
+    public List<MaterialRecord> selectOutRecord()
+    {
+        MaterialRecordExample example = new MaterialRecordExample();
+        example.or().andTypeEqualTo("出库");
+        return materialRecordDao.selectByExample(example);
+    }
+    public List<MaterialRecord> selectDestroyRecord()
+    {
+        MaterialRecordExample example = new MaterialRecordExample();
+        example.or().andTypeEqualTo("销毁");
+        return materialRecordDao.selectByExample(example);
+    }
+
+    public Map<String, Object> selectRecordInfoById(Integer id)
+    {
+        return materialRecordDao.selectRecordInfoById(id);
     }
 }

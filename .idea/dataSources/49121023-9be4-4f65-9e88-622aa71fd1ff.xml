@@ -1326,478 +1326,484 @@ create_time</ColNames>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="297" parent="216" name="PRIMARY">
+    <column id="297" parent="216" name="inventory_id">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="298" parent="216" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="298" parent="217" name="Id">
+    <column id="299" parent="217" name="Id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="217" name="material_id">
+    <column id="300" parent="217" name="material_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="217" name="quantity">
+    <column id="301" parent="217" name="quantity">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="217" name="create_time">
+    <column id="302" parent="217" name="create_time">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="302" parent="217" name="PRIMARY">
+    <key id="303" parent="217" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="218" name="id">
+    <column id="304" parent="218" name="id">
       <Position>1</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="218" name="password">
+    <column id="305" parent="218" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="218" name="name">
+    <column id="306" parent="218" name="name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="218" name="position">
+    <column id="307" parent="218" name="position">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="218" name="salary">
+    <column id="308" parent="218" name="salary">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="308" parent="218" name="PRIMARY">
+    <key id="309" parent="218" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="309" parent="219" name="id">
+    <column id="310" parent="219" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="219" name="client_id">
+    <column id="311" parent="219" name="client_id">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="219" name="product_id">
+    <column id="312" parent="219" name="product_id">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="219" name="quantity">
+    <column id="313" parent="219" name="quantity">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="219" name="status">
+    <column id="314" parent="219" name="status">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="219" name="create_time">
+    <column id="315" parent="219" name="create_time">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="219" name="deposit">
+    <column id="316" parent="219" name="deposit">
       <Position>7</Position>
       <DataType>double(10,2 digit)|0s</DataType>
       <DefaultExpression>0.00</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="219" name="total_payment">
+    <column id="317" parent="219" name="total_payment">
       <Position>8</Position>
       <DataType>double(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0.00</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="317" parent="219" name="PRIMARY">
+    <key id="318" parent="219" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <trigger id="318" parent="219" name="trigger_addorder">
+    <trigger id="319" parent="219" name="trigger_addorder">
       <SourceTextLength>588</SourceTextLength>
       <Definer>root@localhost</Definer>
       <Turn>after-row</Turn>
       <Events>I</Events>
     </trigger>
-    <column id="319" parent="220" name="id">
+    <column id="320" parent="220" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="220" name="product_id">
+    <column id="321" parent="220" name="product_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="220" name="quantity">
+    <column id="322" parent="220" name="quantity">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="220" name="finish_time">
+    <column id="323" parent="220" name="finish_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="220" name="status">
+    <column id="324" parent="220" name="status">
       <Position>5</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;未执行&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="220" name="create_time">
+    <column id="325" parent="220" name="create_time">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="325" parent="220" name="PRIMARY">
+    <key id="326" parent="220" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="326" parent="221" name="id">
+    <column id="327" parent="221" name="id">
       <Position>1</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="221" name="password">
+    <column id="328" parent="221" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="221" name="name">
+    <column id="329" parent="221" name="name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="221" name="position">
+    <column id="330" parent="221" name="position">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="221" name="salary">
+    <column id="331" parent="221" name="salary">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="331" parent="221" name="PRIMARY">
+    <key id="332" parent="221" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="332" parent="222" name="id">
+    <column id="333" parent="222" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="222" name="name">
+    <column id="334" parent="222" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="222" name="shelf_life">
+    <column id="335" parent="222" name="shelf_life">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="222" name="unit_price">
+    <column id="336" parent="222" name="unit_price">
       <Position>4</Position>
       <DataType>double(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="222" name="specification">
+    <column id="337" parent="222" name="specification">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="337" parent="222" name="PRIMARY">
+    <key id="338" parent="222" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="338" parent="223" name="product_id">
+    <column id="339" parent="223" name="product_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="223" name="material_id">
+    <column id="340" parent="223" name="material_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="223" name="material_quantity">
+    <column id="341" parent="223" name="material_quantity">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="341" parent="223" name="PRIMARY">
+    <key id="342" parent="223" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>product_id
 material_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="342" parent="224" name="id">
+    <column id="343" parent="224" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="224" name="product_id">
+    <column id="344" parent="224" name="product_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="224" name="quantity">
+    <column id="345" parent="224" name="quantity">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="224" name="create_time">
+    <column id="346" parent="224" name="create_time">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="224" name="status">
+    <column id="347" parent="224" name="status">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;未确认&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="347" parent="224" name="PRIMARY">
+    <key id="348" parent="224" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="348" parent="225" name="id">
+    <column id="349" parent="225" name="id">
       <Position>1</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="225" name="password">
+    <column id="350" parent="225" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="225" name="name">
+    <column id="351" parent="225" name="name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="225" name="position">
+    <column id="352" parent="225" name="position">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="225" name="salary">
+    <column id="353" parent="225" name="salary">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="353" parent="225" name="PRIMARY">
+    <key id="354" parent="225" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="354" parent="226" name="id">
+    <column id="355" parent="226" name="id">
       <Position>1</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="226" name="password">
+    <column id="356" parent="226" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="226" name="name">
+    <column id="357" parent="226" name="name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="226" name="position">
+    <column id="358" parent="226" name="position">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="226" name="salary">
+    <column id="359" parent="226" name="salary">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="359" parent="226" name="PRIMARY">
+    <key id="360" parent="226" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="360" parent="227" name="id">
+    <column id="361" parent="227" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="227" name="product_id">
+    <column id="362" parent="227" name="product_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="227" name="quantity">
+    <column id="363" parent="227" name="quantity">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="227" name="create_time">
+    <column id="364" parent="227" name="create_time">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="227" name="status">
+    <column id="365" parent="227" name="status">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="227" name="ship_time">
+    <column id="366" parent="227" name="ship_time">
       <Position>6</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="366" parent="227" name="PRIMARY">
+    <key id="367" parent="227" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="367" parent="228" name="Id">
+    <column id="368" parent="228" name="Id">
       <Position>1</Position>
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="228" name="password">
+    <column id="369" parent="228" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="228" name="name">
+    <column id="370" parent="228" name="name">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="228" name="position">
+    <column id="371" parent="228" name="position">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="228" name="salary">
+    <column id="372" parent="228" name="salary">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="372" parent="228" name="PRIMARY">
+    <key id="373" parent="228" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>

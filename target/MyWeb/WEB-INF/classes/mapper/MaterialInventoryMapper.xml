@@ -141,4 +141,13 @@
                       on material_inventory.material_id = material.id
         where material_inventory.material_id = #{id,jdbcType=INTEGER}
     </select>
+
+    <select id="selectAllMaterialInventoryInfo" resultType="java.util.Map">
+        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+        from material
+                 join material_record
+                      on material_id = material.id
+                 join material_inventory
+                      on material_inventory.material_id = material.id
+    </select>
 </mapper>

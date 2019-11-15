@@ -13,6 +13,8 @@ public class MaterialRecord {
 
     private Date create_time;
 
+    private Integer inventory_id;
+
     public Integer getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class MaterialRecord {
 
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
+    }
+
+    public Integer getInventory_id() {
+        return inventory_id;
+    }
+
+    public void setInventory_id(Integer inventory_id) {
+        this.inventory_id = inventory_id;
     }
 }

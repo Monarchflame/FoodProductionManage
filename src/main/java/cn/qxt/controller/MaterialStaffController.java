@@ -2,6 +2,7 @@ package cn.qxt.controller;
 
 import cn.qxt.pojo.Material;
 import cn.qxt.pojo.MaterialInventory;
+import cn.qxt.pojo.MaterialRecord;
 import cn.qxt.service.MaterialStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,12 +49,7 @@ public class MaterialStaffController {
         List<Material> materialList = materialStaffService.selectAllMaterial();
 
         List <Map> materialInfoList = new ArrayList<Map>();
-        for (Material material : materialList)
-        {
-            Map<String, Object> stringObjectMap = materialStaffService.selectMaterialInventoryInfoByMaterialId(material.getId());
-            if (stringObjectMap != null)
-                materialInfoList.add(stringObjectMap);
-        }
+        materialInfoList = materialStaffService.selectAllMaterialInventoryInfo();
         map.put("materialInfoList",materialInfoList);
         return map;
     }
@@ -164,6 +160,46 @@ public class MaterialStaffController {
             ex.printStackTrace();
         }
         map.put("ret",ret);
+        return map;
+    }
+
+    @GetMapping(value = "/record")
+    public String recordView()
+    {
+        return "admin/staff/material/record";
+    }
+
+    /**
+     * 返回所有的记录
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/allRecordInfo")
+    public Map<String, Object> allRecordInfo(HttpServletRequest request)
+    {
+        List<MaterialRecord> inRecord = materialStaffService.selectInRecord();
+        List<Map<String, Object>> inRecordInfoList = new ArrayList<Map<String, Object>>();
+        for (MaterialRecord materialRecord: inRecord) {
+            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
+        }
+
+        List<MaterialRecord> outRecord = materialStaffService.selectOutRecord();
+        List<Map<String, Object>> outRecordInfoList = new ArrayList<Map<String, Object>>();
+        for (MaterialRecord materialRecord: outRecord) {
+            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
+        }
+
+        List<MaterialRecord> destroyRecord = materialStaffService.selectDestroyRecord();
+        List<Map<String, Object>> destroyRecordInfoList = new ArrayList<Map<String, Object>>();
+        for (MaterialRecord materialRecord: destroyRecord) {
+            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
+        }
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("inRecordInfoList",inRecordInfoList);
+        map.put("outRecordInfoList",outRecordInfoList);
+        map.put("destroyRecordInfoList",destroyRecordInfoList);
         return map;
     }
 }
