@@ -77,7 +77,7 @@ public class MaterialStaffController {
 
     /**
      * 销毁过期原材料
-     * @param request
+     * @param request HttpServletRequest
      * @return Map,存放消息
      */
     @ResponseBody
@@ -86,8 +86,15 @@ public class MaterialStaffController {
     {
         String inventoryId = request.getParameter("inventoryId").toString();
         Map<String,Object> map = new HashMap<String, Object>();
-
-        int ret = materialStaffService.destroy(Integer.valueOf(inventoryId));
+        int ret = 0;
+        try {
+            materialStaffService.destroy(Integer.valueOf(inventoryId));
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         map.put("ret",ret);
         return map;
     }

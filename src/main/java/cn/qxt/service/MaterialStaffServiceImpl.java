@@ -67,9 +67,16 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
         return materialInventoryDao.selectMaterialInventoryInfoByMaterialId(id);
     }
 
-    public int destroy(int inventoryId)
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void destroy(int inventoryId)
     {
-        return materialInventoryDao.deleteByPrimaryKey(inventoryId);
+        MaterialInventory materialInventory = materialInventoryDao.selectByPrimaryKey(inventoryId);
+        MaterialRecord materialRecord = new MaterialRecord();
+        materialRecord.setMaterial_id(materialInventory.getMaterial_id());
+        materialRecord.setQuantity(materialInventory.getQuantity());
+        materialRecord.setType("销毁");
+        materialRecordDao.insertSelective(materialRecord);
+        materialInventoryDao.deleteByPrimaryKey(inventoryId);
     }
 
     @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")

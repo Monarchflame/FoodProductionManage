@@ -31,7 +31,7 @@ public interface MaterialStaffService {
 
     Map<String, Object> selectMaterialInventoryInfoByMaterialId(Integer id);
 
-    int destroy(int inventoryId);
+    void destroy(int inventoryId);
 
     /**
      * 原材料入库，同时添加出入库记录
