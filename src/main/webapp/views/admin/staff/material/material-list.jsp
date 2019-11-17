@@ -81,6 +81,9 @@
                             <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
                         <li>
+                            <a href="/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                        </li>
+                        <li>
                             <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
                         <li>
@@ -112,12 +115,12 @@
                                 <div class="card-inner">
                                     <div class="cardbtn-edit">
                                         <div class="card-heading">查找</div>
-                                        <button class="btn btn-flat" id="findRequirement"><span class="icon">check</span>&nbsp;
+                                        <button class="btn btn-flat" id="findInventory"><span class="icon">check</span>&nbsp;
                                         </button>
                                     </div>
                                     <div class="form-group form-group-label">
-                                        <label class="floating-label" for="clientName">原材料ID</label>
-                                        <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
+                                        <label class="floating-label" for="materialID">原材料ID</label>
+                                        <input class="form-control maxwidth-edit"  autocomplete="off"  name="materialID" id="materialID">
                                     </div>
                                 </div>
                             </div>
@@ -195,53 +198,58 @@
 </html>
 <script>
     $(document).ready(function () {
-        $.ajax({
-            type: "POST",
-            url: "/admin/staff/material/staff/materialInfoList",
-            dataType: "json",
-            async:false,
-            data: {
-            },
-            success: function(data){
-                var materialInfoList = eval(data.materialInfoList);
-                var materialTableHTML=[];
-                materialTableHTML.push(
-                    '<thead>\n' +
-                    '<tr>\n' +
-                    '<td style=" background: #f0faff;"><input type="checkbox" id="checkall" lay-skin="primary" onclick="javascript:selectAll();"></td>\n' +
-                    '<th>库存ID</th>\n' +
-                    '<th>原材料ID</th>\n' +
-                    '<th>名称</th>\n' +
-                    '<th>库存</th>\n' +
-                    '<th>入库时间</th>\n' +
-                    '<th>过期时间</th>\n' +
-                    '</tr>\n' +
-                    '</thead>' +
-                    '<tbody>\n');
-
-                for (let i=0; i<materialInfoList.length; i++)
-                {
-                    var materialInfo = materialInfoList[i];
+        function selectMaterialInfo(materialID)
+        {
+            $.ajax({
+                type: "POST",
+                url: "/admin/staff/material/staff/materialInfoList",
+                dataType: "json",
+                async:false,
+                data: {
+                    materialID:materialID
+                },
+                success: function(data){
+                    var materialInfoList = eval(data.materialInfoList);
+                    var materialTableHTML=[];
                     materialTableHTML.push(
-                        '<tr onclick="javascript:edit1(' + materialInfo.inventory_id + ');">\n' +
-                        '<th><input type="checkbox" name="check" lay-skin="primary"></th>\n' +
-                        '<th name="inventory_id">'+ materialInfo.inventory_id +'</th>\n' +
-                        '<th name="material_id">'+ materialInfo.material_id +'</th>\n' +
-                        '<th name="product_id">'+ materialInfo.name +'</th>\n' +
-                        '<th name="name">'+ materialInfo.quantity +'</th>\n' +
-                        '<th name="quantity">'+ (new Date(materialInfo.create_time)).toLocaleString() +'</th>\n' +
-                        '<th name="create_time">'+ (new Date(materialInfo.expiration_time)).toLocaleString() +'</th>\n' +
-                        '</tr>');
-                }
-                materialTableHTML.push('</tbody>');
-                $('#materialTable').html(materialTableHTML.join(''));
-            },
-            error: (jqXHR) => {
-                $("#result").modal();
-                document.getElementById('msg').innerHTML = `发生了错误`;
-            }
+                        '<thead>\n' +
+                        '<tr>\n' +
+                        '<td style=" background: #f0faff;"><input type="checkbox" id="checkall" lay-skin="primary" onclick="javascript:selectAll();"></td>\n' +
+                        '<th>库存ID</th>\n' +
+                        '<th>原材料ID</th>\n' +
+                        '<th>名称</th>\n' +
+                        '<th>库存</th>\n' +
+                        '<th>入库时间</th>\n' +
+                        '<th>过期时间</th>\n' +
+                        '</tr>\n' +
+                        '</thead>' +
+                        '<tbody>\n');
 
-        });
+                    for (let i=0; i<materialInfoList.length; i++)
+                    {
+                        var materialInfo = materialInfoList[i];
+                        materialTableHTML.push(
+                            '<tr onclick="javascript:edit1(' + materialInfo.inventory_id + ');">\n' +
+                            '<th><input type="checkbox" name="check" lay-skin="primary"></th>\n' +
+                            '<th name="inventory_id">'+ materialInfo.inventory_id +'</th>\n' +
+                            '<th name="material_id">'+ materialInfo.material_id +'</th>\n' +
+                            '<th name="product_id">'+ materialInfo.name +'</th>\n' +
+                            '<th name="name">'+ materialInfo.quantity +'</th>\n' +
+                            '<th name="quantity">'+ (new Date(materialInfo.create_time)).toLocaleString() +'</th>\n' +
+                            '<th name="create_time">'+ (new Date(materialInfo.expiration_time)).toLocaleString() +'</th>\n' +
+                            '</tr>');
+                    }
+                    materialTableHTML.push('</tbody>');
+                    $('#materialTable').html(materialTableHTML.join(''));
+                },
+                error: (jqXHR) => {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+
+            });
+        }
+        selectMaterialInfo("");
         $("#materialTable").tablesorter();
 
         selectAll = function () {
@@ -269,7 +277,12 @@
         edit1 = function (inventory_id) {
             document.getElementById('infoifram').src = "/admin/staff/material/staff/materialInfo?inventory_id="+inventory_id;
             $("#materialinfo").modal();
-        }
+        };
+
+        $("#findInventory").click(function () {
+            let materialID = $("#materialID").val();
+            selectMaterialInfo(materialID);
+        })
     })
 
 </script>

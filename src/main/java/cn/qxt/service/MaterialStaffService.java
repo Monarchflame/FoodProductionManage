@@ -26,8 +26,17 @@ public interface MaterialStaffService {
 
     Map<String, Object> selectMaterialInventoryInfoById(Integer id);
 
-    List<Map<String, Object>> selectMaterialInventoryInfoByMaterialId(Integer id);
+    /**
+     * 根据材料ID选择库存信息
+     * @param id 材料ID
+     * @return
+     */
+    List<Map> selectMaterialInventoryInfoByMaterialId(Integer id);
 
+    /**
+     * 选择所有库存信息
+     * @return
+     */
     List<Map> selectAllMaterialInventoryInfo();
 
     void destroy(int inventoryId);
@@ -50,4 +59,21 @@ public interface MaterialStaffService {
 
     Map<String, Object> selectRecordInfoById(Integer id);
 
+    int andMaterial(Material material);
+
+    int selectAllRepertoryByMaterialId(Integer material_id);
+
+    List<Map> selectReadyProcessRequirementInfo();
+
+    List<Map> selectReadyProcessRequirementInfoByMaterialID(Integer material_id);
+
+    /**
+     * 出库函数
+     * @param material_id
+     * @param requirement
+     * @param requirementIdList
+     */
+    void inventoryOut(Integer material_id, Integer requirement, Integer[] requirementIdList);
+
+    int newMaterialPurchaseOrder(MaterialPurchaseOrder materialPurchaseOrder);
 }

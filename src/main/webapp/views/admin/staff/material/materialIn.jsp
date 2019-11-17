@@ -81,6 +81,9 @@
                                 <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                             </li>
                             <li>
+                                <a href="/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                            </li>
+                            <li>
                                 <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                             </li>
                             <li>
@@ -265,7 +268,7 @@
                 if (data.ret === 1) {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = '入库成功，已自动生成入库记录';
-                    window.setTimeout("location.href='/admin/staff/material/staff/materialIn'", 1200);
+                    window.setTimeout("location.href='/admin/staff/material/staff/in'", 1200);
                 } else {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = '入库失败';

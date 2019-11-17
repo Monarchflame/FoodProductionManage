@@ -121,4 +121,9 @@
                       on material_inventory.material_id = material.id
         where material.id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectAllRepertoryByMaterialId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select sum(quantity)
+        from material_inventory
+        where material_id = #{product_id,jdbcType=INTEGER}
+    </select>
 </mapper>

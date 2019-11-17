@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 10703
-  Date: 2019/11/11
-  Time: 14:52
+  Date: 2019/11/16
+  Time: 17:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
-    <title>原材料库存</title>
+    <title>购买原材料</title>
 
     <link href="../../../../theme/css/base.min.css" rel="stylesheet">
     <link href="../../../../theme/css/project.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
     <script src="../../../../theme/js/base.min.js" type="text/javascript"></script>
     <script src="../../../../theme/js/project.min.js" type="4text/javascript"></script>
-    
+
 </head>
 <body class="page-orange">
 <header class="header header-orange header-transparent header-waterfall ui-header">
@@ -97,67 +97,70 @@
         </div>
     </div>
 </nav>
-
 <main class="content">
     <div class="content-header ui-content-header">
         <div class="container">
-            <h1 class="content-heading">原材料</h1>
+            <h1 class="content-heading">商品列表</h1>
         </div>
     </div>
     <div class="container">
         <div class="col-lg-12 col-sm-12">
             <section class="content-inner margin-top-no">
-                <div class="row">
-
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card margin-bottom-no">
-                            <div class="card-main">
-                                <div class="card-inner">
-                                    <div class="cardbtn-edit">
-                                        <div class="card-heading">查找</div>
-                                        <button class="btn btn-flat" id="findInventory"><span class="icon">check</span>&nbsp;
-                                        </button>
-                                    </div>
-                                    <div class="form-group form-group-label">
-                                        <label class="floating-label" for="materialID">原材料ID</label>
-                                        <input class="form-control maxwidth-edit"  autocomplete="off"  name="materialID" id="materialID">
-                                    </div>
+                <div class="ui-switch">
+                    <div class="card">
+                        <div class="card-main">
+                            <div class="card-inner ui-switch">
+                                <div class="switch-btn" id="switch-cards">
+                                    <a href="#" onclick="javascript:UIchange();">
+                                        <i class="mdui-icon material-icons">apps</i>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-12 col-md-12">
-                        <div class="card margin-bottom-no">
-                            <div class="card-main">
-                                <div class="card-inner">
-                                    <div class="card-table">
-                                        <div class="table-responsive table-user">
-                                            <table class="table table-fixed tablesorter" id="materialTable">
-
-                                            </table>
-                                        </div>
-                                    </div>
+                                <div class="switch-btn" id="switch-table">
+                                    <a href="#" onclick="javascript:UIchange();">
+                                        <i class="mdui-icon material-icons">dehaze</i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="material_modal" role="dialog" tabindex="-1">
+                <div class="shop-flex" style="display: flex;" id="shop-flex">
+
+                </div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
                     <div class="modal-dialog modal-xs">
                         <div class="modal-content">
                             <div class="modal-heading">
-                                <a class="modal-close" data-dismiss="modal" onclick="closematerial()">×</a>
-                                <h2 class="modal-title">生产计划确认</h2>
-                            </div>
-                            <div id="material-inner" class="modal-inner">
-
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">您确认购入此原材料吗？</h2>
                             </div>
                             <div class="modal-footer">
                                 <p class="text-right">
-                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="material_verify" type="button">确定
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_material" type="button">确定
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="order_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">确认</h2>
+                            </div>
+                            <div class="modal-inner">
+                                <p id="id_label">原材料ID：<span id="id"></span></p>
+                                <p id="number_label">原材料数量：<input id="number" type="number" oninput="javascript:calculates()"></p>
+                                <p id="money_label">价格：<input id="money" type="money" oninput="javascript:calculates()"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button">确定
                                     </button>
                                 </p>
                             </div>
@@ -180,109 +183,100 @@
                         </div>
                     </div>
                 </div>
-
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="materialinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
-                    <div class="modal-dialog modal-full">
-                        <div class="modal-content">
-                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" ></iframe>
-                        </div>
-                    </div>
-                </div>
-
             </section>
         </div>
     </div>
 </main>
-
 </body>
 </html>
 <script>
-    $(document).ready(function () {
-        function selectMaterialInfo(materialID)
-        {
-            $.ajax({
-                type: "POST",
-                url: "/admin/staff/material/staff/materialInfoList",
-                dataType: "json",
-                async:false,
-                data: {
-                    materialID:materialID
-                },
-                success: function(data){
-                    var materialInfoList = eval(data.materialInfoList);
-                    var materialTableHTML=[];
-                    materialTableHTML.push(
-                        '<thead>\n' +
-                        '<tr>\n' +
-                        '<td style=" background: #f0faff;"><input type="checkbox" id="checkall" lay-skin="primary" onclick="javascript:selectAll();"></td>\n' +
-                        '<th>库存ID</th>\n' +
-                        '<th>原材料ID</th>\n' +
-                        '<th>名称</th>\n' +
-                        '<th>库存</th>\n' +
-                        '<th>入库时间</th>\n' +
-                        '<th>过期时间</th>\n' +
-                        '</tr>\n' +
-                        '</thead>' +
-                        '<tbody>\n');
-
-                    for (let i=0; i<materialInfoList.length; i++)
-                    {
-                        var materialInfo = materialInfoList[i];
-                        materialTableHTML.push(
-                            '<tr onclick="javascript:edit1(' + materialInfo.inventory_id + ');">\n' +
-                            '<th><input type="checkbox" name="check" lay-skin="primary"></th>\n' +
-                            '<th name="inventory_id">'+ materialInfo.inventory_id +'</th>\n' +
-                            '<th name="material_id">'+ materialInfo.material_id +'</th>\n' +
-                            '<th name="product_id">'+ materialInfo.name +'</th>\n' +
-                            '<th name="name">'+ materialInfo.quantity +'</th>\n' +
-                            '<th name="quantity">'+ (new Date(materialInfo.create_time)).toLocaleString() +'</th>\n' +
-                            '<th name="create_time">'+ (new Date(materialInfo.expiration_time)).toLocaleString() +'</th>\n' +
-                            '</tr>');
-                    }
-                    materialTableHTML.push('</tbody>');
-                    $('#materialTable').html(materialTableHTML.join(''));
-                },
-                error: (jqXHR) => {
-                    $("#result").modal();
-                    document.getElementById('msg').innerHTML = `发生了错误`;
+    $(document).ready(function(){
+        $.ajax({
+            type: "POST",
+            url: "/admin/staff/material/staff/allMaterialInfoList",
+            dataType: "json",
+            data: {
+            },
+            //查询商品及客户信息返回相应数据
+            success: function(data){
+                var list = eval(data.materialList);
+                var materialHTML = [];
+                for(var i = 0;i < list.length;i++) {
+                    var material = list[i];
+                    materialHTML.push(
+                        '<div class="card">' +
+                        '<div class="card-main">' +
+                        '<div class="shop-name">'+'原材料ID:'+ material.id +'</div>' +
+                        '<div class="shop-content">' +
+                        '<div class="shop-content-left">'+'原材料名称:'+'</div>' +
+                        '<div class="shop-content-right">'+material.name+'</div>' +
+                        '<div class="shop-content-left">'+'保质期:'+'</div>' +
+                        '<div class="shop-content-right">'+material.shelf_life+'天'+'</div>' +
+                        '</div>'+
+                        '<a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:add(' + JSON.stringify(material).replace(/"/g, '&quot;')  + ')\">购入</a>'+
+                        '</div></div>');
                 }
-
-            });
-        }
-        selectMaterialInfo("");
-        $("#materialTable").tablesorter();
-
-        selectAll = function () {
-            if (document.getElementById('checkall').checked)
-            {
-                let elementsByName = document.getElementsByName('check');
-                for(let i=0; i<elementsByName.length; i++)
-                {
-                    let element = elementsByName[i];
-                    element.checked = true;
-                }
+                //下面的div与布局有关
+                materialHTML.push('<div class="flex-fix3"></div>' +
+                    '<div class="flex-fix4"></div>');
+                $('#shop-flex').html(materialHTML.join(''));
+            },
+            error: (jqXHR) => {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = `发生了错误`;
             }
-            else
-            {
-                let elementsByName = document.getElementsByName('check');
-                for(let i=0; i<elementsByName.length; i++)
-                {
-                    let element = elementsByName[i];
-                    element.checked = false;
-                }
-            }
-
-        };
-
-        edit1 = function (inventory_id) {
-            document.getElementById('infoifram').src = "/admin/staff/material/staff/materialInfo?inventory_id="+inventory_id;
-            $("#materialinfo").modal();
-        };
-
-        $("#findInventory").click(function () {
-            let materialID = $("#materialID").val();
-            selectMaterialInfo(materialID);
         })
-    })
+    });
+    <%--点击添加--%>
+    var thematerial;
+    add = function(material) {
+        //弹出
+        $("#verify_modal").modal();
+        thematerial = material;
+    };
+    //点击确认添加，弹出信息面板
+    $("#choose_material").click(function () {
+        document.getElementById('id').innerHTML = thematerial.id;
+        document.getElementById('number').value = 1;
+        document.getElementById('money').value = 0;
+        $("#order_modal").modal();
+    });
 
+    calculates = function () {
+        var number = $("#number").val();//这是数字
+        if (number < 1)
+        {
+            document.getElementById('number').value=1;
+            number = 1;
+        }
+    };
+
+    //确认购入
+    $("#order_verify").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/admin/staff/material/staff/buyMaterial",
+            dataType: "json",
+            data: {
+                materialId:thematerial.id,
+                quantity:$("#number").val(),
+                money:$("#money").val()
+            },
+            success: function(data){
+                if (data.ret === 1) {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = '已生成原材料购入单，交由财务部审批';
+                } else {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = '生成原材料购入单失败';
+                }
+            },
+            error: (jqXHR) => {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = `发生了错误`;
+            }
+        });
+        //清空信息
+        document.getElementById('number').value="";
+    });
 </script>

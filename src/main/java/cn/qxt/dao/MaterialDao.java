@@ -21,4 +21,6 @@ public interface MaterialDao {
     int updateByPrimaryKey(Material record);
 
     Map<String, Object> selectMaterialInfoById(Integer id);
+
+    int selectAllRepertoryByMaterialId(Integer material_id);
 }

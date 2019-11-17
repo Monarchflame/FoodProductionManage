@@ -130,16 +130,14 @@
                       on material_id = material.id
                  join material_inventory
                       on material_inventory.material_id = material.id
-        where material_inventory.Id = #{id,jdbcType=INTEGER}
+        where material_inventory.Id = #{id,jdbcType=INTEGER} and material_record.type='入库'
     </select>
     <select id="selectMaterialInventoryInfoByMaterialId" parameterType="java.lang.Integer" resultType="java.util.Map">
         select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
-        from material
-                 join material_record
-                      on material_id = material.id
-                 join material_inventory
-                      on material_inventory.material_id = material.id
-        where material_inventory.material_id = #{id,jdbcType=INTEGER}
+        from material_inventory
+                 join material_record on inventory_id = material_inventory.Id
+                 join material on material_inventory.material_id = material.id
+        where material_inventory.material_id = #{id,jdbcType=INTEGER} and material_record.type='入库'
     </select>
 
     <select id="selectAllMaterialInventoryInfo" resultType="java.util.Map">
@@ -149,5 +147,6 @@
                       on material_id = material.id
                  join material_inventory
                       on material_inventory.material_id = material.id
+        where material_record.type='入库'
     </select>
 </mapper>

@@ -80,6 +80,9 @@ To change this template use File | Settings | File Templates.
                             <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
                         <li>
+                            <a href="/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                        </li>
+                        <li>
                             <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
                         <li>

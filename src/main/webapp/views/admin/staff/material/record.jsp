@@ -81,6 +81,9 @@
                             <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
                         <li>
+                            <a href="/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                        </li>
+                        <li>
                             <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
                         <li>
@@ -116,7 +119,7 @@
                                         </button>
                                     </div>
                                     <div class="form-group form-group-label">
-                                        <label class="floating-label" for="clientName">原材料ID</label>
+                                        <label class="floating-label" for="clientName">库存ID</label>
                                         <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
                                     </div>
                                 </div>
@@ -276,9 +279,9 @@
                         '              </div>')
                 }
 
-                var destroyRecordInfoList = eval(data.outRecordInfoList);
+                var destroyRecordInfoList = eval(data.destroyRecordInfoList);
                 var destroyRecordHTML = [];
-                destroyRecordHTML.push('<p class="card-heading">出库记录</p>');
+                destroyRecordHTML.push('<p class="card-heading">销毁记录</p>');
                 for (let i=0; i<destroyRecordInfoList.length; i++)
                 {
                     let record = destroyRecordInfoList[i];
@@ -333,9 +336,6 @@
             }
 
         });
-
-
-
 
     });
 </script>

@@ -81,12 +81,12 @@
 <!--            <property name="useActualColumnNames" value="true"/>-->
 <!--        </table>-->
 
-<!--        <table tableName="material_inventory" domainObjectName="MaterialInventory" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
-<!--               selectByExampleQueryId="false">-->
-<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
+        <table tableName="material_requirement" domainObjectName="MaterialRequirement" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
 
 <!--        <table tableName="material_purchase_order" domainObjectName="MaterialPurchaseOrder" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
@@ -95,12 +95,12 @@
 <!--            <property name="useActualColumnNames" value="true"/>-->
 <!--        </table>-->
 
-        <table tableName="material_record" domainObjectName="MaterialRecord" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
-               selectByExampleQueryId="false">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
-            <property name="useActualColumnNames" value="true"/>
-        </table>
+<!--        <table tableName="material_record" domainObjectName="MaterialRecord" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
 
 <!--        <table tableName="order" domainObjectName="Order" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->

@@ -68,7 +68,7 @@ public class PlanStaffController {
     }
 
     /**
-     * 返回产品库存
+     * 返回产品库存信息
      * @param product_idList
      * @return
      */

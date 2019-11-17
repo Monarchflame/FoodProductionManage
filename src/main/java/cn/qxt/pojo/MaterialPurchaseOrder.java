@@ -13,8 +13,6 @@ public class MaterialPurchaseOrder {
 
     private Date create_time;
 
-    private String material_name;
-
     public Integer getId() {
         return id;
     }
@@ -53,13 +51,5 @@ public class MaterialPurchaseOrder {
 
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
-    }
-
-    public String getMaterial_name() {
-        return material_name;
-    }
-
-    public void setMaterial_name(String material_name) {
-        this.material_name = material_name == null ? null : material_name.trim();
     }
 }

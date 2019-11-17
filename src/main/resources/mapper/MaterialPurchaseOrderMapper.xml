@@ -7,7 +7,6 @@
     <result column="quantity" jdbcType="INTEGER" property="quantity" />
     <result column="money" jdbcType="DOUBLE" property="money" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
-    <result column="material_name" jdbcType="VARCHAR" property="material_name" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -39,7 +38,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, material_id, quantity, money, create_time, material_name
+    id, material_id, quantity, money, create_time
   </sql>
   <select id="selectByExample" parameterType="cn.qxt.pojo.MaterialPurchaseOrderExample" resultMap="BaseResultMap">
     select
@@ -68,10 +67,10 @@
   </delete>
   <insert id="insert" parameterType="cn.qxt.pojo.MaterialPurchaseOrder">
     insert into material_purchase_order (id, material_id, quantity, 
-      money, create_time, material_name
+      money, create_time
       )
     values (#{id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER}, 
-      #{money,jdbcType=DOUBLE}, #{create_time,jdbcType=TIMESTAMP}, #{material_name,jdbcType=VARCHAR}
+      #{money,jdbcType=DOUBLE}, #{create_time,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.qxt.pojo.MaterialPurchaseOrder">
@@ -92,9 +91,6 @@
       <if test="create_time != null">
         create_time,
       </if>
-      <if test="material_name != null">
-        material_name,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -111,9 +107,6 @@
       </if>
       <if test="create_time != null">
         #{create_time,jdbcType=TIMESTAMP},
-      </if>
-      <if test="material_name != null">
-        #{material_name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -132,9 +125,6 @@
       <if test="create_time != null">
         create_time = #{create_time,jdbcType=TIMESTAMP},
       </if>
-      <if test="material_name != null">
-        material_name = #{material_name,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -144,7 +134,6 @@
       quantity = #{quantity,jdbcType=INTEGER},
       money = #{money,jdbcType=DOUBLE},
       create_time = #{create_time,jdbcType=TIMESTAMP},
-      material_name = #{material_name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

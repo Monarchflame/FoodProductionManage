@@ -2,6 +2,7 @@ package cn.qxt.controller;
 
 import cn.qxt.pojo.Material;
 import cn.qxt.pojo.MaterialInventory;
+import cn.qxt.pojo.MaterialPurchaseOrder;
 import cn.qxt.pojo.MaterialRecord;
 import cn.qxt.service.MaterialStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,13 +44,19 @@ public class MaterialStaffController {
      */
     @ResponseBody
     @PostMapping(value = "/materialInfoList")
-    public Map<String, Object> materialInfoList()
+    public Map<String, Object> materialInfoList(HttpServletRequest request)
     {
+        String materialID = request.getParameter("materialID").toString();
         Map<String,Object> map = new HashMap<String, Object>();
-        List<Material> materialList = materialStaffService.selectAllMaterial();
-
         List <Map> materialInfoList = new ArrayList<Map>();
-        materialInfoList = materialStaffService.selectAllMaterialInventoryInfo();
+        if (materialID.equals(""))
+        {
+            materialInfoList = materialStaffService.selectAllMaterialInventoryInfo();
+        }
+        else
+        {
+            materialInfoList = materialStaffService.selectMaterialInventoryInfoByMaterialId(Integer.valueOf(materialID));
+        }
         map.put("materialInfoList",materialInfoList);
         return map;
     }
@@ -114,6 +121,27 @@ public class MaterialStaffController {
     }
 
     /**
+     * 添加原材料种类
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/andMaterial")
+    public Map<String, Object> andMaterial(HttpServletRequest request)
+    {
+        String name = request.getParameter("name").toString();
+        String shelf_time = request.getParameter("shelf_time").toString();
+        Material material = new Material();
+        material.setName(name);
+        material.setShelf_life(Integer.valueOf(shelf_time));
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = materialStaffService.andMaterial(material);
+        map.put("ret",ret);
+        return map;
+    }
+
+    /**
      * 返回所有的材料信息
      * @return materialList:放置着所有原材料信息
      */
@@ -171,12 +199,11 @@ public class MaterialStaffController {
 
     /**
      * 返回所有的记录
-     * @param request
      * @return
      */
     @ResponseBody
     @PostMapping(value = "/allRecordInfo")
-    public Map<String, Object> allRecordInfo(HttpServletRequest request)
+    public Map<String, Object> allRecordInfo()
     {
         List<MaterialRecord> inRecord = materialStaffService.selectInRecord();
         List<Map<String, Object>> inRecordInfoList = new ArrayList<Map<String, Object>>();
@@ -187,19 +214,111 @@ public class MaterialStaffController {
         List<MaterialRecord> outRecord = materialStaffService.selectOutRecord();
         List<Map<String, Object>> outRecordInfoList = new ArrayList<Map<String, Object>>();
         for (MaterialRecord materialRecord: outRecord) {
-            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
+            outRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
         }
 
         List<MaterialRecord> destroyRecord = materialStaffService.selectDestroyRecord();
         List<Map<String, Object>> destroyRecordInfoList = new ArrayList<Map<String, Object>>();
         for (MaterialRecord materialRecord: destroyRecord) {
-            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
+            destroyRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
         }
 
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("inRecordInfoList",inRecordInfoList);
         map.put("outRecordInfoList",outRecordInfoList);
         map.put("destroyRecordInfoList",destroyRecordInfoList);
+        return map;
+    }
+
+    /**
+     * 返回原材料库存信息
+     * @param material_idList
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/classify")
+    public Map<String, Object> classify(String[] material_idList)
+    {
+        //查找库存
+        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String,Object> quantityMap = new HashMap<String, Object>();
+        for (String material_id : material_idList)
+        {
+            int quantity = materialStaffService.selectAllRepertoryByMaterialId(Integer.valueOf(material_id));
+            quantityMap.put(material_id, quantity);
+        }
+        map.put("quantityMap",quantityMap);
+        return map;
+    }
+
+    /**
+     * 返回需求详细信息
+     * @return 一个List，包含需求信息： id:产品ID，name:产品名，quantity:数量，create_time:创建时间
+     */
+    @ResponseBody
+    @PostMapping(value = "/requirementInfoList")
+    public Map<String, Object> requirementInfoList(String materialID)
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+
+        List <Map> requirementInfoList = new ArrayList<Map>();
+        if (materialID.equals(""))
+        {
+            requirementInfoList = materialStaffService.selectReadyProcessRequirementInfo();
+        }
+        else
+        {
+            requirementInfoList = materialStaffService.selectReadyProcessRequirementInfoByMaterialID(Integer.valueOf(materialID));
+        }
+        map.put("requirementInfoList",requirementInfoList);
+        return map;
+    }
+
+    /**
+     * 出库
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/inventoryOut")
+    public Map<String, Object> inventoryOut(String material_id, String requirement, Integer[] requirementIdList)
+    {
+        int ret = 0;
+        try {
+            //调用事务
+            materialStaffService.inventoryOut(Integer.valueOf(material_id), Integer.valueOf(requirement), requirementIdList);
+            ret = 1;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
+        return map;
+    }
+
+    @GetMapping(value = "/buy")
+    public String buyView()
+    {
+        return "admin/staff/material/buyMaterial";
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/buyMaterial")
+    public Map<String, Object> buyMaterial(HttpServletRequest request)
+    {
+        String materialId = request.getParameter("materialId").toString();
+        String quantity = request.getParameter("quantity").toString();
+        String money = request.getParameter("money").toString();
+
+        MaterialPurchaseOrder materialPurchaseOrder = new MaterialPurchaseOrder();
+        materialPurchaseOrder.setMaterial_id(Integer.valueOf(materialId));
+        materialPurchaseOrder.setMoney(Double.valueOf(money));
+        materialPurchaseOrder.setQuantity(Integer.valueOf(quantity));
+
+        int ret = materialStaffService.newMaterialPurchaseOrder(materialPurchaseOrder);
+
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
         return map;
     }
 }
