@@ -230,26 +230,6 @@ To change this template use File | Settings | File Templates.
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner margin-bottom-no">
-                                <p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;货物存量</p>
-                                <dl class="dl-horizontal">
-                                    <dt>面包</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-level-expire">剩余</span>
-                                    <code><span id="days-level-expire">100</span></code>
-                                    <span class="label-level-expire">吨</span>
-
-                                    <dt>果汁</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-account-expire">剩余</span>
-                                    <code><span id="days-account-expire">43</span></code>
-                                    <span class="label-account-expire">吨</span>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-xx-12 col-sm-8">
                     <div class="card">
@@ -284,48 +264,3 @@ To change this template use File | Settings | File Templates.
 <script src="../../../../theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
-<%--<script>--%>
-<%--    $(document).ready(function () {--%>
-<%--        //填入订单信息--%>
-<%--        {--%>
-<%--            $.ajax({--%>
-<%--                type: "POST",--%>
-<%--                url: "/admin/staff/material/staff/orderInfo",--%>
-<%--                dataType: "json",--%>
-<%--                traditional: true,--%>
-<%--                data: {--%>
-<%--                },--%>
-<%--                success: function(data){--%>
-<%--                    var readyConfirmOrders = data.readyConfirmOrders;--%>
-<%--                    var readyDeliverOrders = data.readyDeliverOrders;--%>
-<%--                    var inProductionOrders = data.inProductionOrders;--%>
-<%--                    var goodsReturnOrders = data.goodsReturnOrders;--%>
-<%--                    if (readyConfirmOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('readyConfirmOrders').innerHTML = readyConfirmOrders.length;--%>
-<%--                        document.getElementById('readyConfirmOrders-bar').style.setProperty('width','calc('+readyConfirmOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (readyDeliverOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('readyDeliverOrders').innerHTML = readyDeliverOrders.length;--%>
-<%--                        document.getElementById('readyDeliverOrders-bar').style.setProperty('width','calc('+readyDeliverOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (goodsReturnOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('goodsReturnOrders').innerHTML = goodsReturnOrders.length;--%>
-<%--                        document.getElementById('goodsReturnOrders-bar').style.setProperty('width','calc('+goodsReturnOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (inProductionOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('inProductionOrders').innerHTML = inProductionOrders.length;--%>
-<%--                        document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                },--%>
-<%--                error: (jqXHR) => {--%>
-<%--                    $("#result").modal();--%>
-<%--                    document.getElementById('msg').innerHTML = `发生了错误`;--%>
-<%--                }--%>
-<%--            });--%>
-<%--        }--%>
-<%--    })--%>
-<%--</script>--%>

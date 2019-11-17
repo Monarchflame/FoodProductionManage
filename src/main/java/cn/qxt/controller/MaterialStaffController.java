@@ -40,7 +40,7 @@ public class MaterialStaffController {
 
     /**
      * 返回原材料库存详细信息
-     * @return 一个List，包含需求信息： id:产品ID，name:产品名，quantity:数量，create_time:入库时间，expiration_time：过期时间
+     * @return 一个List，包含需求信息： material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
      */
     @ResponseBody
     @PostMapping(value = "/materialInfoList")
