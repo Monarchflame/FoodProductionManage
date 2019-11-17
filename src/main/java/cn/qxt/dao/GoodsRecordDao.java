@@ -3,6 +3,7 @@ package cn.qxt.dao;
 import cn.qxt.pojo.GoodsRecord;
 import cn.qxt.pojo.GoodsRecordExample;
 import java.util.List;
+import java.util.Map;
 
 public interface GoodsRecordDao {
     int deleteByPrimaryKey(Integer id);
@@ -18,4 +19,6 @@ public interface GoodsRecordDao {
     int updateByPrimaryKeySelective(GoodsRecord record);
 
     int updateByPrimaryKey(GoodsRecord record);
+
+    Map<String, Object> selectRecordInfoById(Integer id);
 }
