@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.qxt.dao.MaterialRequirementDao">
+    <resultMap id="BaseResultMap" type="cn.qxt.pojo.MaterialRequirement">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="material_id" jdbcType="INTEGER" property="material_id" />
+        <result column="quantity" jdbcType="INTEGER" property="quantity" />
+        <result column="status" jdbcType="VARCHAR" property="status" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        id, material_id, quantity, status, create_time
+    </sql>
+    <select id="selectByExample" parameterType="cn.qxt.pojo.MaterialRequirementExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from material_requirement
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from material_requirement
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from material_requirement
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.qxt.pojo.MaterialRequirement">
+        insert into material_requirement (id, material_id, quantity,
+                                          status, create_time)
+        values (#{id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
+                #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.MaterialRequirement">
+        insert into material_requirement
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="material_id != null">
+                material_id,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="material_id != null">
+                #{material_id,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.MaterialRequirement">
+        update material_requirement
+        <set>
+            <if test="material_id != null">
+                material_id = #{material_id,jdbcType=INTEGER},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.MaterialRequirement">
+        update material_requirement
+        set material_id = #{material_id,jdbcType=INTEGER},
+            quantity = #{quantity,jdbcType=INTEGER},
+            status = #{status,jdbcType=VARCHAR},
+            create_time = #{create_time,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectReadyProcessRequirementInfo" resultType="java.util.Map">
+        select material_requirement.id as id, material_requirement.material_id as material_id, material.name as material_name,material_requirement.quantity as quantity,
+               material_requirement.create_time as create_time
+        from material_requirement
+                 join material
+                      on material_id = material.id
+        where status='未确认';
+    </select>
+    <select id="selectReadyProcessRequirementInfoByMaterialID" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select material_requirement.id as id, material_requirement.material_id as material_id, material.name as material_name,material_requirement.quantity as quantity,
+               material_requirement.create_time as create_time
+        from material_requirement
+                 join material
+                      on material_id = material.id
+        where status='未确认' and material_requirement.material_id = #{id,jdbcType=INTEGER};
+    </select>
+</mapper>
