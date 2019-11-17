@@ -165,7 +165,7 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/admin/staff/material/staff/andMaterial",
+                    url: "/admin/staff/material/staff/addMaterial",
                     dataType: "json",
                     data: {
                         name:name,

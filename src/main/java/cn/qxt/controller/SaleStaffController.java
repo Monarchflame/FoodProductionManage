@@ -267,7 +267,6 @@ public class SaleStaffController {
     public Map deliverGoods(HttpServletRequest request)
     {
         String orderId = request.getParameter("orderId");
-        System.out.println(orderId);
         Order order = orderService.selectByPrimaryKey(Integer.valueOf(orderId));
         order.setStatus("待发货");
         int result = orderService.updateByPrimaryKey(order);

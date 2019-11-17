@@ -129,4 +129,24 @@
         from goods
         where product_id = #{product_id,jdbcType=INTEGER}
     </select>
+
+    <select id="selectAllGoodsInfo" resultType="java.util.Map">
+        select product.id as product_id, product.name as product_name, goods.quantity as quantity, expiration_time, goods_record.create_time, goods.id as goods_id,shelf_life
+        from goods
+            join product
+                on product_id = product.id
+            join goods_record
+                 on goods_id = goods.id
+        where goods_record.type='入库'
+    </select>
+
+    <select id="selectGoodsInfoByProductId" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select product.id as product_id, product.name as product_name, goods.quantity as quantity, expiration_time, goods_record.create_time, goods.id as goods_id,shelf_life
+        from goods
+                 join product
+                      on product_id = product.id
+                 join goods_record
+                      on goods_id = goods.id
+        where goods_record.type='入库' and product_id = #{product_id,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -126,7 +126,7 @@ public class MaterialStaffController {
      * @return
      */
     @ResponseBody
-    @PostMapping(value = "/andMaterial")
+    @PostMapping(value = "/addMaterial")
     public Map<String, Object> andMaterial(HttpServletRequest request)
     {
         String name = request.getParameter("name").toString();
