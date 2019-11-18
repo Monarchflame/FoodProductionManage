@@ -134,6 +134,7 @@
     </select>
     <select id="selectMaterialInventoryInfoByMaterialId" parameterType="java.lang.Integer" resultType="java.util.Map">
         select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+             ,shelf_life
         from material_inventory
                  join material_record on inventory_id = material_inventory.Id
                  join material on material_inventory.material_id = material.id
@@ -142,6 +143,7 @@
 
     <select id="selectAllMaterialInventoryInfo" resultType="java.util.Map">
         select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+            ,shelf_life
         from material
                  join material_record
                       on material_id = material.id

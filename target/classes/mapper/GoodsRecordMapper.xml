@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.qxt.pojo.GoodsRecord">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="goods_id" jdbcType="INTEGER" property="goods_id" />
+    <result column="product_id" jdbcType="INTEGER" property="product_id" />
     <result column="quantity" jdbcType="INTEGER" property="quantity" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
@@ -38,14 +39,14 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, goods_id, quantity, type, create_time
+    id, goods_id, product_id, quantity, type, create_time
   </sql>
   <select id="selectByExample" parameterType="cn.qxt.pojo.GoodsRecordExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
-    'false' as QUERYid,
+    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from goods_record
     <if test="_parameter != null">
@@ -66,10 +67,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.qxt.pojo.GoodsRecord">
-    insert into goods_record (id, goods_id, quantity, 
-      type, create_time)
-    values (#{id,jdbcType=INTEGER}, #{goods_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER}, 
-      #{type,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP})
+    insert into goods_record (id, goods_id, product_id, 
+      quantity, type, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{goods_id,jdbcType=INTEGER}, #{product_id,jdbcType=INTEGER}, 
+      #{quantity,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.qxt.pojo.GoodsRecord">
     insert into goods_record
@@ -79,6 +82,9 @@
       </if>
       <if test="goods_id != null">
         goods_id,
+      </if>
+      <if test="product_id != null">
+        product_id,
       </if>
       <if test="quantity != null">
         quantity,
@@ -97,6 +103,9 @@
       <if test="goods_id != null">
         #{goods_id,jdbcType=INTEGER},
       </if>
+      <if test="product_id != null">
+        #{product_id,jdbcType=INTEGER},
+      </if>
       <if test="quantity != null">
         #{quantity,jdbcType=INTEGER},
       </if>
@@ -114,6 +123,9 @@
       <if test="goods_id != null">
         goods_id = #{goods_id,jdbcType=INTEGER},
       </if>
+      <if test="product_id != null">
+        product_id = #{product_id,jdbcType=INTEGER},
+      </if>
       <if test="quantity != null">
         quantity = #{quantity,jdbcType=INTEGER},
       </if>
@@ -129,9 +141,18 @@
   <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.GoodsRecord">
     update goods_record
     set goods_id = #{goods_id,jdbcType=INTEGER},
+      product_id = #{product_id,jdbcType=INTEGER},
       quantity = #{quantity,jdbcType=INTEGER},
       type = #{type,jdbcType=VARCHAR},
       create_time = #{create_time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectRecordInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select goods_record.goods_id, product.name as product_name,goods_record.quantity,
+               goods_record.create_time as record_create_time, product_id
+        from goods_record
+                 join product
+                      on product.id = goods_record.product_id
+        where goods_record.id = #{id,jdbcType=INTEGER}
+    </select>
 </mapper>

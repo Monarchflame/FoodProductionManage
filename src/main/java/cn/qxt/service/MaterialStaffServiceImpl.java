@@ -161,12 +161,12 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
             //查找库存
             int quantity = Integer.parseInt(materialInventory.get("quantity").toString());
             int inventory_id = Integer.parseInt(materialInventory.get("inventory_id").toString());
-            if (requirement > quantity)
+            if (requirement >= quantity)
             {
                 //扣完
                 insertOutRecord(inventory_id, null);//全扣完
                 //删除库存
-                materialInventoryDao.deleteByPrimaryKey(inventory_id);
+                destroy(inventory_id);
             }
             else
             {

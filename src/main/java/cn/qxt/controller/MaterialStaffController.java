@@ -306,9 +306,9 @@ public class MaterialStaffController {
     @PostMapping(value = "/buyMaterial")
     public Map<String, Object> buyMaterial(HttpServletRequest request)
     {
-        String materialId = request.getParameter("materialId").toString();
-        String quantity = request.getParameter("quantity").toString();
-        String money = request.getParameter("money").toString();
+        String materialId = request.getParameter("materialId");
+        String quantity = request.getParameter("quantity");
+        String money = request.getParameter("money");
 
         MaterialPurchaseOrder materialPurchaseOrder = new MaterialPurchaseOrder();
         materialPurchaseOrder.setMaterial_id(Integer.valueOf(materialId));

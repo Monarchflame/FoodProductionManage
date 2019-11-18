@@ -4,6 +4,7 @@ import cn.qxt.pojo.Goods;
 import cn.qxt.pojo.GoodsRecord;
 import cn.qxt.pojo.Order;
 import cn.qxt.pojo.Product;
+import cn.qxt.service.OrderService;
 import cn.qxt.service.ProductStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ import java.util.*;
 public class ProductStaffController {
     @Autowired
     private ProductStaffService productStaffService;
+    @Autowired
+    private OrderService orderService;
 
     /**
      * 返回员工中心界面
@@ -85,6 +88,46 @@ public class ProductStaffController {
             goodsInfoList = productStaffService.selectGoodsInfoByProductId(Integer.valueOf(productID));
         }
         map.put("goodsInfoList",goodsInfoList);
+        return map;
+    }
+
+    /**
+     * 查找货物的详细信息
+     * @param goods_id 货物id
+     * @return 界面路径
+     */
+    @GetMapping(value = "/goodsInfo")
+    public String materialInfo(String goods_id, HttpSession session)
+    {
+        if (goods_id!=null)
+        {
+            Map goodsInfo = productStaffService.selectGoodsInfoById(Integer.valueOf(goods_id));
+            session.setAttribute("goodsInfo",goodsInfo);
+            return "admin/staff/product/goodsInfo";
+        }
+        return "admin/staff/product/goodsInfo";
+    }
+
+    /**
+     * 销毁
+     * @param goodsId 货物ID
+     * @return ret 0:失败，1：成功
+     */
+    @ResponseBody
+    @PostMapping(value = "/destroy")
+    public Map<String, Object> destroy(String goodsId)
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = 0;
+        try {
+            productStaffService.destroy(Integer.valueOf(goodsId));
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        map.put("ret",ret);
         return map;
     }
 
@@ -239,10 +282,31 @@ public class ProductStaffController {
      */
     @ResponseBody
     @PostMapping(value = "/ship")
-    public Map ship()
+    public Map ship(String orderId)
     {
+        Map<String,Object> map = new HashMap<String, Object>();
 
-        Map<String,Object>map = new HashMap<String, Object>();
+        Order order = orderService.selectByPrimaryKey(Integer.valueOf(orderId));
+        int repertory = productStaffService.selectAllRepertoryByProductId(order.getProduct_id());
+        int ret = 0;
+        if (repertory < order.getQuantity())//库存不足
+        {
+            map.put("ret",ret);
+            map.put("msg","库存不足");
+            return map;
+        }
+
+        try {
+            productStaffService.ship(Integer.parseInt(orderId));
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        map.put("ret",ret);
+        if (ret == 1)
+            map.put("msg","发货成功");
         return map;
     }
     /**

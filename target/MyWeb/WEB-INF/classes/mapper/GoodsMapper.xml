@@ -70,7 +70,7 @@
         values (#{id,jdbcType=INTEGER}, #{product_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
                 #{expiration_time,jdbcType=TIMESTAMP})
     </insert>
-    <insert id="insertSelective" parameterType="cn.qxt.pojo.Goods">
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.Goods" useGeneratedKeys="true" keyProperty="id">
         insert into goods
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -139,7 +139,15 @@
                  on goods_id = goods.id
         where goods_record.type='入库'
     </select>
-
+    <select id="selectGoodsInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select product.id as product_id, product.name as product_name, goods.quantity as quantity, expiration_time, goods_record.create_time, goods.id as goods_id,shelf_life
+        from goods
+                 join product
+                      on product_id = product.id
+                 join goods_record
+                      on goods_id = goods.id
+        where goods.id = #{goods_id,jdbcType=INTEGER}
+    </select>
     <select id="selectGoodsInfoByProductId" parameterType="java.lang.Integer" resultType="java.util.Map">
         select product.id as product_id, product.name as product_name, goods.quantity as quantity, expiration_time, goods_record.create_time, goods.id as goods_id,shelf_life
         from goods
@@ -147,6 +155,6 @@
                       on product_id = product.id
                  join goods_record
                       on goods_id = goods.id
-        where goods_record.type='入库' and product_id = #{product_id,jdbcType=INTEGER}
+        where goods_record.type='入库' and goods.product_id = #{product_id,jdbcType=INTEGER}
     </select>
 </mapper>

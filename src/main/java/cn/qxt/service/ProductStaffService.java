@@ -26,6 +26,8 @@ public interface ProductStaffService {
 
     List<Product> selectAllProduct();
 
+    void destroy(int goodsId);
+
     void addGoods(Goods goods);
 
     Map<String, Object> selectOrderInfoByOrderId(Integer id);
@@ -45,4 +47,10 @@ public interface ProductStaffService {
     Map<String, Object> selectRecordInfoById(Integer id);
 
     int addProduct(Product product);
+
+    Map selectGoodsInfoById(Integer valueOf);
+
+    void ship(int orderId);
+
+    int selectAllRepertoryByProductId(Integer product_id);
 }

@@ -7,6 +7,8 @@ public class GoodsRecord {
 
     private Integer goods_id;
 
+    private Integer product_id;
+
     private Integer quantity;
 
     private String type;
@@ -27,6 +29,14 @@ public class GoodsRecord {
 
     public void setGoods_id(Integer goods_id) {
         this.goods_id = goods_id;
+    }
+
+    public Integer getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 
     public Integer getQuantity() {

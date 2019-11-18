@@ -25,4 +25,6 @@ public interface GoodsDao {
     List<Map> selectAllGoodsInfo();
 
     List<Map> selectGoodsInfoByProductId(Integer productID);
+
+    Map selectGoodsInfoById(Integer goods_id);
 }
