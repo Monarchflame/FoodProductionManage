@@ -85,10 +85,6 @@ public class AdminController {
         else if ("003".equals(departmentCode))
         {
             ProductStaff productStaff = productStaffService.selectByPrimaryKey(account);
-            if (productStaff.equals(null))
-            {
-
-            }
             if (password.equalsIgnoreCase(productStaff.getPassword()))
             {
                 if (!"管理员".equalsIgnoreCase(productStaff.getPosition()))

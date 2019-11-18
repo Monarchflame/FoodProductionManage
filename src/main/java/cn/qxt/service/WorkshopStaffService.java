@@ -1,5 +1,6 @@
 package cn.qxt.service;
 
+import cn.qxt.pojo.Plan;
 import cn.qxt.pojo.WorkshopStaff;
 import cn.qxt.pojo.WorkshopStaffExample;
 
@@ -19,4 +20,6 @@ public interface WorkshopStaffService {
     int updateByPrimaryKeySelective(WorkshopStaff record);
 
     int updateByPrimaryKey(WorkshopStaff record);
+
+    List<Plan>  selectAllProductPlan();
 }

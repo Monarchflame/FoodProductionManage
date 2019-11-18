@@ -128,7 +128,29 @@ public class LoginInterceptor implements HandlerInterceptor {
                     return false;
                 }
             }
+            else if (strings[3].equalsIgnoreCase("workshop"))//生产计划科
+            {
+                if(strings[4].equalsIgnoreCase("staff"))//员工
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(WorkshopStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截员工");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+                else if (strings[4].equalsIgnoreCase("manager"))
+                {
+                    return false;
+                }
+            }
         }
+//        else if (strings[2].equalsIgnoreCase("leader"))//领导登录
+//        {
+//        }
         else if (strings[1].equalsIgnoreCase("user"))//客户登录
         {
             if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(Client.class))

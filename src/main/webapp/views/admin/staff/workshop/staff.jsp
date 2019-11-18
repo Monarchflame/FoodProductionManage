@@ -1,4 +1,3 @@
-<%@ page import="cn.qxt.pojo.WorkshopStaff" %>
 <%@ page import="cn.qxt.pojo.WorkshopStaff" %><%--
 Created by IntelliJ IDEA.
 User: 10703
@@ -72,22 +71,10 @@ To change this template use File | Settings | File Templates.
                         </li>
                     </ul>
 
-                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_product">成品库</a>
-                    <ul class="menu-collapse collapse in" id="ui_menu_product">
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_workshop">生产车间</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_workshop">
                         <li>
-                            <a href="/admin/staff/product/staff/product-list"><i class="icon icon-lg">account_box</i>&nbsp;查看货物库存</a>
-                        </li>
-                        <li>
-                            <a href="/admin/staff/product/staff/destruction"><i class="icon icon-lg">announcement</i>&nbsp;销毁过期货物</a>
-                        </li>
-                        <li>
-                            <a href="/admin/staff/product/staff/discharge"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;货物出库</a>
-                        </li>
-                        <li>
-                            <a href="/admin/staff/product/staff/in"><i class="icon icon-lg">sync_problem</i>&nbsp;货物入库</a>
-                        </li>
-                        <li>
-                            <a href="/admin/staff/material/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>
+                            <a href="/admin/staff/workshop/staff/plan-list"><i class="icon icon-lg">account_box</i>&nbsp;查看生产计划</a>
                         </li>
                     </ul>
             </ul>
@@ -138,7 +125,7 @@ To change this template use File | Settings | File Templates.
                                 </div>
                                 <div class="nodemiddle node-flex">
                                     <div class="nodetype">
-                                        成品库
+                                        生产车间
                                     </div>
                                 </div>
                             </div>
@@ -215,48 +202,28 @@ To change this template use File | Settings | File Templates.
                             <div class="card-inner">
                                 <div class="progressbar">
                                     <div class="before"></div>
-                                    <div id="readyConfirmOrders-bar" class="bar tuse color" style="width:calc(0%);"></div>
+                                    <div id="readyProductionPlan-bar" class="bar tuse color" style="width:calc(0%);"></div>
                                     <div class="label-flex">
                                         <div class="label la-top">
                                             <div class="bar ard color"></div>
                                             <span class="traffic-info">待执行生产计划</span>
-                                            <code class="card-tag tag-green" id="readyConfirmOrders">0</code>
+                                            <code class="card-tag tag-green" id="readyProductionPlan">0</code>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="progressbar">
                                     <div class="before"></div>
-                                    <div id="readyDeliverOrders-bar" class="bar ard color2" style="width:calc(0%);">
+                                    <div id="inProductionPlan-bar" class="bar ard color2" style="width:calc(0%);">
                                         <span></span>
                                     </div>
                                     <div class="label-flex">
                                         <div class="label la-top">
                                             <div class="bar ard color2"><span></span></div>
                                             <span class="traffic-info">执行中生产计划</span>
-                                            <code class="card-tag tag-orange" id="readyDeliverOrders">0</code>
+                                            <code class="card-tag tag-orange" id="inProductionPlan">0</code>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner margin-bottom-no">
-                                <p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;货物存量</p>
-                                <dl class="dl-horizontal">
-                                    <dt>面包</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-level-expire">剩余</span>
-                                    <code><span id="days-level-expire">100</span></code>
-                                    <span class="label-level-expire">吨</span>
-
-                                    <dt>果汁</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-account-expire">剩余</span>
-                                    <code><span id="days-account-expire">43</span></code>
-                                    <span class="label-account-expire">吨</span>
-                                </dl>
                             </div>
                         </div>
                     </div>
@@ -294,48 +261,41 @@ To change this template use File | Settings | File Templates.
 <script src="../../../../theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
-<%--<script>--%>
-<%--    $(document).ready(function () {--%>
-<%--        //填入订单信息--%>
-<%--        {--%>
-<%--            $.ajax({--%>
-<%--                type: "POST",--%>
-<%--                url: "/admin/staff/product/staff/orderInfo",--%>
-<%--                dataType: "json",--%>
-<%--                traditional: true,--%>
-<%--                data: {--%>
-<%--                },--%>
-<%--                success: function(data){--%>
-<%--                    var readyConfirmOrders = data.readyConfirmOrders;--%>
-<%--                    var readyDeliverOrders = data.readyDeliverOrders;--%>
-<%--                    var inProductionOrders = data.inProductionOrders;--%>
-<%--                    var goodsReturnOrders = data.goodsReturnOrders;--%>
-<%--                    if (readyConfirmOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('readyConfirmOrders').innerHTML = readyConfirmOrders.length;--%>
-<%--                        document.getElementById('readyConfirmOrders-bar').style.setProperty('width','calc('+readyConfirmOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (readyDeliverOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('readyDeliverOrders').innerHTML = readyDeliverOrders.length;--%>
-<%--                        document.getElementById('readyDeliverOrders-bar').style.setProperty('width','calc('+readyDeliverOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (goodsReturnOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('goodsReturnOrders').innerHTML = goodsReturnOrders.length;--%>
-<%--                        document.getElementById('goodsReturnOrders-bar').style.setProperty('width','calc('+goodsReturnOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                    if (inProductionOrders != null)--%>
-<%--                    {--%>
-<%--                        document.getElementById('inProductionOrders').innerHTML = inProductionOrders.length;--%>
-<%--                        document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');--%>
-<%--                    }--%>
-<%--                },--%>
-<%--                error: (jqXHR) => {--%>
-<%--                    $("#result").modal();--%>
-<%--                    document.getElementById('msg').innerHTML = `发生了错误`;--%>
-<%--                }--%>
-<%--            });--%>
-<%--        }--%>
-<%--    })--%>
-<%--</script>--%>
+<script>
+    $(document).ready(function () {
+        //填入要求生产计划信息
+        {
+            $.ajax({
+                type: "POST",
+                url: "/admin/leader/workshop/leader/planInfoList",
+                dataType: "json",
+                traditional: true,
+                data: {
+                },
+                success: function(data){
+                    let planList = data.planList;
+                    let readyProductionPlan = 0;
+                    let inProductionPlan = 0;
+                    if (planList == null) {
+                        return;
+                    }
+                    for (let i = 0; i < planList.length; i++) {
+                        if (planList[i].status === "未执行") {
+                            readyProductionPlan++;
+                        } else if (planList[i].status === "执行中") {
+                            inProductionPlan++;
+                        }
+                    }
+                    document.getElementById('readyProductionPlan').innerHTML = readyProductionPlan;
+                    document.getElementById('readyProductionPlan-bar').style.setProperty('width', 'calc(' + readyProductionPlan + '%)');
+                    document.getElementById('inProductionPlan').innerHTML = inProductionPlan;
+                    document.getElementById('inProductionPlan-bar').style.setProperty('width', 'calc(' + inProductionPlan + '%)');
+                },
+                error: function(){
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            });
+        }
+    })
+</script>

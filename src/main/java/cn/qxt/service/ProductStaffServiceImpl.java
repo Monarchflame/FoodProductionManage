@@ -174,9 +174,7 @@ public class ProductStaffServiceImpl implements ProductStaffService{
             if (requirement >= quantity)
             {
                 //扣完
-                insertOutRecord(goods_id, null);//全扣完
-                //删除库存
-                destroy(goods_id);
+                insertOutRecord(goods_id, null);
             }
             else
             {
@@ -184,7 +182,7 @@ public class ProductStaffServiceImpl implements ProductStaffService{
                 break;
             }
         }
-        //将需求设为已确认
+        //将订单状态设为已发货
         order.setStatus("已发货");
         orderDao.updateByPrimaryKeySelective(order);
     }
@@ -200,15 +198,17 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         if (quantity == null)//全扣完
         {
             record.setQuantity(goods.getQuantity());
+            //删除库存
+            destroy(goods_id);
         }
         else
         {
             record.setQuantity(quantity);
             //扣除库存
             goods.setQuantity(goods.getQuantity() - quantity);
+            goodsDao.updateByPrimaryKeySelective(goods);
         }
         goodsRecordDao.insertSelective(record);
-        goodsDao.updateByPrimaryKeySelective(goods);
     }
     public int selectAllRepertoryByProductId(Integer product_id)
     {

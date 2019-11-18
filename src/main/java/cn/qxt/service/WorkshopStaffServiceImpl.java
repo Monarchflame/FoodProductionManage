@@ -1,6 +1,9 @@
 package cn.qxt.service;
 
+import cn.qxt.dao.PlanDao;
 import cn.qxt.dao.WorkshopStaffDao;
+import cn.qxt.pojo.Plan;
+import cn.qxt.pojo.PlanExample;
 import cn.qxt.pojo.WorkshopStaff;
 import cn.qxt.pojo.WorkshopStaffExample;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,8 @@ import java.util.List;
 public class WorkshopStaffServiceImpl implements WorkshopStaffService{
     @Autowired
     WorkshopStaffDao workshopStaffDao;
+    @Autowired
+    PlanDao planDao;
 
     public int deleteByPrimaryKey(String id) {
         return workshopStaffDao.deleteByPrimaryKey(id);
@@ -39,5 +44,9 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
 
     public int updateByPrimaryKey(WorkshopStaff record) {
         return workshopStaffDao.updateByPrimaryKey(record);
+    }
+
+    public List<Plan> selectAllProductPlan() {
+        return planDao.selectByExample(new PlanExample());
     }
 }
