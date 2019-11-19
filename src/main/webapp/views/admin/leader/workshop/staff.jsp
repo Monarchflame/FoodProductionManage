@@ -74,7 +74,10 @@ To change this template use File | Settings | File Templates.
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_workshop">生产车间</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_workshop">
                         <li>
-                            <a href="/admin/staff/workshop/staff/plan-list"><i class="icon icon-lg">account_box</i>&nbsp;查看生产计划</a>
+                            <a href="/admin/leader/workshop/leader/plan-list"><i class="icon icon-lg">account_box</i>&nbsp;查看生产计划</a>
+                        </li>
+                        <li>
+                            <a href="/admin/leader/workshop/leader/staff-list"><i class="icon icon-lg">account_box</i>&nbsp;查看员工</a>
                         </li>
                     </ul>
             </ul>

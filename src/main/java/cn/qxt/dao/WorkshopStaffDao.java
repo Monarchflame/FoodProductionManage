@@ -3,6 +3,7 @@ package cn.qxt.dao;
 import cn.qxt.pojo.WorkshopStaff;
 import cn.qxt.pojo.WorkshopStaffExample;
 import java.util.List;
+import java.util.Map;
 
 public interface WorkshopStaffDao {
     int deleteByPrimaryKey(String id);
@@ -18,4 +19,6 @@ public interface WorkshopStaffDao {
     int updateByPrimaryKeySelective(WorkshopStaff record);
 
     int updateByPrimaryKey(WorkshopStaff record);
+
+    Map selectStaffInfoById(String id);
 }

@@ -4,7 +4,9 @@ import cn.qxt.pojo.Plan;
 import cn.qxt.pojo.WorkshopStaff;
 import cn.qxt.pojo.WorkshopStaffExample;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface WorkshopStaffService {
     int deleteByPrimaryKey(String id);
@@ -21,5 +23,11 @@ public interface WorkshopStaffService {
 
     int updateByPrimaryKey(WorkshopStaff record);
 
-    List<Plan>  selectAllProductPlan();
+    Map selectPlanInfoByPlanId(Integer planId);
+
+    List<Map>  selectAllPlanInfo();
+
+    List<Map> selectAllStaffInfo();
+
+    void executePlan(Integer planId, Date finish_time);
 }

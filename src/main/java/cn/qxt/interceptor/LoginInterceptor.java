@@ -128,7 +128,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     return false;
                 }
             }
-            else if (strings[3].equalsIgnoreCase("workshop"))//生产计划科
+            else if (strings[3].equalsIgnoreCase("workshop"))//生产车间
             {
                 if(strings[4].equalsIgnoreCase("staff"))//员工
                 {
@@ -148,9 +148,99 @@ public class LoginInterceptor implements HandlerInterceptor {
                 }
             }
         }
-//        else if (strings[2].equalsIgnoreCase("leader"))//领导登录
-//        {
-//        }
+        else if (strings[2].equalsIgnoreCase("leader"))//领导登录
+        {
+            if (strings[3].equalsIgnoreCase("sale"))
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(SaleStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+            if (strings[3].equalsIgnoreCase("finance"))
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(FinancialStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+            if (strings[3].equalsIgnoreCase("product"))
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(ProductStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+            if (strings[3].equalsIgnoreCase("material"))
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(MaterialStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+            if (strings[3].equalsIgnoreCase("plan"))
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(Plan.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+            if (strings[3].equalsIgnoreCase("workshop"))//生产车间
+            {
+                if(strings[4].equalsIgnoreCase("leader"))//领导
+                {
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(WorkshopStaff.class))
+                    {
+                        return true;
+                    }
+                    else {
+                        System.out.println("拦截领导");
+                        httpServletResponse.sendRedirect("/admin");
+                        return false;
+                    }
+                }
+            }
+        }
         else if (strings[1].equalsIgnoreCase("user"))//客户登录
         {
             if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(Client.class))

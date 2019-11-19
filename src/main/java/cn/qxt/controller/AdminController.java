@@ -58,7 +58,10 @@ public class AdminController {
             SaleStaff saleStaff = saleStaffService.selectByPrimaryKey(account);
             if (password.equalsIgnoreCase(saleStaff.getPassword()))
             {
-                return successLogin(session,saleStaff,"sale","staff");
+                if (!"管理员".equalsIgnoreCase(saleStaff.getPosition()))
+                    return successLogin(session,saleStaff,"finance","staff");
+                else
+                    return successLogin(session,saleStaff,"finance","leader");
             }
             else
             {

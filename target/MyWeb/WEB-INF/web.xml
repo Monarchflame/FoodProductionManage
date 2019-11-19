@@ -20,15 +20,16 @@
 
 
     <!-- 使用filter实现登录控制 -->
+    <!-- 配置springSecurity(开始)-->
     <filter>
-        <filter-name>SessionFilter</filter-name>
-        <filter-class>cn.qxt.filter.LoginFilter</filter-class>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>SessionFilter</filter-name>
-        <!-- 所有的管理页面需要登录后才能访问 -->
-        <url-pattern>/views/admin/staff</url-pattern>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/view/admin</url-pattern>
     </filter-mapping>
+    <!-- 配置springSecurity(结束)-->
 
     <!-- 配置DispatcherServlet -->
     <servlet>
@@ -47,5 +48,6 @@
         <!-- 匹配所有请求 -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 
 </web-app>
