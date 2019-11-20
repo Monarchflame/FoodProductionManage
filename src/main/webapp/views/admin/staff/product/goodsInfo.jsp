@@ -263,7 +263,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="vertify_destruction()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_destruction()">确定
                                 </button>
                             </p>
                         </div>
@@ -303,7 +303,7 @@
             goodsId = goods_id;
         };
 
-        vertify_destruction = function () {
+        verify_destruction = function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/staff/product/staff/destroy",

@@ -261,7 +261,7 @@
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="vertify_deliver_goods_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_goods_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
@@ -270,7 +270,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="vertify_deliver_goods()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_deliver_goods()">确定
                                 </button>
                             </p>
                         </div>
@@ -306,11 +306,11 @@
         //点击安排发货
         deliver_goods = function(orderid)
         {
-            $("#vertify_deliver_goods_modal").modal();
+            $("#verify_deliver_goods_modal").modal();
             orderId = orderid;
         };
 
-        vertify_deliver_goods = function () {
+        verify_deliver_goods = function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/staff/product/staff/ship",

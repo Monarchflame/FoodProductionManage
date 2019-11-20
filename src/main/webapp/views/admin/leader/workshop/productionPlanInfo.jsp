@@ -271,7 +271,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button" onclick="vertify_execute()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button" onclick="verify_execute()">确定
                                 </button>
                             </p>
                         </div>
@@ -311,7 +311,7 @@
             planId = planid;
         };
 
-        vertify_execute = function () {
+        verify_execute = function () {
 
             let str1 = $("#finish_time").val();
             var date1 = new Date(Date.parse(str1.replace(/-/g,"/")));
@@ -338,7 +338,7 @@
                     else
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作失败";
                     }
                 },
                 error:  function ()  {

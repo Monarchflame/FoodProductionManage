@@ -30,4 +30,6 @@ public interface WorkshopStaffService {
     List<Map> selectAllStaffInfo();
 
     void executePlan(Integer planId, Date finish_time);
+
+    int completePlan(int planId);
 }

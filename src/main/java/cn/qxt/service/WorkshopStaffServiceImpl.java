@@ -106,4 +106,12 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
             materialRequirementDao.insertSelective(materialRequirement);
         }
     }
+
+    public int completePlan(int planId)
+    {
+        Plan plan = planDao.selectByPrimaryKey(planId);
+        plan.setStatus("已完成");
+        plan.setFinish_time(new Date());
+        return planDao.updateByPrimaryKeySelective(plan);
+    }
 }

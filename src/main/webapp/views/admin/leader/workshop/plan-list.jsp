@@ -209,7 +209,7 @@
                 //执行中计划
                 for(let i = 0;i < inProductionPlanList.length;i++) {
                     let plan = inProductionPlanList[i];
-                    inProductionPlanHTML.push('<div class="node-card node-flex" onclick="readyDeliverPlan(' + plan.plan_id + ')">' +
+                    inProductionPlanHTML.push('<div class="node-card node-flex" onclick="inProductionPlan(' + plan.plan_id + ')">' +
                         '<div class="nodemain">' +
                         '<div class="nodehead node-flex">' +
                         '<div class="nodename">' +'产品编号：'+ plan.product_id + '</div>' +
@@ -248,7 +248,12 @@
         productionPlan = function (id) {
             document.getElementById('infoifram').src = '/admin/leader/workshop/leader/productionPlanInfo?planId=' + id;
             $("#planinfo").modal();
-        }
+        };
 
+        //点击执行中的计划
+        inProductionPlan = function (id) {
+            document.getElementById('infoifram').src = '/admin/leader/workshop/leader/inProductionPlanInfo?planId=' + id;
+            $("#planinfo").modal();
+        };
     })
 </script>

@@ -249,8 +249,8 @@
                                                 </tbody></table>
                                         </div>
                                     </div>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="execute" onclick="execute(<% out.print(planInfo.get("plan_id"));%>)">
-                                        执行
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="complete" onclick="complete(<% out.print(planInfo.get("plan_id"));%>)">
+                                        完成
                                     </button>
                                 </div>
                             </div>
@@ -259,19 +259,16 @@
                 </div>
             </div>
 
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_execute_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_complete_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
                             <a class="modal-close" data-dismiss="modal">×</a>
-                            <h2 class="modal-title">订单确认</h2>
-                        </div>
-                        <div class="modal-inner">
-                            <p id="finish_label">预计完成时间：<input id="finish_time" type="date" value="2019-01-01"/></p>
+                            <h2 class="modal-title">您确认该生产计划已完成吗？</h2>
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button" onclick="vertify_execute()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_complete()">确定
                                 </button>
                             </p>
                         </div>
@@ -305,29 +302,19 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        //点击取消生产计划
-        execute = function (planid) {
-            $("#verify_execute_modal").modal();
+        //点击执行生产计划
+        complete = function (planid) {
+            $("#verify_complete_modal").modal();
             planId = planid;
         };
 
-        vertify_execute = function () {
-
-            let str1 = $("#finish_time").val();
-            var date1 = new Date(Date.parse(str1.replace(/-/g,"/")));
-            let date2 = new Date();
-            if(date2 > date1){
-                $("#result").modal();
-                document.getElementById('msg').innerHTML = "完成时间不得早于当前时间";
-                return;
-            }
+        verify_complete = function () {
             $.ajax({
                 type: "POST",
-                url: "/admin/leader/workshop/leader/executePlan",
+                url: "/admin/leader/workshop/leader/completePlan",
                 dataType: "json",
                 data: {
                     planId:planId,
-                    finish_time:str1
                 },
                 success: function(data) {
                     if (data.ret === 1)
@@ -338,7 +325,7 @@
                     else
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作失败";
                     }
                 },
                 error:  function ()  {

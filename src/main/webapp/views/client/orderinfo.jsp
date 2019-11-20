@@ -333,13 +333,13 @@
         {
             document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="cancelorder();"> '+'取消订单'+'  </button>';
             document.getElementById('h2').innerText='您确认取消订单吗？';
-            document.getElementById('choose_function').onclick= vertify_cancel;
+            document.getElementById('choose_function').onclick= verify_cancel;
         }
         else if (status === '已完成' || status === '待付尾款')
         {
             document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
             document.getElementById('h2').innerText='您确认申请退货吗？';
-            document.getElementById('choose_function').onclick= vertify_return;
+            document.getElementById('choose_function').onclick= verify_return;
         }
     });
     //点击取消订单
@@ -352,7 +352,7 @@
         $("#verify_modal").modal();
     };
     //确认取消订单
-    vertify_cancel = function () {
+    verify_cancel = function () {
         $.ajax({
             type: "POST",
             url: "/user/cancelorder",
@@ -383,7 +383,7 @@
         $("#verify_modal").modal();
     };
     //确认退货
-    vertify_return = function () {
+    verify_return = function () {
         $.ajax({
             type: "POST",
             url: "/user/returngoods",

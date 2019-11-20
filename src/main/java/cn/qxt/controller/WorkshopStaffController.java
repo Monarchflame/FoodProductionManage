@@ -72,7 +72,7 @@ public class WorkshopStaffController {
     }
 
     @GetMapping(value = "/productionPlanInfo")
-    public String materialInfo(String planId, HttpSession session)
+    public String productionPlanInfo(String planId, HttpSession session)
     {
         if (planId!=null)
         {
@@ -81,6 +81,18 @@ public class WorkshopStaffController {
             return "admin/leader/workshop/productionPlanInfo";
         }
         return "admin/leader/workshop/productionPlanInfo";
+    }
+
+    @GetMapping(value = "/inProductionPlanInfo")
+    public String inProductionPlanInfo(String planId, HttpSession session)
+    {
+        if (planId!=null)
+        {
+            Map planInfo = workshopStaffService.selectPlanInfoByPlanId(Integer.valueOf(planId));
+            session.setAttribute("planInfo",planInfo);
+            return "admin/leader/workshop/inProductionPlanInfo";
+        }
+        return "admin/leader/workshop/inProductionPlanInfo";
     }
 
     /**
@@ -100,9 +112,19 @@ public class WorkshopStaffController {
             Date date = simpleDateFormat.parse(finish_time);//将formate型转化成Date数据类型
             workshopStaffService.executePlan(Integer.parseInt(planId),date);
             ret = 1;
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        map.put("ret",ret);
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/completePlan")
+    public Map<String, Object> CompletePlan(String planId)
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = workshopStaffService.completePlan(Integer.parseInt(planId));
         map.put("ret",ret);
         return map;
     }

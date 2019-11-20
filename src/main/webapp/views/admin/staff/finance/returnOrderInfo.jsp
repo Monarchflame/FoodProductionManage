@@ -274,14 +274,14 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="vertify_agree()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_agree()">确定
                                 </button>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="vertify_deliver_goods_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_goods_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
@@ -290,7 +290,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="vertify_disagree()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_disagree()">确定
                                 </button>
                             </p>
                         </div>
@@ -332,11 +332,11 @@
         //点击拒绝申请
         disagree = function(returnOrderId)
         {
-            $("#vertify_deliver_goods_modal").modal();
+            $("#verify_deliver_goods_modal").modal();
             id = returnOrderId;
         };
 
-        vertify_agree = function () {
+        verify_agree = function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/staff/finance/staff/agreeRefund",
@@ -354,7 +354,7 @@
                 }
             })
         };
-        vertify_disagree = function () {
+        verify_disagree = function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/staff/finance/staff/disagreeRefund",
