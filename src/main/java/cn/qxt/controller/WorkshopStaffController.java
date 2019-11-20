@@ -128,4 +128,55 @@ public class WorkshopStaffController {
         map.put("ret",ret);
         return map;
     }
+
+    @ResponseBody
+    @PostMapping(value = "/allStaffInfo")
+    public Map<String, Object> AllStaffInfo()
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        List<Map> staffInfoList = workshopStaffService.selectAllStaffInfo();
+        //把管理员的信息剔除
+        for (Map staffInfo : staffInfoList)
+        {
+            String position = staffInfo.get("position").toString();
+            if (position.equals("管理员"))
+            {
+                staffInfoList.remove(staffInfo);
+            }
+        }
+        map.put("staffInfoList",staffInfoList);
+        return map;
+    }
+
+    @GetMapping(value = "/staffInfo")
+    public String staffInfo(String staffId, HttpSession session)
+    {
+        if (staffId!=null)
+        {
+            Map staffInfo = workshopStaffService.selectStaffInfoById(staffId);
+            session.setAttribute("staffInfo",staffInfo);
+            return "admin/leader/workshop/staffInfo";
+        }
+        return "admin/leader/workshop/staffInfo";
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/changeSalary")
+    public Map<String, Object> ChangeSalary(String staffId,String newSalary)
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = workshopStaffService.ChangeSalary(staffId,Integer.parseInt(newSalary));
+        map.put("ret",ret);
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/changePosition")
+    public Map<String, Object> ChangePosition(String staffId,String newPosition)
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        int ret = workshopStaffService.ChangePosition(staffId,newPosition);
+        map.put("ret",ret);
+        return map;
+    }
 }

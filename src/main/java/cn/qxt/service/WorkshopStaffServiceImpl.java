@@ -114,4 +114,23 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
         plan.setFinish_time(new Date());
         return planDao.updateByPrimaryKeySelective(plan);
     }
+
+    public Map selectStaffInfoById(String staffId)
+    {
+        return workshopStaffDao.selectStaffInfoById(staffId);
+    }
+
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        WorkshopStaff workshopStaff = workshopStaffDao.selectByPrimaryKey(staffId);
+        workshopStaff.setSalary(newSalary);
+        return workshopStaffDao.updateByPrimaryKeySelective(workshopStaff);
+    }
+
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        WorkshopStaff workshopStaff = workshopStaffDao.selectByPrimaryKey(staffId);
+        workshopStaff.setPosition(newPosition);
+        return workshopStaffDao.updateByPrimaryKeySelective(workshopStaff);
+    }
 }

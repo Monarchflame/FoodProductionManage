@@ -267,7 +267,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="vertify_cancel_plan()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_cancel_plan()">确定
                                 </button>
                             </p>
                         </div>
@@ -307,7 +307,7 @@
             planId = planid;
         };
 
-        vertify_cancel_plan = function () {
+        verify_cancel_plan = function () {
             $.ajax({
                 type: "POST",
                 url: "/admin/staff/plan/staff/cancelPlan",

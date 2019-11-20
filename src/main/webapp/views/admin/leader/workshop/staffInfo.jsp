@@ -1,24 +1,23 @@
 <%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: 10703
-  Date: 2019/11/17
-  Time: 19:49
+  Date: 2019/11/20
+  Time: 20:01
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Map orderInfo=(Map) request.getSession().getAttribute("goodsReturnOrderInfo"); %>
+<% Map staffInfo=(Map) request.getSession().getAttribute("staffInfo"); %>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4caf50">
-    <title>订单信息</title>
+    <title>员工信息</title>
 
     <link href="../../../../theme/css/base.min.css" rel="stylesheet">
     <link href="../../../../theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <%--    没有他不能用$符号--%>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="text/javascript"></script>
 
     <style>
@@ -200,7 +199,7 @@
 <main class="content">
     <div class="content-header ui-content-header">
         <div class="container">
-            <h1 class="content-heading">订单信息</h1>
+            <h1 class="content-heading">员工信息</h1>
         </div>
     </div>
     <div class="container">
@@ -216,47 +215,29 @@
                                             <table class="table table-fixed">
                                                 <tbody>
                                                 <tr>
-                                                    <td>订单编号</td>
-                                                    <td><% out.print(orderInfo.get("order_id"));%></td>
+                                                    <td>员工ID</td>
+                                                    <td><% out.print(staffInfo.get("id"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>订单状态</td>
-                                                    <td><% out.print(orderInfo.get("order_status"));%></td>
+                                                    <td>姓名</td>
+                                                    <td><% out.print(staffInfo.get("name"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>产品名称</td>
-                                                    <td><% out.print(orderInfo.get("product_name"));%></td>
+                                                    <td>职位</td>
+                                                    <td><% out.print(staffInfo.get("position"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>购买数量</td>
-                                                    <td><% out.print(orderInfo.get("quantity"));%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>已付定金</td>
-                                                    <td>
-                                                        <% out.print(orderInfo.get("deposit"));%>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>应付全款</td>
-                                                    <td>
-                                                        <% out.print(orderInfo.get("total_payment"));%>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>申请时间</td>
-                                                    <td>
-                                                        <% out.print(orderInfo.get("create_time"));%>
-                                                    </td>
+                                                    <td>工资</td>
+                                                    <td><% out.print(staffInfo.get("salary"));%></td>
                                                 </tr>
                                                 </tbody></table>
                                         </div>
                                     </div>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="take_plan" onclick="agree(<% out.print(orderInfo.get("id"));%>)">
-                                        同意退货
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" onclick="changePosition(<% out.print(staffInfo.get("id"));%>)">
+                                        修改职位
                                     </button>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="deliver_goods" onclick="disagree(<% out.print(orderInfo.get("id"));%>)">
-                                        拒绝退货
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" onclick="changeSalary(<% out.print(staffInfo.get("id"));%>)">
+                                        修改工资
                                     </button>
                                 </div>
                             </div>
@@ -264,38 +245,27 @@
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_order_modal" role="dialog" tabindex="-1">
+
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
                             <a class="modal-close" data-dismiss="modal">×</a>
-                            <h2 class="modal-title">您确认同意退货申请？</h2>
+                            <h2 class="modal-title">确认</h2>
+                        </div>
+                        <div class="modal-inner" id="verify_modal-inner">
+
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_agree()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="verify_button" type="button">确定
                                 </button>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_goods_modal" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-xs">
-                    <div class="modal-content">
-                        <div class="modal-heading">
-                            <a class="modal-close" data-dismiss="modal">×</a>
-                            <h2 class="modal-title">您确认拒绝退货申请？</h2>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_disagree()">确定
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
@@ -322,71 +292,78 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        //点击同意申请
-        var id;
-        agree = function (returnOrderId) {
-            $("#verify_deliver_order_modal").modal();
-            id = returnOrderId;
-        };
-        //点击拒绝申请
-        disagree = function(returnOrderId)
-        {
-            $("#verify_deliver_goods_modal").modal();
-            id = returnOrderId;
+        //点击修改工资
+        changeSalary = function (staffid) {
+            document.getElementById("verify_modal-inner").innerHTML = '<p>新工资：<input id="number" type="number" oninput="calculate()"></p>';
+            document.getElementById("verify_button").onclick = Function("verify_changeSalary()");
+            $("#verify_modal").modal();
+            staffId = staffid;
         };
 
-        verify_agree = function () {
+        verify_changeSalary = function () {
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/sale/staff/agreeReturnOrder",
+                url: "/admin/leader/workshop/leader/changeSalary",
                 dataType: "json",
                 data: {
-                    id:id,
+                    staffId:staffId,
+                    newSalary:$("#number").val()
                 },
                 success: function(data) {
-                    if (data.ret===1)
+                    if (data.ret === 1)
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作成功";
                     }
                     else
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作失败";
                     }
                 },
-                error: (jqXHR) => {
+                error:  function ()  {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
             })
         };
-        verify_disagree = function () {
+
+        //点击修改职位
+        changePosition = function (staffid) {
+            $("#verify_modal").modal();
+            document.getElementById("verify_modal-inner").innerHTML = '<p>新职位：<select id="newPosition">\n' +
+                '  <option value ="员工">员工</option>\n' +
+                '</select></p>';
+            document.getElementById("verify_button").onclick = Function("verify_changePosition()");
+            staffId = staffid;
+        };
+
+        verify_changePosition = function () {
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/sale/staff/disagreeReturnOrder",
+                url: "/admin/leader/workshop/leader/changePosition",
                 dataType: "json",
                 data: {
-                    id:id,
+                    staffId:staffId,
+                    newPosition: document.getElementById("newPosition").value
                 },
                 success: function(data) {
-                    if (data.ret===1)
+                    if (data.ret === 1)
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作成功";
                     }
                     else
                     {
                         $("#result").modal();
-                        document.getElementById('msg').innerHTML = data.msg;
+                        document.getElementById('msg').innerHTML = "操作失败";
                     }
                 },
-                error: (jqXHR) => {
+                error:  function ()  {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
             })
-        }
+        };
     });
 </script>
-

@@ -32,4 +32,10 @@ public interface WorkshopStaffService {
     void executePlan(Integer planId, Date finish_time);
 
     int completePlan(int planId);
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int newSalary);
+
+    int ChangePosition(String staffId, String newPosition);
 }

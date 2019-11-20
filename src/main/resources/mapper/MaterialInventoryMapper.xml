@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.qxt.dao.MaterialInventoryDao">
     <resultMap id="BaseResultMap" type="cn.qxt.pojo.MaterialInventory">
-        <id column="Id" jdbcType="INTEGER" property="id" />
+        <id column="id" jdbcType="INTEGER" property="id" />
         <result column="material_id" jdbcType="INTEGER" property="material_id" />
         <result column="quantity" jdbcType="INTEGER" property="quantity" />
         <result column="expiration_time" jdbcType="TIMESTAMP" property="expiration_time" />
@@ -37,7 +37,7 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        Id, material_id, quantity, expiration_time
+        id, material_id, quantity, expiration_time
     </sql>
     <select id="selectByExample" parameterType="cn.qxt.pojo.MaterialInventoryExample" resultMap="BaseResultMap">
         select
@@ -58,14 +58,14 @@
         select
         <include refid="Base_Column_List" />
         from material_inventory
-        where Id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         delete from material_inventory
-        where Id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="cn.qxt.pojo.MaterialInventory">
-        insert into material_inventory (Id, material_id, quantity,
+        insert into material_inventory (id, material_id, quantity,
                                         expiration_time)
         values (#{id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
                 #{expiration_time,jdbcType=TIMESTAMP})
@@ -74,7 +74,7 @@
         insert into material_inventory
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                Id,
+                id,
             </if>
             <if test="material_id != null">
                 material_id,
@@ -114,35 +114,35 @@
                 expiration_time = #{expiration_time,jdbcType=TIMESTAMP},
             </if>
         </set>
-        where Id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.MaterialInventory">
         update material_inventory
         set material_id = #{material_id,jdbcType=INTEGER},
             quantity = #{quantity,jdbcType=INTEGER},
             expiration_time = #{expiration_time,jdbcType=TIMESTAMP}
-        where Id = #{id,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectMaterialInventoryInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
-        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
         from material
                  join material_record
                       on material_id = material.id
                  join material_inventory
                       on material_inventory.material_id = material.id
-        where material_inventory.Id = #{id,jdbcType=INTEGER} and material_record.type='入库'
+        where material_inventory.id = #{id,jdbcType=INTEGER} and material_record.type='入库'
     </select>
     <select id="selectMaterialInventoryInfoByMaterialId" parameterType="java.lang.Integer" resultType="java.util.Map">
-        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
              ,shelf_life
         from material_inventory
-                 join material_record on inventory_id = material_inventory.Id
+                 join material_record on inventory_id = material_inventory.id
                  join material on material_inventory.material_id = material.id
         where material_inventory.material_id = #{id,jdbcType=INTEGER} and material_record.type='入库'
     </select>
 
     <select id="selectAllMaterialInventoryInfo" resultType="java.util.Map">
-        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.Id as inventory_id
+        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
             ,shelf_life
         from material
                  join material_record
