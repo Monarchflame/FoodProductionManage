@@ -101,4 +101,11 @@ public interface SaleStaffService {
      */
     int disagreeCancelOrder(Integer id);
 
+    List<Map> selectAllStaffInfo();
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int parseInt);
+
+    int ChangePosition(String staffId, String newPosition);
 }

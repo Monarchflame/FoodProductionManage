@@ -53,4 +53,12 @@ public interface ProductStaffService {
     void ship(int orderId);
 
     int selectAllRepertoryByProductId(Integer product_id);
+
+    List<Map> selectAllStaffInfo();
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int parseInt);
+
+    int ChangePosition(String staffId, String newPosition);
 }

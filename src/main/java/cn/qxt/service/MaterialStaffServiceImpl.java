@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class MaterialStaffServiceImpl implements MaterialStaffService{
@@ -209,4 +206,40 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
     {
         return materialPurchaseOrderDao.insertSelective(materialPurchaseOrder);
     }
+    /*
+    管理员有关功能
+     */
+    @Override
+    public List<Map> selectAllStaffInfo() {
+        List<MaterialStaff> materialStaffList = materialStaffDao.selectByExample(new MaterialStaffExample());
+        List<Map> allStaffInfo = new ArrayList<Map>();
+        //依次查询详细信息
+        for (MaterialStaff materialStaff: materialStaffList)
+        {
+            allStaffInfo.add(materialStaffDao.selectStaffInfoById(materialStaff.getId()));
+        }
+        return allStaffInfo;
+    }
+
+    @Override
+    public Map selectStaffInfoById(String staffId)
+    {
+        return materialStaffDao.selectStaffInfoById(staffId);
+    }
+
+    @Override
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        MaterialStaff materialStaff = materialStaffDao.selectByPrimaryKey(staffId);
+        materialStaff.setSalary(newSalary);
+        return materialStaffDao.updateByPrimaryKeySelective(materialStaff);
+    }
+    @Override
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        MaterialStaff materialStaff = materialStaffDao.selectByPrimaryKey(staffId);
+        materialStaff.setPosition(newPosition);
+        return materialStaffDao.updateByPrimaryKeySelective(materialStaff);
+    }
+
 }

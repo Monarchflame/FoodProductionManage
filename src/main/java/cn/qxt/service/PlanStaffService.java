@@ -76,4 +76,12 @@ public interface PlanStaffService {
      * @return 1：成功，0：失败
      */
     int cancelPlan(int planId);
+
+    List<Map> selectAllStaffInfo();
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int parseInt);
+
+    int ChangePosition(String staffId, String newPosition);
 }

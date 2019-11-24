@@ -30,6 +30,8 @@ public class AdminController {
     private MaterialStaffService materialStaffService;
     @Autowired
     private WorkshopStaffService workshopStaffService;
+    @Autowired
+    private CEOService ceoService;
 
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String admin()
@@ -52,16 +54,28 @@ public class AdminController {
         String password = request.getParameter("password").toString();
         String departmentCode = account.substring(4,7);//部门编码在工号4、5、6位
         Map<String,Object>map = new HashMap<String, Object>();
-        System.out.println(account);
+        System.out.println("登陆账号："+account);
+        //000是CEO
+        if ("000".equals(departmentCode)) {
+            CEO ceo = ceoService.selectByPrimaryKey(account);
+            if (password.equalsIgnoreCase(ceo.getPassword()))
+            {
+                return successLogin(session, ceo,"ceo","");
+            }
+            else
+            {
+                return failLogin(session);
+            }
+        }
         //001为销售部
         if ("001".equals(departmentCode)) {
             SaleStaff saleStaff = saleStaffService.selectByPrimaryKey(account);
             if (password.equalsIgnoreCase(saleStaff.getPassword()))
             {
                 if (!"管理员".equalsIgnoreCase(saleStaff.getPosition()))
-                    return successLogin(session,saleStaff,"finance","staff");
+                    return successLogin(session,saleStaff,"sale","staff");
                 else
-                    return successLogin(session,saleStaff,"finance","leader");
+                    return successLogin(session,saleStaff,"sale","leader");
             }
             else
             {

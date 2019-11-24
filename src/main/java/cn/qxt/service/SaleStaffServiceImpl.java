@@ -174,5 +174,39 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         int result = clientMessageDao.insertSelective(clientMessage);
         return result*goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
     }
+    /*
+    管理员有关功能
+     */
+    @Override
+    public List<Map> selectAllStaffInfo() {
+        List<SaleStaff> saleStaffList = saleStaffDao.selectByExample(new SaleStaffExample());
+        List<Map> allStaffInfo = new ArrayList<Map>();
+        //依次查询详细信息
+        for (SaleStaff saleStaff: saleStaffList)
+        {
+            allStaffInfo.add(saleStaffDao.selectStaffInfoById(saleStaff.getId()));
+        }
+        return allStaffInfo;
+    }
 
+    @Override
+    public Map selectStaffInfoById(String staffId)
+    {
+        return saleStaffDao.selectStaffInfoById(staffId);
+    }
+
+    @Override
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        SaleStaff saleStaff = saleStaffDao.selectByPrimaryKey(staffId);
+        saleStaff.setSalary(newSalary);
+        return saleStaffDao.updateByPrimaryKeySelective(saleStaff);
+    }
+    @Override
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        SaleStaff saleStaff = saleStaffDao.selectByPrimaryKey(staffId);
+        saleStaff.setPosition(newPosition);
+        return saleStaffDao.updateByPrimaryKeySelective(saleStaff);
+    }
 }

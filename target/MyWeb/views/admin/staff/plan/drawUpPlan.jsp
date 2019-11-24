@@ -121,7 +121,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href=""><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                    <a class="waves-attach" href="/admin/staff/plan/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
                     <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>

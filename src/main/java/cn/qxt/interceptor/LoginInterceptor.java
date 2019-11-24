@@ -28,7 +28,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 //            System.out.println(i+" "+s);
 //            i++;
 //        }
-
+        if(strings.length < 2)
+        {
+            return false;
+        }
         if (strings[2].equalsIgnoreCase("staff"))//员工登录
         {
             if (strings[3].equalsIgnoreCase("sale"))//销售部
@@ -214,7 +217,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             {
                 if(strings[4].equalsIgnoreCase("leader"))//领导
                 {
-                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(Plan.class))
+                    if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(PlanStaff.class))
                     {
                         return true;
                     }
@@ -239,6 +242,18 @@ public class LoginInterceptor implements HandlerInterceptor {
                         return false;
                     }
                 }
+            }
+        }
+        else if (strings[2].equalsIgnoreCase("ceo"))//ceo登录
+        {
+            if (session.getAttribute("LOGIN_USER")!=null && session.getAttribute("LOGIN_USER").getClass().equals(CEO.class))
+            {
+                return true;
+            }
+            else {
+                System.out.println("拦截CEO");
+                httpServletResponse.sendRedirect("/admin");
+                return false;
             }
         }
         else if (strings[1].equalsIgnoreCase("user"))//客户登录

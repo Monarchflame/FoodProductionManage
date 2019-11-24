@@ -76,4 +76,12 @@ public interface MaterialStaffService {
     void inventoryOut(Integer material_id, Integer requirement, Integer[] requirementIdList);
 
     int newMaterialPurchaseOrder(MaterialPurchaseOrder materialPurchaseOrder);
+
+    List<Map> selectAllStaffInfo();
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int parseInt);
+
+    int ChangePosition(String staffId, String newPosition);
 }

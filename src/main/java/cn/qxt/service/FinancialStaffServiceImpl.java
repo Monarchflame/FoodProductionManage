@@ -222,4 +222,41 @@ public class FinancialStaffServiceImpl implements FinancialStaffService {
     {
         return financeDao.selectFinanceInfoByPrimaryKey_Material(financeId);
     }
+
+    /*
+    管理员有关功能
+     */
+    @Override
+    public List<Map> selectAllStaffInfo() {
+        List<FinancialStaff> financialStaffList = financialStaffDao.selectByExample(new FinancialStaffExample());
+        List<Map> allStaffInfo = new ArrayList<Map>();
+        //依次查询详细信息
+        for (FinancialStaff financialStaff: financialStaffList)
+        {
+            allStaffInfo.add(financialStaffDao.selectStaffInfoById(financialStaff.getId()));
+        }
+        return allStaffInfo;
+    }
+    
+    @Override
+    public Map selectStaffInfoById(String staffId)
+    {
+        return financialStaffDao.selectStaffInfoById(staffId);
+    }
+    
+    @Override
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        FinancialStaff financialStaff = financialStaffDao.selectByPrimaryKey(staffId);
+        financialStaff.setSalary(newSalary);
+        return financialStaffDao.updateByPrimaryKeySelective(financialStaff);
+    }
+    @Override
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        FinancialStaff financialStaff = financialStaffDao.selectByPrimaryKey(staffId);
+        financialStaff.setPosition(newPosition);
+        return financialStaffDao.updateByPrimaryKeySelective(financialStaff);
+    }
+
 }

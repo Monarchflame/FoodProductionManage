@@ -214,4 +214,39 @@ public class ProductStaffServiceImpl implements ProductStaffService{
     {
         return goodsDao.selectAllRepertoryByProductId(product_id);
     }
+    /*
+管理员有关功能
+ */
+    @Override
+    public List<Map> selectAllStaffInfo() {
+        List<ProductStaff> productStaffList = productStaffDao.selectByExample(new ProductStaffExample());
+        List<Map> allStaffInfo = new ArrayList<Map>();
+        //依次查询详细信息
+        for (ProductStaff productStaff: productStaffList)
+        {
+            allStaffInfo.add(productStaffDao.selectStaffInfoById(productStaff.getId()));
+        }
+        return allStaffInfo;
+    }
+
+    @Override
+    public Map selectStaffInfoById(String staffId)
+    {
+        return productStaffDao.selectStaffInfoById(staffId);
+    }
+
+    @Override
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        ProductStaff productStaff = productStaffDao.selectByPrimaryKey(staffId);
+        productStaff.setSalary(newSalary);
+        return productStaffDao.updateByPrimaryKeySelective(productStaff);
+    }
+    @Override
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        ProductStaff productStaff = productStaffDao.selectByPrimaryKey(staffId);
+        productStaff.setPosition(newPosition);
+        return productStaffDao.updateByPrimaryKeySelective(productStaff);
+    }
 }

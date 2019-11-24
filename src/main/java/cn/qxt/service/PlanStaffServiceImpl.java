@@ -118,4 +118,39 @@ public class PlanStaffServiceImpl implements PlanStaffService {
         plan.setStatus("已取消");
         return planDao.updateByPrimaryKeySelective(plan);
     }
+    /*
+管理员有关功能
+ */
+    @Override
+    public List<Map> selectAllStaffInfo() {
+        List<PlanStaff> planStaffList = planStaffDao.selectByExample(new PlanStaffExample());
+        List<Map> allStaffInfo = new ArrayList<Map>();
+        //依次查询详细信息
+        for (PlanStaff planStaff: planStaffList)
+        {
+            allStaffInfo.add(planStaffDao.selectStaffInfoById(planStaff.getId()));
+        }
+        return allStaffInfo;
+    }
+
+    @Override
+    public Map selectStaffInfoById(String staffId)
+    {
+        return planStaffDao.selectStaffInfoById(staffId);
+    }
+
+    @Override
+    public int ChangeSalary(String staffId, int newSalary)
+    {
+        PlanStaff planStaff = planStaffDao.selectByPrimaryKey(staffId);
+        planStaff.setSalary(newSalary);
+        return planStaffDao.updateByPrimaryKeySelective(planStaff);
+    }
+    @Override
+    public int ChangePosition(String staffId, String newPosition)
+    {
+        PlanStaff planStaff = planStaffDao.selectByPrimaryKey(staffId);
+        planStaff.setPosition(newPosition);
+        return planStaffDao.updateByPrimaryKeySelective(planStaff);
+    }
 }

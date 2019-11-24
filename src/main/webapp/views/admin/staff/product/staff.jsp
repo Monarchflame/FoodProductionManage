@@ -45,7 +45,7 @@ To change this template use File | Settings | File Templates.
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href=""><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                    <a class="waves-attach" href="/admin/staff/product/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
                     <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
@@ -64,7 +64,7 @@ To change this template use File | Settings | File Templates.
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
+                            <a href="/admin/staff/product/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
                         </li>
                         <li>
                             <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>

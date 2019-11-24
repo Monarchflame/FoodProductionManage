@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
 @RequestMapping("/admin/leader/workshop/leader")
-public class WorkshopStaffController {
+public class WorkshopLeaderController {
     @Autowired
     private WorkshopStaffService workshopStaffService;
     /**
@@ -136,12 +135,11 @@ public class WorkshopStaffController {
         Map<String,Object> map = new HashMap<String, Object>();
         List<Map> staffInfoList = workshopStaffService.selectAllStaffInfo();
         //把管理员的信息剔除
-        for (Map staffInfo : staffInfoList)
-        {
-            String position = staffInfo.get("position").toString();
-            if (position.equals("管理员"))
-            {
-                staffInfoList.remove(staffInfo);
+        Iterator<Map> iterator = staffInfoList.iterator();
+        while(iterator.hasNext()){
+            Map staffInfo = iterator.next();
+            if (staffInfo.get("position").toString().equals("管理员")) {
+                iterator.remove();
             }
         }
         map.put("staffInfoList",staffInfoList);

@@ -71,7 +71,6 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
 
     public List<Map> selectAllStaffInfo()
     {
-        //选择所有的plan
         List<WorkshopStaff> workshopStaffList = workshopStaffDao.selectByExample(new WorkshopStaffExample());
         List<Map> allStaffInfo = new ArrayList<Map>();
         //依次查询详细信息

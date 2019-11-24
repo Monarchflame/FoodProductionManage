@@ -64,7 +64,7 @@ To change this template use File | Settings | File Templates.
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
+                            <a href="/user"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
                         </li>
                         <li>
                             <a href="/user/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>

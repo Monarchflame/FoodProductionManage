@@ -43,4 +43,11 @@ public interface FinancialStaffService {
 
     Map<String,Object> selectFinanceInfoByPrimaryKey_Material(Integer financeId);
 
+    List<Map> selectAllStaffInfo();
+
+    Map selectStaffInfoById(String staffId);
+
+    int ChangeSalary(String staffId, int parseInt);
+
+    int ChangePosition(String staffId, String newPosition);
 }

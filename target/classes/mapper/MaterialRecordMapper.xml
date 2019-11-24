@@ -155,7 +155,7 @@
                  join material
                       on material_id = material.id
                  join material_inventory
-                      on material_inventory.Id = material_record.inventory_id
+                      on material_inventory.id = material_record.inventory_id
         where material_record.id = #{id,jdbcType=INTEGER}
     </select>
 
@@ -166,7 +166,7 @@
                  join material
                       on material_id = material.id
                  join material_inventory
-                      on material_inventory.Id = material_record.inventory_id
+                      on material_inventory.id = material_record.inventory_id
         where material_inventory.id = #{id,jdbcType=INTEGER}
     </select>
 </mapper>

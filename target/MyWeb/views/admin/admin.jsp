@@ -124,7 +124,12 @@
                     {
                         $("#result").modal();
                         document.getElementById("msg").innerHTML = data.msg;
-                        window.location.href = "/admin" + "/" + data.position + "/" + data.department + "/" + data.position;
+                        if (data.department === "ceo")
+                        {
+                            window.location.href = "/admin/ceo";
+                        }
+                        else
+                            window.location.href = "/admin" + "/" + data.position + "/" + data.department + "/" + data.position;
                     } else {
                         $("#result").modal();
                         document.getElementById("msg").innerHTML = data.msg;

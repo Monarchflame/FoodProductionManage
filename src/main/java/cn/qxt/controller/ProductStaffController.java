@@ -97,7 +97,7 @@ public class ProductStaffController {
      * @return 界面路径
      */
     @GetMapping(value = "/goodsInfo")
-    public String materialInfo(String goods_id, HttpSession session)
+    public String goodsInfo(String goods_id, HttpSession session)
     {
         if (goods_id!=null)
         {
