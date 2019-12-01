@@ -14,13 +14,13 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4285f4">
-    <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <title>潮汐</title>
 
-    <link href="../../../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="7f08d2d5c89f636849dfe7dd-text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="7f08d2d5c89f636849dfe7dd-text/javascript"></script>
@@ -177,8 +177,8 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
 
-<script src="../../../../theme/js/base.min.js" type="text/javascript"></script>
-<script src="../../../../theme/js/project.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
 <script type="text/javascript">
@@ -188,7 +188,7 @@
         {
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/sale/staff/getCredit",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/getCredit",
                 dataType: "json",
                 data: {
                 },
@@ -226,7 +226,7 @@
             }
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/sale/staff/updateDiscount",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/updateDiscount",
                 dataType: "json",
                 traditional: true,
                 data: {
@@ -255,7 +255,7 @@
             alert(typeof ratioList);
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/sale/staff/updateRatio",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/updateRatio",
                 dataType: "json",
                 //这个参数非常重要，不然你后台取出来的值第一个和最后一个是错的，会多'['和 ']' 这两个东西。
                 traditional: true,

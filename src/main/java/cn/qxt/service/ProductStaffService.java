@@ -61,4 +61,8 @@ public interface ProductStaffService {
     int ChangeSalary(String staffId, int parseInt);
 
     int ChangePosition(String staffId, String newPosition);
+
+    List<Map> IngredientInfoByProductId(Integer productId);
+
+    List<Material> selectAllMaterial();
 }

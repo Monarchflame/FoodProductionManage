@@ -4,6 +4,7 @@ import cn.qxt.pojo.ProductIngredient;
 import cn.qxt.pojo.ProductIngredientExample;
 import cn.qxt.pojo.ProductIngredientKey;
 import java.util.List;
+import java.util.Map;
 
 public interface ProductIngredientDao {
     int deleteByPrimaryKey(ProductIngredientKey key);
@@ -19,4 +20,6 @@ public interface ProductIngredientDao {
     int updateByPrimaryKeySelective(ProductIngredient record);
 
     int updateByPrimaryKey(ProductIngredient record);
+
+    List<Map> ingredientInfoByProductId(Integer productId);
 }

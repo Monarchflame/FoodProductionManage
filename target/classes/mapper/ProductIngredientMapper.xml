@@ -1,115 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.qxt.dao.ProductIngredientDao">
-  <resultMap id="BaseResultMap" type="cn.qxt.pojo.ProductIngredient">
-    <id column="product_id" jdbcType="INTEGER" property="product_id" />
-    <id column="material_id" jdbcType="INTEGER" property="material_id" />
-    <result column="material_quantity" jdbcType="INTEGER" property="material_quantity" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+    <resultMap id="BaseResultMap" type="cn.qxt.pojo.ProductIngredient">
+        <id column="product_id" jdbcType="INTEGER" property="product_id" />
+        <id column="material_id" jdbcType="INTEGER" property="material_id" />
+        <result column="material_quantity" jdbcType="INTEGER" property="material_quantity" />
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        product_id, material_id, material_quantity
+    </sql>
+    <select id="selectByExample" parameterType="cn.qxt.pojo.ProductIngredientExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
         </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    product_id, material_id, material_quantity
-  </sql>
-  <select id="selectByExample" parameterType="cn.qxt.pojo.ProductIngredientExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    'false' as QUERYID,
-    <include refid="Base_Column_List" />
-    from product_ingredient
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredientKey" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from product_ingredient
-    where product_id = #{product_id,jdbcType=INTEGER}
-      and material_id = #{material_id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredientKey">
-    delete from product_ingredient
-    where product_id = #{product_id,jdbcType=INTEGER}
-      and material_id = #{material_id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="cn.qxt.pojo.ProductIngredient">
-    insert into product_ingredient (product_id, material_id, material_quantity
-      )
-    values (#{product_id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{material_quantity,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="cn.qxt.pojo.ProductIngredient">
-    insert into product_ingredient
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="product_id != null">
-        product_id,
-      </if>
-      <if test="material_id != null">
-        material_id,
-      </if>
-      <if test="material_quantity != null">
-        material_quantity,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="product_id != null">
-        #{product_id,jdbcType=INTEGER},
-      </if>
-      <if test="material_id != null">
-        #{material_id,jdbcType=INTEGER},
-      </if>
-      <if test="material_quantity != null">
-        #{material_quantity,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.ProductIngredient">
-    update product_ingredient
-    <set>
-      <if test="material_quantity != null">
-        material_quantity = #{material_quantity,jdbcType=INTEGER},
-      </if>
-    </set>
-    where product_id = #{product_id,jdbcType=INTEGER}
-      and material_id = #{material_id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredient">
-    update product_ingredient
-    set material_quantity = #{material_quantity,jdbcType=INTEGER}
-    where product_id = #{product_id,jdbcType=INTEGER}
-      and material_id = #{material_id,jdbcType=INTEGER}
-  </update>
+        'false' as QUERYID,
+        <include refid="Base_Column_List" />
+        from product_ingredient
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredientKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from product_ingredient
+        where product_id = #{product_id,jdbcType=INTEGER}
+        and material_id = #{material_id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredientKey">
+        delete from product_ingredient
+        where product_id = #{product_id,jdbcType=INTEGER}
+          and material_id = #{material_id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="cn.qxt.pojo.ProductIngredient">
+        insert into product_ingredient (product_id, material_id, material_quantity
+        )
+        values (#{product_id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{material_quantity,jdbcType=INTEGER}
+               )
+    </insert>
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.ProductIngredient">
+        insert into product_ingredient
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="product_id != null">
+                product_id,
+            </if>
+            <if test="material_id != null">
+                material_id,
+            </if>
+            <if test="material_quantity != null">
+                material_quantity,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="product_id != null">
+                #{product_id,jdbcType=INTEGER},
+            </if>
+            <if test="material_id != null">
+                #{material_id,jdbcType=INTEGER},
+            </if>
+            <if test="material_quantity != null">
+                #{material_quantity,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.qxt.pojo.ProductIngredient">
+        update product_ingredient
+        <set>
+            <if test="material_quantity != null">
+                material_quantity = #{material_quantity,jdbcType=INTEGER},
+            </if>
+        </set>
+        where product_id = #{product_id,jdbcType=INTEGER}
+        and material_id = #{material_id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.qxt.pojo.ProductIngredient">
+        update product_ingredient
+        set material_quantity = #{material_quantity,jdbcType=INTEGER}
+        where product_id = #{product_id,jdbcType=INTEGER}
+          and material_id = #{material_id,jdbcType=INTEGER}
+    </update>
+    <select id="ingredientInfoByProductId" parameterType="java.lang.Integer" resultType="java.util.Map">
+        select material.name as material_name, material_quantity
+        from product_ingredient
+            join material
+                on material_id = material.id
+        where product_id = #{product_id,jdbcType=INTEGER}
+    </select>
 </mapper>

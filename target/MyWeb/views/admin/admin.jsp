@@ -12,12 +12,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4285f4">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <title>登录</title>
 
-    <link href="../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../theme/css/project.min.css" rel="stylesheet">
-    <link href="../../theme/css/auth.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/auth.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 
     <!--重新请求，生成一个新的验证码，因为浏览器会缓存图片，所以要随便加一个参数，让浏览器重新请求服务器-->
@@ -43,7 +43,7 @@
                         <div>首 页</div>
                     </a>
                     <div class="auth-logo">
-                        <img src="../../images/authlogo.jpg">
+                        <img src="${pageContext.request.contextPath}/images/authlogo.jpg">
                     </div>
                     <a href="" class="boardtop-right">
                         <div>注 册</div>
@@ -101,8 +101,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
-<script src="../../theme/js/base.min.js" type="text/javascript"></script>
-<script src="../../theme/js/project.min.js" type="4text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="439ccd34d75bad8383a7ab79-|49" defer=""></script>
 </body>
 </html>
@@ -112,7 +112,7 @@
         $("#login").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/admin",
+                url: "${pageContext.request.contextPath}/admin",
                 dataType: "json",
                 data: {
                     account: $("#account").val(),
@@ -126,10 +126,10 @@
                         document.getElementById("msg").innerHTML = data.msg;
                         if (data.department === "ceo")
                         {
-                            window.location.href = "/admin/ceo";
+                            window.location.href = "${pageContext.request.contextPath}/admin/ceo";
                         }
                         else
-                            window.location.href = "/admin" + "/" + data.position + "/" + data.department + "/" + data.position;
+                            window.location.href = "${pageContext.request.contextPath}/admin" + "/" + data.position + "/" + data.department + "/" + data.position;
                     } else {
                         $("#result").modal();
                         document.getElementById("msg").innerHTML = data.msg;

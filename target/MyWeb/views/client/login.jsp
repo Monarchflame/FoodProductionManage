@@ -12,12 +12,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4285f4">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <title>登录</title>
 
-    <link href="../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../theme/css/project.min.css" rel="stylesheet">
-    <link href="../../theme/css/auth.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/auth.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="page-brand">
@@ -30,9 +30,9 @@
                         <div>首 页</div>
                     </a>
                     <div class="auth-logo">
-                        <img src="../../images/authlogo.jpg">
+                        <img src="${pageContext.request.contextPath}/images/authlogo.jpg">
                     </div>
-                    <a href="/user/register" class="boardtop-right">
+                    <a href="${pageContext.request.contextPath}/user/register" class="boardtop-right">
                         <div>注 册</div>
                     </a>
                 </div>
@@ -63,7 +63,7 @@
                                 <span class="checkbox-circle-icon icon">done</span>
                             </label>
                         </div>
-                        <a href="/user/reset">忘记密码？</a>
+                        <a href="${pageContext.request.contextPath}/user/reset">忘记密码？</a>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
-<script src="../../theme/js/base.min.js" type="text/javascript"></script>
-<script src="../../theme/js/project.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="439ccd34d75bad8383a7ab79-|49" defer=""></script>
 </body>
 </html>
@@ -98,7 +98,7 @@
 
         $.ajax({
             type: "POST",
-            url: "/user/getCookie",
+            url: "${pageContext.request.contextPath}/user/getCookie",
             dataType: "json",
             data: {
             },
@@ -116,7 +116,7 @@
         $("#login").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/user/login",
+                url: "${pageContext.request.contextPath}/user/login",
                 dataType: "json",
                 data: {
                     email: $("#email").val(),
@@ -128,7 +128,7 @@
                     {
                         $("#result").modal();
                         document.getElementById("msg").innerHTML = data.msg;
-                        window.location.href = "/user";
+                        window.location.href = "${pageContext.request.contextPath}/user";
                     } else {
                         $("#result").modal();
                         document.getElementById("msg").innerHTML = data.msg;

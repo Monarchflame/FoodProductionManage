@@ -13,21 +13,58 @@ To change this template use File | Settings | File Templates.
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
     <title>客户界面</title>
 
-    <link href="../../theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
     <!--小图片-->
-    <link href="../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
     <!--柱状图样式和背景图-->
-    <link rel="stylesheet" href="../../theme/css/user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
 
 </head>
+<script>
+    $(document).ready(function ()
+        {
+            //填写消息
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/user/findMessage",
+                dataType: "json",
+                data: {
+                    clientId: '<% out.print(client.getId());%>'
+                },
+                //查询商品及客户信息返回相应数据
+                success: function(data) {
+                    let messageList = eval(data.messageList);
+                    let messageHTML = [];
+                    messageHTML.push('<p class="card-heading"><i class="icon icon-md">notifications_active</i>&nbsp;消息栏</p>\n <hr />\n');
+                    if (messageList != null)
+                    {
+                        for (let i=0 ; i<messageList.length; i++)
+                        {
+                            const message = messageList[i];
+                            //alert(JSON.stringify(message));
+                            messageHTML.push('<p>'+ message.message +'</p>\n');
+                        }
+                    }
+                    messageHTML.push('<br />');
+                    $('#message').html(messageHTML.join(''));
+                },
+                error: function () {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = '发生了错误';
+                }
+            })
+        }
+    )
+</script>
+
 <body class="page-orange">
 <header class="header header-orange header-transparent header-waterfall ui-header">
     <ul class="nav nav-list pull-left">
@@ -48,7 +85,7 @@ To change this template use File | Settings | File Templates.
                     <a class="waves-attach" href=""><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
-                    <a class="padding-right-cd waves-attach" href="/"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                    <a class="padding-right-cd waves-attach" href="${pageContext.request.contextPath}/"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
             </ul>
         </div>
@@ -58,26 +95,26 @@ To change this template use File | Settings | File Templates.
     <div class="menu-scroll">
         <div class="menu-content">
 
-            <a class="menu-logo" href="/"><i class="icon icon-lg">language</i>&nbsp首页</a>
+            <a class="menu-logo" href="${pageContext.request.contextPath}/"><i class="icon icon-lg">language</i>&nbsp首页</a>
             <ul class="nav">
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href="/user"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
+                            <a href="${pageContext.request.contextPath}/user"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
                         </li>
                         <li>
-                            <a href="/user/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                            <a href="${pageContext.request.contextPath}/user/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                         <li>
-                            <a href="/user/myorder"><i class="icon icon-lg">event_note</i>&nbsp;我的订单</a>
+                            <a href="${pageContext.request.contextPath}/user/myorder"><i class="icon icon-lg">event_note</i>&nbsp;我的订单</a>
                         </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">业务</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_sale">
                         <li>
-                            <a href="/user/shop"><i class="icon icon-lg">shopping_basket</i>&nbsp;商城</a>
+                            <a href="${pageContext.request.contextPath}/user/shop"><i class="icon icon-lg">shopping_basket</i>&nbsp;商城</a>
                         </li>
                     </ul>
             </ul>
@@ -167,7 +204,7 @@ To change this template use File | Settings | File Templates.
                         <div class="user-info-bottom">
                             <div class="nodeinfo node-flex">
                                 <span><i class="icon icon-md">add_circle</i>购买</span>
-                                <a href="/user/shop" class="card-tag tag-orange">商店</a>
+                                <a href="${pageContext.request.contextPath}/user/shop" class="card-tag tag-orange">商店</a>
                             </div>
                         </div>
                     </div>
@@ -194,7 +231,7 @@ To change this template use File | Settings | File Templates.
                         <div class="user-info-bottom">
                             <div class="nodeinfo node-flex">
                                 <span><i class="icon icon-md">attach_money</i>账户余额</span>
-                                <a href="/user/code" class="card-tag tag-green">充值</a>
+                                <a href="${pageContext.request.contextPath}/user/code" class="card-tag tag-green">充值</a>
                             </div>
                         </div>
                     </div>
@@ -240,6 +277,21 @@ To change this template use File | Settings | File Templates.
                             </div>
                         </div>
                     </div>
+                    <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-xs">
+                            <div class="modal-content">
+                                <div class="modal-inner">
+                                    <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="text-right">
+                                        <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
+                                        </button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -248,45 +300,9 @@ To change this template use File | Settings | File Templates.
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0" type="text/javascript"></script>
-<script src="../../theme/js/base.min.js" type="text/javascript"></script>
-<script src="../../theme/js/project.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
 
 
-<script>
-    $(document).ready(function ()
-    {
-        //填写消息
-        $.ajax({
-            type: "POST",
-            url: "/user/findMessage",
-            dataType: "json",
-            data: {
-                clientId: '<% out.print(client.getId());%>'
-            },
-            //查询商品及客户信息返回相应数据
-            success: function(data) {
-                let messageList = eval(data.messageList);
-                let messageHTML = [];
-                messageHTML.push('<p class="card-heading"><i class="icon icon-md">notifications_active</i>&nbsp;消息栏</p>\n <hr />\n');
-                if (messageList != null)
-                {
-                    for (let i=0 ; i<messageList.length; i++)
-                    {
-                        const message = messageList[i];
-                        //alert(JSON.stringify(message));
-                        messageHTML.push('<p>'+ message.message +'</p>\n');
-                    }
-                }
-                messageHTML.push('<br />');
-                $('#message').html(messageHTML.join(''));
-            },
-            error: function () {
-                $("#result").modal();
-                document.getElementById('msg').innerHTML = `发生了错误`;
-            }
-        })
-    }
-    )
-</script>

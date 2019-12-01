@@ -11,24 +11,24 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-    <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
     <title>员工界面</title>
 
-    <link href="../../../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/user.css">
-    <link rel="stylesheet" href="../../../../theme/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/style.css">
 
 
 
-    <script type="text/javascript" src="../../../../theme/js/jQuery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../../../theme/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jquery.tablesorter.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
-    <script src="../../../../theme/js/base.min.js" type="text/javascript"></script>
-    <script src="../../../../theme/js/project.min.js" type="4text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
 
     <script>
         var requirementIdList = [[]];
@@ -73,7 +73,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/admin/staff/plan/staff/classify",
+                url: "${pageContext.request.contextPath}/admin/staff/plan/staff/classify",
                 dataType: "json",
                 async:false,
                 traditional:true,
@@ -263,8 +263,8 @@
     </div>
 </main>
 
-<%--<script src="../../../../theme/js/base.min.js" type="text/javascript"></script>--%>
-<%--<script src="../../../../theme/js/project.min.js" type="text/javascript"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>--%>
+<%--<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>--%>
 
 </body>
 </html>
@@ -272,7 +272,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "POST",
-            url: "/admin/staff/plan/staff/requirementInfoList",
+            url: "${pageContext.request.contextPath}/admin/staff/plan/staff/requirementInfoList",
             dataType: "json",
             async:false,
             data: {
@@ -356,7 +356,7 @@
                 console.log(requirement);
                 $.ajax({
                     type: "POST",
-                    url: "/admin/staff/plan/staff/newPlan",
+                    url: "${pageContext.request.contextPath}/admin/staff/plan/staff/newPlan",
                     dataType: "json",
                     async:false,
                     traditional:true,

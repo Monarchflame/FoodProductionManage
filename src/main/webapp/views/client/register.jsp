@@ -12,12 +12,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4285f4">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <title>潮汐</title>
 
-    <link href="../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../theme/css/project.min.css" rel="stylesheet">
-    <link href="../../theme/css/auth.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/auth.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -31,9 +31,9 @@
                         <div>首 页</div>
                     </a>
                     <div class="auth-logo">
-                        <img src="../../images/authlogo.jpg">
+                        <img src="${pageContext.request.contextPath}/images/authlogo.jpg">
                     </div>
-                    <a href="/user/login" class="boardtop-right">
+                    <a href="${pageContext.request.contextPath}/user/login" class="boardtop-right">
                         <div>登 录</div>
                     </a>
                 </div>
@@ -121,7 +121,7 @@
                 </div>
                 <div class="auth-bottom auth-row auth-reg">
                     <div class="tgauth">
-                        <p>注册即代表同意<a href="/user/tos">服务条款</a>，以及保证所录入信息的真实性，如有不实信息会导致账号被删除。</p>
+                        <p>注册即代表同意<a href="${pageContext.request.contextPath}/user/tos">服务条款</a>，以及保证所录入信息的真实性，如有不实信息会导致账号被删除。</p>
                     </div>
                 </div>
             </div>
@@ -171,8 +171,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
-<script src="../../theme/js/project.min.js" type="text/javascript"></script>
-<script src="../../theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1.5.16/dist/clipboard.min.js" type="text/javascript"></script>
 
 </body>
@@ -187,7 +187,7 @@
             document.getElementById("tos").disabled = true;
             $.ajax({
                 type: "POST",
-                url: "/user/register",
+                url: "${pageContext.request.contextPath}/user/register",
                 dataType: "json",
                 data: {
                     account: $("#account").val(),
@@ -260,7 +260,7 @@
             time($("#email_verify"));
             $.ajax({
                 type: "POST",
-                url: "/user/verificationCode",
+                url: "${pageContext.request.contextPath}/user/verificationCode",
                 dataType: "json",
                 data: {
                     email: $("input[name='account'] ").val(),

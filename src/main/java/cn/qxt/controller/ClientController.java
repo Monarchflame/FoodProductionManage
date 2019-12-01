@@ -22,9 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-//RestController会导致只返回一个字符串！！
 @Controller
-@RequestMapping("/user")
+@RequestMapping(value = "/user")
 public class ClientController {
     @Autowired
     private ClientService clientService;
@@ -43,7 +42,6 @@ public class ClientController {
     @RequestMapping("")
     public String userView(HttpServletRequest request)
     {
-        CreditExample creditExample = new CreditExample();
         List<Credit> credits = clientService.selectAllCredit();
         request.setAttribute("credits",credits);
         return "client/user";
@@ -408,9 +406,10 @@ public class ClientController {
     /*
     以下是关于商店的处理
      */
-    @GetMapping("/shop")
-    public String shopView(HttpServletRequest request, HttpServletResponse response)
+    @GetMapping(value = "/shop")
+    public String shopView()
     {
+        System.out.println("捕捉！！！");
         return "client/shop";
     }
 

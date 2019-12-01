@@ -11,27 +11,27 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-    <link rel="shortcut icon" href="../../../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
 
     <meta name="theme-color" content="#4285f4">
     <title>原材料入库</title>
 
-    <link href="../../../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/style.css">
-    <link rel="stylesheet" href="../../../../theme/css/user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
 
-    <script type="text/javascript" src="../../../../theme/js/jQuery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../../../theme/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jquery.tablesorter.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
-    <script src="../../../../theme/js/base.min.js" type="text/javascript"></script>
-    <script src="../../../../theme/js/project.min.js" type="4text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
 
 </head>
 
-<body class="page-orange" style="background-image: url(../../../../images/abackground.jpg)" >
+<body class="page-orange" style="background-image: url(${pageContext.request.contextPath}/images/abackground.jpg)" >
 <header class="header header-orange header-transparent header-waterfall ui-header">
     <ul class="nav nav-list pull-left">
         <div>
@@ -93,6 +93,9 @@
                         </li>
                         <li>
                             <a href="/admin/staff/product/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>
+                        </li>
+                        <li>
+                            <a href="/admin/staff/product/staff/ingredient"><i class="icon icon-lg">change_history</i>&nbsp;查看产品配方</a>
                         </li>
                     </ul>
             </ul>
@@ -183,7 +186,7 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/admin/staff/product/staff/addProduct",
+                    url: "${pageContext.request.contextPath}/admin/staff/product/staff/addProduct",
                     dataType: "json",
                     data: {
                         name:name,

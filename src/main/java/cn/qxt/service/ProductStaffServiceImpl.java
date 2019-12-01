@@ -26,6 +26,10 @@ public class ProductStaffServiceImpl implements ProductStaffService{
     private OrderDao orderDao;
     @Autowired
     private GoodsReturnOrderDao goodsReturnOrderDao;
+    @Autowired
+    private ProductIngredientDao productIngredientDao;
+    @Autowired
+    private MaterialDao materialDao;
 
     public int deleteByPrimaryKey(String id) {
         return productStaffDao.deleteByPrimaryKey(id);
@@ -248,5 +252,15 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         ProductStaff productStaff = productStaffDao.selectByPrimaryKey(staffId);
         productStaff.setPosition(newPosition);
         return productStaffDao.updateByPrimaryKeySelective(productStaff);
+}
+
+    @Override
+    public List<Map> IngredientInfoByProductId(Integer productId) {
+        return productIngredientDao.ingredientInfoByProductId(productId);
+    }
+
+    @Override
+    public List<Material> selectAllMaterial() {
+        return materialDao.selectByExample(new MaterialExample());
     }
 }

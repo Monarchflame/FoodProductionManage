@@ -23,11 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         String url = httpServletRequest.getRequestURI();//请求地址
         //根据身份拦截用户
         String[] strings = url.split("/");
-//        int i=0;
-//        for (String s:strings) {
-//            System.out.println(i+" "+s);
-//            i++;
-//        }
+
         if(strings.length < 2)
         {
             return false;
@@ -46,7 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                         System.out.println("拦截员工");
                         // 拦截后进入登录页面
                         //httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -65,7 +61,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截员工");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -84,7 +80,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截员工");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -103,7 +99,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截员工");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -122,7 +118,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截员工");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -141,7 +137,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截员工");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -163,7 +159,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -178,7 +174,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -193,7 +189,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -208,7 +204,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -223,7 +219,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -238,7 +234,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                     }
                     else {
                         System.out.println("拦截领导");
-                        httpServletResponse.sendRedirect("/admin");
+                        httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }
                 }
@@ -252,7 +248,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             }
             else {
                 System.out.println("拦截CEO");
-                httpServletResponse.sendRedirect("/admin");
+                httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                 return false;
             }
         }
@@ -265,7 +261,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             else {
                 System.out.println("拦截客户");
                 // 拦截后进入主页
-                httpServletResponse.sendRedirect("/user/login");
+                httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/user/login");
                 return false;
             }
         }

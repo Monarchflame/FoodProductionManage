@@ -1,9 +1,6 @@
 package cn.qxt.controller;
 
-import cn.qxt.pojo.Goods;
-import cn.qxt.pojo.GoodsRecord;
-import cn.qxt.pojo.Order;
-import cn.qxt.pojo.Product;
+import cn.qxt.pojo.*;
 import cn.qxt.service.OrderService;
 import cn.qxt.service.ProductStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -339,6 +336,36 @@ public class ProductStaffController {
         map.put("inRecordInfoList",inRecordInfoList);
         map.put("outRecordInfoList",outRecordInfoList);
         map.put("destroyRecordInfoList",destroyRecordInfoList);
+        return map;
+    }
+
+    @GetMapping(value = "ingredient")
+    public String ingredientView()
+    {
+        return "admin/staff/product/ingredient";
+    }
+    /**
+     * 返回成品配方详细信息
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/ingredientInfo")
+    public Map<String, Object> ingredientInfo(String productId)
+    {
+        List<Map> ingredientInfo = productStaffService.IngredientInfoByProductId(Integer.valueOf(productId));
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ingredientInfo",ingredientInfo);
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/allMaterialList")
+    public Map<String, Object> materialInfoList()
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+
+        List<Material> materialList = productStaffService.selectAllMaterial();
+        map.put("materialList",materialList);
         return map;
     }
 }

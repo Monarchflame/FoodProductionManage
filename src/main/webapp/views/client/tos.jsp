@@ -13,7 +13,7 @@
     <meta name="description" content="潮汐" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../../theme/css/main.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/main.css" />
     <link href="/bootstrap" type="text/html" rel="stylesheet">
 </head>
 <body>

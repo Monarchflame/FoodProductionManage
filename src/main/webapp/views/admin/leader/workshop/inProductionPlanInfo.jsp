@@ -15,8 +15,8 @@
     <meta name="theme-color" content="#4caf50">
     <title>订单信息</title>
 
-    <link href="../../../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="text/javascript"></script>
 
@@ -185,7 +185,7 @@
         }
 
         .page-green .ui-content-header {
-            background-image: url(../../../../images/amber.jpg);
+            background-image: url(${pageContext.request.contextPath}/images/amber.jpg);
         }
 
 
@@ -295,8 +295,8 @@
     </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0" type="text/javascript"></script>
-<script src="../../../../theme/js/base.min.js" type="text/javascript"></script>
-<script src="../../../../theme/js/project.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1.5.16/dist/clipboard.min.js" type="text/javascript"></script>
 </body>
 </html>
@@ -311,7 +311,7 @@
         verify_complete = function () {
             $.ajax({
                 type: "POST",
-                url: "/admin/leader/workshop/leader/completePlan",
+                url: "${pageContext.request.contextPath}/admin/leader/workshop/leader/completePlan",
                 dataType: "json",
                 data: {
                     planId:planId,

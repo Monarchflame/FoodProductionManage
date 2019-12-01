@@ -14,13 +14,13 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4285f4">
-    <link rel="shortcut icon" href="../../images/labellogo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <title>潮汐</title>
 
-    <link href="../../theme/css/base.min.css" rel="stylesheet">
-    <link href="../../theme/css/project.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../../theme/css/user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
@@ -43,7 +43,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href="/user"><span class="icon icon-lg margin-right">account_box</span>用户中心</a>
+                    <a class="waves-attach" href="${pageContext.request.contextPath}/user"><span class="icon icon-lg margin-right">account_box</span>用户中心</a>
                 </li>
                 <li>
                     <a class="padding-right-cd waves-attach" href="/"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
@@ -63,20 +63,20 @@
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href="/user"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
+                            <a href="${pageContext.request.contextPath}/user"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;用户中心</a>
                         </li>
                         <li>
                             <a href=""><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                         <li>
-                            <a href="/user/myorder"><i class="icon icon-lg">event_note</i>&nbsp;我的订单</a>
+                            <a href="${pageContext.request.contextPath}/user/myorder"><i class="icon icon-lg">event_note</i>&nbsp;我的订单</a>
                         </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">业务</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_sale">
                         <li>
-                            <a href="/user/shop"><i class="icon icon-lg">shopping_basket</i>&nbsp;商城</a>
+                            <a href="${pageContext.request.contextPath}/user/shop"><i class="icon icon-lg">shopping_basket</i>&nbsp;商城</a>
                         </li>
                     </ul>
             </ul>
@@ -182,9 +182,9 @@
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
-    <script src="../../theme/js/project.min.js" type="4text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
     <!--让汉字跳起来-->
-    <script src="../../theme/js/base.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
 </body>
 </html>
 
@@ -194,7 +194,7 @@
         $("#password-update").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/user/alterpassword",
+                url: "${pageContext.request.contextPath}/user/alterpassword",
                 dataType: "json",
                 data: {
                     id:<% out.print(client.getId());%>,
@@ -215,7 +215,7 @@
         $("#address-update").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/user/alteraddress",
+                url: "${pageContext.request.contextPath}/user/alteraddress",
                 dataType: "json",
                 data: {
                     id:<% out.print(client.getId());%>,
@@ -234,7 +234,7 @@
         $("#phone-update").click(function () {
             $.ajax({
                 type: "POST",
-                url: "/user/alterphone",
+                url: "${pageContext.request.contextPath}/user/alterphone",
                 dataType: "json",
                 data: {
                     id:<% out.print(client.getId());%>,

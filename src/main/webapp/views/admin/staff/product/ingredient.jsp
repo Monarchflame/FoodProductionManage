@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: 10703
-  Date: 2019/11/17
-  Time: 16:43
+  Date: 2019/11/27
+  Time: 20:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/images/labellogo.jpg" type="image/x-icon">
     <meta name="theme-color" content="#4285f4">
-    <title>成品入库</title>
+    <title>配料表</title>
 
     <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
@@ -133,16 +133,48 @@
 
                 </div>
 
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="alter_verify_modal" role="dialog" tabindex="-1">
                     <div class="modal-dialog modal-xs">
                         <div class="modal-content">
                             <div class="modal-heading">
                                 <a class="modal-close" data-dismiss="modal">×</a>
-                                <h2 class="modal-title">您确认选择此产品入库吗？</h2>
+                                <h2 class="modal-title">您确认修改此产品的配料表吗？</h2>
                             </div>
                             <div class="modal-footer">
                                 <p class="text-right">
-                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_product" type="button">确定
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button">确定
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="add_verify_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">您确认添加此产品的配料吗？</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="showInfo()">确定
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="delete_verify_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">您确认删除此产品的配料吗？</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="showInfo()">确定
                                     </button>
                                 </p>
                             </div>
@@ -157,15 +189,12 @@
                                 <a class="modal-close" data-dismiss="modal">×</a>
                                 <h2 class="modal-title">确认</h2>
                             </div>
-                            <div class="modal-inner">
-                                <p id="id_label">产品ID：<span id="id"></span></p>
-                                <p id="name_label">产品名称：<span id="name"></span></p>
-                                <p id="number_label">产品数量：<input id="number" type="number" oninput="javascript:calculates()"></p>
-                                <p id="shelf_life_label">保质期：<span id="shelf_life"></span></p>
+                            <div id="model-inner" class="modal-inner">
+
                             </div>
                             <div class="modal-footer">
                                 <p class="text-right">
-                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button">确定
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="order_verify" type="button" onclick="showInfo()">确定
                                     </button>
                                 </p>
                             </div>
@@ -207,6 +236,7 @@
             success: function(data){
                 let list = eval(data.productList);
                 let productHTML = [];
+                let ingredientList;
                 for(let i = 0;i < list.length;i++) {
                     let product = list[i];
                     productHTML.push(
@@ -227,7 +257,7 @@
                         async: false,
                         data: {productId : product.id},
                         success: function(data2){
-                            let ingredientList = eval(data2.ingredientInfo);
+                            ingredientList = eval(data2.ingredientInfo);
                             for(let j = 0;j < ingredientList.length;j++) {
                                 productHTML.push(
                                     '<div>'+'<span class="icon">check_circle_outline</span>'+ingredientList[j].material_name +' : '+ ingredientList[j].material_quantity+'</div>'
@@ -240,7 +270,9 @@
                         }
                     });
                     productHTML.push('</div>'+
-                        '<a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:add(' + JSON.stringify(product).replace(/"/g, '&quot;')  + ')\">添加</a>'+
+                        '<a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:addIngredient()\">添加原材料</a>'+
+                        '<a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:deleteIngredient(' + JSON.stringify(ingredientList).replace(/"/g, '&quot;')  + ')\">删除原材料</a>'+
+                        '<a class="btn btn-brand-accent shop-btn" href="javascript:void(0);" onclick="javascript:alterIngredient(' + JSON.stringify(ingredientList).replace(/"/g, '&quot;')  + ')\">修改原材料</a>'+
                         '</div></div>');
                 }
                 //下面的div与布局有关
@@ -254,21 +286,67 @@
             }
         })
     });
-    <%--点击添加--%>
-    var theproduct;
-    add = function(product) {
-        //弹出
-        $("#verify_modal").modal();
-        theproduct = product;
+    //添加原材料
+    addIngredient = function () {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/admin/staff/product/staff/allMaterialList",
+            dataType: "json",
+            async: false,
+            data: {
+            },
+            success(data)
+            {
+                let html = [];
+                let materialList = data.materialList;
+                for (let j = 0;j < materialList.length;j++)
+                {
+                    html.push('<div class="checkbox switch">\n'+
+                        '<label for="pay_deposit">\n' +
+                        '<input id="'+j+'material" class="access-hide" type="checkbox" onclick="function x() { if (this.checked===false){this.checked=true} else this.checked=false }">\n' +
+                        '<span class="switch-toggle"></span>'+ materialList[j].name +
+                        '<input id="'+j+'number" type="number" oninput="javascript:calculates()">'+
+                        '</label>\n'+
+                        '</div><br>')
+                }
+                $('#model-inner').html(html.join(''));
+                $("#add_verify_modal").modal();
+            },
+            error(data)
+            {
+
+            }
+        })
     };
-    //点击确认添加，弹出信息面板
-    $("#choose_product").click(function () {
-        document.getElementById('id').innerHTML = theproduct.id;
-        document.getElementById('number').value = 1;
-        document.getElementById('name').innerHTML = theproduct.name;
-        document.getElementById('shelf_life').innerHTML = theproduct.shelf_life;
+    deleteIngredient = function (ingredientList) {
+        let html = [];
+        for (let j = 0;j < ingredientList.length;j++)
+        {
+            html.push('<div class="checkbox switch">\n'+
+                '                                    <label for="pay_deposit">\n' +
+                '                                        <input id="'+j+'material" class="access-hide" type="checkbox" onclick="function x() { this.checked=this.checked===false; }">\n' +
+                '                                        <span class="switch-toggle"></span>'+ ingredientList[j].material_name +
+                '                                    </label>\n'+
+                '</div>')
+        }
+        $('#model-inner').html(html.join(''));
+        $("#delete_verify_modal").modal();
+    };
+
+    alterIngredient = function (ingredientList) {
+        let html = [];
+        html.push('<p id="id_label">原材料名称：<span id="material_name">'+ ingredientList.material_name +'</span></p>');
+        html.push('<p id="id_label">原材料数量：<input id="number" type="number" oninput="javascript:calculates()">');
+        $('#model-inner').html(html.join(''));
+        document.getElementById('number').value = ingredientList.material_quantity;
+        $("#alter_verify_modal").modal();
+    };
+
+    //弹出信息面板
+    showInfo = function()
+    {
         $("#order_modal").modal();
-    });
+    };
 
     calculates = function () {
         var number = $("#number").val();//这是数字
@@ -283,7 +361,7 @@
     $("#order_verify").click(function () {
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/admin/staff/product/staff/addGoods",
+            url: "${pageContext.request.contextPath}/admin/staff/product/staff/changeIngredient",
             dataType: "json",
             data: {
                 productId:theproduct.id,
