@@ -42,7 +42,7 @@
             <mvc:exclude-mapping path="/user/register"/>
             <mvc:exclude-mapping path="/user/verificationCode"/>
             <mvc:exclude-mapping path="/user/tos"/>
-            <bean class="cn.qxt.interceptor.LoginInterceptor"></bean>
+            <bean class="cn.qxt.interceptor.LoginInterceptor"/>
 
         </mvc:interceptor>
     </mvc:interceptors>

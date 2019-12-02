@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
-
 @Controller
 @RequestMapping(value = "/user")
 public class ClientController {
@@ -46,7 +45,12 @@ public class ClientController {
         request.setAttribute("credits",credits);
         return "client/user";
     }
-
+    @ResponseBody
+    @PostMapping("/test")
+    public Map test()
+    {
+        return new HashMap<String, Object>();
+    }
     /**
      * 返回客户的消息列表
      * @param request HttpServletRequest

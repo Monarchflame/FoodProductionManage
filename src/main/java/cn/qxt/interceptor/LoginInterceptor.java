@@ -42,6 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
                         System.out.println("拦截员工");
                         // 拦截后进入登录页面
                         //httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
+                        System.out.println(httpServletRequest.getContextPath()+"/admin");
                         httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin");
                         return false;
                     }

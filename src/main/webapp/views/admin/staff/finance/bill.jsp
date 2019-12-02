@@ -43,10 +43,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href="/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                    <a class="waves-attach" href="${pageContext.request.contextPath}/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
-                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                    <a class="padding-right-cd waves-attach" href="${pageContext.request.contextPath}/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
             </ul>
         </div>
@@ -57,16 +57,16 @@
     <div class="menu-scroll">
         <div class="menu-content">
 
-            <a class="menu-logo" href="/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
+            <a class="menu-logo" href="${pageContext.request.contextPath}/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
             <ul class="nav">
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href="/admin/staff/finance/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/finance/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
                         </li>
                         <li>
-                            <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                     </ul>
 
@@ -224,7 +224,7 @@
     });
     //查看账单详细信息
     function financeInfo(id) {
-        document.getElementById('infoifram').src = '/admin/staff/finance/staff/financeInfo?id=' + id;
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/staff/finance/staff/financeInfo?id=' + id;
         $("#orderinfo").modal();
     }
 </script>

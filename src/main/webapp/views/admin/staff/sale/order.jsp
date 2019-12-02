@@ -43,10 +43,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href="/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                    <a class="waves-attach" href="${pageContext.request.contextPath}/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
-                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                    <a class="padding-right-cd waves-attach" href="${pageContext.request.contextPath}/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
             </ul>
         </div>
@@ -57,32 +57,32 @@
     <div class="menu-scroll">
         <div class="menu-content">
 
-            <a class="menu-logo" href="/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
+            <a class="menu-logo" href="${pageContext.request.contextPath}/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
             <ul class="nav">
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href="/admin/staff/sale/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
                         </li>
                         <li>
-                            <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">销售部</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_sale">
                         <li>
-                            <a href="/admin/staff/sale/staff/client-list"><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/client-list"><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/sale/staff/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
                         </li>
                         <li>
                             <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;接受订货</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/sale/staff/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
                         </li>
                     </ul>
             </ul>
@@ -275,17 +275,17 @@
     });
     //点击待处理订单订单 弹出信息
     function processOrder(id) {
-        document.getElementById('infoifram').src = '/admin/staff/sale/staff/processOrderInfo?id=' + id;
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/staff/sale/staff/processOrderInfo?id=' + id;
         $("#orderinfo").modal();
     }
     //点击待发货订单
     function readyDeliverOrder(id) {
-        document.getElementById('infoifram').src = '/admin/staff/sale/staff/readyDeliverOrderInfo?id=' + id;
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/staff/sale/staff/readyDeliverOrderInfo?id=' + id;
         $("#orderinfo").modal();
     }
     //点击生产中订单
     function inProductionOrder(id) {
-        document.getElementById('infoifram').src = '/admin/staff/sale/staff/inProductionOrderInfo?id=' + id;
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/staff/sale/staff/inProductionOrderInfo?id=' + id;
         $("#orderinfo").modal();
     }
 </script>

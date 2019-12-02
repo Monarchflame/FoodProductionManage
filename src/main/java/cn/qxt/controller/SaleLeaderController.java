@@ -111,7 +111,7 @@ public class SaleLeaderController {
     @RequestMapping("/order-list")
     public String order(HttpServletRequest request, HttpServletResponse response)
     {
-        return "admin/leader/ceo/order-list";
+        return "admin/leader/sale/order-list";
     }
 
     /**
