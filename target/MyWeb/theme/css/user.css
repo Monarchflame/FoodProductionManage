@@ -121,7 +121,8 @@ pre {
 }
 
 .page-orange .ui-content-header {
-    background-image: url(/images/amber.jpg)
+    background-image: url(/images/amber.jpg);
+    /*background-image: url(/images/amber.jpg)*/
 }
 
 .content-heading {

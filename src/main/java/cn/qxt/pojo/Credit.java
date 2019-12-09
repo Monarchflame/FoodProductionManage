@@ -7,6 +7,8 @@ public class Credit {
 
     private Short ratio;
 
+    private Double spend;
+
     public Integer getGrade() {
         return grade;
     }
@@ -29,5 +31,13 @@ public class Credit {
 
     public void setRatio(Short ratio) {
         this.ratio = ratio;
+    }
+
+    public Double getSpend() {
+        return spend;
+    }
+
+    public void setSpend(Double spend) {
+        this.spend = spend;
     }
 }

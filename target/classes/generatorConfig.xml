@@ -53,12 +53,12 @@
             selectByExampleQueryId:Select单个对象语句中加入where条件查询，默认为true开启
         -->
 
-<!--        <table tableName="finance" domainObjectName="Finance" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
-<!--               selectByExampleQueryId="false">-->
-<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
+        <table tableName="credit" domainObjectName="Credit" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
 
 <!--        <table tableName="goods" domainObjectName="Goods" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
@@ -158,11 +158,11 @@
 <!--            <property name="useActualColumnNames" value="true"/>-->
 <!--        </table>-->
 
-        <table tableName="ceo" domainObjectName="CEO" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
-               selectByExampleQueryId="false">
-            <!-- 使用数据库中实际的字段名作为生成的实体类的属性 -->
-            <property name="useActualColumnNames" value="true"/>
-        </table>
+<!--        <table tableName="ceo" domainObjectName="CEO" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash; 使用数据库中实际的字段名作为生成的实体类的属性 &ndash;&gt;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>

@@ -401,4 +401,33 @@ public class SaleStaffController {
             map.put("msg","修改失败");
         return map;
     }
+
+    @ResponseBody
+    @PostMapping("/totalSpend")
+    public Map totalSpend(HttpServletRequest request)
+    {
+        String clientId = request.getParameter("clientId");
+        double totalSpend = saleStaffService.totalSpend(clientId);
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("totalSpend",totalSpend);
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping("/updateCredit")
+    public Map updateCredit()
+    {
+        int ret = 0;
+        try {
+            saleStaffService.updateCredit();
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
+        return map;
+    }
 }

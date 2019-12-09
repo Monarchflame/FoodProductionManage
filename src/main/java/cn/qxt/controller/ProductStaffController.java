@@ -149,7 +149,7 @@ public class ProductStaffController {
      */
     @ResponseBody
     @PostMapping(value = "/addProduct")
-    public Map<String, Object> andMaterial(HttpServletRequest request)
+    public Map<String, Object> addProduct(HttpServletRequest request)
     {
         String name = request.getParameter("name").toString();
         String shelf_time = request.getParameter("shelf_time").toString();

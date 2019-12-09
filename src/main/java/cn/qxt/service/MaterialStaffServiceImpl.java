@@ -79,6 +79,7 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
         materialRecord.setMaterial_id(materialInventory.getMaterial_id());
         materialRecord.setQuantity(materialInventory.getQuantity());
         materialRecord.setType("销毁");
+        materialRecord.setInventory_id(inventoryId);
         materialRecordDao.insertSelective(materialRecord);
         materialInventoryDao.deleteByPrimaryKey(inventoryId);
     }
@@ -91,6 +92,7 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
         materialRecord.setMaterial_id(materialInventory.getMaterial_id());
         materialRecord.setQuantity(materialInventory.getQuantity());
         materialRecord.setType("入库");
+        materialRecord.setInventory_id(materialInventory.getId());
         materialRecordDao.insertSelective(materialRecord);
     }
 
@@ -180,6 +182,11 @@ public class MaterialStaffServiceImpl implements MaterialStaffService{
         }
     }
 
+    /**
+     * 插入出库记录
+     * @param inventory_id
+     * @param quantity
+     */
     private void insertOutRecord(Integer inventory_id, Integer quantity)
     {
         MaterialInventory materialInventory = materialInventoryDao.selectByPrimaryKey(inventory_id);

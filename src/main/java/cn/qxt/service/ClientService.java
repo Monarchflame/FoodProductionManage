@@ -38,4 +38,12 @@ public interface ClientService {
      * @return List
      */
     List selectMessageByClientId(String clientId);
+
+    void receive(Integer orderId);
+
+    void payTheBalance(Integer orderId);
+
+    List<Order> selectAllOrder(String clientId);
+
+    Map<String, Object> selectOrderInfoByOrderId(Integer id);
 }

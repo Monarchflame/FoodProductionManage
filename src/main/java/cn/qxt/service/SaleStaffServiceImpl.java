@@ -4,6 +4,8 @@ import cn.qxt.dao.*;
 import cn.qxt.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -15,6 +17,8 @@ public class SaleStaffServiceImpl implements SaleStaffService{
     private OrderDao orderDao;
     @Autowired
     private ClientDao clientDao;
+    @Autowired
+    private CreditDao creditDao;
     @Autowired
     private GoodsReturnOrderDao goodsReturnOrderDao;
     @Autowired
@@ -209,4 +213,60 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         saleStaff.setPosition(newPosition);
         return saleStaffDao.updateByPrimaryKeySelective(saleStaff);
     }
+
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void updateCredit()
+    {
+        List<Client> clientList = clientDao.selectByExample(new ClientExample());
+        for (Client client:clientList)
+        {
+            double totalSpend = totalSpend(client.getId());
+            List<Credit> creditList = creditDao.selectByExample(new CreditExample());
+            Credit rightCredit = creditList.get(0);
+            for (Credit credit:creditList)
+            {
+                Double spend = credit.getSpend();
+                if (spend < totalSpend)
+                    rightCredit=credit;
+                else
+                    break;
+            }
+            //rightCredit就是客户应当的等级
+            client.setCreditrating(rightCredit.getGrade());
+            clientDao.updateByPrimaryKeySelective(client);
+        }
+    }
+
+    /**
+     * 返回一个客户消费总金额
+     * @param clientId 客户
+     * @return double 消费金额
+     */
+    public double totalSpend(String clientId)
+    {
+        double result = 0;
+        OrderExample orderExample = new OrderExample();
+        orderExample.or().andClient_idEqualTo(clientId);
+        List<Order> orderList = orderDao.selectByExample(orderExample);
+        if (orderList.size() == 0)
+            return result;
+        else
+        {
+            for (Order order:orderList)
+            {
+                //剔除已取消的订单
+                if (!order.getStatus().equals("已取消"))
+                {
+                    if (order.getStatus().equals("已完成"))
+                        result += order.getTotal_payment();
+                    else if (order.getDeposit() != 0)
+                        result += order.getDeposit();
+                    else
+                        result += order.getTotal_payment();
+                }
+            }
+            return result;
+        }
+    }
+
 }

@@ -65,15 +65,21 @@
                         <li>
                             <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
-                        </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">销售部</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_sale">
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/order-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看订单列表</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/client-list"><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
                         </li>
                     </ul>
 
@@ -82,12 +88,27 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/bill"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看账单列表</a>
                         </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/finance_returnOrder"><i class="icon icon-lg">account_box</i>&nbsp;确认退货单</a>
+                        </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_material">原材料库</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_material">
-                                                <li>
+                        <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/material-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看原材料列表</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/addMaterial"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/buyMaterial"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/inMaterial"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/outMaterial"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
                         </li>
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/material-record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看原材料记录</a>
@@ -96,6 +117,9 @@
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_plan">生产计划科</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_plan">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/drawUpPlan"><i class="icon icon-lg">account_box</i>&nbsp;制定生产计划</a>
+                        </li>
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/plan-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看生产计划列表</a>
                         </li>
@@ -107,14 +131,35 @@
                             <a href="${pageContext.request.contextPath}/admin/ceo/product-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看成品列表</a>
                         </li>
                         <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/addProduct"><i class="icon icon-lg">add</i>&nbsp;添加产品类型</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/inProduct"><i class="icon icon-lg">add_box</i>&nbsp;货物入库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/outProduct"><i class="icon icon-lg">announcement</i>&nbsp;货物出库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/product_returnOrder"><i class="icon icon-lg">announcement</i>&nbsp;处理退货</a>
+                        </li>
+                        <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/product-record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看成品记录</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_workshop">生产车间</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_workshop">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/workshop-plan-list"><i class="icon icon-lg">account_box</i>&nbsp;查看生产计划</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/workshop-staff-list"><i class="icon icon-lg">account_box</i>&nbsp;查看员工</a>
                         </li>
                     </ul>
             </ul>
         </div>
     </div>
 </nav>
-
 <main class="content">
     <div class="content-header ui-content-header">
         <div class="container">
@@ -191,9 +236,9 @@
     $(document).ready(function(){
         $.ajax({
             type: "POST",
-            url : "${pageContext.request.contextPath}/admin/ceo/orderInfoList",
+            url: "${pageContext.request.contextPath}/admin/staff/sale/staff/orderList",
             dataType: "json",
-            data:{
+            data: {
             },
             //查询商品及客户信息返回相应数据
             success: function(data) {
@@ -205,7 +250,7 @@
                 var inProductionOrdersHTML = [];
                 for(let i = 0;i < readyConfirmOrdersList.length;i++) {
                     let order = readyConfirmOrdersList[i];
-                    readyConfirmOrdersHTML.push('<div class="node-card node-flex">' +
+                    readyConfirmOrdersHTML.push('<div class="node-card node-flex" onclick="processOrder(' + order.order_id + ')">' +
                         '<div class="nodemain">' +
                         '<div class="nodehead node-flex">' +
                         '<div class="nodename">' + order.product_name + '</div>' +
@@ -233,7 +278,7 @@
                 }
                 for(let i = 0;i < readyDeliverOrdersList.length;i++) {
                     let order = readyDeliverOrdersList[i];
-                    readyDeliverOrdersHTML.push('<div class="node-card node-flex" >' +
+                    readyDeliverOrdersHTML.push('<div class="node-card node-flex" onclick="readyDeliverOrder(' + order.order_id + ')">' +
                         '<div class="nodemain">' +
                         '<div class="nodehead node-flex">' +
                         '<div class="nodename">' + order.product_name + '</div>' +
@@ -262,7 +307,7 @@
                 }
                 for(let i = 0;i < inProductionOrdersList.length;i++) {
                     let order = inProductionOrdersList[i];
-                    inProductionOrdersHTML.push('<div class="node-card node-flex" >' +
+                    inProductionOrdersHTML.push('<div class="node-card node-flex" onclick="inProductionOrder(' + order.order_id + ')">' +
                         '<div class="nodemain">' +
                         '<div class="nodehead node-flex">' +
                         '<div class="nodename">' + order.product_name + '</div>' +
@@ -298,4 +343,20 @@
             }
         })
     });
+    //点击待处理订单订单 弹出信息
+    function processOrder(id) {
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/ceo/processOrderInfo?id=' + id;
+        $("#orderinfo").modal();
+    }
+    //点击待发货订单
+    function readyDeliverOrder(id) {
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/ceo/readyDeliverOrderInfo?id=' + id;
+        $("#orderinfo").modal();
+    }
+    //点击生产中订单
+    function inProductionOrder(id) {
+        document.getElementById('infoifram').src = '${pageContext.request.contextPath}/admin/ceo/inProductionOrderInfo?id=' + id;
+        $("#orderinfo").modal();
+    }
 </script>
+

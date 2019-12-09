@@ -49,7 +49,7 @@
                     <a class="waves-attach" href=""><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
-                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                    <a class="padding-right-cd waves-attach" href="${pageContext.request.contextPath}/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
             </ul>
         </div>
@@ -59,7 +59,7 @@
     <div class="menu-scroll">
         <div class="menu-content">
 
-            <a class="menu-logo" href="/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
+            <a class="menu-logo" href="${pageContext.request.contextPath}/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
             <ul class="nav">
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
@@ -68,29 +68,29 @@
                             <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
                         </li>
                         <li>
-                            <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_material">原材料库</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_material">
                         <li>
-                            <a href="/admin/staff/material/staff/material-list"><i class="icon icon-lg">account_box</i>&nbsp;查看原材料库存</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/material-list"><i class="icon icon-lg">account_box</i>&nbsp;查看原材料库存</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/add"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/buy"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/in"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/out"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/out"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/material/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/material/staff/record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看出入库记录</a>
                         </li>
                     </ul>
             </ul>

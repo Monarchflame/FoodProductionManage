@@ -108,4 +108,8 @@ public interface SaleStaffService {
     int ChangeSalary(String staffId, int parseInt);
 
     int ChangePosition(String staffId, String newPosition);
+
+    void updateCredit();
+
+    double totalSpend(String clientId);
 }

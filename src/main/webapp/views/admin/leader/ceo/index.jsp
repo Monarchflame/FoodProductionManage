@@ -52,6 +52,7 @@
         </div>
     </ul>
 </header>
+
 <nav aria-hidden="true" class="menu menu-left nav-drawer nav-drawer-md" id="ui_menu" tabindex="-1">
     <div class="menu-scroll">
         <div class="menu-content">
@@ -64,9 +65,6 @@
                         <li>
                             <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
-                        </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_sale">销售部</a>
@@ -74,12 +72,24 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/order-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看订单列表</a>
                         </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/client-list"><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
+                        </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_finance">财务部</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_finance">
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/bill"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看账单列表</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/finance_returnOrder"><i class="icon icon-lg">account_box</i>&nbsp;确认退货单</a>
                         </li>
                     </ul>
 
@@ -89,12 +99,27 @@
                             <a href="${pageContext.request.contextPath}/admin/ceo/material-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看原材料列表</a>
                         </li>
                         <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/addMaterial"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/buyMaterial"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/inMaterial"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/outMaterial"><i class="icon icon-lg">announcement</i>&nbsp;原材料出库</a>
+                        </li>
+                        <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/material-record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看原材料记录</a>
                         </li>
                     </ul>
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_plan">生产计划科</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_plan">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/drawUpPlan"><i class="icon icon-lg">account_box</i>&nbsp;制定生产计划</a>
+                        </li>
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/plan-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看生产计划列表</a>
                         </li>
@@ -106,13 +131,36 @@
                             <a href="${pageContext.request.contextPath}/admin/ceo/product-list"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看成品列表</a>
                         </li>
                         <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/addProduct"><i class="icon icon-lg">add</i>&nbsp;添加产品类型</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/inProduct"><i class="icon icon-lg">add_box</i>&nbsp;货物入库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/outProduct"><i class="icon icon-lg">announcement</i>&nbsp;货物出库</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/product_returnOrder"><i class="icon icon-lg">announcement</i>&nbsp;处理退货</a>
+                        </li>
+                        <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/product-record"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;查看成品记录</a>
+                        </li>
+                    </ul>
+
+                    <a class="waves-attach" data-toggle="collapse" href="#ui_menu_workshop">生产车间</a>
+                    <ul class="menu-collapse collapse in" id="ui_menu_workshop">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/workshop-plan-list"><i class="icon icon-lg">account_box</i>&nbsp;查看生产计划</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/admin/ceo/workshop-staff-list"><i class="icon icon-lg">account_box</i>&nbsp;查看员工</a>
                         </li>
                     </ul>
             </ul>
         </div>
     </div>
 </nav>
+
 <main class="content">
     <div class="content-header ui-content-header">
         <div class="container">
@@ -126,8 +174,55 @@
                     <div class="card">
                         <div class="card-main">
                             <div class="card-inner">
-                                <div id="card-context" class="progressbar">
-
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="readyConfirmOrders-bar" class="bar tuse color" style="width:calc(0%);"></div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color"></div>
+                                            <span class="traffic-info">待确认订单</span>
+                                            <code class="card-tag tag-green" id="readyConfirmOrders">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="readyDeliverOrders-bar" class="bar ard color2" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color2"><span></span></div>
+                                            <span class="traffic-info">待发货订单</span>
+                                            <code class="card-tag tag-orange" id="readyDeliverOrders">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="goodsReturnOrders-bar" class="bar remain color3" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color3"><span></span></div>
+                                            <span class="traffic-info">待处理退货订单</span>
+                                            <code class="card-tag tag-red" id="goodsReturnOrders">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="inProductionOrders-bar" class="bar ard color4" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color4"><span></span></div>
+                                            <span class="traffic-info">生产中的订单</span>
+                                            <code class="card-tag tag-blue" id="inProductionOrders">0</code>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -156,3 +251,48 @@
 <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        //填入订单信息
+        {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/orderInfo",
+                dataType: "json",
+                traditional: true,
+                data: {
+                },
+                success: function(data){
+                    var readyConfirmOrders = data.readyConfirmOrders;
+                    var readyDeliverOrders = data.readyDeliverOrders;
+                    var inProductionOrders = data.inProductionOrders;
+                    var goodsReturnOrders = data.goodsReturnOrders;
+                    if (readyConfirmOrders != null)
+                    {
+                        document.getElementById('readyConfirmOrders').innerHTML = readyConfirmOrders.length;
+                        document.getElementById('readyConfirmOrders-bar').style.setProperty('width','calc('+readyConfirmOrders.length+'%)');
+                    }
+                    if (readyDeliverOrders != null)
+                    {
+                        document.getElementById('readyDeliverOrders').innerHTML = readyDeliverOrders.length;
+                        document.getElementById('readyDeliverOrders-bar').style.setProperty('width','calc('+readyDeliverOrders.length+'%)');
+                    }
+                    if (goodsReturnOrders != null)
+                    {
+                        document.getElementById('goodsReturnOrders').innerHTML = goodsReturnOrders.length;
+                        document.getElementById('goodsReturnOrders-bar').style.setProperty('width','calc('+goodsReturnOrders.length+'%)');
+                    }
+                    if (inProductionOrders != null)
+                    {
+                        document.getElementById('inProductionOrders').innerHTML = inProductionOrders.length;
+                        document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');
+                    }
+                },
+                error: (jqXHR) => {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            });
+        }
+    })
+</script>

@@ -245,13 +245,31 @@
                                                 </tbody></table>
                                         </div>
                                     </div>
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="cancel_plan" onclick="destruction(<% out.print(materialInfo.get("inventory_id"));%>)">
+                                        销毁
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_destruction_modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-heading">
+                            <a class="modal-close" data-dismiss="modal">×</a>
+                            <h2 class="modal-title">您确认销毁该原材料？</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_destruction()">确定
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
@@ -277,3 +295,39 @@
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1.5.16/dist/clipboard.min.js" type="text/javascript"></script>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //点击取消生产计划
+        destruction = function (inventory_id) {
+            $("#verify_destruction_modal").modal();
+            inventoryId = inventory_id;
+        };
+
+        verify_destruction = function () {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/material/staff/destruction",
+                dataType: "json",
+                data: {
+                    inventoryId:inventoryId,
+                },
+                success: function(data) {
+                    if (data.ret === 1)
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "销毁成功";
+                    }
+                    else
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "销毁失败";
+                    }
+                },
+                error:  function ()  {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            })
+        };
+    });
+</script>

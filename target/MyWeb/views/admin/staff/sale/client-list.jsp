@@ -43,10 +43,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                    <a class="waves-attach" href="/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
+                    <a class="waves-attach" href="${pageContext.request.contextPath}/admin/sale/staff"><span class="icon icon-lg margin-right">account_box</span>员工中心</a>
                 </li>
                 <li>
-                    <a class="padding-right-cd waves-attach" href="/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
+                    <a class="padding-right-cd waves-attach" href="${pageContext.request.contextPath}/admin"><span class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
             </ul>
         </div>
@@ -57,16 +57,16 @@
     <div class="menu-scroll">
         <div class="menu-content">
 
-            <a class="menu-logo" href="/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
+            <a class="menu-logo" href="${pageContext.request.contextPath}/admin"><i class="icon icon-lg">language</i>&nbsp后台</a>
             <ul class="nav">
                 <li>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href="/admin/staff/sale/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;员工中心</a>
                         </li>
                         <li>
-                            <a href="/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                            <a href="${pageContext.request.contextPath}/admin/account"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
                         </li>
                     </ul>
 
@@ -76,13 +76,13 @@
                             <a href=" "><i class="icon icon-lg">account_box</i>&nbsp;管理客户信息</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/sale/staff/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/strategy"><i class="icon icon-lg">announcement</i>&nbsp;管理销售策略</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/sale/staff/order"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;接受订货</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/order"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;接受订货</a>
                         </li>
                         <li>
-                            <a href="/admin/staff/sale/staff/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
+                            <a href="${pageContext.request.contextPath}/admin/staff/sale/staff/returnOrder"><i class="icon icon-lg">sync_problem</i>&nbsp;处理退货</a>
                         </li>
                     </ul>
             </ul>
@@ -100,7 +100,7 @@
         <section class="content-inner margin-top-no">
             <div class="row">
 
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-6 col-md-6">
                     <div class="card margin-bottom-no">
                         <div class="card-main">
                             <div class="card-inner">
@@ -112,6 +112,23 @@
                                 <div class="form-group form-group-label">
                                     <label class="floating-label" for="clientName">客户名</label>
                                     <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="card margin-bottom-no">
+                        <div class="card-main">
+                            <div class="card-inner">
+                                <div class="cardbtn-edit">
+                                    <p class="card-heading">信用升级</p>
+                                    <button class="btn btn-flat" id="credit-update" onclick="updateCredit()"><span class="icon">check</span>&nbsp;
+                                    </button>
+                                </div>
+                                <div class="form-group form-group-label">
+
                                 </div>
                             </div>
                         </div>
@@ -157,7 +174,40 @@
                 <div aria-hidden="true" class="modal modal-va-middle fade" id="clientinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
                     <div class="modal-dialog modal-full">
                         <div class="modal-content">
-                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" src="/admin/staff/sale/staff/clientInfo"></iframe>
+                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" src="${pageContext.request.contextPath}/admin/staff/sale/staff/clientInfo"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-inner">
+                            <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-heading">
+                            <a class="modal-close" data-dismiss="modal">×</a>
+                            <h2 class="modal-title">您确认更新所有客户的信用等级吗？</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" onclick="verify_updateCredit()" type="button">确定
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -207,9 +257,35 @@
                 }
             })
         });
+
+        updateCredit = function() {
+            $("#verify_modal").modal();
+        };
+        verify_updateCredit = function () {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/updateCredit",
+                dataType: "json",
+                data: {
+                },
+                success:function (data) {
+                    if (data.ret === 1) {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = '更新成功';
+                    } else {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = '更新失败';
+                    }
+                },
+                error: function(){
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = '无法更新';
+                }
+            })
+        }
     });
     edit = function(id) {
-        document.getElementById('infoifram').src = "/admin/staff/sale/staff/clientInfo?id="+id;
+        document.getElementById('infoifram').src = "${pageContext.request.contextPath}/admin/staff/sale/staff/clientInfo?id="+id;
         $("#clientinfo").modal();
     }
 </script>

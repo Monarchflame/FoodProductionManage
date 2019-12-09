@@ -80,7 +80,6 @@ To change this template use File | Settings | File Templates.
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/staff/plan/staff/plan-list"><i class="icon icon-lg">announcement</i>&nbsp;查看生产计划</a>
                         </li>
-
                     </ul>
             </ul>
         </div>

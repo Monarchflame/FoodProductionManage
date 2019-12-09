@@ -260,7 +260,23 @@
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal1" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-heading">
+                            <a class="modal-close" data-dismiss="modal">×</a>
+                            <h2 class="modal-title" id="h1"> </h2>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_function" type="button" onclick="parent.location.reload()">确定
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal2" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
@@ -269,7 +285,7 @@
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_function" type="button" onclick="">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="choose_function2" type="button" onclick="">确定
                                 </button>
                             </p>
                         </div>
@@ -332,14 +348,31 @@
         if (status === '已付定金' || status === '已付全款')
         {
             document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="cancelorder();"> '+'取消订单'+'  </button>';
-            document.getElementById('h2').innerText='您确认取消订单吗？';
+            document.getElementById('h1').innerText='您确认取消订单吗？';
             document.getElementById('choose_function').onclick= verify_cancel;
         }
-        else if (status === '已完成' || status === '待付尾款')
+        else if (status === '已完成' )
         {
             document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
-            document.getElementById('h2').innerText='您确认申请退货吗？';
+            document.getElementById('h1').innerText='您确认申请退货吗？';
             document.getElementById('choose_function').onclick= verify_return;
+        }
+        else if (status === '已发货')
+        {
+            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="receive();"> '+'确认收货'+'  </button>';
+            document.getElementById('h1').innerText='您确认确定收货吗？';
+            document.getElementById('choose_function').onclick= verify_receive;
+        }
+        //既可退货又可缴费
+        else if (status === '待付尾款')
+        {
+            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="pay();"> '+'支付尾款'+'  </button>' +
+                '<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
+            document.getElementById('h1').innerText='您确认申请退货吗？';
+            document.getElementById('choose_function').onclick= verify_return;
+            document.getElementById('h2').innerText='您确认支付尾款吗？';
+            document.getElementById('choose_function2').onclick= verify_pay;
+
         }
     });
     //点击取消订单
@@ -349,7 +382,7 @@
             $("#result").modal();
             document.getElementById('msg').innerHTML = `不可重复申请`;
         }
-        $("#verify_modal").modal();
+        $("#verify_modal1").modal();
     };
     //确认取消订单
     verify_cancel = function () {
@@ -372,7 +405,7 @@
                     document.getElementById('msg').innerHTML = data.msg;
                 }
             },
-            error: (jqXHR) => {
+            error: function () {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -380,7 +413,7 @@
     };
     //点击申请退货
     returngoods = function () {
-        $("#verify_modal").modal();
+        $("#verify_modal1").modal();
     };
     //确认退货
     verify_return = function () {
@@ -392,15 +425,37 @@
                 orderId:orderId,
             },
             success: function(data) {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = data.msg;
+            },
+            error: (jqXHR) => {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = `发生了错误`;
+            }
+        })
+    };
+    //点击确认收货
+    receive = function () {
+        $("#verify_modal1").modal();
+    };
+    verify_receive = function () {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/user/receive",
+            dataType: "json",
+            data: {
+                orderId:orderId,
+            },
+            success: function(data) {
                 if (data.ret===1)
                 {
                     $("#result").modal();
-                    document.getElementById('msg').innerHTML = data.msg;
+                    document.getElementById('msg').innerHTML = "操作成功";
                 }
                 else
                 {
                     $("#result").modal();
-                    document.getElementById('msg').innerHTML = data.msg;
+                    document.getElementById('msg').innerHTML = "操作失败";
                 }
             },
             error: (jqXHR) => {
@@ -408,5 +463,35 @@
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
         })
-    }
+    };
+
+    pay = function () {
+        $("#verify_modal2").modal();
+    };
+    verify_pay = function () {
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/user/payTheBalance",
+            dataType: "json",
+            data: {
+                orderId:orderId,
+            },
+            success: function(data) {
+                if (data.ret===1)
+                {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = "操作成功";
+                }
+                else
+                {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = "操作失败";
+                }
+            },
+            error: (jqXHR) => {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = `发生了错误`;
+            }
+        })
+    };
 </script>

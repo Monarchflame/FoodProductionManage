@@ -100,7 +100,7 @@
         <section class="content-inner margin-top-no">
             <div class="row">
 
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-6 col-md-6">
                     <div class="card margin-bottom-no">
                         <div class="card-main">
                             <div class="card-inner">
@@ -112,6 +112,23 @@
                                 <div class="form-group form-group-label">
                                     <label class="floating-label" for="clientName">客户名</label>
                                     <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="card margin-bottom-no">
+                        <div class="card-main">
+                            <div class="card-inner">
+                                <div class="cardbtn-edit">
+                                    <p class="card-heading">信用升级</p>
+                                    <button class="btn btn-flat" id="credit-update" onclick="updateCredit()"><span class="icon">check</span>&nbsp;
+                                    </button>
+                                </div>
+                                <div class="form-group form-group-label">
+
                                 </div>
                             </div>
                         </div>
@@ -157,7 +174,40 @@
                 <div aria-hidden="true" class="modal modal-va-middle fade" id="clientinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
                     <div class="modal-dialog modal-full">
                         <div class="modal-content">
-                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" src="/admin/staff/sale/staff/clientInfo"></iframe>
+                            <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" src="${pageContext.request.contextPath}/admin/staff/sale/staff/clientInfo"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-inner">
+                            <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_modal" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-heading">
+                            <a class="modal-close" data-dismiss="modal">×</a>
+                            <h2 class="modal-title">您确认更新所有客户的信用等级吗？</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" onclick="verify_updateCredit()" type="button">确定
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -207,9 +257,35 @@
                 }
             })
         });
+
+        updateCredit = function() {
+            $("#verify_modal").modal();
+        };
+        verify_updateCredit = function () {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/updateCredit",
+                dataType: "json",
+                data: {
+                },
+                success:function (data) {
+                    if (data.ret === 1) {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = '更新成功';
+                    } else {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = '更新失败';
+                    }
+                },
+                error: function(){
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = '无法更新';
+                }
+            })
+        }
     });
     edit = function(id) {
-        document.getElementById('infoifram').src = "/admin/staff/sale/staff/clientInfo?id="+id;
+        document.getElementById('infoifram').src = "${pageContext.request.contextPath}/admin/staff/sale/staff/clientInfo?id="+id;
         $("#clientinfo").modal();
     }
 </script>

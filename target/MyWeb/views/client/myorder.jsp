@@ -93,27 +93,27 @@
             <div class="ui-card-wrap">
                 <div class="row">
                     <div class="col-lg-12 col-sm-12 nodelist">
-                        <div class="node-cardgroup" style="display: grid">
+                        <div class="node-ordergroup" style="display: grid">
                             <div class="nodetitle">
-                                <a class="waves-effect waves-button" data-toggle="collapse" href="#cardgroup0" aria-expanded="true" aria-controls="cardgroup0">
+                                <a class="waves-effect waves-button" data-toggle="collapse" href="#ordergroup0" aria-expanded="true" aria-controls="ordergroup0">
                                     <span>未完成订单</span><i class="material-icons">expand_more</i>
                                 </a>
                             </div>
-                            <div class="card-row collapse in" id="cardgroup0">
+                            <div class="card-row collapse in" id="ordergroup0">
                             </div>
                             <div class="nodetitle">
-                                <a class="waves-effect waves-button" data-toggle="collapse" href="#cardgroup1" aria-expanded="true" aria-controls="cardgroup1">
+                                <a class="waves-effect waves-button" data-toggle="collapse" href="#ordergroup1" aria-expanded="true" aria-controls="ordergroup1">
                                     <span>已完成</span><i class="material-icons">expand_more</i>
                                 </a>
                             </div>
-                            <div class="card-row collapse in" id="cardgroup1">
+                            <div class="card-row collapse in" id="ordergroup1">
                             </div>
                             <div class="nodetitle">
-                                <a class="waves-effect waves-button" data-toggle="collapse" href="#cardgroup2" aria-expanded="true" aria-controls="cardgroup1">
+                                <a class="waves-effect waves-button" data-toggle="collapse" href="#ordergroup2" aria-expanded="true" aria-controls="ordergroup1">
                                     <span>取消中订单</span><i class="material-icons">expand_more</i>
                                 </a>
                             </div>
-                            <div class="card-row collapse in" id="cardgroup2">
+                            <div class="card-row collapse in" id="ordergroup2">
                             </div>
                         </div>
                     </div>
@@ -153,182 +153,99 @@
 </body>
 </html>
 <script type="text/javascript">
-    var goodsReturnOrdernumber = 0 ;
-    var goodsReturnOrderstatus = "";
-    var goodsReturnOrderstatus2="";
     $(document).ready(function(){
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/user/getmyorder",
+            url: "${pageContext.request.contextPath}/user/orderList",
             dataType: "json",
             data: {
                 clientId:'<% out.print(client.getId());%>',
             },
             //查询商品及客户信息返回相应数据
             success: function(data) {
-                var list = eval(data.myOrders);
-                var order_notcomplete = [];
-                var order_completed = [];
-                var order_cancel = [];
-                var notcomliete = 1;
-                var completed = 1;
-                var canceling = 1;
-                for(var i = 0;i < list.length;i++) {
-                    //myorder不是order类型
-                    var myorder = list[i];
-                    //找对应的退货单
-                    $.ajax({
-                        type: "POST",
-                        url: "${pageContext.request.contextPath}/user/findGoodsReturnOrder",
-                        async: false,
-                        dataType: "json",
-                        data: {
-                            orderId:myorder.orderId,
-                        },
-                        success: function(data) {
-                            var goodsReturnOrderList = eval(data.goodsReturnOrderList);
-                            if (goodsReturnOrderList!= null)
-                            {
-                                goodsReturnOrdernumber = goodsReturnOrderList.length;
-                                goodsReturnOrderstatus = goodsReturnOrderList[0].status;
-                                //第二次申请，即收到货后申请
-                                if (goodsReturnOrderList.length === 2)
-                                {
-                                    goodsReturnOrderstatus2 = goodsReturnOrderList[1].status;
-                                }
-                            }
-                        },
-                        error: (jqXHR) => {
-                            $("#result").modal();
-                            document.getElementById('msg').innerHTML = `发生了错误`;
-                        }
-                    });
-                    var status = myorder.status;
-                    //已完成
-                    if (status === "已完成" || status === "已取消")  {
-                        order_completed.push('<div class="node-card node-flex" cardindex="' + completed + '" onclick="orderInfo(' + myorder.orderId + ')">' +
-                            '<div class="nodemain">' +
-                            '<div class="nodehead node-flex">' +
-                            '<div class="nodename">' + myorder.productName + '</div>' +
-                            '</div>' +
-                            '<div class="nodemiddle node-flex">' +
-                            '<div class="onlinemember node-flex">' +
-                            '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.address + '</div>' +
-                            '</div>' +
-                            '<div class="nodeinfo node-flex">' +
-                            '<div class="nodetraffic node-flex">' +
-                            '<i class="material-icons node-icon">attach_money</i><span>付款</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.money + '</div>' +
-                            '<div class="nodecheck node-flex">' +
-                            '<i class="material-icons node-icon">archive</i><span>数量</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.quantity + '</div>' +
-                            '<div class="nodeband node-flex">' +
-                            '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.status + '</div>' +
-                            '</div></div></div>'
-                        );
-                        completed++;
-                    }
-                    //取消中
-                    else if ((status === "已付定金" || status === "已付全款") && goodsReturnOrdernumber === 1 && goodsReturnOrderstatus !== "已拒绝" && goodsReturnOrderstatus !== "已成功" )
-                    {
-                        order_cancel.push('<div class="node-card node-flex" cardindex="' + canceling + '" onclick="orderInfo(' + myorder.orderId + ')">' +
-                            '<div class="nodemain">' +
-                            '<div class="nodehead node-flex">' +
-                            '<div class="nodename">' + myorder.productName + '</div>' +
-                            '</div>' +
-                            '<div class="nodemiddle node-flex">' +
-                            '<div class="onlinemember node-flex">' +
-                            '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.address + '</div>' +
-                            '</div>' +
-                            '<div class="nodeinfo node-flex">' +
-                            '<div class="nodetraffic node-flex">' +
-                            '<i class="material-icons node-icon">attach_money</i><span>付款</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.money + '</div>' +
-                            '<div class="nodecheck node-flex">' +
-                            '<i class="material-icons node-icon">archive</i><span>数量</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.quantity + '</div>' +
-                            '<div class="nodeband node-flex">' +
-                            '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.status + '</div>' +
-                            '</div></div></div>'
-                        );
-                        canceling++
-                    }
-                    //退货中
-                    else if ((status === "已完成" || status === "待付尾款") && goodsReturnOrdernumber === 2 && goodsReturnOrderstatus2 !== "已拒绝" && goodsReturnOrderstatus2 !== "已成功")
-                    {
-                        order_cancel.push('<div class="node-card node-flex" cardindex="' + canceling + '" onclick="orderInfo(' + myorder.orderId + ')">' +
-                            '<div class="nodemain">' +
-                            '<div class="nodehead node-flex">' +
-                            '<div class="nodename">' + myorder.productName + '</div>' +
-                            '</div>' +
-                            '<div class="nodemiddle node-flex">' +
-                            '<div class="onlinemember node-flex">' +
-                            '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.address + '</div>' +
-                            '</div>' +
-                            '<div class="nodeinfo node-flex">' +
-                            '<div class="nodetraffic node-flex">' +
-                            '<i class="material-icons node-icon">attach_money</i><span>付款</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.money + '</div>' +
-                            '<div class="nodecheck node-flex">' +
-                            '<i class="material-icons node-icon">archive</i><span>数量</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.quantity + '</div>' +
-                            '<div class="nodeband node-flex">' +
-                            '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.status + '</div>' +
-                            '</div></div></div>'
-                        );
-                        canceling++
-                    }
-                    else {
-                        order_notcomplete.push('<div class="node-card node-flex" cardindex="' + notcomliete + '" onclick="orderInfo(' + myorder.orderId + ')">' +
-                            '<div class="nodemain">' +
-                            '<div class="nodehead node-flex">' +
-                            '<div class="nodename">' + myorder.productName + '</div>' +
-                            '</div>' +
-                            '<div class="nodemiddle node-flex">' +
-                            '<div class="onlinemember node-flex">' +
-                            '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.address + '</div>' +
-                            '</div>' +
-                            '<div class="nodeinfo node-flex">' +
-                            '<div class="nodetraffic node-flex">' +
-                            '<i class="material-icons node-icon">attach_money</i><span>付款</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.money + '</div>' +
-                            '<div class="nodecheck node-flex">' +
-                            '<i class="material-icons node-icon">archive</i><span>数量</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.quantity + '</div>' +
-                            '<div class="nodeband node-flex">' +
-                            '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
-                            '</div>' +
-                            '<div class="nodetype">' + myorder.status + '</div>' +
-                            '</div></div></div>'
-                        );
-                        notcomliete++
-                    }
+                var noCompletedOrderInfoList = eval(data.noCompletedOrderInfoList);
+                var completedOrderInfoList = eval(data.completedOrderInfoList);
+                var cancelingOrderInfoList = eval(data.cancelingOrderInfoList);
+                var noCompletedOrderHTML = [];
+                var completedOrderHTML = [];
+                var cancelingOrderHTML = [];
+                for(let i = 0;i < noCompletedOrderInfoList.length;i++) {
+                    let order = noCompletedOrderInfoList[i];
+                    noCompletedOrderHTML.push('<div class="node-card node-flex" onclick="orderInfo(' + order.order_id + ')">' +
+                        '<div class="nodemain">' +
+                        '<div class="nodehead node-flex">' +
+                        '<div class="nodename">' + order.product_name + '</div>' +
+                        '</div>' +
+                        '<div class="nodemiddle node-flex">' +
+                        '<div class="onlinemember node-flex">' +
+                        '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.address + '</div>' +
+                        '</div>' +
+                        '<div class="nodeinfo node-flex">' +
+
+                        '<div class="nodecheck node-flex">' +
+                        '<i class="material-icons node-icon">archive</i><span>数量</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.quantity + '</div>' +
+                        '<div class="nodeband node-flex">' +
+                        '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.status + '</div>' +
+                        '</div></div></div>')
                 }
-                $('#cardgroup0').html(order_notcomplete.join(''));
-                $('#cardgroup1').html(order_completed.join(''));
-                $('#cardgroup2').html(order_cancel.join(''));
+                for(let i = 0;i < completedOrderInfoList.length;i++) {
+                    let order = completedOrderInfoList[i];
+                    completedOrderHTML.push('<div class="node-card node-flex" onclick="orderInfo(' + order.order_id + ')">' +
+                        '<div class="nodemain">' +
+                        '<div class="nodehead node-flex">' +
+                        '<div class="nodename">' + order.product_name + '</div>' +
+                        '</div>' +
+                        '<div class="nodemiddle node-flex">' +
+                        '<div class="onlinemember node-flex">' +
+                        '<i class="material-icons node-icon">star</i><span>客户类型</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.client_type + '</div>' +
+                        '</div>' +
+                        '<div class="nodeinfo node-flex">' +
+                        '<div class="nodecheck node-flex">' +
+                        '<i class="material-icons node-icon">archive</i><span>数量</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.quantity + '</div>' +
+                        '<div class="nodeband node-flex">' +
+                        '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.status + '</div>' +
+                        '</div></div></div>')
+
+                }
+                for(let i = 0;i < cancelingOrderInfoList.length;i++) {
+                    let order = cancelingOrderInfoList[i];
+                    cancelingOrderHTML.push('<div class="node-card node-flex" onclick="orderInfo(' + order.order_id + ')">' +
+                        '<div class="nodemain">' +
+                        '<div class="nodehead node-flex">' +
+                        '<div class="nodename">' + order.product_name + '</div>' +
+                        '</div>' +
+                        '<div class="nodemiddle node-flex">' +
+                        '<div class="onlinemember node-flex">' +
+                        '<i class="material-icons node-icon">location_on</i><span>地址</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.address + '</div>' +
+                        '</div>' +
+                        '<div class="nodeinfo node-flex">' +
+                        '<div class="nodecheck node-flex">' +
+                        '<i class="material-icons node-icon">archive</i><span>数量</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.quantity + '</div>' +
+                        '<div class="nodeband node-flex">' +
+                        '<i class="material-icons node-icon">flash_on</i><span>状态</span>' +
+                        '</div>' +
+                        '<div class="nodetype">' + order.status + '</div>' +
+                        '</div></div></div>')
+                }
+                $('#ordergroup0').html(noCompletedOrderHTML.join(''));
+                $('#ordergroup1').html(completedOrderHTML.join(''));
+                $('#ordergroup2').html(cancelingOrderHTML.join(''));
             },
             error: function(){
                 $("#result").modal();

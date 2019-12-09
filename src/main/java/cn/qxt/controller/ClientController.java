@@ -103,6 +103,8 @@ public class ClientController {
                     map.put("password", cookie.getValue());
                 }
             }
+            if (map.size() == 0)
+                return null;
             return map;
         }
     }
@@ -186,7 +188,7 @@ public class ClientController {
     @PostMapping("/verificationCode")
     public Map getVerificationCode(HttpServletRequest request, HttpSession session)
     {
-        String email = request.getParameter("email").toString();
+        String email = request.getParameter("email");
         System.out.println(email);
         String code = registerService.generateVerificationCode();
         boolean b = registerService.sendEmail(email, code);
@@ -553,7 +555,7 @@ public class ClientController {
         //插入订单
         orderService.insertSelective(order);
         //更新客户信息
-        clientService.updateByPrimaryKey(client);
+        clientService.updateByPrimaryKeySelective(client);
     }
 
     /*
@@ -566,40 +568,35 @@ public class ClientController {
     }
 
     /**
-     * 界面显示我的订单
-     * @param request HttpServletRequest
-     * @param session HttpSession
-     * @return Map
+     * 界面显示我的订单信息
+     * @return noCompletedOrderInfoList、completedOrderInfoList、cancelingOrderInfoList
      */
     @ResponseBody
-    @PostMapping("/getmyorder")
-    public Map getMyOrder(HttpServletRequest request, HttpSession session)
+    @PostMapping(value = "/orderList")
+    public Map orderList(HttpServletRequest request)
     {
-        String clientId = request.getParameter("clientId").toString();
-        Client client = (Client) session.getAttribute("LOGIN_USER");
+        String clientId = request.getParameter("clientId");
+        List<Order> orderList = clientService.selectAllOrder(clientId);
 
-        //查询客户号为clientId的所有订单
-        List<Order> orders = clientService.selectMyOrdersByClientId(clientId);
+        List<Map<String, Object>> noCompletedOrderInfoList = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> completedOrderInfoList = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> cancelingOrderInfoList = new ArrayList<Map<String, Object>>();
 
-        List<MyOrder> myOrders = new ArrayList<MyOrder>();
-        for (Order order:orders) {
-            MyOrder myOrder = new MyOrder();
-            myOrder.setOrderId(order.getId());
-            myOrder.setAddress(client.getAddress());
-            myOrder.setProductName(productService.selectByPrimaryKey(order.getProduct_id()).getName());
-            myOrder.setQuantity(order.getQuantity());
-            myOrder.setStatus(order.getStatus());
-            if (order.getDeposit() != null)
-                System.out.println("not null");
-            //只交了定金，没交尾款
-            if (order.getDeposit() != 0.0 && !myOrder.getStatus().equalsIgnoreCase("已完成"))
-                myOrder.setMoney(order.getDeposit());
+        for (Order order:orderList) {
+            //有退货单
+            Map goodsReturnOrder = findGoodsReturnOrder(order.getId() + "");
+            if (!goodsReturnOrder.get("goodsReturnOrderList").equals(new ArrayList<Object>()) && !order.getStatus().equals("已取消"))
+                cancelingOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
+            else if (order.getStatus().equals("已完成") || order.getStatus().equals("已取消"))
+                completedOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
             else
-                myOrder.setMoney(order.getTotal_payment());
-            myOrders.add(myOrder);
+                noCompletedOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
         }
+
         Map<String,Object>map = new HashMap<String, Object>();
-        map.put("myOrders",myOrders);
+        map.put("noCompletedOrderInfoList",noCompletedOrderInfoList);
+        map.put("completedOrderInfoList",completedOrderInfoList);
+        map.put("cancelingOrderInfoList",cancelingOrderInfoList);
         return map;
     }
 
@@ -621,16 +618,11 @@ public class ClientController {
             myOrder.setQuantity(order.getQuantity());
             myOrder.setStatus(order.getStatus());
             //只交了定金，没交尾款
-            if (order.getDeposit() != null && !myOrder.getStatus().equalsIgnoreCase("已完成"))
+            if (order.getDeposit() != 0 && !myOrder.getStatus().equalsIgnoreCase("已完成"))
                 myOrder.setMoney(order.getDeposit());
             else
                 myOrder.setMoney(order.getTotal_payment());
 
-            //request.setAttribute("order", order);
-            //为了能在JSTL中遍历
-//            List<MyOrder>myOrders = new ArrayList<MyOrder>();
-//            myOrders.add(myOrder);
-//            request.setAttribute("myOrders", myOrders);
             session.setAttribute("myOrder",myOrder);
             return "client/orderinfo";
         }
@@ -659,23 +651,81 @@ public class ClientController {
     @PostMapping("/returngoods")
     public Map returnGoods(HttpServletRequest request)
     {
-        String orderId = request.getParameter("orderId").toString();
-        return clientService.returnGoods(Integer.valueOf(orderId));
+        String orderId = request.getParameter("orderId");
+        Map map = new HashMap<String, Object>();
+        try {
+            map = clientService.returnGoods(Integer.valueOf(orderId));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        return map;
     }
 
     /**
      * 查找对应的退货单
-     * @param request HttpServletRequest
+     * @param orderId  它还要在该文件中被调用，所以参数设为String
      * @return Map
      */
     @ResponseBody
     @PostMapping("/findGoodsReturnOrder")
-    public Map findGoodsReturnOrder(HttpServletRequest request)
+    public Map findGoodsReturnOrder(String orderId)
     {
-        String orderId = request.getParameter("orderId").toString();
         List goodsReturnOrderList = clientService.selectGoodsReturnOrderByOrderId(Integer.valueOf(orderId));
         Map<String,Object>map = new HashMap<String, Object>();
         map.put("goodsReturnOrderList",goodsReturnOrderList);
         return map;
     }
+
+    /**
+     * 确认收货
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/receive")
+    public Map receive(HttpServletRequest request)
+    {
+        String orderId = request.getParameter("orderId");
+        int ret = 0;
+        try {
+            clientService.receive(Integer.valueOf(orderId));
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
+
+        return map;
+    }
+
+    /**
+     * 支付尾款
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/payTheBalance")
+    public Map payTheBalance(HttpServletRequest request)
+    {
+        String orderId = request.getParameter("orderId");
+        int ret = 0;
+        try {
+            clientService.payTheBalance(Integer.valueOf(orderId));
+            ret = 1;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("ret",ret);
+
+        return map;
+    }
+
 }

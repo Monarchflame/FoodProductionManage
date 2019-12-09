@@ -283,6 +283,66 @@ public class CreditExample {
             addCriterion("ratio not between", value1, value2, "ratio");
             return (Criteria) this;
         }
+
+        public Criteria andSpendIsNull() {
+            addCriterion("spend is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendIsNotNull() {
+            addCriterion("spend is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendEqualTo(Double value) {
+            addCriterion("spend =", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendNotEqualTo(Double value) {
+            addCriterion("spend <>", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendGreaterThan(Double value) {
+            addCriterion("spend >", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendGreaterThanOrEqualTo(Double value) {
+            addCriterion("spend >=", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendLessThan(Double value) {
+            addCriterion("spend <", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendLessThanOrEqualTo(Double value) {
+            addCriterion("spend <=", value, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendIn(List<Double> values) {
+            addCriterion("spend in", values, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendNotIn(List<Double> values) {
+            addCriterion("spend not in", values, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendBetween(Double value1, Double value2) {
+            addCriterion("spend between", value1, value2, "spend");
+            return (Criteria) this;
+        }
+
+        public Criteria andSpendNotBetween(Double value1, Double value2) {
+            addCriterion("spend not between", value1, value2, "spend");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

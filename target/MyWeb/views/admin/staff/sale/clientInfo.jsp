@@ -253,6 +253,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
+                                                        <td>消费总额</td>
+                                                        <td id="newtotalspend" >
+                                                            0.0
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
                                                         <td>地址</td>
                                                         <td>
                                                             <input class="form-control maxwidth-edit" id="newaddress" type="text" value="${c.address}">
@@ -268,6 +274,21 @@
                     </div>
                 </div>
             </div>
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-xs">
+                    <div class="modal-content">
+                        <div class="modal-inner">
+                            <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="text-right">
+                                <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="parent.location.reload()">知道了
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </main>
@@ -279,6 +300,23 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
+        //查消费总额
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/admin/staff/sale/staff/totalSpend",
+            dataType: "json",
+            data: {
+                clientId: $("#newid").val(),
+            },
+            success:function (data) {
+                document.getElementById('newtotalspend').innerHTML = data.totalSpend;
+            },
+            error: function(){
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = "无法获取消费金额";
+            }
+        });
+
         $("#client-update").click(function () {
             $.ajax({
                 type: "POST",
@@ -292,14 +330,16 @@
                     address:$("#newaddress").val()
                 },
                 success:function (data) {
-                    alert("success");
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = "操作成功";
                 },
                 error: function(){
-                    alert('error');
-                }
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = "操作失败";                }
             });
             parent.location.reload();//完成刷新
         });
+
     })
 </script>
 
