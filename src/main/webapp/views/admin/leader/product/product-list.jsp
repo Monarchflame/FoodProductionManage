@@ -211,7 +211,7 @@
                     goodsTableHTML.push('</tbody>');
                     $('#goodsTable').html(goodsTableHTML.join(''));
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }

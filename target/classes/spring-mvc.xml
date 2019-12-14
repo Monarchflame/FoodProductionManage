@@ -27,23 +27,23 @@
     </bean>
 
     <!-- 配置拦截器 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <!-- 拦截/admin -->
-            <mvc:mapping path="/admin/**"/>
-            <!-- 拦截/user -->
-            <mvc:mapping path="/user/**"/>
-            <!-- mvc:exclude-mapping是另外一种拦截，它可以在你后来的测试中对某个页面进行不拦截，这样就不用在
-                LoginInterceptor的preHandler方法里面获取不拦截的请求uri地址了(优选) -->
-            <mvc:exclude-mapping path="/admin"/>
-            <mvc:exclude-mapping path="/user"/>
-            <mvc:exclude-mapping path="/user/login"/>
-            <mvc:exclude-mapping path="/user/getCookie"/>
-            <mvc:exclude-mapping path="/user/register"/>
-            <mvc:exclude-mapping path="/user/verificationCode"/>
-            <mvc:exclude-mapping path="/user/tos"/>
-            <bean class="cn.qxt.interceptor.LoginInterceptor"/>
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            &lt;!&ndash; 拦截/admin &ndash;&gt;-->
+<!--            <mvc:mapping path="/admin/**"/>-->
+<!--            &lt;!&ndash; 拦截/user &ndash;&gt;-->
+<!--            <mvc:mapping path="/user/**"/>-->
+<!--            &lt;!&ndash; mvc:exclude-mapping是另外一种拦截，它可以在你后来的测试中对某个页面进行不拦截，这样就不用在-->
+<!--                LoginInterceptor的preHandler方法里面获取不拦截的请求uri地址了(优选) &ndash;&gt;-->
+<!--            <mvc:exclude-mapping path="/admin"/>-->
+<!--            <mvc:exclude-mapping path="/user"/>-->
+<!--            <mvc:exclude-mapping path="/user/login"/>-->
+<!--            <mvc:exclude-mapping path="/user/getCookie"/>-->
+<!--            <mvc:exclude-mapping path="/user/register"/>-->
+<!--            <mvc:exclude-mapping path="/user/verificationCode"/>-->
+<!--            <mvc:exclude-mapping path="/user/tos"/>-->
+<!--            <bean class="cn.qxt.interceptor.LoginInterceptor"/>-->
 
-        </mvc:interceptor>
-    </mvc:interceptors>
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
 </beans>

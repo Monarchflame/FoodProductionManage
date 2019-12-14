@@ -112,4 +112,6 @@ public interface SaleStaffService {
     void updateCredit();
 
     double totalSpend(String clientId);
+
+    List<Map> selectAllRepertory();
 }

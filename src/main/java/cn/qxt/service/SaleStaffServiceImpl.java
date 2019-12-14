@@ -25,6 +25,10 @@ public class SaleStaffServiceImpl implements SaleStaffService{
     private ClientMessageDao clientMessageDao;
     @Autowired
     private ProductRequirementDao productRequirementDao;
+    @Autowired
+    private GoodsDao goodsDao;
+    @Autowired
+    private ProductDao productDao;
 
     public int deleteByPrimaryKey(String id) {
         return saleStaffDao.deleteByPrimaryKey(id);
@@ -267,6 +271,27 @@ public class SaleStaffServiceImpl implements SaleStaffService{
             }
             return result;
         }
+    }
+
+    /**
+     * 返回货物信息及库存
+     * @return [{product，quantity}]
+     */
+    @Override
+    public List<Map> selectAllRepertory() {
+        List<Map> result = new ArrayList<Map>();
+
+        List<Product> products = productDao.selectByExample(new ProductExample());
+        for (Product product:products)
+        {
+            Map<String, Object> map = new HashMap<String,Object>();
+            map.put("product",product);
+            Integer quantity = goodsDao.selectAllRepertoryByProductId(product.getId());
+
+            map.put("quantity",quantity);
+            result.add(map);
+        }
+        return result;
     }
 
 }

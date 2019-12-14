@@ -213,7 +213,7 @@
                     $('#discount-table').html(discountHTML.join(''));
                     $('#ratio-table').html(ratioHTML.join(''));
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
@@ -241,7 +241,7 @@
                         document.getElementById('msg').innerHTML = data.msg;
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
@@ -271,7 +271,7 @@
                         document.getElementById('msg').innerHTML = data.msg;
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }

@@ -336,7 +336,7 @@
                     goodsReturnOrderstatus = goodsReturnOrderList[0].status;
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -428,7 +428,7 @@
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = data.msg;
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -458,7 +458,7 @@
                     document.getElementById('msg').innerHTML = "操作失败";
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -488,7 +488,7 @@
                     document.getElementById('msg').innerHTML = "操作失败";
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }

@@ -103,7 +103,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.1" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="439ccd34d75bad8383a7ab79-|49" defer=""></script>
+<%--<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="439ccd34d75bad8383a7ab79-|49" defer=""></script>--%>
 </body>
 </html>
 <script>

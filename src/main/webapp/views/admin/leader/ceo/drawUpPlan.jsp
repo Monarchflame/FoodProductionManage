@@ -95,7 +95,7 @@
                     }
                     $("#plan-inner").html(planHTML.join(''));
                 },
-                error: (jqXHR) => {
+                error: function() {
                 }
             });
 
@@ -140,7 +140,7 @@
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
+                            <a href="${pageContext.request.contextPath}/admin/ceo"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
                         </li>
                     </ul>
 
@@ -384,7 +384,7 @@
                 requirementTableHTML.push('</tbody>');
                 $('#requirementTable').html(requirementTableHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -452,7 +452,7 @@
                             document.getElementById('msg').innerHTML = `发生了错误`;
                         }
                     },
-                    error: (jqXHR) => {
+                    error: function() {
                         $("#result").modal();
                         document.getElementById('msg').innerHTML = `发生了错误`;
                     }

@@ -95,7 +95,7 @@
                     }
                     $("#plan-inner").html(planHTML.join(''));
                 },
-                error: (jqXHR) => {
+                error: function() {
                 }
             });
 
@@ -309,7 +309,7 @@
                 requirementTableHTML.push('</tbody>');
                 $('#requirementTable').html(requirementTableHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -377,7 +377,7 @@
                             document.getElementById('msg').innerHTML = `发生了错误`;
                         }
                     },
-                    error: (jqXHR) => {
+                    error: function() {
                         $("#result").modal();
                         document.getElementById('msg').innerHTML = `发生了错误`;
                     }

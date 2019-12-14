@@ -230,7 +230,7 @@
                                                 <c:forEach items="${client}" var="c" varStatus="status">
                                                     <tr>
                                                         <td>id</td>
-                                                        <td>
+                                                        <td id="newid">
                                                             ${c.id}
                                                         </td>
                                                     </tr>
@@ -300,13 +300,14 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
+        clientId = document.getElementById('newid').innerText;
         //查消费总额
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/admin/staff/sale/staff/totalSpend",
             dataType: "json",
             data: {
-                clientId: $("#newid").val(),
+                clientId: clientId,
             },
             success:function (data) {
                 document.getElementById('newtotalspend').innerHTML = data.totalSpend;
@@ -323,7 +324,7 @@
                 url: "${pageContext.request.contextPath}/admin/staff/sale/staff/updateClient",
                 dataType: "json",
                 data: {
-                    id: $("#newid").val(),
+                    id: clientId,
                     name: $("#newname").val(),
                     type: $("#newtype").val(),
                     creditrating:$("#newcreditrating").val(),

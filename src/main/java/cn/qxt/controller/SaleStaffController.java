@@ -109,6 +109,21 @@ public class SaleStaffController {
 
         clientService.updateByPrimaryKey(client);
     }
+
+    /**
+     * 查找所有货物库存
+     * @return
+     */
+    @ResponseBody
+    @PostMapping(value = "/repertory")
+    public Map repertory()
+    {
+        //[{product，quantity}]
+        List<Map> productInfoList = saleStaffService.selectAllRepertory();
+        Map<String,Object>map = new HashMap<String, Object>();
+        map.put("productInfoList",productInfoList);
+        return map;
+    }
     /*
     有关订单
      */
@@ -407,6 +422,8 @@ public class SaleStaffController {
     public Map totalSpend(HttpServletRequest request)
     {
         String clientId = request.getParameter("clientId");
+        clientId = clientId.replaceAll("\r|\n", "");
+        clientId = clientId.trim();
         double totalSpend = saleStaffService.totalSpend(clientId);
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("totalSpend",totalSpend);

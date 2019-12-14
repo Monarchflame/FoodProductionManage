@@ -1,4 +1,5 @@
 import cn.qxt.dao.ClientDao;
+import cn.qxt.dao.GoodsDao;
 import cn.qxt.dao.GoodsReturnOrderDao;
 import cn.qxt.dao.OrderDao;
 import org.apache.commons.mail.HtmlEmail;
@@ -21,7 +22,7 @@ public class text {
     @Autowired
     OrderDao orderDao;
     @Autowired
-    GoodsReturnOrderDao goodsReturnOrderDao;
+    GoodsDao goodsDao;
 
     @Test
     public void test() {
@@ -34,8 +35,12 @@ public class text {
         System.out.println(expiration_time);
 
     }
+    @Test
+    public void test2() {
+        int i = goodsDao.selectAllRepertoryByProductId(2);
+        System.out.println(i);
 
-    //邮箱验证码
+    }    //邮箱验证码
     public static boolean sendEmail(String emailAddress,String code){
         try {
             HtmlEmail email = new HtmlEmail();//不用更改

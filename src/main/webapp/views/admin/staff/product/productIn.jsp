@@ -248,7 +248,7 @@
                     '<div class="flex-fix4"></div>');
                 $('#shop-flex').html(productHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -300,7 +300,7 @@
                     document.getElementById('msg').innerHTML = '入库失败';
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }

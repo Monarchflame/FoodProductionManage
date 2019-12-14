@@ -221,7 +221,7 @@
                     '<div class="flex-fix4"></div>');
                 $('#shop-flex').html(materialHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -271,7 +271,7 @@
                     document.getElementById('msg').innerHTML = '生成原材料购入单失败';
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }

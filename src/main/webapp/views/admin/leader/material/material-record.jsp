@@ -320,7 +320,7 @@
                 $('#outRecord-inner').html(outRecordHTML.join(''));
                 $('#destroyRecord-inner').html(destroyRecordHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }

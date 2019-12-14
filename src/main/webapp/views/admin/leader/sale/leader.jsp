@@ -347,7 +347,7 @@ To change this template use File | Settings | File Templates.
                         document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }

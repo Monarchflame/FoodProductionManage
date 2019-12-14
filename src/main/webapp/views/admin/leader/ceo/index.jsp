@@ -63,7 +63,7 @@
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_me">我的</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_me">
                         <li>
-                            <a href=""><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
+                            <a href="${pageContext.request.contextPath}/admin/ceo"><i class="icon icon-lg">account_balance_wallet</i>&nbsp;CEO中心</a>
                         </li>
                     </ul>
 
@@ -227,6 +227,62 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-main">
+                            <div class="card-inner">
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="readyProcessRequirementList-bar" class="bar tuse color" style="width:calc(0%);"></div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color"></div>
+                                            <span class="traffic-info">待确认生产要求</span>
+                                            <code class="card-tag tag-green" id="readyProcessRequirementList">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="readyProductionPlan-bar" class="bar ard color2" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color2"><span></span></div>
+                                            <span class="traffic-info">未执行生产计划</span>
+                                            <code class="card-tag tag-orange" id="readyProductionPlan">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="inProductionPlan-bar" class="bar ard color3" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color2"><span></span></div>
+                                            <span class="traffic-info">执行中生产计划</span>
+                                            <code class="card-tag tag-orange" id="inProductionPlan">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="progressbar">
+                                    <div class="before"></div>
+                                    <div id="productionCompletedPlan-bar" class="bar ard color4" style="width:calc(0%);">
+                                        <span></span>
+                                    </div>
+                                    <div class="label-flex">
+                                        <div class="label la-top">
+                                            <div class="bar ard color2"><span></span></div>
+                                            <span class="traffic-info">已执行生产计划</span>
+                                            <code class="card-tag tag-orange" id="productionCompletedPlan">0</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xx-12 col-sm-8">
                     <div class="card">
@@ -288,7 +344,61 @@
                         document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            });
+        }
+        //填入要求生产计划信息
+        {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/plan/staff/productPlanList",
+                dataType: "json",
+                traditional: true,
+                data: {
+                },
+                success: function(data){
+                    var planList = data.planList;
+                    var readyProcessRequirementList = data.readyProcessRequirementList;
+                    var readyProductionPlan = 0;
+                    var inProductionPlan = 0;
+                    var productionCompletedPlan = 0;
+                    if(planList != null)
+                    {
+                        for (var i=0; i<planList.length; i++)
+                        {
+                            if (planList[i].status === "未执行")
+                            {
+                                readyProductionPlan++;
+                            }
+                            else if (planList[i].status === "执行中")
+                            {
+                                inProductionPlan++;
+                            }
+                            else if (planList[i].status === "已执行")
+                            {
+                                productionCompletedPlan++;
+                            }
+                        }
+                        document.getElementById('readyProductionPlan').innerHTML = readyProductionPlan;
+                        document.getElementById('readyProductionPlan-bar').style.setProperty('width','calc('+readyProductionPlan+'%)');
+
+                        document.getElementById('inProductionPlan').innerHTML = inProductionPlan;
+                        document.getElementById('inProductionPlan-bar').style.setProperty('width','calc('+inProductionPlan+'%)');
+
+                        document.getElementById('productionCompletedPlan').innerHTML = productionCompletedPlan;
+                        document.getElementById('productionCompletedPlan-bar').style.setProperty('width','calc('+productionCompletedPlan+'%)');
+                    }
+
+                    if (readyProcessRequirementList != null)
+                    {
+                        document.getElementById('readyProcessRequirementList').innerHTML = readyProcessRequirementList.length;
+                        document.getElementById('readyProcessRequirementList-bar').style.setProperty('width','calc('+readyProcessRequirementList.length+'%)');
+                    }
+                },
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
