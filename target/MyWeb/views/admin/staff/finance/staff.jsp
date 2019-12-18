@@ -273,7 +273,7 @@ To change this template use File | Settings | File Templates.
                                 '</div>');
                             $('#card-context').html(readyConfirmOrderHTML.join(''));
                         },
-                        error: (jqXHR) => {
+                        error: function() {
                             $("#result").modal();
                             document.getElementById('msg').innerHTML = `发生了错误`;
                         }

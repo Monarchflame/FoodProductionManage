@@ -15,6 +15,8 @@ public class Plan {
 
     private Date create_time;
 
+    private Integer workshop_id;
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +63,13 @@ public class Plan {
 
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
+    }
+
+    public Integer getWorkshop_id() {
+        return workshop_id;
+    }
+
+    public void setWorkshop_id(Integer workshop_id) {
+        this.workshop_id = workshop_id;
     }
 }

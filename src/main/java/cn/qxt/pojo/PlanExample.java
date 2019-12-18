@@ -474,6 +474,66 @@ public class PlanExample {
             addCriterion("create_time not between", value1, value2, "create_time");
             return (Criteria) this;
         }
+
+        public Criteria andWorkshop_idIsNull() {
+            addCriterion("workshop_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idIsNotNull() {
+            addCriterion("workshop_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idEqualTo(Integer value) {
+            addCriterion("workshop_id =", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idNotEqualTo(Integer value) {
+            addCriterion("workshop_id <>", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idGreaterThan(Integer value) {
+            addCriterion("workshop_id >", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idGreaterThanOrEqualTo(Integer value) {
+            addCriterion("workshop_id >=", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idLessThan(Integer value) {
+            addCriterion("workshop_id <", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idLessThanOrEqualTo(Integer value) {
+            addCriterion("workshop_id <=", value, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idIn(List<Integer> values) {
+            addCriterion("workshop_id in", values, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idNotIn(List<Integer> values) {
+            addCriterion("workshop_id not in", values, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idBetween(Integer value1, Integer value2) {
+            addCriterion("workshop_id between", value1, value2, "workshop_id");
+            return (Criteria) this;
+        }
+
+        public Criteria andWorkshop_idNotBetween(Integer value1, Integer value2) {
+            addCriterion("workshop_id not between", value1, value2, "workshop_id");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

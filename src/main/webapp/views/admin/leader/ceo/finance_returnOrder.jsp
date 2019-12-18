@@ -221,7 +221,7 @@
     $(document).ready(function(){
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/admin/staff/finance/staff/returnOrder",
+            url: "${pageContext.request.contextPath}/admin/staff/finance/staff/returnOrderList",
             dataType: "json",
             data: {
             },

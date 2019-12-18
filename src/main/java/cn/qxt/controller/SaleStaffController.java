@@ -92,7 +92,9 @@ public class SaleStaffController {
     @RequestMapping(value = "/updateClient",method = RequestMethod.POST)
     public void updateClient(HttpServletRequest request)
     {
-        String clientId = request.getParameter("id").toString();
+        String clientId = request.getParameter("id");
+        clientId = clientId.replaceAll("\r|\n", "");
+        clientId = clientId.trim();
         String clientName = request.getParameter("name").toString();
         String clientType = request.getParameter("type").toString();
         int clientCreditrating = Integer.parseInt(request.getParameter("creditrating").toString());
@@ -332,6 +334,40 @@ public class SaleStaffController {
         return map;
     }
 
+    @ResponseBody
+    @PostMapping(value = "/agreeReturnGoods")
+    public Map agreeReturnGoods(String id)
+    {
+        Map<String,Object>map = new HashMap<String, Object>();
+
+        try {
+            saleStaffService.agreeReturnGoods(Integer.valueOf(id));
+            map.put("ret",1);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getStackTrace());
+            map.put("ret",0);
+        }
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/disagreeReturnGoods")
+    public Map disagreeReturnGoods(String id)
+    {
+        Map<String,Object>map = new HashMap<String, Object>();
+        try {
+            saleStaffService.disagreeReturnGoods(Integer.valueOf(id));
+            map.put("ret",1);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getStackTrace());
+            map.put("ret",0);
+        }
+        return map;
+    }
     /*
     以下是关于销售策略
      */

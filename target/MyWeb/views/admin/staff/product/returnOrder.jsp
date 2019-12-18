@@ -108,7 +108,7 @@
                         }
                         $("#plan-inner").html(planHTML.join(''));
                     },
-                    error: (jqXHR) => {
+                    error: function() {
                     }
                 });
 

@@ -114,4 +114,8 @@ public interface SaleStaffService {
     double totalSpend(String clientId);
 
     List<Map> selectAllRepertory();
+
+    void agreeReturnGoods(Integer goodsReturnOrderId);
+
+    void disagreeReturnGoods(Integer goodsReturnOrderId);
 }

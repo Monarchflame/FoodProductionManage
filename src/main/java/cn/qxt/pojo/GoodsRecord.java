@@ -15,6 +15,8 @@ public class GoodsRecord {
 
     private Date create_time;
 
+    private Integer external_key;
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +63,13 @@ public class GoodsRecord {
 
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
+    }
+
+    public Integer getExternal_key() {
+        return external_key;
+    }
+
+    public void setExternal_key(Integer external_key) {
+        this.external_key = external_key;
     }
 }

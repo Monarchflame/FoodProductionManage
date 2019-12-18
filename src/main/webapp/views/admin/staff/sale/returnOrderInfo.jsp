@@ -218,11 +218,11 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>订单编号</td>
-                                                    <td><% out.print(orderInfo.get("order_id"));%></td>
+                                                    <td id="order_id"><% out.print(orderInfo.get("order_id"));%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>订单状态</td>
-                                                    <td><% out.print(orderInfo.get("order_status"));%></td>
+                                                    <td id="order_status"><% out.print(orderInfo.get("order_status"));%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>产品名称</td>
@@ -253,10 +253,10 @@
                                                 </tbody></table>
                                         </div>
                                     </div>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="take_plan" onclick="agree(<% out.print(orderInfo.get("id"));%>)">
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="agree_button"  onclick="">
                                         同意申请
                                     </button>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="deliver_goods" onclick="disagree(<% out.print(orderInfo.get("id"));%>)">
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="disagree_button" onclick="">
                                         拒绝申请
                                     </button>
                                 </div>
@@ -265,32 +265,32 @@
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_order_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_agree_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
                             <a class="modal-close" data-dismiss="modal">×</a>
-                            <h2 class="modal-title">您确认同意取消订单申请？</h2>
+                            <h2 class="modal-title" id="agree_modal_title"></h2>
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_agree()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" id="verify_agree_button" onclick="()">确定
                                 </button>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_deliver_goods_modal" role="dialog" tabindex="-1">
+            <div aria-hidden="true" class="modal modal-va-middle fade" id="verify_disagree_modal" role="dialog" tabindex="-1">
                 <div class="modal-dialog modal-xs">
                     <div class="modal-content">
                         <div class="modal-heading">
                             <a class="modal-close" data-dismiss="modal">×</a>
-                            <h2 class="modal-title">您确认拒绝取消订单申请？</h2>
+                            <h2 class="modal-title" id="disagree_modal_title"></h2>
                         </div>
                         <div class="modal-footer">
                             <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" onclick="verify_disagree()">确定
+                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" type="button" id="verify_disagree_button" onclick="()">确定
                                 </button>
                             </p>
                         </div>
@@ -323,20 +323,108 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        //点击同意申请
+        //判断是取消订单还是退货
+        /*
+        * 1.判断订单状态
+        * 2.修改对应相应*/
+        var status = $("#order_status").html();
+        var orderId = $("#order_id").html();
+        if (status === "已完成" || status === "待付尾款")
+        {
+            document.getElementById("agree_modal_title").innerHTML="您确认同意退货申请？";
+            document.getElementById("disagree_modal_title").innerHTML="您确认拒绝退货申请？";
+            document.getElementById("agree_button").onclick = Function("agreeReturnGoods("+orderId+")");
+            document.getElementById("disagree_button").onclick = Function("disagreeReturnGoods("+orderId+")");
+            document.getElementById("verify_agree_button").onclick = Function("verify_agreeReturnGoods()");
+            document.getElementById("verify_disagree_button").onclick = Function("verify_disagreeReturnGoods()");
+        }
+        else if (status === "已付定金" || status === "已付全款")
+        {
+            document.getElementById("agree_modal_title").innerHTML="您确认同意取消订单申请？";
+            document.getElementById("disagree_modal_title").innerHTML="您确认拒绝取消订单申请？";
+            document.getElementById("agree_button").onclick = Function("agreeCancelOrder("+orderId+")");
+            document.getElementById("disagree_button").onclick = Function("disagreeCancelOrder("+orderId+")");
+            document.getElementById("verify_agree_button").onclick = Function("verify_agreeCancelOrder()");
+            document.getElementById("verify_disagree_button").onclick = Function("verify_disagreeCancelOrder()");
+        }
+
         var id;
-        agree = function (returnOrderId) {
-            $("#verify_deliver_order_modal").modal();
+        agreeReturnGoods = function(returnOrderId)
+        {
+            $("#verify_agree_modal").modal();
+            id = returnOrderId;
+        };
+        agreeCancelOrder = function (returnOrderId) {
+            $("#verify_agree_modal").modal();
             id = returnOrderId;
         };
         //点击拒绝申请
-        disagree = function(returnOrderId)
+        disagreeReturnGoods = function(returnOrderId)
         {
-            $("#verify_deliver_goods_modal").modal();
+            $("#verify_disagree_modal").modal();
+            id = returnOrderId;
+        };
+        disagreeCancelOrder = function(returnOrderId)
+        {
+            $("#verify_disagree_modal").modal();
             id = returnOrderId;
         };
 
-        verify_agree = function () {
+        verify_agreeReturnGoods = function() {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/agreeReturnGoods",
+                dataType: "json",
+                data: {
+                    id:id,
+                },
+                success: function(data) {
+                    if (data.ret===1)
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "操作成功";
+                    }
+                    else
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "操作失败";
+                    }
+                },
+                error: function() {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            })
+        };
+
+        verify_disagreeReturnGoods = function() {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/disagreeReturnGoods",
+                dataType: "json",
+                data: {
+                    id:id,
+                },
+                success: function(data) {
+                    if (data.ret===1)
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "操作成功";
+                    }
+                    else
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = "操作失败";
+                    }
+                },
+                error: function() {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            })
+        };
+
+        verify_agreeCancelOrder = function () {
             $.ajax({
                 type: "POST",
                 url: "${pageContext.request.contextPath}/admin/staff/sale/staff/agreeCancelOrder",
@@ -362,7 +450,7 @@
                 }
             })
         };
-        verify_disagree = function () {
+        verify_disagreeCancelOrder = function () {
             $.ajax({
                 type: "POST",
                 url: "${pageContext.request.contextPath}/admin/staff/sale/staff/disagreeCancelOrder",

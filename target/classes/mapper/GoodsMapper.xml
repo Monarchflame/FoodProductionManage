@@ -125,7 +125,7 @@
     </update>
 
     <select id="selectAllRepertoryByProductId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
-        select sum(quantity)
+        select ifnull(sum(quantity),0) as quantity
         from goods
         where product_id = #{product_id,jdbcType=INTEGER}
     </select>

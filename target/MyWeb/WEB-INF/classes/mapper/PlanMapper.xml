@@ -8,6 +8,7 @@
         <result column="finish_time" jdbcType="TIMESTAMP" property="finish_time" />
         <result column="status" jdbcType="VARCHAR" property="status" />
         <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+        <result column="workshop_id" jdbcType="INTEGER" property="workshop_id" />
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -39,7 +40,7 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        id, product_id, quantity, finish_time, status, create_time
+        id, product_id, quantity, finish_time, status, create_time, workshop_id
     </sql>
     <select id="selectByExample" parameterType="cn.qxt.pojo.PlanExample" resultMap="BaseResultMap">
         select
@@ -68,11 +69,11 @@
     </delete>
     <insert id="insert" parameterType="cn.qxt.pojo.Plan">
         insert into plan (id, product_id, quantity,
-                          finish_time, status, create_time
-        )
+                          finish_time, status, create_time,
+                          workshop_id)
         values (#{id,jdbcType=INTEGER}, #{product_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
-                #{finish_time,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}
-               )
+                #{finish_time,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP},
+                #{workshop_id,jdbcType=INTEGER})
     </insert>
     <insert id="insertSelective" parameterType="cn.qxt.pojo.Plan">
         insert into plan
@@ -95,6 +96,9 @@
             <if test="create_time != null">
                 create_time,
             </if>
+            <if test="workshop_id != null">
+                workshop_id,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -114,6 +118,9 @@
             </if>
             <if test="create_time != null">
                 #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="workshop_id != null">
+                #{workshop_id,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -135,6 +142,9 @@
             <if test="create_time != null">
                 create_time = #{create_time,jdbcType=TIMESTAMP},
             </if>
+            <if test="workshop_id != null">
+                workshop_id = #{workshop_id,jdbcType=INTEGER},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -144,15 +154,18 @@
             quantity = #{quantity,jdbcType=INTEGER},
             finish_time = #{finish_time,jdbcType=TIMESTAMP},
             status = #{status,jdbcType=VARCHAR},
-            create_time = #{create_time,jdbcType=TIMESTAMP}
+            create_time = #{create_time,jdbcType=TIMESTAMP},
+            workshop_id = #{workshop_id,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectPlanInfoByPlanId" parameterType="java.lang.Integer" resultType="java.util.Map">
         select plan.id as plan_id, product.id as product_id, product.name as product_name, plan.quantity as quantity, plan.status as status, plan.finish_time,
-               plan.create_time as create_time
+               plan.create_time as create_time,workshop_id, workshop.name as workshop_name
         from plan
                  join product
                       on product_id = product.id
+                 join workshop
+                      on workshop_id = workshop.id
         where plan.id = #{id,jdbcType=INTEGER}
     </select>
 </mapper>

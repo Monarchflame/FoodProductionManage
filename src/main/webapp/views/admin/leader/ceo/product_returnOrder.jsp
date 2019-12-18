@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 10703
-  Date: 2019/11/17
-  Time: 19:41
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-cn">
 <head>
@@ -20,103 +13,12 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/user.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/style.css">
-
-
-
     <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jQuery-2.1.4.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/theme/js/jquery.tablesorter.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="4text/javascript"></script>
-
-    <script>
-        var requirementIdList = [[]];
-        //根据所选要求出库
-        drawUpPlan = function () {
-            var material_idList = [];
-            var quantityList = [];
-            var nameList = [];
-            //把生产需求的创建时间放进去，根据此找到需求，改变状态
-            var check = $("table input[type=checkbox]:checked");//在table中找input下类型为checkbox属性为选中状态的数据
-            if (check.length === 0)
-            {
-                $("#result").modal();
-                document.getElementById('msg').innerHTML = `请勾选需求`;
-            }
-            else
-            {
-                //遍历被选中的数据
-                check.each(function () {
-                    var row = $(this).parent("th").parent("tr");//获取选中行
-
-                    var material_id = row.find("[name='material_id']").html();//获取name='material_id'的值
-                    var quantity = row.find("[name='quantity']").html();
-                    var name = row.find("[name='name']").html();
-                    var id = row.find("[name='id']").html();
-                    var create_time = row.find("[name='create_time']").html();
-
-                    if (material_id !== undefined)
-                    {
-                        material_idList.push(material_id);
-                        //二维数组
-                        if(requirementIdList[material_id] === undefined)
-                            requirementIdList[material_id]=[];
-                        requirementIdList[material_id].push(id);
-
-                        nameList[material_id] = name;
-                        if (quantityList[material_id] === undefined)
-                            quantityList[material_id] = Number(quantity);
-                        else
-                        //记得把quantity转换为数字
-                            quantityList[material_id] += Number(quantity);
-
-                    }
-                });
-                console.log(requirementIdList);
-
-                var requirementTable = document.getElementById("requirementTable");
-                var planHTML=[];
-
-                $.ajax({
-                    type: "POST",
-                    url: "${pageContext.request.contextPath}/admin/staff/material/staff/classify",
-                    dataType: "json",
-                    async:false,
-                    traditional:true,
-                    data: {
-                        material_idList : material_idList
-                    },
-                    success: function(data) {
-                        var quantityMap = data.quantityMap;
-                        //alert(quantityMap);
-                        for(var key in quantityMap){
-                            // console.log(key + "==" + quantityMap[key]);
-                            planHTML.push('<div name="aplan">\n'+
-                                '<p id="id_label">产品ID：<span id="id">'+  key +'</span></p>\n' +
-                                '<p id="name_label">产品名称：<span id="name">'+  nameList[key] +'</span></p>\n' +
-                                '<p id="repertory_label">产品库存：<span id="repertory">'+  quantityMap[key] +'</span></p>\n' +
-                                '<p id="requirement_label">需求量：<span id="requirement">'+ quantityList[key] +'</span></p>\n' +
-                                '</div>'+
-                                '<br>');
-                            if (parseInt(quantityMap[key]) < parseInt(quantityList[key]))
-                            {
-                                console.log("库存不足");
-                                document.getElementById("drawUpPlan").disabled = true;
-                            }
-
-                        }
-                        $("#plan-inner").html(planHTML.join(''));
-                    },
-                    error: function() {
-                    }
-                });
-
-                $("#plan_modal").modal();
-            }
-        };
-    </script>
-
 </head>
 <body class="page-orange">
 <header class="header header-orange header-transparent header-waterfall ui-header">
@@ -319,7 +221,7 @@
                 var inReturnOrdersHTML = [];
                 for(let i = 0;i < inReturnOrdersList.length;i++) {
                     let goodsReturnOrder = inReturnOrdersList[i];
-                    inReturnOrdersHTML.push('<div class="node-card node-flex" onclick="processReturnOrder(' + goodsReturnOrder.id + ')">' +
+                    inReturnOrdersHTML.push('<div class="node-card node-flex" onclick="inReturnOrder(' + goodsReturnOrder.id + ')">' +
                         '<div class="nodemain">' +
                         '<div class="nodehead node-flex">' +
                         '<div class="nodename">' +'订单编号：'+ goodsReturnOrder.order_id + '</div>' +

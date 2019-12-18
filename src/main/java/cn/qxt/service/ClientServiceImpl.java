@@ -100,7 +100,7 @@ public class ClientServiceImpl implements ClientService{
         {
             GoodsReturnOrder goodsReturnOrder = new GoodsReturnOrder();
             goodsReturnOrder.setOrder_id(orderId);
-            goodsReturnOrder.setType("待收货");
+            goodsReturnOrder.setType("申请退货");
             int result = goodsReturnOrderDao.insertSelective(goodsReturnOrder);
             if (result == 1)
                 map.put("msg","申请成功");
@@ -116,9 +116,10 @@ public class ClientServiceImpl implements ClientService{
                 //是申请取消订单,申请取消订单被拒绝
                 if (goodsReturnOrderInfoList.get(0).get("type").equals("已拒绝"))
                 {
-                    //没有申请退货
+                    //申请退货
                     GoodsReturnOrder goodsReturnOrder = new GoodsReturnOrder();
                     goodsReturnOrder.setOrder_id(orderId);
+                    goodsReturnOrder.setType("申请退货");
                     int result = goodsReturnOrderDao.insertSelective(goodsReturnOrder);
                     if (result == 1)
                         map.put("msg","申请成功");

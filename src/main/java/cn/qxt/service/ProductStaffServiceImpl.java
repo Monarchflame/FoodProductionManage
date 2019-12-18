@@ -72,17 +72,22 @@ public class ProductStaffServiceImpl implements ProductStaffService{
     public List<Product> selectAllProduct() {
         return productDao.selectByExample(new ProductExample());
     }
-    
-    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
-    public void addGoods(Goods goods) {
-        goodsDao.insertSelective(goods);
 
+    /**
+     * 入库事务
+     * @param goods 货物
+     * @param plan_id
+     */
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void addGoods(Goods goods, Integer plan_id) {
+        goodsDao.insertSelective(goods);
         GoodsRecord goodsRecord = new GoodsRecord();
         //Mapper中设置insertSelective方法，可以得到goods的主键
         goodsRecord.setGoods_id(goods.getId());
         goodsRecord.setProduct_id(goods.getProduct_id());
         goodsRecord.setQuantity(goods.getQuantity());
         goodsRecord.setType("入库");
+        goodsRecord.setExternal_key(plan_id);
         goodsRecordDao.insertSelective(goodsRecord);
     }
 
@@ -154,6 +159,10 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         return goodsDao.selectGoodsInfoById(goods_id);
     }
 
+    /**
+     * 出库
+     * @param orderId
+     */
     @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
     public void ship(int orderId) {
         Order order = orderDao.selectByPrimaryKey(orderId);
@@ -178,11 +187,11 @@ public class ProductStaffServiceImpl implements ProductStaffService{
             if (requirement >= quantity)
             {
                 //扣完
-                insertOutRecord(goods_id, null);
+                insertOutRecord(orderId, goods_id, null);
             }
             else
             {
-                insertOutRecord(goods_id, requirement);
+                insertOutRecord(orderId, goods_id, requirement);
                 break;
             }
         }
@@ -190,7 +199,8 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         order.setStatus("已发货");
         orderDao.updateByPrimaryKeySelective(order);
     }
-    private void insertOutRecord(Integer goods_id, Integer quantity)
+
+    private void insertOutRecord(Integer orderId, Integer goods_id, Integer quantity)
     {
         Goods goods = goodsDao.selectByPrimaryKey(goods_id);
 
@@ -199,6 +209,7 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         record.setGoods_id(goods_id);
         record.setProduct_id(goods.getProduct_id());
         record.setType("出库");
+        record.setExternal_key(orderId);
         if (quantity == null)//全扣完
         {
             record.setQuantity(goods.getQuantity());
@@ -214,6 +225,7 @@ public class ProductStaffServiceImpl implements ProductStaffService{
         }
         goodsRecordDao.insertSelective(record);
     }
+
     public int selectAllRepertoryByProductId(Integer product_id)
     {
         return goodsDao.selectAllRepertoryByProductId(product_id);
@@ -262,5 +274,18 @@ public class ProductStaffServiceImpl implements ProductStaffService{
     @Override
     public List<Material> selectAllMaterial() {
         return materialDao.selectByExample(new MaterialExample());
+    }
+
+    @Override
+    public int agreeReturnOrder(Integer id) {
+        GoodsReturnOrder goodsReturnOrder = goodsReturnOrderDao.selectByPrimaryKey(id);
+        goodsReturnOrder.setType("已收货");
+        return goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
+    }
+
+    public int disagreeReturnOrder(Integer id) {
+        GoodsReturnOrder goodsReturnOrder = goodsReturnOrderDao.selectByPrimaryKey(id);
+        goodsReturnOrder.setStatus("已拒绝");
+        return goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
     }
 }

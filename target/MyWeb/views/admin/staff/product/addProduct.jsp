@@ -204,7 +204,7 @@
                             document.getElementById('msg').innerHTML = '添加失败';
                         }
                     },
-                    error: (jqXHR) => {
+                    error: function() {
                         $("#result").modal();
                         document.getElementById('msg').innerHTML = `发生了错误`;
                     }

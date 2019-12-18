@@ -183,4 +183,16 @@ public class PlanStaffController {
         map.put("ret", ret);
         return map;
     }
+
+    /**
+     * 查找可用的车间 把几个车间对应的生产计划放在不同的List中
+     * @return {workshopList:[workshop1,workshop2]}
+     */
+    @ResponseBody
+    @PostMapping(value = "/workshopPlan")
+    public Map listUsefulWorkshop()
+    {
+        Map<String,Object>map = planStaffService.selectWorkshopPlan();
+        return map;
+    }
 }

@@ -266,18 +266,18 @@ To change this template use File | Settings | File Templates.
                         <div class="card-main">
                             <div class="card-inner margin-bottom-no">
                                 <p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;货物存量</p>
-                                <dl class="dl-horizontal">
-                                    <dt>面包</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-level-expire">剩余</span>
-                                    <code><span id="days-level-expire">100</span></code>
-                                    <span class="label-level-expire">吨</span>
+                                <dl id="repertory" class="dl-horizontal">
+<%--                                    <dt>面包</dt>--%>
+<%--                                    <i class="icon icon-md">widgets</i>--%>
+<%--                                    <span class="label-level-expire">剩余</span>--%>
+<%--                                    <code><span id="days-level-expire">100</span></code>--%>
+<%--                                    <span class="label-level-expire">吨</span>--%>
 
-                                    <dt>果汁</dt>
-                                    <i class="icon icon-md">widgets</i>
-                                    <span class="label-account-expire">剩余</span>
-                                    <code><span id="days-account-expire">43</span></code>
-                                    <span class="label-account-expire">吨</span>
+<%--                                    <dt>果汁</dt>--%>
+<%--                                    <i class="icon icon-md">widgets</i>--%>
+<%--                                    <span class="label-account-expire">剩余</span>--%>
+<%--                                    <code><span id="days-account-expire">43</span></code>--%>
+<%--                                    <span class="label-account-expire">吨</span>--%>
                                 </dl>
                             </div>
                         </div>
@@ -324,7 +324,6 @@ To change this template use File | Settings | File Templates.
                 type: "POST",
                 url: "${pageContext.request.contextPath}/admin/staff/sale/staff/orderInfo",
                 dataType: "json",
-                traditional: true,
                 data: {
                 },
                 success: function(data){
@@ -353,7 +352,35 @@ To change this template use File | Settings | File Templates.
                         document.getElementById('inProductionOrders-bar').style.setProperty('width','calc('+inProductionOrders.length+'%)');
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            });
+        }
+        //查找库存
+        {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/repertory",
+                dataType: "json",
+                data: {
+                },
+                success: function(data){
+                    let productInfoList = data.productInfoList;
+                    let html=[];
+                    for (let i=0;i<productInfoList.length;i++)
+                    {
+                        let productInfo = productInfoList[i];
+                        html.push("<dt>"+ productInfo.product.name +"</dt>\n" +
+                            "                                    <i class=\"icon icon-md\">widgets</i>\n" +
+                            "                                    <span class=\"label-account-expire\">库存</span>\n" +
+                            "                                    <code><span id=\"days-account-expire\">"+productInfo.quantity+"</span></code>"
+                        )
+                    }
+                    $('#repertory').html(html.join(''));
+                },
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }

@@ -361,7 +361,7 @@ To change this template use File | Settings | File Templates.
                         document.getElementById('readyProcessRequirementList-bar').style.setProperty('width','calc('+readyProcessRequirementList.length+'%)');
                     }
                 },
-                error: (jqXHR) => {
+                error: function() {
                     $("#result").modal();
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }

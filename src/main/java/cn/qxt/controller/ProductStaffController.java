@@ -178,6 +178,7 @@ public class ProductStaffController {
         String productId = request.getParameter("productId").toString();
         String quantity = request.getParameter("quantity").toString();
         String shelf_life = request.getParameter("shelf_life").toString();
+        Integer plan_id = Integer.parseInt(request.getParameter("plan_id"));
         Goods goods = new Goods();
         goods.setProduct_id(Integer.valueOf(productId));
         goods.setQuantity(Integer.valueOf(quantity));
@@ -192,7 +193,7 @@ public class ProductStaffController {
         Map<String,Object> map = new HashMap<String, Object>();
         int ret = 0;
         try {
-            productStaffService.addGoods(goods);
+            productStaffService.addGoods(goods,plan_id);
             ret = 1;
         }
         catch (Exception ex)
@@ -261,8 +262,20 @@ public class ProductStaffController {
      * @param session HttpSession
      * @return 界面路径
      */
-    @GetMapping(value = "/inReturnOrderList")
-    public String inReturnOrderList(String goodsReturnOrderId, HttpSession session)
+//    @GetMapping(value = "/inReturnOrderList")
+//    public String inReturnOrderList(String goodsReturnOrderId, HttpSession session)
+//    {
+//        if (goodsReturnOrderId!=null && !goodsReturnOrderId.equals(""))
+//        {
+//            Map<String, Object> inReturnOrderInfo = productStaffService.selectGoodsReturnOrderInfoByPrimaryKey(Integer.valueOf(goodsReturnOrderId));
+//            session.setAttribute("inReturnOrderInfo",inReturnOrderInfo);
+//            return "admin/staff/product/inReturnOrderInfo";
+//        }
+//        return "admin/staff/product/inReturnOrderInfo";
+//    }
+
+    @GetMapping(value = "/inReturnOrderInfo")
+    public String inReturnOrderInfo(String goodsReturnOrderId, HttpSession session)
     {
         if (goodsReturnOrderId!=null && !goodsReturnOrderId.equals(""))
         {
@@ -272,6 +285,7 @@ public class ProductStaffController {
         }
         return "admin/staff/product/inReturnOrderInfo";
     }
+
 
     /**
      * 安排发货
@@ -366,6 +380,34 @@ public class ProductStaffController {
 
         List<Material> materialList = productStaffService.selectAllMaterial();
         map.put("materialList",materialList);
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/agreeReturnOrder")
+    public Map<String, Object> agreeReturnOrder(String id)
+    {
+        int result = productStaffService.agreeReturnOrder(Integer.valueOf(id));
+        Map<String,Object>map = new HashMap<String, Object>();
+        map.put("ret",result);
+        if (result == 1)
+            map.put("msg","操作成功");
+        else
+            map.put("msg","操作失败");
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/disagreeReturnOrder")
+    public Map<String, Object> disagreeReturnOrder(String id)
+    {
+        int result = productStaffService.agreeReturnOrder(Integer.valueOf(id));
+        Map<String,Object>map = new HashMap<String, Object>();
+        map.put("ret",result);
+        if (result == 1)
+            map.put("msg","操作成功");
+        else
+            map.put("msg","操作失败");
         return map;
     }
 }

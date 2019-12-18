@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Map orderInfo=(Map) request.getSession().getAttribute("goodsReturnOrderInfo"); %>
+<% Map orderInfo=(Map) request.getSession().getAttribute("inReturnOrderInfo"); %>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
@@ -338,7 +338,7 @@
         verify_agree = function () {
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/agreeReturnOrder",
+                url: "${pageContext.request.contextPath}/admin/staff/product/staff/agreeReturnOrder",
                 dataType: "json",
                 data: {
                     id:id,
@@ -364,7 +364,7 @@
         verify_disagree = function () {
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/disagreeReturnOrder",
+                url: "${pageContext.request.contextPath}/admin/staff/product/staff/disagreeReturnOrder",
                 dataType: "json",
                 data: {
                     id:id,

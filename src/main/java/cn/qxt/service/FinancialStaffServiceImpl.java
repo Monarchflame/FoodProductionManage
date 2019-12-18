@@ -59,6 +59,7 @@ public class FinancialStaffServiceImpl implements FinancialStaffService {
     public List<GoodsReturnOrder> selectAllGoodsReturnOrder() {
         GoodsReturnOrderExample goodsReturnOrderExample = new GoodsReturnOrderExample();
         goodsReturnOrderExample.or().andStatusEqualTo("已同意");
+        goodsReturnOrderExample.or().andTypeNotEqualTo("待收货");
         return goodsReturnOrderDao.selectByExample(goodsReturnOrderExample);
     }
 
@@ -76,6 +77,10 @@ public class FinancialStaffServiceImpl implements FinancialStaffService {
         return goodsReturnOrderDao.selectGoodsReturnOrderInfoByPrimaryKey(id);
     }
 
+    /**
+     * 所有待退款的订单
+     * @return
+     */
     public List<Map<String, Object>> selectReadyProcessGoodsReturnOrderInfo() {
         GoodsReturnOrderExample goodsReturnOrderExample = new GoodsReturnOrderExample();
         goodsReturnOrderExample.or().andStatusEqualTo("已同意");

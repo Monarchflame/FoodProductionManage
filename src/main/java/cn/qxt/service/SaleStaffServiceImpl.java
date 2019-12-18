@@ -159,10 +159,11 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         return goodsReturnOrderDao.selectGoodsReturnOrderInfoByPrimaryKey(id);
     }
 
-    public int agreeCancelOrder(Integer id) {
-        GoodsReturnOrder goodsReturnOrder = goodsReturnOrderDao.selectByPrimaryKey(id);
+    public int agreeCancelOrder(Integer OrderId) {
+        GoodsReturnOrder goodsReturnOrder = selectGoodsReturnOrder(OrderId);
+        Order order = orderDao.selectByPrimaryKey(OrderId);
+
         goodsReturnOrder.setStatus("已同意");
-        Order order = orderDao.selectByPrimaryKey(goodsReturnOrder.getOrder_id());
         Client client = clientDao.selectByPrimaryKey(order.getClient_id());
         ClientMessage clientMessage = new ClientMessage();
         clientMessage.setClient_id(client.getId());
@@ -171,16 +172,56 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         return result*goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
     }
 
-    public int disagreeCancelOrder(Integer id) {
-        GoodsReturnOrder goodsReturnOrder = goodsReturnOrderDao.selectByPrimaryKey(id);
+    public int disagreeCancelOrder(Integer OrderId) {
+        GoodsReturnOrder goodsReturnOrder = selectGoodsReturnOrder(OrderId);
+        Order order = orderDao.selectByPrimaryKey(OrderId);
         goodsReturnOrder.setStatus("已拒绝");
-        Order order = orderDao.selectByPrimaryKey(goodsReturnOrder.getOrder_id());
         Client client = clientDao.selectByPrimaryKey(order.getClient_id());
         ClientMessage clientMessage = new ClientMessage();
         clientMessage.setClient_id(client.getId());
         clientMessage.setMessage("您的订单编号为 "+order.getId()+" 的取消申请失败");
         int result = clientMessageDao.insertSelective(clientMessage);
         return result*goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
+    }
+    @Override
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void agreeReturnGoods(Integer OrderId) {
+        GoodsReturnOrder goodsReturnOrder = selectGoodsReturnOrder(OrderId);
+        Order order = orderDao.selectByPrimaryKey(OrderId);
+        goodsReturnOrder.setStatus("待收货");
+        Client client = clientDao.selectByPrimaryKey(order.getClient_id());
+        ClientMessage clientMessage = new ClientMessage();
+        clientMessage.setClient_id(client.getId());
+        clientMessage.setMessage("您的订单编号为 "+order.getId()+" 的退货申请已成功");
+        clientMessageDao.insertSelective(clientMessage);
+        goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
+    }
+
+    @Override
+    @Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
+    public void disagreeReturnGoods(Integer OrderId) {
+        GoodsReturnOrder goodsReturnOrder = selectGoodsReturnOrder(OrderId);
+        Order order = orderDao.selectByPrimaryKey(OrderId);
+        goodsReturnOrder.setStatus("已拒绝");
+        Client client = clientDao.selectByPrimaryKey(order.getClient_id());
+        ClientMessage clientMessage = new ClientMessage();
+        clientMessage.setClient_id(client.getId());
+        clientMessage.setMessage("您的订单编号为 "+order.getId()+" 的退货申请失败");
+        clientMessageDao.insertSelective(clientMessage);
+        goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
+    }
+
+    private GoodsReturnOrder selectGoodsReturnOrder(Integer orderId)
+    {
+        GoodsReturnOrderExample goodsReturnOrderExample = new GoodsReturnOrderExample();
+        List<String> list = new ArrayList<String>();
+        list.add("已拒绝");
+        list.add("已成功");
+        goodsReturnOrderExample.or().andOrder_idEqualTo(orderId).andStatusNotIn(list);
+        GoodsReturnOrder goodsReturnOrder;
+        List<GoodsReturnOrder> goodsReturnOrderList = goodsReturnOrderDao.selectByExample(goodsReturnOrderExample);
+        goodsReturnOrder = goodsReturnOrderList.get(0);
+        return goodsReturnOrder;
     }
     /*
     管理员有关功能
@@ -293,5 +334,7 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         }
         return result;
     }
+
+
 
 }

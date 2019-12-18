@@ -312,7 +312,6 @@
         };
 
         verify_execute = function () {
-
             let str1 = $("#finish_time").val();
             var date1 = new Date(Date.parse(str1.replace(/-/g,"/")));
             let date2 = new Date();

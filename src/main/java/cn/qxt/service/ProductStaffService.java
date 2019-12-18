@@ -28,7 +28,7 @@ public interface ProductStaffService {
 
     void destroy(int goodsId);
 
-    void addGoods(Goods goods);
+    void addGoods(Goods goods, Integer plan_id);
 
     Map<String, Object> selectOrderInfoByOrderId(Integer id);
 
@@ -65,4 +65,8 @@ public interface ProductStaffService {
     List<Map> IngredientInfoByProductId(Integer productId);
 
     List<Material> selectAllMaterial();
+
+    int agreeReturnOrder(Integer id);
+
+    int disagreeReturnOrder(Integer id);
 }

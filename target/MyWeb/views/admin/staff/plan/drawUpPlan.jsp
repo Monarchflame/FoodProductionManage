@@ -61,7 +61,7 @@
                     if (quantityList[product_id] === undefined)
                         quantityList[product_id] = Number(quantity);
                     else
-                        //记得把quantity转换为数字
+                    //记得把quantity转换为数字
                         quantityList[product_id] += Number(quantity);
 
                 }
@@ -93,9 +93,34 @@
                             '</div>'+
                             '<br>');
                     }
+                    //查找可用的车间
+                    $.ajax({
+                        type: "POST",
+                        url: "${pageContext.request.contextPath}/admin/staff/plan/staff/listUsefulWorkshop",
+                        dataType: "json",
+                        async:false,
+                        traditional:true,
+                        data: {
+                        },
+                        success: function(data) {
+                            let select = '<option value=""></option> ';
+                            for (let i=0; i<data.workshopList; i++)
+                            {
+                                let workshop = workshopList[i];
+                                select += '<option value="'+ workshop.id +'">'+workshop.name+'</option> ';
+                            }
+                            planHTML.push('<div>\n'+
+                                '<p id="workshop">请选择生产车间：' +
+                                '<select name="class" id="class" lay-verify="required"> ' + select +
+                                '</select></p></div>');
+                        },
+                        error: function() {
+                        }
+                    });
+
                     $("#plan-inner").html(planHTML.join(''));
                 },
-                error: (jqXHR) => {
+                error: function() {
                 }
             });
 
@@ -170,106 +195,149 @@
     </div>
     <div class="container">
         <div class="col-lg-12 col-sm-12">
-        <section class="content-inner margin-top-no">
-            <div class="row">
+            <section class="content-inner margin-top-no">
+                <div class="row">
 
-                <div class="col-lg-12 col-md-12">
-                    <div class="card margin-bottom-no">
-                        <div class="card-main">
-                            <div class="card-inner">
-                                <div class="cardbtn-edit">
-                                    <div class="card-heading">查找</div>
-                                    <button class="btn btn-flat" id="findRequirement"><span class="icon">check</span>&nbsp;
-                                    </button>
-                                </div>
-                                <div class="form-group form-group-label">
-                                    <label class="floating-label" for="clientName">产品名</label>
-                                    <input class="form-control maxwidth-edit"  autocomplete="off"  name="clientName" id="clientName">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card margin-bottom-no">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <div class="cardbtn-edit">
+                                        <div class="card-heading">查找</div>
+                                        <button class="btn btn-flat" id="findRequirement"><span class="icon">check</span>&nbsp;
+                                        </button>
+                                    </div>
+                                    <div class="form-group form-group-label">
+                                        <label class="floating-label" >产品名</label>
+                                        <input class="form-control maxwidth-edit"  autocomplete="off">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
+                        <div class="card margin-bottom-no">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <div class="card-table">
+                                        <div class="table-responsive table-user">
+                                            <table class="table table-fixed tablesorter" id="requirementTable">
 
-                <div class="col-lg-12 col-md-12">
-                    <div class="card margin-bottom-no">
-                        <div class="card-main">
-                            <div class="card-inner">
-                                <div class="card-table">
-                                    <div class="table-responsive table-user">
-                                        <table class="table table-fixed tablesorter" id="requirementTable">
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                        </table>
+                        <div class="card margin-bottom-no">
+                            <div class="card-main">
+                                <div class="card-inner">
+                                    <div class="cardbtn-edit">
+                                        <div class="card-heading">根据所选要求制定生产计划</div>
+                                        <button class="btn btn-flat" id="drawUpPlan" onclick="javascript:drawUpPlan()"><span class="icon">check</span>&nbsp;
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-12 col-md-12">
-                    <div class="card margin-bottom-no">
-                        <div class="card-main">
-                            <div class="card-inner">
-                                <div class="cardbtn-edit">
-                                    <div class="card-heading">根据所选要求制定生产计划</div>
-                                    <button class="btn btn-flat" id="drawUpPlan" onclick="javascript:drawUpPlan()"><span class="icon">check</span>&nbsp;
-                                    </button>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card margin-bottom-no">
+                            <div class="card-main">
+                                <div class="card-inner" id="workshop-plan">
+<%--                                    <dt>第一车间</dt>--%>
+<%--                                    <span class="label-level-expire">面包--%>
+<%--                                    <code><span id="days-level-expire">100</span></code>--%>
+<%--                                    </span>--%>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="plan_modal" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-xs">
-                    <div class="modal-content">
-                        <div class="modal-heading">
-                            <a class="modal-close" data-dismiss="modal" onclick="closeplan()">×</a>
-                            <h2 class="modal-title">生产计划确认</h2>
-                        </div>
-                        <div id="plan-inner" class="modal-inner">
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="plan_modal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal" onclick="closeplan()">×</a>
+                                <h2 class="modal-title">生产计划确认</h2>
+                            </div>
+                            <div id="plan-inner" class="modal-inner">
 
-                        </div>
-                        <div class="modal-footer">
-                            <p class="text-right">
-                                <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="plan_verify" type="button">确定
-                                </button>
-                            </p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach" data-dismiss="modal" id="plan_verify" type="button">确定
+                                    </button>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-xs">
-                    <div class="modal-content">
-                        <div class="modal-inner">
-                            <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="text-right">
-                                <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
-                                </button>
-                            </p>
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-inner">
+                                <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="location.reload()">知道了
+                                    </button>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
     </div>
 </main>
-
-<%--<script src="${pageContext.request.contextPath}/theme/js/base.min.js" type="text/javascript"></script>--%>
-<%--<script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>--%>
 
 </body>
 </html>
 <script>
     $(document).ready(function () {
+        //查看生产车间对应计划
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/admin/staff/plan/staff/workshopPlan",
+            dataType: "json",
+            data: {
+            },
+            success: function(data){
+                console.log(data);
+                let length = 0;
+                for(let ever in data) {
+                    length++;
+                }
+                //把几个车间对应的生产计划放在不同的List中
+                console.log(length);
+                var workshopPlanHTML=[];
+                for (let i=1; i<length+1; i++)
+                {
+                    var workshopPlanList = eval(data[i+""]);
+                    console.log("workshopPlanList");
+                    console.log(workshopPlanList);
+                    for (let j=0; j<workshopPlanList.length; j++)
+                    {
+                        let workshopPlan = workshopPlanList[j];
+                        workshopPlanHTML.push('<dt>'+workshopPlan.workshop_name+'</dt>\n' +
+                            '<span class="label-level-expire">'+workshopPlan.product_name +
+                            '<code><span id="days-level-expire">'+workshopPlan.quantity +'</span></code>\n' +
+                            '</span>');
+                    }
+                }
+                $('#workshop-plan').html(workshopPlanHTML.join(''));
+            },
+            error: function() {
+                $("#result").modal();
+                document.getElementById('msg').innerHTML = `发生了错误`;
+            }
+        });
+
         $.ajax({
             type: "POST",
             url: "${pageContext.request.contextPath}/admin/staff/plan/staff/requirementInfoList",
@@ -283,12 +351,12 @@
                 requirementTableHTML.push(
                     '<thead>\n' +
                     '<tr>\n' +
-                        '<td style=" background: #f0faff;"><input type="checkbox" id="checkall" lay-skin="primary" onclick="javascript:selectAll();"></td>\n' +
-                        '<th>需求ID</th>\n' +
-                        '<th>产品ID</th>\n' +
-                        '<th>产品名</th>\n' +
-                        '<th>数量</th>\n' +
-                        '<th>创建时间</th>\n' +
+                    '<td style=" background: #f0faff;"><input type="checkbox" id="checkall" lay-skin="primary" onclick="javascript:selectAll();"></td>\n' +
+                    '<th>需求ID</th>\n' +
+                    '<th>产品ID</th>\n' +
+                    '<th>产品名</th>\n' +
+                    '<th>数量</th>\n' +
+                    '<th>创建时间</th>\n' +
                     '</tr>\n' +
                     '</thead>' +
                     '<tbody>\n');
@@ -309,7 +377,7 @@
                 requirementTableHTML.push('</tbody>');
                 $('#requirementTable').html(requirementTableHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -377,7 +445,7 @@
                             document.getElementById('msg').innerHTML = `发生了错误`;
                         }
                     },
-                    error: (jqXHR) => {
+                    error: function() {
                         $("#result").modal();
                         document.getElementById('msg').innerHTML = `发生了错误`;
                     }

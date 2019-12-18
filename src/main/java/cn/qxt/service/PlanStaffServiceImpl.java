@@ -1,9 +1,6 @@
 package cn.qxt.service;
 
-import cn.qxt.dao.GoodsDao;
-import cn.qxt.dao.PlanDao;
-import cn.qxt.dao.PlanStaffDao;
-import cn.qxt.dao.ProductRequirementDao;
+import cn.qxt.dao.*;
 import cn.qxt.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +24,8 @@ public class PlanStaffServiceImpl implements PlanStaffService {
     ProductRequirementDao productRequirementDao;
     @Autowired
     GoodsDao goodsDao;
+    @Autowired
+    WorkshopDao workshopDao;
 
     public int deleteByPrimaryKey(String id) {
         return planStaffDao.deleteByPrimaryKey(id);
@@ -152,5 +151,29 @@ public class PlanStaffServiceImpl implements PlanStaffService {
         PlanStaff planStaff = planStaffDao.selectByPrimaryKey(staffId);
         planStaff.setPosition(newPosition);
         return planStaffDao.updateByPrimaryKeySelective(planStaff);
+    }
+
+    @Override
+    public Map<String,Object> selectWorkshopPlan() {
+        Map<String,Object>map = new HashMap<String, Object>();
+        WorkshopExample workshopExample = new WorkshopExample();
+        List<Workshop> workshopList = workshopDao.selectByExample(workshopExample);
+        for (Workshop workshop:workshopList)
+        {
+            Integer workshopId = workshop.getId();
+            PlanExample planExample = new PlanExample();
+            planExample.or().andWorkshop_idEqualTo(workshopId);
+            //这就是该车间所有计划
+            List<Plan> planList = planDao.selectByExample(planExample);
+            List<Map> planInfoList = new ArrayList<Map>();
+            for (Plan plan:planList)
+            {
+                Map<String, Object> objectMap = planDao.selectPlanInfoByPlanId(plan.getId());
+                planInfoList.add(objectMap);
+            }
+            if (planInfoList.size() > 0)
+                map.put(String.valueOf(workshop.getId()),planInfoList);
+        }
+        return map;
     }
 }

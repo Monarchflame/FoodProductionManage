@@ -1,7 +1,7 @@
-import cn.qxt.dao.ClientDao;
-import cn.qxt.dao.GoodsDao;
-import cn.qxt.dao.GoodsReturnOrderDao;
-import cn.qxt.dao.OrderDao;
+import cn.qxt.dao.*;
+import cn.qxt.pojo.GoodsRecord;
+import cn.qxt.pojo.GoodsReturnOrder;
+import cn.qxt.pojo.GoodsReturnOrderExample;
 import org.apache.commons.mail.HtmlEmail;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-mybatis.xml"})
@@ -22,25 +19,20 @@ public class text {
     @Autowired
     OrderDao orderDao;
     @Autowired
-    GoodsDao goodsDao;
+    GoodsRecordDao goodsRecordDao;
 
     @Test
     public void test() {
-        Date expiration_time = new Date();
-        System.out.println(expiration_time);
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(expiration_time);//设置起时间
-        cal.add(Calendar.DATE, 30);
-        expiration_time = cal.getTime();
-        System.out.println(expiration_time);
-
+        GoodsRecord goodsRecord = new GoodsRecord();
+        //Mapper中设置insertSelective方法，可以得到goods的主键
+        goodsRecord.setGoods_id(1);
+        goodsRecord.setProduct_id(1);
+        goodsRecord.setQuantity(100);
+        goodsRecord.setType("入库");
+        goodsRecord.setExternal_key(1);
+        goodsRecordDao.insertSelective(goodsRecord);
     }
-    @Test
-    public void test2() {
-        int i = goodsDao.selectAllRepertoryByProductId(2);
-        System.out.println(i);
 
-    }    //邮箱验证码
     public static boolean sendEmail(String emailAddress,String code){
         try {
             HtmlEmail email = new HtmlEmail();//不用更改

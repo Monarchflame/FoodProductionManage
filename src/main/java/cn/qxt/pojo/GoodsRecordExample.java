@@ -474,6 +474,66 @@ public class GoodsRecordExample {
             addCriterion("create_time not between", value1, value2, "create_time");
             return (Criteria) this;
         }
+
+        public Criteria andExternal_keyIsNull() {
+            addCriterion("external_key is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyIsNotNull() {
+            addCriterion("external_key is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyEqualTo(Integer value) {
+            addCriterion("external_key =", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyNotEqualTo(Integer value) {
+            addCriterion("external_key <>", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyGreaterThan(Integer value) {
+            addCriterion("external_key >", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyGreaterThanOrEqualTo(Integer value) {
+            addCriterion("external_key >=", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyLessThan(Integer value) {
+            addCriterion("external_key <", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyLessThanOrEqualTo(Integer value) {
+            addCriterion("external_key <=", value, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyIn(List<Integer> values) {
+            addCriterion("external_key in", values, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyNotIn(List<Integer> values) {
+            addCriterion("external_key not in", values, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyBetween(Integer value1, Integer value2) {
+            addCriterion("external_key between", value1, value2, "external_key");
+            return (Criteria) this;
+        }
+
+        public Criteria andExternal_keyNotBetween(Integer value1, Integer value2) {
+            addCriterion("external_key not between", value1, value2, "external_key");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

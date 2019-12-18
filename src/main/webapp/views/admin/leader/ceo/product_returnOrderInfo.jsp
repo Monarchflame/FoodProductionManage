@@ -253,10 +253,10 @@
                                                 </tbody></table>
                                         </div>
                                     </div>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="take_plan" onclick="agree(<% out.print(orderInfo.get("id"));%>)">
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="take_plan" onclick="agree(<% out.print(orderInfo.get("order_id"));%>)">
                                         同意申请
                                     </button>
-                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="deliver_goods" onclick="disagree(<% out.print(orderInfo.get("id"));%>)">
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="deliver_goods" onclick="disagree(<% out.print(orderInfo.get("order_id"));%>)">
                                         拒绝申请
                                     </button>
                                 </div>
@@ -339,7 +339,7 @@
         verify_agree = function () {
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/agreeCancelOrder",
+                url: "${pageContext.request.contextPath}/admin/staff/product/staff/agreeReturnOrder",
                 dataType: "json",
                 data: {
                     id:id,
@@ -365,7 +365,7 @@
         verify_disagree = function () {
             $.ajax({
                 type: "POST",
-                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/disagreeCancelOrder",
+                url: "${pageContext.request.contextPath}/admin/staff/product/staff/disagreeReturnOrder",
                 dataType: "json",
                 data: {
                     id:id,

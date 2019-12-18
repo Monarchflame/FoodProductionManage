@@ -56,22 +56,22 @@ public class FinancialStaffController {
      * 返回待确认退货单列表
      * @return Map
      */
-    @ResponseBody
-    @PostMapping(value = "/returnOrderList")
-    public Map readyConfirmOrderList()
-    {
-        List<GoodsReturnOrder> goodsReturnOrderList = financialStaffService.selectAllGoodsReturnOrder();
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("goodsReturnOrderList",goodsReturnOrderList);
-        return map;
-    }
+//    @ResponseBody
+//    @PostMapping(value = "/returnOrderList")
+//    public Map readyConfirmOrderList()
+//    {
+//        List<GoodsReturnOrder> goodsReturnOrderList = financialStaffService.selectAllGoodsReturnOrder();
+//        Map<String,Object> map = new HashMap<String, Object>();
+//        map.put("goodsReturnOrderList",goodsReturnOrderList);
+//        return map;
+//    }
 
     /**
      * 返回待处理退货单信息列表
      * @return Map
      */
     @ResponseBody
-    @PostMapping(value = "/returnOrder")
+    @PostMapping(value = "/returnOrderList")
     public Map goodsReturnOrderList()
     {
         List<Map<String, Object>> goodsReturnOrderList = financialStaffService.selectReadyProcessGoodsReturnOrderInfo();

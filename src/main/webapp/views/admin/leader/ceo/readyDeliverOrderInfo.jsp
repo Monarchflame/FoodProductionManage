@@ -252,6 +252,9 @@
                                                 </tbody></table>
                                         </div>
                                     </div>
+                                    <button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="deliver_goods" onclick="deliver_goods(<% out.print(orderInfo.get("order_id"));%>)">
+                                        安排发货
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -313,3 +316,40 @@
 <script src="${pageContext.request.contextPath}/theme/js/project.min.js" type="text/javascript"></script>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //点击安排发货
+        deliver_goods = function(orderid)
+        {
+            $("#verify_deliver_goods_modal").modal();
+            orderId = orderid;
+        };
+
+        verify_deliver_goods = function () {
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/admin/staff/sale/staff/deliverGoods",
+                dataType: "json",
+                data: {
+                    orderId:orderId,
+                },
+                success: function(data) {
+                    if (data.ret===1)
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = data.msg;
+                    }
+                    else
+                    {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = data.msg;
+                    }
+                },
+                error: function ()  {
+                    $("#result").modal();
+                    document.getElementById('msg').innerHTML = `发生了错误`;
+                }
+            })
+        }
+    });
+</script>

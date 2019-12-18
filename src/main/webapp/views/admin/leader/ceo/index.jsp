@@ -229,6 +229,16 @@
                     </div>
                     <div class="card">
                         <div class="card-main">
+                            <div class="card-inner margin-bottom-no">
+                                <p class="card-heading"><i class="icon icon-md">account_circle</i>&nbsp;货物存量</p>
+                                <dl id="repertory" class="dl-horizontal">
+
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-main">
                             <div class="card-inner">
                                 <div class="progressbar">
                                     <div class="before"></div>
@@ -403,6 +413,35 @@
                     document.getElementById('msg').innerHTML = `发生了错误`;
                 }
             });
+            //查找库存
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "${pageContext.request.contextPath}/admin/staff/sale/staff/repertory",
+                    dataType: "json",
+                    data: {
+                    },
+                    success: function(data){
+                        let productInfoList = data.productInfoList;
+                        let html=[];
+                        for (let i=0;i<productInfoList.length;i++)
+                        {
+                            let productInfo = productInfoList[i];
+                            html.push("<dt>"+ productInfo.product.name +"</dt>\n" +
+                                "                                    <i class=\"icon icon-md\">widgets</i>\n" +
+                                "                                    <span class=\"label-account-expire\">库存</span>\n" +
+                                "                                    <code><span id=\"days-account-expire\">"+productInfo.quantity+"</span></code>"
+                            )
+                        }
+                        $('#repertory').html(html.join(''));
+                    },
+                    error: function() {
+                        $("#result").modal();
+                        document.getElementById('msg').innerHTML = `发生了错误`;
+                    }
+                });
+            }
         }
+
     })
 </script>

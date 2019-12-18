@@ -162,6 +162,7 @@
                                 <p id="name_label">产品名称：<span id="name"></span></p>
                                 <p id="number_label">产品数量：<input id="number" type="number" oninput="javascript:calculates()"></p>
                                 <p id="shelf_life_label">保质期：<span id="shelf_life"></span></p>
+                                <p id="plan_id_label">对应生产计划id：<input id="plan_id" type="number"></p>
                             </div>
                             <div class="modal-footer">
                                 <p class="text-right">
@@ -248,7 +249,7 @@
                     '<div class="flex-fix4"></div>');
                 $('#shop-flex').html(productHTML.join(''));
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }
@@ -289,6 +290,7 @@
                 productId:theproduct.id,
                 quantity:$("#number").val(),
                 shelf_life:theproduct.shelf_life ,
+                plan_id:$("#plan_id").val(),
             },
             success: function(data){
                 if (data.ret === 1) {
@@ -300,7 +302,7 @@
                     document.getElementById('msg').innerHTML = '入库失败';
                 }
             },
-            error: (jqXHR) => {
+            error: function() {
                 $("#result").modal();
                 document.getElementById('msg').innerHTML = `发生了错误`;
             }

@@ -538,19 +538,6 @@ public class CeoController {
     }
 
     /**
-     * 返回需求详细信息
-     * @return 一个List，包含需求信息： id:产品ID，name:产品名，quantity:数量，create_time:创建时间
-     */
-//    @ResponseBody
-//    @PostMapping(value = "/requirementInfoList")
-//    public Map<String, Object> requirementInfoList()
-//    {
-//        Map<String,Object> map = new HashMap<String, Object>();
-//        map.put("requirementInfoList",planStaffService.selectReadyProcessRequirementInfo());
-//        return map;
-//    }
-
-    /**
      * 新建一个生产计划
      * @param
      * @return 结果res，为1则是成功，为0则是失败
@@ -675,42 +662,6 @@ public class CeoController {
     }
 
     /**
-     * 入库
-     * @return ret:1为成功，0为失败。
-     */
-    @ResponseBody
-    @PostMapping(value = "/addGoods")
-    public Map<String, Object> addGoods(HttpServletRequest request)
-    {
-        String productId = request.getParameter("productId").toString();
-        String quantity = request.getParameter("quantity").toString();
-        String shelf_life = request.getParameter("shelf_life").toString();
-        Goods goods = new Goods();
-        goods.setProduct_id(Integer.valueOf(productId));
-        goods.setQuantity(Integer.valueOf(quantity));
-        //计算过期时间
-        Date expiration_time = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(expiration_time);//设置起时间
-        cal.add(Calendar.DATE, Integer.parseInt(shelf_life));
-        expiration_time = cal.getTime();
-        goods.setExpiration_time(expiration_time);
-
-        Map<String,Object> map = new HashMap<String, Object>();
-        int ret = 0;
-        try {
-            productStaffService.addGoods(goods);
-            ret = 1;
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-        map.put("ret",ret);
-        return map;
-    }
-
-    /**
      * 发货界面显示订单信息
      * @return
      */
@@ -749,17 +700,17 @@ public class CeoController {
 
     /**
      * 返回安排生产的订单信息
-     * @param orderId 订单ID
+     * @param id 订单ID
      * @param session HttpSession
      * @return 界面路径
      */
     @GetMapping(value = "/inProductionOrderInfo")
-    public String inProductionOrderInfo(String orderId, HttpSession session)
+    public String inProductionOrderInfo(String id, HttpSession session)
     {
-        if (orderId!=null && !orderId.equals(""))
+        if (id!=null && !id.equals(""))
         {
-            Map orderInfo = saleStaffService.selectOrderInfoByOrderId(Integer.valueOf(orderId));
-            session.setAttribute("readyDeliverOrderInfo",orderInfo);
+            Map orderInfo = saleStaffService.selectOrderInfoByOrderId(Integer.valueOf(id));
+            session.setAttribute("readyDeliverOrder",orderInfo);
             return "admin/leader/ceo/readyDeliverOrderInfo";
         }
         return "admin/leader/ceo/readyDeliverOrderInfo";
@@ -1080,4 +1031,21 @@ public class CeoController {
         return "admin/leader/ceo/inProductionPlanInfo";
     }
 
+    /**
+     * 返回待退货订单信息
+     * @param goodsReturnOrderId
+     * @param session
+     * @return
+     */
+    @GetMapping(value = "/product_inReturnOrderInfo")
+    public String product_inReturnOrderInfo(String goodsReturnOrderId, HttpSession session)
+    {
+        if (goodsReturnOrderId!=null)
+        {
+            Map<String, Object> goodsReturnOrderInfo = saleStaffService.selectGoodsReturnOrderInfoByPrimaryKey(Integer.valueOf(goodsReturnOrderId));
+            session.setAttribute("goodsReturnOrderInfo",goodsReturnOrderInfo);
+            return "admin/leader/ceo/product_returnOrderInfo";
+        }
+        return "admin/leader/ceo/product_returnOrderInfo";
+    }
 }

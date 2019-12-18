@@ -1,9 +1,6 @@
 package cn.qxt.service;
 
-import cn.qxt.pojo.Plan;
-import cn.qxt.pojo.PlanStaff;
-import cn.qxt.pojo.PlanStaffExample;
-import cn.qxt.pojo.ProductRequirement;
+import cn.qxt.pojo.*;
 
 import java.util.List;
 import java.util.Map;
@@ -84,4 +81,6 @@ public interface PlanStaffService {
     int ChangeSalary(String staffId, int parseInt);
 
     int ChangePosition(String staffId, String newPosition);
+
+    Map<String,Object> selectWorkshopPlan();
 }
