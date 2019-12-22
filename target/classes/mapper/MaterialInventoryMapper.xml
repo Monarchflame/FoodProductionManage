@@ -70,7 +70,7 @@
         values (#{id,jdbcType=INTEGER}, #{material_id,jdbcType=INTEGER}, #{quantity,jdbcType=INTEGER},
                 #{expiration_time,jdbcType=TIMESTAMP})
     </insert>
-    <insert id="insertSelective" parameterType="cn.qxt.pojo.MaterialInventory">
+    <insert id="insertSelective" parameterType="cn.qxt.pojo.MaterialInventory" useGeneratedKeys="true" keyProperty="id">
         insert into material_inventory
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -125,10 +125,10 @@
     </update>
     <select id="selectMaterialInventoryInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
         select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
-        from material
+        from material_inventory
                  join material_record
-                      on material_id = material.id
-                 join material_inventory
+                      on inventory_id = material_inventory.id
+                 join material
                       on material_inventory.material_id = material.id
         where material_inventory.id = #{id,jdbcType=INTEGER} and material_record.type='入库'
     </select>
@@ -142,13 +142,9 @@
     </select>
 
     <select id="selectAllMaterialInventoryInfo" resultType="java.util.Map">
-        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
-            ,shelf_life
-        from material
-                 join material_record
-                      on material_id = material.id
-                 join material_inventory
-                      on material_inventory.material_id = material.id
-        where material_record.type='入库'
+        select material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time,
+               material_inventory.id as inventory_id ,shelf_life
+        from material,material_record,material_inventory
+        where material_record.inventory_id = material_inventory.id and material_inventory.material_id = material.id and material_record.type='入库'
     </select>
 </mapper>

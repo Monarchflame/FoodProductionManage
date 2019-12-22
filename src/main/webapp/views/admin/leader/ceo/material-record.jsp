@@ -103,9 +103,7 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/addMaterial"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/admin/ceo/buyMaterial"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
-                        </li>
+
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/inMaterial"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
@@ -243,7 +241,7 @@
     $(document).ready(function () {
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/admin/ceo/materialRecordInfo",
+            url: "${pageContext.request.contextPath}/admin/staff/material/staff/allRecordInfo",
             dataType: "json",
             async:false,
             data: {
@@ -283,11 +281,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);">查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +
@@ -330,11 +325,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);">查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +
@@ -377,11 +369,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);" >查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +

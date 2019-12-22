@@ -114,7 +114,7 @@ public class ClientServiceImpl implements ClientService{
             if (goodsReturnOrderInfoList.size() == 1 )
             {
                 //是申请取消订单,申请取消订单被拒绝
-                if (goodsReturnOrderInfoList.get(0).get("type").equals("已拒绝"))
+                if (goodsReturnOrderInfoList.get(0).get("type").equals("取消订单"))
                 {
                     //申请退货
                     GoodsReturnOrder goodsReturnOrder = new GoodsReturnOrder();
@@ -144,7 +144,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
 
-    public List selectGoodsReturnOrderByOrderId(Integer orderId) {
+    public List<GoodsReturnOrder> selectGoodsReturnOrderByOrderId(Integer orderId) {
         GoodsReturnOrderExample goodsReturnOrderExample = new GoodsReturnOrderExample();
         goodsReturnOrderExample.or().andOrder_idEqualTo(orderId);
         System.out.println(goodsReturnOrderDao.selectByExample(goodsReturnOrderExample));
@@ -185,6 +185,9 @@ public class ClientServiceImpl implements ClientService{
         String client_id = order.getClient_id();
         Client client = clientDao.selectByPrimaryKey(client_id);
         client.setAccountbalance(client.getAccountbalance()-(total_payment - deposit));
+
+        order.setStatus("已完成");
+        orderDao.updateByPrimaryKeySelective(order);
         clientDao.updateByPrimaryKeySelective(client);
     }
 

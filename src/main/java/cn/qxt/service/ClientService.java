@@ -30,7 +30,7 @@ public interface ClientService {
 
     Map returnGoods(Integer orderId);
 
-    List selectGoodsReturnOrderByOrderId(Integer orderId);
+    List<GoodsReturnOrder> selectGoodsReturnOrderByOrderId(Integer orderId);
 
     /**
      * 返回客户对应的信息列表

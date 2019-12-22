@@ -159,8 +159,8 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectRecordInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
-        select goods_record.goods_id, product.name as product_name,goods_record.quantity,
-               goods_record.create_time as record_create_time, product_id
+        select goods_record.id as goods_record_id, goods_record.goods_id, product.name as product_name,goods_record.quantity,
+               goods_record.create_time as record_create_time, product_id, external_key,goods_record.type
         from goods_record
                  join product
                       on product.id = goods_record.product_id

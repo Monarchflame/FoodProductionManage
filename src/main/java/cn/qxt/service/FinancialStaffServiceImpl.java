@@ -83,7 +83,10 @@ public class FinancialStaffServiceImpl implements FinancialStaffService {
      */
     public List<Map<String, Object>> selectReadyProcessGoodsReturnOrderInfo() {
         GoodsReturnOrderExample goodsReturnOrderExample = new GoodsReturnOrderExample();
-        goodsReturnOrderExample.or().andStatusEqualTo("已同意");
+        List<String> status = new ArrayList<String>();
+        status.add("已同意");
+        status.add("已收货");
+        goodsReturnOrderExample.or().andStatusIn(status);
         List<GoodsReturnOrder> goodsReturnOrderList = goodsReturnOrderDao.selectByExample(goodsReturnOrderExample);
         List<Map<String, Object>> returnList = new ArrayList<Map<String, Object>>();
         for (GoodsReturnOrder goodsReturnOrder: goodsReturnOrderList ) {

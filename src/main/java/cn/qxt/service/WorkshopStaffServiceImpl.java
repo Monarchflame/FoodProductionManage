@@ -89,6 +89,7 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
         plan.setStatus("执行中");
         planDao.updateByPrimaryKeySelective(plan);
 
+        Integer productQuantity = plan.getQuantity();
         //查找配方
         Integer product_id = plan.getProduct_id();
         ProductIngredientExample productIngredientExample = new ProductIngredientExample();
@@ -98,7 +99,7 @@ public class WorkshopStaffServiceImpl implements WorkshopStaffService{
         {
             //生成对应的原材料需求
             Integer material_id = productIngredient.getMaterial_id();
-            Integer material_quantity = productIngredient.getMaterial_quantity();
+            Integer material_quantity = productQuantity * productIngredient.getMaterial_quantity();
             MaterialRequirement materialRequirement = new MaterialRequirement();
             materialRequirement.setMaterial_id(material_id);
             materialRequirement.setQuantity(material_quantity);

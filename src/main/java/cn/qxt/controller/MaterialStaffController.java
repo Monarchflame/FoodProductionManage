@@ -46,7 +46,7 @@ public class MaterialStaffController {
     @PostMapping(value = "/materialInfoList")
     public Map<String, Object> materialInfoList(HttpServletRequest request)
     {
-        String materialID = request.getParameter("materialID").toString();
+        String materialID = request.getParameter("materialID");
         Map<String,Object> map = new HashMap<String, Object>();
         List <Map> materialInfoList = new ArrayList<Map>();
         if (materialID.equals(""))
@@ -321,4 +321,16 @@ public class MaterialStaffController {
         map.put("ret",ret);
         return map;
     }
+
+//    @GetMapping(value = "/materialRecordInfo")
+//    public String materialRecordInfo(String inventory_id, HttpSession session)
+//    {
+//        if (inventory_id!=null)
+//        {
+//            Map materialInfo = materialStaffService.selectMaterialInventoryInfoById(Integer.valueOf(inventory_id));
+//            session.setAttribute("materialInfo",materialInfo);
+//            return "admin/staff/material/materialInfo";
+//        }
+//        return "admin/staff/material/materialInfo";
+//    }
 }

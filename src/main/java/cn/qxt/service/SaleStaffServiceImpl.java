@@ -58,6 +58,10 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         return 0;
     }
 
+    /**
+     * 选择所有待处理的订单
+     * @return
+     */
     public List<Order> selectAllReadyProcessOrder() {
         OrderExample orderExample = new OrderExample();
         List<String>list = new ArrayList<String>();
@@ -65,14 +69,30 @@ public class SaleStaffServiceImpl implements SaleStaffService{
         list.add("已付定金");
         orderExample.or().andStatusIn(list);
         List<Order> readyProcessOrders = orderDao.selectByExample(orderExample);
+
         for (int i=0; i<readyProcessOrders.size(); i++) {
             Order order = readyProcessOrders.get(i);
+            //查找对应的退货单
             List<Map<String, Object>> stringObjectMap = goodsReturnOrderDao.selectGoodsReturnOrderInfoByOrderId(order.getId());
-            //只要有退货单，一定是申请取消订单的
-            //如果请求没有被拒绝，移出待处理订单列表
-            if (stringObjectMap.size() !=0 && stringObjectMap.get(0).get("status") != "已拒绝") {
-                readyProcessOrders.remove(i);
-                i--;
+            if (stringObjectMap.size() ==0)
+                continue;
+            else if (stringObjectMap.size() ==1 )
+            {
+                //如果申请取消订单请求没有被拒绝，移出待处理订单列表
+                if (!stringObjectMap.get(0).get("status").equals("已拒绝"))
+                {
+                    readyProcessOrders.remove(i);
+                    i--;
+                }
+            }
+            else if (stringObjectMap.size() ==2 )
+            {
+                //如果申请退货没有没拒绝，也移出列表
+                if (!stringObjectMap.get(1).get("status").equals("已拒绝"))
+                {
+                    readyProcessOrders.remove(i);
+                    i--;
+                }
             }
         }
         return readyProcessOrders;
@@ -109,6 +129,7 @@ public class SaleStaffServiceImpl implements SaleStaffService{
 
         orderExample.or().andStatusEqualTo("生产中");
         List<Order> inProductionOrders = orderDao.selectByExample(orderExample);
+
         orderExample.clear();
         orderExample.or().andStatusEqualTo("待发货");
         List<Order> readyDeliverOrders = orderDao.selectByExample(orderExample);

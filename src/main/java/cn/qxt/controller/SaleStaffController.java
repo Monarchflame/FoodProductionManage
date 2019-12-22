@@ -142,7 +142,7 @@ public class SaleStaffController {
     }
 
     /**
-     * 界面显示订单信息
+     * 处理订单界面显示订单信息
      * @return
      */
     @ResponseBody

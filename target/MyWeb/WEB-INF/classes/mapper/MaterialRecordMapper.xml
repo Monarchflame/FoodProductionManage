@@ -149,18 +149,16 @@
     </update>
 
     <select id="selectRecordInfoById" parameterType="java.lang.Integer" resultType="java.util.Map">
-        select material_record.material_id,material.name as material_name,material_record.quantity,
+        select material_record.id as material_record_id, material_record.material_id, material.name as material_name,material_record.quantity,
                material_record.create_time as record_create_time, material_record.inventory_id as inventory_id
         from material_record
                  join material
                       on material_id = material.id
-                 join material_inventory
-                      on material_inventory.id = material_record.inventory_id
         where material_record.id = #{id,jdbcType=INTEGER}
     </select>
 
     <select id="selectInventoryRecordInfoByInventoryId" parameterType="java.lang.Integer" resultType="java.util.List">
-        select material_record.material_id,material.name as material_name,material_record.quantity,
+        select material_record.id as material_record_id, material_record.material_id,material.name as material_name,material_record.quantity,
                material_record.create_time as record_create_time,material_record.inventory_id as inventory_id
         from material_record
                  join material

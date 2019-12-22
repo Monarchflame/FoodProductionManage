@@ -83,4 +83,6 @@ public interface PlanStaffService {
     int ChangePosition(String staffId, String newPosition);
 
     Map<String,Object> selectWorkshopPlan();
+
+    List<Workshop> selectAllWorkshop();
 }

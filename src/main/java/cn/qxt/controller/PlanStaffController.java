@@ -1,17 +1,15 @@
 package cn.qxt.controller;
 
 import cn.qxt.pojo.Plan;
-import cn.qxt.pojo.PlanStaff;
+import cn.qxt.pojo.Workshop;
 import cn.qxt.service.PlanStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -95,11 +93,12 @@ public class PlanStaffController {
      */
     @ResponseBody
     @PostMapping(value = "/newPlan")
-    public Map<String, Object> newPlan(String product_id, String requirement, String[] requirementIdList)
+    public Map<String, Object> newPlan(String product_id, String requirement, String[] requirementIdList, String workshop_id)
     {
         Plan plan = new Plan();
         plan.setProduct_id(Integer.valueOf(product_id));
         plan.setQuantity(Integer.valueOf(requirement));
+        plan.setWorkshop_id(Integer.valueOf(workshop_id));
         int res = 0;
         try {
             //调用事务
@@ -185,14 +184,23 @@ public class PlanStaffController {
     }
 
     /**
-     * 查找可用的车间 把几个车间对应的生产计划放在不同的List中
+     * 查找几个车间对应的生产计划放在不同的List中
      * @return {workshopList:[workshop1,workshop2]}
      */
     @ResponseBody
     @PostMapping(value = "/workshopPlan")
-    public Map listUsefulWorkshop()
+    public Map workshopPlan()
     {
         Map<String,Object>map = planStaffService.selectWorkshopPlan();
+        return map;
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/listWorkshop")
+    public Map<String,Object> listWorkshop()
+    {
+        Map<String,Object>map = new HashMap<String, Object>();
+        map.put("workshopList", planStaffService.selectAllWorkshop());
         return map;
     }
 }

@@ -279,7 +279,7 @@ public class ProductStaffServiceImpl implements ProductStaffService{
     @Override
     public int agreeReturnOrder(Integer id) {
         GoodsReturnOrder goodsReturnOrder = goodsReturnOrderDao.selectByPrimaryKey(id);
-        goodsReturnOrder.setType("已收货");
+        goodsReturnOrder.setStatus("已收货");
         return goodsReturnOrderDao.updateByPrimaryKey(goodsReturnOrder);
     }
 

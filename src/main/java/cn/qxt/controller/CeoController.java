@@ -221,28 +221,6 @@ public class CeoController {
     {
         return "admin/leader/ceo/buyMaterial";
     }
-    /**
-     * 返回原材料库存详细信息
-     * @return 一个List，包含需求信息： material.id as material_id, name, material_inventory.quantity as quantity, expiration_time, material_record.create_time, material_inventory.id as inventory_id
-     */
-    @ResponseBody
-    @PostMapping(value = "/materialInfoList")
-    public Map<String, Object> materialInfoList(HttpServletRequest request)
-    {
-        String materialID = request.getParameter("materialID").toString();
-        Map<String,Object> map = new HashMap<String, Object>();
-        List <Map> materialInfoList = new ArrayList<Map>();
-        if (materialID.equals(""))
-        {
-            materialInfoList = materialStaffService.selectAllMaterialInventoryInfo();
-        }
-        else
-        {
-            materialInfoList = materialStaffService.selectMaterialInventoryInfoByMaterialId(Integer.valueOf(materialID));
-        }
-        map.put("materialInfoList",materialInfoList);
-        return map;
-    }
 
     /**
      * 查找原材料的详细信息
@@ -422,58 +400,18 @@ public class CeoController {
         return map;
     }
 
-    @ResponseBody
-    @PostMapping(value = "/buyMaterial")
-    public Map<String, Object> buyMaterial(HttpServletRequest request)
-    {
-        String materialId = request.getParameter("materialId");
-        String quantity = request.getParameter("quantity");
-        String money = request.getParameter("money");
+//    @GetMapping(value = "/materialRecordInfo")
+//    public String materialRecordInfo(String material_record_id, HttpSession session)
+//    {
+//        if (material_record_id!=null)
+//        {
+//            Map materialRecordInfo = materialStaffService.selectRecordInfoById(Integer.valueOf(material_record_id));
+//            session.setAttribute("materialRecordInfo",materialRecordInfo);
+//            return "admin/staff/material/materialRecordInfo";
+//        }
+//        return "admin/staff/material/materialRecordInfo";
+//    }
 
-        MaterialPurchaseOrder materialPurchaseOrder = new MaterialPurchaseOrder();
-        materialPurchaseOrder.setMaterial_id(Integer.valueOf(materialId));
-        materialPurchaseOrder.setMoney(Double.valueOf(money));
-        materialPurchaseOrder.setQuantity(Integer.valueOf(quantity));
-
-        int ret = materialStaffService.newMaterialPurchaseOrder(materialPurchaseOrder);
-
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("ret",ret);
-        return map;
-    }
-
-    /**
-     * 返回所有的记录
-     * @return
-     */
-    @ResponseBody
-    @PostMapping(value = "/materialRecordInfo")
-    public Map<String, Object> materialRecordInfo()
-    {
-        List<MaterialRecord> inRecord = materialStaffService.selectInRecord();
-        List<Map<String, Object>> inRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (MaterialRecord materialRecord: inRecord) {
-            inRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
-        }
-
-        List<MaterialRecord> outRecord = materialStaffService.selectOutRecord();
-        List<Map<String, Object>> outRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (MaterialRecord materialRecord: outRecord) {
-            outRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
-        }
-
-        List<MaterialRecord> destroyRecord = materialStaffService.selectDestroyRecord();
-        List<Map<String, Object>> destroyRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (MaterialRecord materialRecord: destroyRecord) {
-            destroyRecordInfoList.add(materialStaffService.selectRecordInfoById(materialRecord.getId()));
-        }
-
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("inRecordInfoList",inRecordInfoList);
-        map.put("outRecordInfoList",outRecordInfoList);
-        map.put("destroyRecordInfoList",destroyRecordInfoList);
-        return map;
-    }
     /*
     生产计划
      */
@@ -537,31 +475,7 @@ public class CeoController {
         return "admin/leader/ceo/drawUpPlan";
     }
 
-    /**
-     * 新建一个生产计划
-     * @param
-     * @return 结果res，为1则是成功，为0则是失败
-     */
-    @ResponseBody
-    @PostMapping(value = "/newPlan")
-    public Map<String, Object> newPlan(String product_id, String requirement, String[] requirementIdList)
-    {
-        Plan plan = new Plan();
-        plan.setProduct_id(Integer.valueOf(product_id));
-        plan.setQuantity(Integer.valueOf(requirement));
-        int res = 0;
-        try {
-            //调用事务
-            planStaffService.drawUpPlan(plan, requirementIdList);
-            res = 1;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("res",res);
-        return map;
-    }
+
     /*
     成品
      */
@@ -757,55 +671,7 @@ public class CeoController {
         return map;
     }
 
-    /**
-     * 查找货物的详细信息
-     * @param goods_id 货物id
-     * @return 界面路径
-     */
-    @GetMapping(value = "/goodsInfo")
-    public String goodsInfo(String goods_id, HttpSession session)
-    {
-        if (goods_id!=null)
-        {
-            Map goodsInfo = productStaffService.selectGoodsInfoById(Integer.valueOf(goods_id));
-            session.setAttribute("goodsInfo",goodsInfo);
-            return "admin/leader/ceo/goodsInfo";
-        }
-        return "admin/leader/ceo/goodsInfo";
-    }
-
-    /**
-     * 返回所有的记录
-     * @return
-     */
-    @ResponseBody
-    @PostMapping(value = "/goodsRecordInfo")
-    public Map<String, Object> goodsRecordInfo()
-    {
-        List<GoodsRecord> inRecord = productStaffService.selectInRecord();
-        List<Map<String, Object>> inRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (GoodsRecord goodsRecord: inRecord) {
-            inRecordInfoList.add(productStaffService.selectRecordInfoById(goodsRecord.getId()));
-        }
-
-        List<GoodsRecord> outRecord = productStaffService.selectOutRecord();
-        List<Map<String, Object>> outRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (GoodsRecord goodsRecord: outRecord) {
-            outRecordInfoList.add(productStaffService.selectRecordInfoById(goodsRecord.getId()));
-        }
-
-        List<GoodsRecord> destroyRecord = productStaffService.selectDestroyRecord();
-        List<Map<String, Object>> destroyRecordInfoList = new ArrayList<Map<String, Object>>();
-        for (GoodsRecord goodsRecord: destroyRecord) {
-            destroyRecordInfoList.add(productStaffService.selectRecordInfoById(goodsRecord.getId()));
-        }
-
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("inRecordInfoList",inRecordInfoList);
-        map.put("outRecordInfoList",outRecordInfoList);
-        map.put("destroyRecordInfoList",destroyRecordInfoList);
-        return map;
-    }
+    
     /*
     销售
      */

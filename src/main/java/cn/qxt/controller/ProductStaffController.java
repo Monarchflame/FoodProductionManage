@@ -353,6 +353,24 @@ public class ProductStaffController {
         return map;
     }
 
+    /**
+     * 返回记录信息
+     * @param goods_record_id
+     * @param session
+     * @return
+     */
+    @GetMapping(value = "/productRecordInfo")
+    public String productRecordInfo(String goods_record_id, HttpSession session)
+    {
+        if (goods_record_id!=null && !goods_record_id.equals("") && !goods_record_id.equals("undefined"))
+        {
+            Map<String, Object> recordInfo = productStaffService.selectRecordInfoById(Integer.valueOf(goods_record_id));
+            session.setAttribute("recordInfo",recordInfo);
+            return "admin/staff/product/recordInfo";
+        }
+        return "admin/staff/product/recordInfo";
+    }
+
     @GetMapping(value = "ingredient")
     public String ingredientView()
     {

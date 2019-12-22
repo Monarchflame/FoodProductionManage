@@ -103,9 +103,7 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/addMaterial"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/admin/ceo/buyMaterial"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
-                        </li>
+
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/inMaterial"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
@@ -224,7 +222,7 @@
                     </div>
                 </div>
 
-                <div aria-hidden="true" class="modal modal-va-middle fade" id="materialinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
+                <div aria-hidden="true" class="modal modal-va-middle fade" id="productinfo" role="dialog" tabindex="-1" style="display: none;position: center;">
                     <div class="modal-dialog modal-full">
                         <div class="modal-content">
                             <iframe class="iframe-seamless" title="Modal with iFrame" id="infoifram" ></iframe>
@@ -240,10 +238,16 @@
 </body>
 </html>
 <script>
+    productRecordInfo = function(goods_record_id) {
+        document.getElementById('infoifram').src = "/admin/staff/product/staff/productRecordInfo?goods_record_id="+goods_record_id;
+        $("#productinfo").modal();
+    };
     $(document).ready(function () {
+
+
         $.ajax({
             type: "POST",
-            url: "${pageContext.request.contextPath}/admin/ceo/goodsRecordInfo",
+            url: "${pageContext.request.contextPath}/admin/staff/product/staff/allRecordInfo",
             dataType: "json",
             async:false,
             data: {
@@ -283,11 +287,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);" onclick="productRecordInfo('+record.goods_record_id +')">查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +
@@ -330,11 +331,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);" onclick="productRecordInfo('+record.goods_record_id +')">查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +
@@ -377,11 +375,8 @@
                         '    <div class="card-main">\n' +
                         '        <div class="card-inner">\n' +
                         '            <p class="card-heading">\n' +
-                        '                <a href="javascript:void(0);" onclick="">查看详细信息</a>\n' +
+                        '                <a href="javascript:void(0);" onclick="productRecordInfo('+record.goods_record_id +')">查看详细信息</a>\n' +
                         '            </p>\n' +
-                        '            <div>\n' +
-                        '                <i class="icon icon-lg node-icon">chat</i> 系统信息提示节点 不用于上网连接\n' +
-                        '            </div>\n' +
                         '        </div>\n' +
                         '    </div>\n' +
                         '</div>\n' +

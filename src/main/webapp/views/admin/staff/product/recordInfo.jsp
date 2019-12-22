@@ -1,19 +1,19 @@
 <%@ page import="java.util.Map" %><%--
   Created by IntelliJ IDEA.
   User: 10703
-  Date: 2019/11/18
-  Time: 11:06
+  Date: 2019/12/19
+  Time: 20:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Map goodsInfo=(Map) request.getSession().getAttribute("goodsInfo"); %>
+<% Map recordInfo=(Map) request.getSession().getAttribute("recordInfo"); %>
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
     <meta name="theme-color" content="#4caf50">
-    <title>订单信息</title>
+    <title>记录信息</title>
 
     <link href="${pageContext.request.contextPath}/theme/css/base.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/theme/css/project.min.css" rel="stylesheet">
@@ -215,55 +215,30 @@
                                             <table class="table table-fixed">
                                                 <tbody>
                                                 <tr>
-                                                    <td>库存ID</td>
-                                                    <td><% out.print(goodsInfo.get("goods_id"));%></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>产品ID</td>
-                                                    <td><% out.print(goodsInfo.get("product_id"));%></td>
+                                                    <td>记录ID</td>
+                                                    <td><% out.print(recordInfo.get("goods_record_id"));%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>产品名称</td>
-                                                    <td><% out.print(goodsInfo.get("product_name"));%></td>
+                                                    <td><% out.print(recordInfo.get("product_name"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>产品库存</td>
-                                                    <td><% out.print(goodsInfo.get("quantity"));%></td>
+                                                    <td>数量</td>
+                                                    <td><% out.print(recordInfo.get("quantity"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>入库时间</td>
-                                                    <td>
-                                                        <% out.print(goodsInfo.get("create_time"));%>
-                                                    </td>
+                                                    <td>创建时间</td>
+                                                    <td><% out.print(recordInfo.get("record_create_time"));%></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>过期时间</td>
-                                                    <td>
-                                                        <% out.print(goodsInfo.get("expiration_time"));%>
-                                                    </td>
+                                                    <td id="title"></td>
+                                                    <td><% out.print(recordInfo.get("external_key"));%></td>
                                                 </tr>
                                                 </tbody></table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div aria-hidden="true" class="modal modal-va-middle fade" id="result" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-xs">
-                    <div class="modal-content">
-                        <div class="modal-inner">
-                            <p class="h5 margin-top-sm text-black-hint" id="msg"></p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="text-right">
-                                <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" type="button" id="result_ok" onclick="parent.location.reload()">知道了
-                                </button>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -277,4 +252,13 @@
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1.5.16/dist/clipboard.min.js" type="text/javascript"></script>
 </body>
 </html>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        var recordInfo = '<%=session.getAttribute("recordInfo")%>';
+        var type = '<% out.print(recordInfo.get("type"));%>';
+        if (type === "入库")
+            document.getElementById("title").innerHTML = "对应计划ID";
+        else if (type === "出库")
+            document.getElementById("title").innerHTML = "对应订单ID";
+    });
+</script>

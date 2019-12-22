@@ -162,7 +162,10 @@ public class PlanStaffServiceImpl implements PlanStaffService {
         {
             Integer workshopId = workshop.getId();
             PlanExample planExample = new PlanExample();
-            planExample.or().andWorkshop_idEqualTo(workshopId);
+            List<String> status = new ArrayList<String>();
+            status.add("已完成");
+            status.add("已取消");
+            planExample.or().andWorkshop_idEqualTo(workshopId).andStatusNotIn(status);
             //这就是该车间所有计划
             List<Plan> planList = planDao.selectByExample(planExample);
             List<Map> planInfoList = new ArrayList<Map>();
@@ -175,5 +178,11 @@ public class PlanStaffServiceImpl implements PlanStaffService {
                 map.put(String.valueOf(workshop.getId()),planInfoList);
         }
         return map;
+    }
+
+    @Override
+    public List<Workshop> selectAllWorkshop()
+    {
+        return workshopDao.selectByExample(new WorkshopExample());
     }
 }

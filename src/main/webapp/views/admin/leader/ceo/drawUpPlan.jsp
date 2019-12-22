@@ -33,7 +33,7 @@
     <script>
         var requirementIdList = [[]];
         //根据所选要求制定生产计划
-        drawUpPlan = function () {
+        function drawUpPlan() {
             var product_idList = [];
             var quantityList = [];
             var nameList = [];
@@ -66,8 +66,6 @@
 
                 }
             });
-            console.log(requirementIdList);
-
             var requirementTable = document.getElementById("requirementTable");
             var planHTML=[];
 
@@ -89,10 +87,37 @@
                             '<p id="id_label">产品ID：<span id="id">'+  key +'</span></p>\n' +
                             '<p id="name_label">产品名称：<span id="name">'+  nameList[key] +'</span></p>\n' +
                             '<p id="repertory_label">产品库存：<span id="repertory">'+  quantityMap[key] +'</span></p>\n' +
-                            '<p id="requirement_label">需求量：<input id="requirement" type="number" value="'+ quantityList[key] +'"></p>'+
-                            '</div>'+
-                            '<br>');
+                            '<p id="requirement_label">需求量：<input id="requirement" type="number" value="'+ quantityList[key] +'"></p>'
+                            );
                     }
+                    //查找可用的车间
+                    $.ajax({
+                        type: "POST",
+                        url: "${pageContext.request.contextPath}/admin/staff/plan/staff/listWorkshop",
+                        dataType: "json",
+                        async:false,
+                        traditional:true,
+                        data: {
+                        },
+                        success: function(data) {
+                            let select = '';
+                            var workshopList = eval(data.workshopList);
+                            for (let i=0; i<workshopList.length; i++)
+                            {
+                                let workshop = workshopList[i];
+                                select += '<option value="'+ workshop.id +'">'+workshop.name+'</option>';
+                            }
+                            planHTML.push('<div>\n'+
+                                '<p>请选择生产车间：' +
+                                '<select id="workshop-select"> ' + select +
+                                '</select></p></div>'+
+                                '</div>'+
+                                '<br>');
+                        },
+                        error: function() {
+                        }
+                    });
+
                     $("#plan-inner").html(planHTML.join(''));
                 },
                 error: function() {
@@ -178,9 +203,7 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/addMaterial"><i class="icon icon-lg">add</i>&nbsp;添加原材料类型</a>
                         </li>
-                        <li>
-                            <a href="${pageContext.request.contextPath}/admin/ceo/buyMaterial"><i class="icon icon-lg">attach_money</i>&nbsp;购入原材料</a>
-                        </li>
+
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/ceo/inMaterial"><i class="icon icon-lg">add_box</i>&nbsp;原材料入库</a>
                         </li>
@@ -472,6 +495,9 @@
                 console.log(id);
                 var requirement = plan.children[3].children[0].value;
                 console.log(requirement);
+                var sel=document.getElementById("workshop-select");
+                var index = sel.selectedIndex;
+                workshop_id= sel.options[index].value;
                 $.ajax({
                     type: "POST",
                     url: "${pageContext.request.contextPath}/admin/staff/plan/staff/newPlan",
@@ -481,7 +507,8 @@
                     data: {
                         product_id:id,
                         requirement:requirement,
-                        requirementIdList:requirementIdList[id]
+                        requirementIdList:requirementIdList[id],
+                        workshop_id:workshop_id
                     },
                     success: function(data){
                         if (data.res === 1)

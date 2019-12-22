@@ -584,9 +584,21 @@ public class ClientController {
 
         for (Order order:orderList) {
             //有退货单
-            Map goodsReturnOrder = findGoodsReturnOrder(order.getId() + "");
-            if (!goodsReturnOrder.get("goodsReturnOrderList").equals(new ArrayList<Object>()) && !order.getStatus().equals("已取消"))
-                cancelingOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
+            //Map中有一个goodsReturnOrderList
+            Map goodsReturnOrderMap = findGoodsReturnOrder(order.getId() + "");
+            List<GoodsReturnOrder> goodsReturnOrderList = (List<GoodsReturnOrder>)goodsReturnOrderMap.get("goodsReturnOrderList");
+            if (goodsReturnOrderList.size()>0 && !order.getStatus().equals("已取消"))
+            {
+                //被拒绝
+                if (goodsReturnOrderList.size() == 1 && !goodsReturnOrderList.get(0).getStatus().equals("已拒绝"))
+                {
+                    cancelingOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
+                }
+                else if (goodsReturnOrderList.size() == 2 && !goodsReturnOrderList.get(1).getStatus().equals("已拒绝"))
+                {
+                    cancelingOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
+                }
+            }
             else if (order.getStatus().equals("已完成") || order.getStatus().equals("已取消"))
                 completedOrderInfoList.add(clientService.selectOrderInfoByOrderId(order.getId()));
             else
@@ -623,7 +635,24 @@ public class ClientController {
             else
                 myOrder.setMoney(order.getTotal_payment());
 
+            String type = "";
+            Map goodsReturnOrderMap = findGoodsReturnOrder(order.getId() + "");
+            List<GoodsReturnOrder> goodsReturnOrderList = (List<GoodsReturnOrder>)goodsReturnOrderMap.get("goodsReturnOrderList");
+            if (goodsReturnOrderList.size()>0 && !order.getStatus().equals("已取消"))
+            {
+                //被拒绝
+                if (goodsReturnOrderList.size() == 1 && !goodsReturnOrderList.get(0).getStatus().equals("已拒绝"))
+                {
+                    type = "取消中";
+                }
+                else if (goodsReturnOrderList.size() == 2 && !goodsReturnOrderList.get(1).getStatus().equals("已拒绝"))
+                {
+                    type = "取消中";
+                }
+            }
+
             session.setAttribute("myOrder",myOrder);
+            session.setAttribute("type",type);
             return "client/orderinfo";
         }
         return "client/orderinfo";
@@ -672,7 +701,7 @@ public class ClientController {
     @PostMapping("/findGoodsReturnOrder")
     public Map findGoodsReturnOrder(String orderId)
     {
-        List goodsReturnOrderList = clientService.selectGoodsReturnOrderByOrderId(Integer.valueOf(orderId));
+        List<GoodsReturnOrder> goodsReturnOrderList = clientService.selectGoodsReturnOrderByOrderId(Integer.valueOf(orderId));
         Map<String,Object>map = new HashMap<String, Object>();
         map.put("goodsReturnOrderList",goodsReturnOrderList);
         return map;

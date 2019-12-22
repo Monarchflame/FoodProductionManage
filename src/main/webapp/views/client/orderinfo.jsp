@@ -11,6 +11,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% Client client=(Client) request.getSession().getAttribute("LOGIN_USER"); %>
 <% MyOrder myOrder=(MyOrder) request.getSession().getAttribute("myOrder"); %>
+<% String type= (String) request.getSession().getAttribute("type"); %>
+
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
@@ -317,71 +319,53 @@
 </body>
 </html>
 <script type="text/javascript">
-    var goodsReturnOrdernumber;
-    var goodsReturnOrderstatus;
     $(document).ready(function () {
-        //查找是否有对应退货单
-        $.ajax({
-            type: "POST",
-            url: "${pageContext.request.contextPath}/user/findGoodsReturnOrder",
-            dataType: "json",
-            data: {
-                orderId:'<% out.print(myOrder.getOrderId());%>',
-            },
-            success: function(data) {
-                var goodsReturnOrderList = eval(data.goodsReturnOrderList);
-                if (goodsReturnOrderList!=null && goodsReturnOrderList.length > 0)
-                {
-                    goodsReturnOrdernumber = goodsReturnOrderList.length;
-                    goodsReturnOrderstatus = goodsReturnOrderList[0].status;
-                }
-            },
-            error: function() {
-                $("#result").modal();
-                document.getElementById('msg').innerHTML = `发生了错误`;
-            }
-        });
 
         //注意是字符串类型
         var status = '<% out.print(myOrder.getStatus());%>';
         orderId = '<% out.print(myOrder.getOrderId());%>';
-        if (status === '已付定金' || status === '已付全款')
+        var type = '<% out.print(type);%>';
+        console.log(type);
+        //退货中不允许操作
+        if (type !== "取消中")
         {
-            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="cancelorder();"> '+'取消订单'+'  </button>';
-            document.getElementById('h1').innerText='您确认取消订单吗？';
-            document.getElementById('choose_function').onclick= verify_cancel;
-        }
-        else if (status === '已完成' )
-        {
-            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
-            document.getElementById('h1').innerText='您确认申请退货吗？';
-            document.getElementById('choose_function').onclick= verify_return;
-        }
-        else if (status === '已发货')
-        {
-            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="receive();"> '+'确认收货'+'  </button>';
-            document.getElementById('h1').innerText='您确认确定收货吗？';
-            document.getElementById('choose_function').onclick= verify_receive;
-        }
-        //既可退货又可缴费
-        else if (status === '待付尾款')
-        {
-            document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="pay();"> '+'支付尾款'+'  </button>' +
-                '<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
-            document.getElementById('h1').innerText='您确认申请退货吗？';
-            document.getElementById('choose_function').onclick= verify_return;
-            document.getElementById('h2').innerText='您确认支付尾款吗？';
-            document.getElementById('choose_function2').onclick= verify_pay;
-
+            if (status === '已付定金' || status === '已付全款')
+            {
+                document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="cancelorder();"> '+'取消订单'+'  </button>';
+                document.getElementById('h1').innerText='您确认取消订单吗？';
+                document.getElementById('choose_function').onclick= verify_cancel;
+            }
+            else if (status === '已完成')
+            {
+                document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
+                document.getElementById('h1').innerText='您确认申请退货吗？';
+                document.getElementById('choose_function').onclick= verify_return;
+            }
+            else if (status === '已发货')
+            {
+                document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="receive();"> '+'确认收货'+'  </button>';
+                document.getElementById('h1').innerText='您确认确定收货吗？';
+                document.getElementById('choose_function').onclick= verify_receive;
+            }
+            //既可退货又可缴费
+            else if (status === '待付尾款')
+            {
+                document.getElementById('button-div').innerHTML='<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="pay();"> '+'支付尾款'+'  </button>' +
+                    '<button class="btn btn-subscription col-xx-12 col-sm-3 col-lg-2" type="button" id="button1" onclick="returngoods();"> '+'申请退货'+'  </button>';
+                document.getElementById('h1').innerText='您确认申请退货吗？';
+                document.getElementById('choose_function').onclick= verify_return;
+                document.getElementById('h2').innerText='您确认支付尾款吗？';
+                document.getElementById('choose_function2').onclick= verify_pay;
+            }
         }
     });
     //点击取消订单
     cancelorder = function () {
-        if (goodsReturnOrdernumber === 1)
-        {
-            $("#result").modal();
-            document.getElementById('msg').innerHTML = `不可重复申请`;
-        }
+        // if (goodsReturnOrdernumber === 1)
+        // {
+        //     $("#result").modal();
+        //     document.getElementById('msg').innerHTML = `不可重复申请`;
+        // }
         $("#verify_modal1").modal();
     };
     //确认取消订单

@@ -222,7 +222,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>订单状态</td>
-                                                    <td><% out.print(orderInfo.get("status"));%></td>
+                                                    <td><% out.print(orderInfo.get("order_status"));%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>产品名称</td>
